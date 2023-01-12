@@ -1,0 +1,24 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import Button from "./Button";
+
+<Meta title="Toolbox/Button" component={Button} />
+
+# Button
+
+To import the `Button` component simply include the following at the top of your file:
+
+```
+import { Button } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <Button label="Default button" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Long title">
+    <Button label="lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum" />
+  </Story>
+</Canvas>
