@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -14,19 +14,19 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Create folder
-        run: mkdir -p docs
-
       - name: Install and Build
         run: |
           npm install
           npm run build-storybook
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: main
-          FOLDER: docs-build
-          CLEAN: true
-          TARGET_FOLDER: docs
+          path: "./docs-build"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
