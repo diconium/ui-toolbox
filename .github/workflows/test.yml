@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up NodeJS environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
 
       - name: Cache node modules
         id: cache-npm
