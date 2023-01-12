@@ -1,7 +1,10 @@
 name: Documentation
+
 on:
   push:
-    paths: ["src/components/**"]
+    branches:
+      - main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -10,13 +13,16 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
+
       - name: Create folder
         run: mkdir -p docs
+
       - name: Install and Build
         run: |
           npm install
           npm run build-storybook
-      - name: Deploy 🚀
+
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
