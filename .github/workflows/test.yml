@@ -1,24 +1,24 @@
-name: Tests
+name: Linting & Unit Tests
 
 on:
   push:
-    branches:   
+    branches:
       - main
   pull_request:
     branches:
       - main
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout to the repository
         uses: actions/checkout@v2
-        
+
       - name: Set up NodeJS environment
         uses: actions/setup-node@v2
-  
+
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -32,14 +32,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-       
+
       - name: Install package dependencies
         run: npm install
-      
+
       - name: Check linting and formatting
         run: npm run lint
 
       - name: Execute test cases
         run: npm run test
-      
-    
