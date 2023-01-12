@@ -12,7 +12,7 @@
     "test": "jest",
     "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "npm run build:css && build-storybook",
+    "build-storybook": "npm run build:css && build-storybook -o docs-build",
     "lint": "npx eslint ."
   },
   "author": "Diconium Auto GmbH - Team Web",

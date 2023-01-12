@@ -10,6 +10,8 @@ This project is a collection of common UI components to be the basis for all fut
 
 ![Snapshot tests](https://github.com/dicoauto/toolbox/actions/workflows/chromatic.yml/badge.svg)
 
+![Documentation](https://github.com/dicoauto/toolbox/actions/workflows/docs.yml/badge.svg)
+
 ### Run storybook locally
 
 ```
