@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Linting
 
 on:
   push:
@@ -36,5 +36,5 @@ jobs:
       - name: Install package dependencies
         run: npm install
 
-      - name: Execute test cases
-        run: npm run test
+      - name: Check linting and formatting
+        run: npm run lint
