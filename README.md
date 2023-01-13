@@ -12,6 +12,8 @@ This project is a collection of common UI components to be the basis for all fut
 
 ![Documentation](https://github.com/dicoauto/toolbox/actions/workflows/docs.yml/badge.svg)
 
+![Build](https://github.com/dicoauto/toolbox/actions/workflows/build.yml/badge.svg)
+
 ### Run storybook locally
 
 ```
