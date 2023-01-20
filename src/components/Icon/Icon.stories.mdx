@@ -24,7 +24,14 @@ import { Icon } from '@dicoauto/toolbox';
 </Canvas>
 
 <Canvas>
-  <Story name="All">
+  <Story
+    name="All"
+    parameters={{
+      chromatic: {
+        disableSnapshot: true /** This snapshot is to big for chromatic */,
+      },
+    }}
+  >
     <div
       style={{
         cursor: "pointer",
