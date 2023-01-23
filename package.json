@@ -8,7 +8,7 @@
   "scripts": {
     "build:css:watch": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css --watch",
     "build:css": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css",
-    "build:fonts": "cp -R ./styles/fonts ./dist/fonts",
+    "build:fonts": "cp -R ./styles/fonts ./dist/",
     "build:assets": "npm run build:css && npm run build:fonts",
     "build:prod": "npm run build:assets && NODE_ENV=production rollup -c",
     "test": "jest",
