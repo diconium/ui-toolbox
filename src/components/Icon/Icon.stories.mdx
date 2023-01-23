@@ -1,0 +1,57 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Icon, Font } from "./Icon";
+
+<Meta title="Toolbox/Icon" component={Icon} />
+
+# Icon
+
+To import the `Icon` component simply include the following at the top of your file:
+
+```
+import { Icon } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <Icon icon="address-book" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Icon does not exist">
+    <Icon icon="foo" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="All"
+    parameters={{
+      chromatic: {
+        disableSnapshot: true /** This snapshot is to big for chromatic */,
+      },
+    }}
+  >
+    <div
+      style={{
+        cursor: "pointer",
+        display: "inline-grid",
+        gridTemplateColumns: "auto auto auto auto auto auto auto auto",
+      }}
+    >
+      {Object.keys(Font).map((icon) => (
+        <div
+          key={icon}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center",
+          }}
+        >
+          <Icon icon={icon} />
+          <p>{icon}</p>
+        </div>
+      ))}
+    </div>
+  </Story>
+</Canvas>
