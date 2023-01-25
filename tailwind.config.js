@@ -1,6 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx,mdx}"],
   theme: {
     screens: {
       sm: "430px",
@@ -11,9 +10,20 @@ module.exports = {
     extend: {
       colors: {
         toolbox: {
-          primary: "#f6ae2d",
-          secondary: "#977390",
-          tertiary: "#c6d8c8",
+          primary: {
+            orange: "#F27E19",
+            purple: "#785589",
+            white: "#FFFFFF",
+          },
+          secondary: {
+            orange: "#F6AE2D",
+            purple: "#977390",
+            "dark-grey": "#2E2E2E",
+          },
+          alert: {
+            red: "#DD2D4A",
+            green: "#6EEB83",
+          },
         },
       },
     },

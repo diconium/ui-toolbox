@@ -9,7 +9,7 @@ const Button = ({ label, onClick = () => {} }: ButtonProps) => {
   return (
     <button
       onClick={() => onClick()}
-      className="px-8 py-2 bg-toolbox-primary text-white rounded-xl max-w-xs"
+      className="px-8 py-2 bg-toolbox-primary-orange text-white rounded-xl max-w-xs"
     >
       {label}
     </button>

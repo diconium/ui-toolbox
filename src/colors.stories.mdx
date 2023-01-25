@@ -1,0 +1,61 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Colors" />
+
+## Colors
+
+The library comes with a set of colors as shown below. They are available in the
+standard tailwindcss nomenclature e.g.
+
+```
+[modifier]-toolbox-[primary|secondary|alert]-[name of color]
+```
+
+### Examples:
+
+```
+bg-toolbox-primary-orange
+
+bg-toolbox-secondary-purple
+
+text-toolbox-alert-green
+```
+
+### Primary colors
+
+<Canvas>
+  <Story name="Primary">
+    <div className="bg-toolbox-primary-orange text-white p-4">
+      Primary orange
+    </div>
+    <div className="bg-toolbox-primary-purple text-white p-4">
+      Primary purple
+    </div>
+    <div className="bg-toolbox-primary-white border p-4">Primary white</div>
+  </Story>
+</Canvas>
+
+### Secondary colors
+
+<Canvas>
+  <Story name="Secondary">
+    <div className="bg-toolbox-secondary-orange text-white p-4">
+      Secondary orange
+    </div>
+    <div className="bg-toolbox-secondary-purple text-white p-4">
+      Secondary purple
+    </div>
+    <div className="bg-toolbox-secondary-dark-grey text-white p-4">
+      Secondary dark grey
+    </div>
+  </Story>
+</Canvas>
+
+### Alert colors
+
+<Canvas>
+  <Story name="Alert">
+    <div className="bg-toolbox-alert-red text-white p-4">Alert red</div>
+    <div className="bg-toolbox-alert-green text-white p-4">Alert green</div>
+  </Story>
+</Canvas>
