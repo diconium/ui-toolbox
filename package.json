@@ -76,5 +76,8 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=12.13.0"
+  }
 }
