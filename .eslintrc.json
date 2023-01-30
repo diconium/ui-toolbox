@@ -5,23 +5,31 @@
     "allowImportExportEverywhere": true
   },
   "extends": [
-    "airbnb",
-    "prettier"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "airbnb"
   ],
   "plugins": [
     "jest",
-    "prettier"
+    "react"
   ],
   "env": {
     "jest/globals": true
   },
   "rules": {
-    "prettier/prettier": "error",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
     "no-unused-vars": "warn",
     "no-console": "off",
     "func-names": "off",
     "no-process-exit": "off",
     "object-shorthand": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-restricted-exports": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": "off",
+    "react/require-default-props": "off",
+    "no-undef": "off"
   }
 }
