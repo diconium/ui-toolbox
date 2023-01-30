@@ -1,12 +1,20 @@
 {
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
   "extends": [
     "airbnb",
-    "prettier",
-    "plugin:node/recommended"
-  ],
-  "plugins": [
     "prettier"
   ],
+  "plugins": [
+    "jest",
+    "prettier"
+  ],
+  "env": {
+    "jest/globals": true
+  },
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
