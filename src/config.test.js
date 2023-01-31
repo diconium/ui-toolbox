@@ -17,4 +17,34 @@ describe('Tailwind config', () => {
     expect(config.theme.colors.toolbox.primary).toBeDefined();
     expect(config.theme.colors.toolbox.secondary).toBeDefined();
   });
+
+  test('defines the correct aliases for important primary colors', () => {
+    const alias = config.theme.colors.toolbox.primary[900];
+    const aliasAccent = config.theme.colors.toolbox.primary[400];
+    const aliasGradient = config.theme.colors.toolbox.primary[50];
+    const {
+      dominant, DEFAULT, accent, gradient,
+    } = config.theme.colors.toolbox.primary;
+    expect(DEFAULT).toEqual(alias);
+    expect(alias).toEqual(dominant);
+    expect(dominant).toEqual(DEFAULT);
+
+    expect(accent).toEqual(aliasAccent);
+    expect(gradient).toEqual(aliasGradient);
+  });
+
+  test('defines the correct aliases for important secondary colors', () => {
+    const alias = config.theme.colors.toolbox.secondary[900];
+    const aliasAccent = config.theme.colors.toolbox.secondary[400];
+    const aliasGradient = config.theme.colors.toolbox.secondary[50];
+    const {
+      dominant, DEFAULT, accent, gradient,
+    } = config.theme.colors.toolbox.secondary;
+    expect(DEFAULT).toEqual(alias);
+    expect(alias).toEqual(dominant);
+    expect(dominant).toEqual(DEFAULT);
+
+    expect(accent).toEqual(aliasAccent);
+    expect(gradient).toEqual(aliasGradient);
+  });
 });
