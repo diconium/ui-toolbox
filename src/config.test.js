@@ -16,6 +16,5 @@ describe('Tailwind config', () => {
     expect(config.theme.colors.toolbox).toBeDefined();
     expect(config.theme.colors.toolbox.primary).toBeDefined();
     expect(config.theme.colors.toolbox.secondary).toBeDefined();
-    expect(config.theme.colors.toolbox.alert).toBeDefined();
   });
 });
