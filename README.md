@@ -27,6 +27,20 @@ npm run storybook
 npm run build:prod
 ```
 
+### Run tests
+
+```
+npm run test
+```
+
+### Run Linting
+
+```
+npm run lint
+// or
+npm run lint:fix
+```
+
 ### Publish the library
 
 ```

@@ -14,24 +14,31 @@ standard tailwindcss nomenclature e.g.
 ### Examples:
 
 ```
-bg-toolbox-primary-orange
+bg-toolbox-primary-50
 
-bg-toolbox-secondary-purple
-
-text-toolbox-alert-green
+bg-toolbox-secondary-300
 ```
 
 ### Primary colors
 
 <Canvas>
   <Story name="Primary">
-    <div className="bg-toolbox-primary-orange text-white p-4">
-      Primary orange
+    <div className="flex flex-col space-y-1 text-white">
+      <div className="bg-toolbox-primary p-4">primary</div>
+      <div className="bg-toolbox-primary-dominant p-4">primary-dominant</div>
+      <div className="bg-toolbox-primary-900 p-4">primary-900</div>
+      <div className="bg-toolbox-primary-800 p-4">primary-800</div>
+      <div className="bg-toolbox-primary-700 p-4">primary-700</div>
+      <div className="bg-toolbox-primary-600 p-4">primary-600</div>
+      <div className="bg-toolbox-primary-500 p-4">primary-500</div>
+      <div className="bg-toolbox-primary-400 p-4">primary-400</div>
+      <div className="bg-toolbox-primary-accent p-4">primary-accent</div>
+      <div className="bg-toolbox-primary-300 p-4">primary-300</div>
+      <div className="bg-toolbox-primary-200 p-4">primary-200</div>
+      <div className="bg-toolbox-primary-100 p-4">primary-100</div>
+      <div className="bg-toolbox-primary-50 p-4">primary-50</div>
+      <div className="bg-toolbox-primary-gradient p-4">primary-gradient</div>
     </div>
-    <div className="bg-toolbox-primary-purple text-white p-4">
-      Primary purple
-    </div>
-    <div className="bg-toolbox-primary-white border p-4">Primary white</div>
   </Story>
 </Canvas>
 
@@ -39,23 +46,25 @@ text-toolbox-alert-green
 
 <Canvas>
   <Story name="Secondary">
-    <div className="bg-toolbox-secondary-orange text-white p-4">
-      Secondary orange
+    <div className="flex flex-col space-y-1 text-white">
+      <div className="bg-toolbox-secondary p-4">secondary</div>
+      <div className="bg-toolbox-secondary-dominant p-4">
+        secondary-dominant
+      </div>
+      <div className="bg-toolbox-secondary-900 p-4">secondary-900</div>
+      <div className="bg-toolbox-secondary-800 p-4">secondary-800</div>
+      <div className="bg-toolbox-secondary-700 p-4">secondary-700</div>
+      <div className="bg-toolbox-secondary-600 p-4">secondary-600</div>
+      <div className="bg-toolbox-secondary-500 p-4">secondary-500</div>
+      <div className="bg-toolbox-secondary-400 p-4">secondary-400</div>
+      <div className="bg-toolbox-secondary-accent p-4">secondary-accent</div>
+      <div className="bg-toolbox-secondary-300 p-4">secondary-300</div>
+      <div className="bg-toolbox-secondary-200 p-4">secondary-200</div>
+      <div className="bg-toolbox-secondary-100 p-4">secondary-100</div>
+      <div className="bg-toolbox-secondary-50 p-4">secondary-50</div>
+      <div className="bg-toolbox-secondary-gradient p-4">
+        secondary-gradient
+      </div>
     </div>
-    <div className="bg-toolbox-secondary-purple text-white p-4">
-      Secondary purple
-    </div>
-    <div className="bg-toolbox-secondary-dark-grey text-white p-4">
-      Secondary dark grey
-    </div>
-  </Story>
-</Canvas>
-
-### Alert colors
-
-<Canvas>
-  <Story name="Alert">
-    <div className="bg-toolbox-alert-red text-white p-4">Alert red</div>
-    <div className="bg-toolbox-alert-green text-white p-4">Alert green</div>
   </Story>
 </Canvas>
