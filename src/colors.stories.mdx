@@ -23,7 +23,7 @@ bg-toolbox-secondary-300
 
 <Canvas>
   <Story name="Primary">
-    <div className="flex flex-col space-y-1 text-white">
+    <div className="grid grid-cols-4 gap-1 text-white">
       <div className="bg-toolbox-primary p-4">primary</div>
       <div className="bg-toolbox-primary-dominant p-4">primary-dominant</div>
       <div className="bg-toolbox-primary-900 p-4">primary-900</div>
@@ -46,7 +46,7 @@ bg-toolbox-secondary-300
 
 <Canvas>
   <Story name="Secondary">
-    <div className="flex flex-col space-y-1 text-white">
+    <div className="grid grid-cols-4 gap-1 text-black">
       <div className="bg-toolbox-secondary p-4">secondary</div>
       <div className="bg-toolbox-secondary-dominant p-4">
         secondary-dominant
@@ -65,6 +65,31 @@ bg-toolbox-secondary-300
       <div className="bg-toolbox-secondary-gradient p-4">
         secondary-gradient
       </div>
+    </div>
+  </Story>
+</Canvas>
+
+### Feedback colors
+
+<Canvas>
+  <Story name="Feedback">
+    <div className="grid grid-cols-2 gap-1 text-white">
+      <div className="bg-toolbox-feedback-green p-4">feedback-green</div>
+      <div className="bg-toolbox-feedback-red p-4">feedback-red</div>
+    </div>
+  </Story>
+</Canvas>
+
+### Additional colors
+
+<Canvas>
+  <Story name="Additional">
+    <div className="grid grid-cols-2 gap-1 text-white">
+      <div className="bg-toolbox-support p-4">support</div>
+      <div className="bg-toolbox-black p-4">black</div>
+      <div className="bg-toolbox-white p-4 text-black">white</div>
+      <div className="bg-toolbox-light-grey p-4">light-grey</div>
+      <div className="bg-toolbox-dark-grey p-4">dark-grey</div>
     </div>
   </Story>
 </Canvas>
