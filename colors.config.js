@@ -52,8 +52,8 @@ const neutral = {
 const additional = {
   feedback: {
     red: '#E91135',
-    orange: '#F9B93C',
-    green: '#17DB38',
+    orange: '#FDB01B',
+    green: '#00E226',
   },
   black: '#000000',
   white: '#FFFFFF',
