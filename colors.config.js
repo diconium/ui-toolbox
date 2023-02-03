@@ -16,32 +16,49 @@ const primary = {
 };
 
 const secondary = {
-  DEFAULT: '#FDFDFD',
-  dominant: '#FDFDFD',
-  900: '#FDFDFD',
-  800: '#FDFDFD',
-  700: '#FDFDFD',
-  600: '#FDFDFD',
-  500: '#FDFDFD',
-  accent: '#FDFDFD',
-  400: '#FDFDFD',
-  300: '#FDFDFD',
-  200: '#FDFDFD',
-  100: '#FDFDFD',
-  50: '#FDFDFD',
-  gradient: '#FDFDFD',
+  DEFAULT: 'rgba(46, 132, 131, 1)',
+  dominant: 'rgba(46, 132, 131, 1)',
+  900: 'rgba(46, 132, 131, 1)',
+  800: 'rgba(46, 132, 131, .9)',
+  700: 'rgba(46, 132, 131, .8)',
+  600: 'rgba(46, 132, 131, .7)',
+  500: 'rgba(46, 132, 131, .6)',
+  accent: 'rgba(46, 132, 131, .5)',
+  400: 'rgba(46, 132, 131, .5)',
+  300: 'rgba(46, 132, 131, .4)',
+  200: 'rgba(46, 132, 131, .3)',
+  100: 'rgba(46, 132, 131, .2)',
+  50: 'rgba(46, 132, 131, .1)',
+  gradient: 'rgba(46, 132, 131, .1)',
+};
+
+const neutral = {
+  DEFAULT: 'rgba(51, 51, 51, 1)',
+  dominant: 'rgba(51, 51, 51, 1)',
+  900: 'rgba(51, 51, 51, 1)',
+  800: 'rgba(51, 51, 51, .9)',
+  700: 'rgba(51, 51, 51, .8)',
+  600: 'rgba(51, 51, 51, .7)',
+  500: 'rgba(51, 51, 51, .6)',
+  accent: 'rgba(51, 51, 51, .5)',
+  400: 'rgba(51, 51, 51, .5)',
+  300: 'rgba(51, 51, 51, .4)',
+  200: 'rgba(51, 51, 51, .3)',
+  100: 'rgba(51, 51, 51, .2)',
+  50: 'rgba(51, 51, 51, .1)',
+  gradient: 'rgba(51, 51, 51, .1)',
 };
 
 const additional = {
-  support: '#31446C',
+  feedback: {
+    red: '#E91135',
+    orange: '#F9B93C',
+    green: '#17DB38',
+  },
   black: '#000000',
   white: '#FFFFFF',
-  'light-grey': '#D9D9D9',
-  'dark-grey': '#2E2E2E',
-  feedback: {
-    green: '#6EEB83',
-    red: '#DD2D4A',
-  },
 };
 
-module.exports = { additional, primary, secondary };
+module.exports = {
+  additional, primary, secondary, neutral,
+};

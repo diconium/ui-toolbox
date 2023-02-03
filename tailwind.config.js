@@ -14,6 +14,7 @@ module.exports = {
         toolbox: {
           primary: { ...colors.primary },
           secondary: { ...colors.secondary },
+          neutral: { ...colors.neutral },
           ...colors.additional,
         },
       },

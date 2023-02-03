@@ -69,6 +69,24 @@ describe('Tailwind config', () => {
     expect(colors.gradient).toBeDefined();
   });
 
+  test('defines the correct variants for neutral colors', () => {
+    const colors = config.theme.colors.toolbox.neutral;
+    expect(colors.DEFAULT).toBeDefined();
+    expect(colors.dominant).toBeDefined();
+    expect(colors[900]).toBeDefined();
+    expect(colors[800]).toBeDefined();
+    expect(colors[700]).toBeDefined();
+    expect(colors[600]).toBeDefined();
+    expect(colors[500]).toBeDefined();
+    expect(colors[400]).toBeDefined();
+    expect(colors.accent).toBeDefined();
+    expect(colors[300]).toBeDefined();
+    expect(colors[200]).toBeDefined();
+    expect(colors[100]).toBeDefined();
+    expect(colors[50]).toBeDefined();
+    expect(colors.gradient).toBeDefined();
+  });
+
   test('defines the correct aliases for important secondary colors', () => {
     const alias = config.theme.colors.toolbox.secondary[900];
     const aliasAccent = config.theme.colors.toolbox.secondary[400];
@@ -86,13 +104,11 @@ describe('Tailwind config', () => {
 
   test('defines the correct additional colors', () => {
     const colors = config.theme.colors.toolbox;
-    expect(colors.support).toBeDefined();
     expect(colors.black).toBeDefined();
     expect(colors.white).toBeDefined();
-    expect(colors['light-grey']).toBeDefined();
-    expect(colors['dark-grey']).toBeDefined();
     expect(colors.feedback).toBeDefined();
     expect(colors.feedback.green).toBeDefined();
+    expect(colors.feedback.orange).toBeDefined();
     expect(colors.feedback.red).toBeDefined();
   });
 });
