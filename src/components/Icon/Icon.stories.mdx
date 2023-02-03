@@ -1,5 +1,5 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { Icon, Font } from "./Icon";
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Icon, Font } from './Icon';
 
 <Meta title="Toolbox/Icon" component={Icon} />
 
@@ -32,22 +32,9 @@ import { Icon } from '@dicoauto/toolbox';
       },
     }}
   >
-    <div
-      style={{
-        cursor: "pointer",
-        display: "inline-grid",
-        gridTemplateColumns: "auto auto auto auto auto auto auto auto",
-      }}
-    >
+    <div className="grid grid-cols-6">
       {Object.keys(Font).map((icon) => (
-        <div
-          key={icon}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            textAlign: "center",
-          }}
-        >
+        <div key={icon} className="flex flex-col text-center">
           <Icon icon={icon} />
           <p>{icon}</p>
         </div>

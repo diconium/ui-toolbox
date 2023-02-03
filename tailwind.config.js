@@ -1,19 +1,21 @@
-/** @type {import('tailwindcss').Config} */
+const colors = require('./colors.config');
+
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx,mdx}'],
   theme: {
     screens: {
-      sm: "430px",
-      md: "834px",
-      lg: "1024px",
-      xl: "1280px",
+      sm: '430px',
+      md: '834px',
+      lg: '1024px',
+      xl: '1280px',
     },
     extend: {
       colors: {
         toolbox: {
-          primary: "#f6ae2d",
-          secondary: "#977390",
-          tertiary: "#c6d8c8",
+          primary: { ...colors.primary },
+          secondary: { ...colors.secondary },
+          neutral: { ...colors.neutral },
+          ...colors.additional,
         },
       },
     },
