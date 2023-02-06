@@ -1,0 +1,39 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import SecondaryButton from './Secondary';
+
+<Meta title="Toolbox/Button/Secondary" component={SecondaryButton} />
+
+# SecondaryButton
+
+To import the `SecondaryButton` component simply include the following at the top of your file:
+
+```
+import { SecondaryButton } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <SecondaryButton label="Action" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Long Title">
+    <SecondaryButton
+      label="lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+      lorem ipsum lorem ipsum"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Action">
+    <SecondaryButton label="Action" onClick={() => {}} />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <SecondaryButton label="Action" disabled />
+  </Story>
+</Canvas>

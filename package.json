@@ -80,5 +80,8 @@
   "types": "dist/index.d.ts",
   "engines": {
     "node": ">=12.13.0"
+  },
+  "dependencies": {
+    "classnames": "^2.3.2"
   }
 }
