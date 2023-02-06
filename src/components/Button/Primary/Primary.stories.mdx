@@ -1,0 +1,39 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import PrimaryButton from './Primary';
+
+<Meta title="Toolbox/Button/Primary" component={PrimaryButton} />
+
+# PrimaryButton
+
+To import the `PrimaryButton` component simply include the following at the top of your file:
+
+```
+import { PrimaryButton } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <PrimaryButton label="Action" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Long Title">
+    <PrimaryButton
+      label="lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+      lorem ipsum lorem ipsum"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Action">
+    <PrimaryButton label="Action" onClick={() => {}} />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <PrimaryButton label="Action" disabled />
+  </Story>
+</Canvas>
