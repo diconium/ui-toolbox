@@ -9,8 +9,7 @@ export interface Props extends PropsWithChildren {
 }
 
 const BASE = 'px-20 py-4 text-base font-semibold rounded-2xl max-w-xs';
-const DISABLED =
-  'bg-toolbox-neutral-100 text-toolbox-neutral-300 cursor-not-allowed';
+const DISABLED = 'bg-toolbox-neutral-100 text-toolbox-neutral-300 cursor-not-allowed';
 
 function Button({
   children,
@@ -19,11 +18,7 @@ function Button({
   baseClassName = BASE,
   className = 'bg-toolbox-neutral hover:bg-toolbox-neutral-600 text-toolbox-white',
 }: Props) {
-  const classes = classnames(
-    baseClassName,
-    disabled && DISABLED,
-    !disabled && className
-  );
+  const classes = classnames(baseClassName, disabled && DISABLED, !disabled && className);
   return (
     <button
       type="button"

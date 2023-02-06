@@ -30,6 +30,8 @@
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": "off",
     "react/require-default-props": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "comma-dangle": "off",
+    "object-curly-newline": "off"
   }
 }
