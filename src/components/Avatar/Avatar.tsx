@@ -14,7 +14,7 @@ function Avatar({ link, alt, state }: Props) {
   return (
     <div className="w-16 h-16 relative">
       <img
-        className="w-16 h-16 object-cover rounded-full"
+        className="w-16 h-16 object-cover rounded-full border-2 border-toolbox-white"
         src={link}
         alt={alt}
       />
