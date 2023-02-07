@@ -1,0 +1,56 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Avatar from './Avatar';
+
+<Meta
+  title="Toolbox/Avatar"
+  component={Avatar}
+/>
+
+# Avatar
+
+To import the `Avatar` component simply include the following at the top of your file:
+
+```
+import { Avatar } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <div className="flex space-x-2">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With state">
+    <div className="flex space-x-2">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+        state="bg-toolbox-feedback-green"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+        state="bg-toolbox-feedback-orange"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+        state="bg-toolbox-feedback-red"
+      />
+    </div>
+  </Story>
+</Canvas>

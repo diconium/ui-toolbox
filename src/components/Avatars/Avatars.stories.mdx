@@ -1,0 +1,27 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Avatars from './Avatars';
+
+<Meta
+  title="Toolbox/Avatars"
+  component={Avatars}
+/>
+
+# Avatars
+
+To import the `Avatars` component simply include the following at the top of your file:
+
+```
+import { Avatars } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <Avatars
+      avatars={[
+        { link: 'https://i.pravatar.cc/150?u=08188', alt: 'Mike' },
+        { link: 'https://i.pravatar.cc/150?u=47110', alt: 'Nora' },
+        { link: 'https://i.pravatar.cc/150?u=08122', alt: 'Bamia' },
+      ]}
+    />
+  </Story>
+</Canvas>
