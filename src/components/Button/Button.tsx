@@ -23,8 +23,7 @@ const OUTLINED_TEMPLATE = `bg-white border-4 border-toolbox-neutral text-toolbox
   active:bg-toolbox-neutral active:border-none active:text-toolbox-white
   focus:outline-none focus-visible:border-4 focus-visible:border-toolbox-neutral-300 focus-visible:text-toolbox-neutral
   visited:underline visited:underline-offset-2
-  disabled:text-toolbox-neutral-200 disabled:border-toolbox-neutral-200 disabled:cursor-not-allowed
-  disabled:hover:bg-white`;
+  disabled:text-toolbox-neutral-200 disabled:border-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
 function Button({
   children,

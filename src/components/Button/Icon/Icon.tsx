@@ -25,16 +25,14 @@ const OUTLINED_TEMPLATE = `border-4 border-toolbox-primary text-toolbox-primary
   active:bg-toolbox-primary active:text-toolbox-white
   focus:outline-none focus-visible:border-toolbox-secondary-300 focus-visible:border-4
   focus-visible:text-toolbox-secondary-300
-  disabled:border-toolbox-neutral-200 disabled:text-toolbox-neutral-200 disabled:cursor-not-allowed
-  disabled:hover:bg-white`;
+  disabled:border-toolbox-neutral-200 disabled:text-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
 const OUTLINED_SECONDARY_TEMPLATE = `border-4 border-toolbox-secondary text-toolbox-secondary
   hover:bg-toolbox-secondary-600 hover:text-toolbox-secondary
   active:bg-toolbox-secondary active:text-toolbox-white
   focus:outline-none focus-visible:border-toolbox-secondary-300 focus-visible:border-4
   focus-visible:text-toolbox-secondary-300
-  disabled:border-toolbox-neutral-200 disabled:text-toolbox-neutral-200 disabled:cursor-not-allowed
-  disabled:hover:bg-white`;
+  disabled:border-toolbox-neutral-200 disabled:text-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
 function IconButton({ icon, disabled, outlined, secondary = false, onClick = () => {} }: Props) {
   return (

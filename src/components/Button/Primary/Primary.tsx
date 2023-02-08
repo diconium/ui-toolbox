@@ -16,8 +16,7 @@ const OUTLINED_TEMPLATE = `box-border h-14 pt-4 pb-4 text-toolbox-primary bg-whi
   active:bg-toolbox-primary active:border-none active:text-toolbox-white
   focus:outline-none focus-visible:border-3 focus-visible:border-toolbox-secondary-300 focus-visible:text-toolbox-primary
   visited:underline visited:underline-offset-2
-  disabled:text-toolbox-neutral-200 disabled:border-toolbox-neutral-200 disabled:cursor-not-allowed
-  disabled:hover:bg-white`;
+  disabled:text-toolbox-neutral-200 disabled:border-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
 function Primary({ label, disabled, outlined, onClick = () => {} }: Props) {
   return (
