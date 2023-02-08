@@ -16,35 +16,88 @@ import { IconButton } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Default">
-    <IconButton icon="check" />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="With Action">
     <IconButton
-      icon="alarm-clock-1"
+      icon="check"
       onClick={() => {}}
     />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Secondary">
+    <IconButton
+      outlined
+      icon="check"
+    />
     <IconButton
       secondary
-      icon="bell"
-      onClick={() => {}}
+      icon="check"
+    />
+    <IconButton
+      secondary
+      outlined
+      icon="check"
     />
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name="Custom color">
+  <Story
+    name="Hovered"
+    parameters={{ pseudo: { hover: true } }}
+  >
+    <IconButton icon="check" />
     <IconButton
-      className="bg-lime-500 hover:bg-lime-400"
-      icon="fingerprint"
-      onClick={() => {}}
+      secondary
+      icon="check"
+    />
+    <IconButton
+      outlined
+      icon="check"
+    />
+    <IconButton
+      secondary
+      outlined
+      icon="check"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Active"
+    parameters={{ pseudo: { active: true } }}
+  >
+    <IconButton icon="check" />
+    <IconButton
+      secondary
+      icon="check"
+    />
+    <IconButton
+      outlined
+      icon="check"
+    />
+    <IconButton
+      secondary
+      outlined
+      icon="check"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Focus"
+    parameters={{ pseudo: { focusVisible: true } }}
+  >
+    <IconButton icon="check" />
+    <IconButton
+      secondary
+      icon="check"
+    />
+    <IconButton
+      outlined
+      icon="check"
+    />
+    <IconButton
+      secondary
+      outlined
+      icon="check"
     />
   </Story>
 </Canvas>
@@ -54,27 +107,22 @@ import { IconButton } from '@dicoauto/toolbox';
     <IconButton
       disabled
       icon="server"
-      onClick={() => {}}
     />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Multiple in a row">
-    <div className="flex space-x-1">
-      <IconButton
-        icon="check"
-        onClick={() => {}}
-      />
-      <IconButton
-        secondary
-        icon="bell"
-        onClick={() => {}}
-      />
-      <IconButton
-        icon="book"
-        onClick={() => {}}
-      />
-    </div>
+    <IconButton
+      secondary
+      disabled
+      icon="server"
+    />
+    <IconButton
+      secondary
+      outlined
+      disabled
+      icon="server"
+    />
+    <IconButton
+      outlined
+      disabled
+      icon="server"
+    />
   </Story>
 </Canvas>

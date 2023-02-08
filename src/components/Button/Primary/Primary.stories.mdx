@@ -1,7 +1,10 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import PrimaryButton from './Primary';
 
-<Meta title="Toolbox/Button/Primary" component={PrimaryButton} />
+<Meta
+  title="Toolbox/Button/Primary"
+  component={PrimaryButton}
+/>
 
 # PrimaryButton
 
@@ -13,7 +16,68 @@ import { PrimaryButton } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Default">
+    <PrimaryButton
+      label="Action"
+      onClick={() => {}}
+    />
+    <PrimaryButton
+      outlined
+      label="Action"
+      onClick={() => {}}
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Hovered"
+    parameters={{ pseudo: { hover: true } }}
+  >
     <PrimaryButton label="Action" />
+    <PrimaryButton
+      outlined
+      label="Action"
+    />>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Active"
+    parameters={{ pseudo: { active: true } }}
+  >
+    <PrimaryButton label="Action" />
+    <PrimaryButton
+      outlined
+      label="Action"
+    />>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Focus"
+    parameters={{ pseudo: { focusVisible: true } }}
+  >
+    <PrimaryButton label="Action" />
+    <PrimaryButton
+      outlined
+      label="Action"
+    />>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <PrimaryButton
+      disabled
+      label="Action"
+    />
+    <PrimaryButton
+      disabled
+      outlined
+      label="Action"
+    />
   </Story>
 </Canvas>
 
@@ -23,17 +87,23 @@ import { PrimaryButton } from '@dicoauto/toolbox';
       label="lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
       lorem ipsum lorem ipsum"
     />
+    <PrimaryButton
+      outlined
+      label="lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+      lorem ipsum lorem ipsum"
+    />
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name="With Action">
-    <PrimaryButton label="Action" onClick={() => {}} />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Disabled">
-    <PrimaryButton label="Action" disabled />
+  <Story
+    name="Visited"
+    parameters={{ pseudo: { visited: true } }}
+  >
+    <PrimaryButton label="Action" />
+    <PrimaryButton
+      outlined
+      label="Action"
+    />>
   </Story>
 </Canvas>

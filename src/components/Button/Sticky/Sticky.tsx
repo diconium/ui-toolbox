@@ -8,11 +8,13 @@ export interface Props extends DefaultProps {
   left?: boolean;
 }
 
+const BASE_TEMPLATE = 'text-toolbox-white text-base max-w-xs font-semibold uppercase w-36 h-36 absolute bottom-0';
+
+const DEFAULT_TEMPLATE = 'bg-toolbox-primary hover:bg-toolbox-primary-600';
+
+const DEFAULT_SECONDARY_TEMPLATE = 'bg-toolbox-secondary hover:bg-toolbox-secondary-600';
+
 function Sticky({ label, secondary, disabled, left, onClick = () => {} }: Props) {
-  const classes = classnames({
-    'bg-toolbox-secondary hover:bg-toolbox-secondary-600': secondary,
-    'bg-toolbox-primary hover:bg-toolbox-primary-600': !secondary,
-  });
   const side = classnames({
     'right-0 rounded-tl-full': !left,
     'left-0 rounded-tr-full': left,
@@ -20,8 +22,8 @@ function Sticky({ label, secondary, disabled, left, onClick = () => {} }: Props)
   return (
     <DefaultButton
       disabled={disabled}
-      baseClassName={`w-36 h-36 absolute bottom-0 ${side}`}
-      className={`${classes} text-toolbox-white`}
+      baseTemplate={`${BASE_TEMPLATE} ${side}`}
+      defaultTemplate={secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE}
       onClick={() => onClick()}
     >
       <span className={`${left ? '-ml-8' : '-mr-8'}`}>{label}</span>
