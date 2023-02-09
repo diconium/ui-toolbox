@@ -1,7 +1,10 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import Button from './Button';
 
-<Meta title="Toolbox/Button" component={Button} />
+<Meta
+  title="Toolbox/Button"
+  component={Button}
+/>
 
 # Button
 
@@ -14,20 +17,58 @@ import { Button } from '@dicoauto/toolbox';
 <Canvas>
   <Story name="Default">
     <Button>Default</Button>
+    <Button outlined>Default</Button>
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name="Long title">
-    <Button>
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum
-    </Button>
+  <Story
+    name="Hovered"
+    parameters={{ pseudo: { hover: true } }}
+  >
+    <Button>Default</Button>
+    <Button outlined>Default</Button>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Active"
+    parameters={{ pseudo: { active: true } }}
+  >
+    <Button>Default</Button>
+    <Button outlined>Default</Button>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Focused"
+    parameters={{ pseudo: { focusVisible: true } }}
+  >
+    <Button>Default</Button>
+    <Button outlined>Default</Button>
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name="Disabled">
     <Button disabled>Default</Button>
+    <Button
+      disabled
+      outlined
+    >
+      Default
+    </Button>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Visited"
+    parameters={{ pseudo: { visited: true } }}
+  >
+    <Button>Default</Button>
+    <Button outlined>Default</Button>
   </Story>
 </Canvas>

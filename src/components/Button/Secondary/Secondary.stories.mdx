@@ -1,7 +1,10 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import SecondaryButton from './Secondary';
 
-<Meta title="Toolbox/Button/Secondary" component={SecondaryButton} />
+<Meta
+  title="Toolbox/Button/Secondary"
+  component={SecondaryButton}
+/>
 
 # SecondaryButton
 
@@ -13,27 +16,80 @@ import { SecondaryButton } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Default">
-    <SecondaryButton label="Action" />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Long Title">
     <SecondaryButton
-      label="lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum"
+      label="Action"
+      onClick={() => {}}
+    />
+    <SecondaryButton
+      outlined
+      label="Action"
+      onClick={() => {}}
     />
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name="With Action">
-    <SecondaryButton label="Action" onClick={() => {}} />
+  <Story
+    name="Hovered"
+    parameters={{ pseudo: { hover: true } }}
+  >
+    <SecondaryButton label="Action" />
+    <SecondaryButton
+      outlined
+      label="Action"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Active"
+    parameters={{ pseudo: { active: true } }}
+  >
+    <SecondaryButton label="Action" />
+    <SecondaryButton
+      outlined
+      label="Action"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Focus"
+    parameters={{ pseudo: { focusVisible: true } }}
+  >
+    <SecondaryButton label="Action" />
+    <SecondaryButton
+      outlined
+      label="Action"
+    />
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name="Disabled">
-    <SecondaryButton label="Action" disabled />
+    <SecondaryButton
+      disabled
+      label="Action"
+    />
+    <SecondaryButton
+      disabled
+      outlined
+      label="Action"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Visited"
+    parameters={{ pseudo: { visited: true } }}
+  >
+    <SecondaryButton label="Action" />
+    <SecondaryButton
+      outlined
+      label="Action"
+    />
   </Story>
 </Canvas>

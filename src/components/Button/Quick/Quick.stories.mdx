@@ -1,0 +1,128 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import QuickButton from './Quick';
+
+<Meta
+  title="Toolbox/Button/Quick"
+  component={QuickButton}
+/>
+
+# QuickButton
+
+To import the `QuickButton` component simply include the following at the top of your file:
+
+```
+import { QuickButton } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <QuickButton
+      icon="check"
+      onClick={() => {}}
+    />
+    <QuickButton
+      outlined
+      icon="check"
+    />
+    <QuickButton
+      secondary
+      icon="check"
+    />
+    <QuickButton
+      secondary
+      outlined
+      icon="check"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Hovered"
+    parameters={{ pseudo: { hover: true } }}
+  >
+    <QuickButton icon="check" />
+    <QuickButton
+      secondary
+      icon="check"
+    />
+    <QuickButton
+      outlined
+      icon="check"
+    />
+    <QuickButton
+      secondary
+      outlined
+      icon="check"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Active"
+    parameters={{ pseudo: { active: true } }}
+  >
+    <QuickButton icon="check" />
+    <QuickButton
+      secondary
+      icon="check"
+    />
+    <QuickButton
+      outlined
+      icon="check"
+    />
+    <QuickButton
+      secondary
+      outlined
+      icon="check"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Focus"
+    parameters={{ pseudo: { focusVisible: true } }}
+  >
+    <QuickButton icon="check" />
+    <QuickButton
+      secondary
+      icon="check"
+    />
+    <QuickButton
+      outlined
+      icon="check"
+    />
+    <QuickButton
+      secondary
+      outlined
+      icon="check"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <QuickButton
+      disabled
+      icon="server"
+    />
+    <QuickButton
+      secondary
+      disabled
+      icon="server"
+    />
+    <QuickButton
+      outlined
+      disabled
+      icon="server"
+    />
+    <QuickButton
+      secondary
+      outlined
+      disabled
+      icon="server"
+    />
+  </Story>
+</Canvas>
