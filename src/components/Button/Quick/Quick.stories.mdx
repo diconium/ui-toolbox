@@ -1,34 +1,34 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import IconButton from './Icon';
+import QuickButton from './Quick';
 
 <Meta
-  title="Toolbox/Button/Icon"
-  component={IconButton}
+  title="Toolbox/Button/Quick"
+  component={QuickButton}
 />
 
-# IconButton
+# QuickButton
 
-To import the `IconButton` component simply include the following at the top of your file:
+To import the `QuickButton` component simply include the following at the top of your file:
 
 ```
-import { IconButton } from '@dicoauto/toolbox';
+import { QuickButton } from '@dicoauto/toolbox';
 ```
 
 <Canvas>
   <Story name="Default">
-    <IconButton
+    <QuickButton
       icon="check"
       onClick={() => {}}
     />
-    <IconButton
+    <QuickButton
       outlined
       icon="check"
     />
-    <IconButton
+    <QuickButton
       secondary
       icon="check"
     />
-    <IconButton
+    <QuickButton
       secondary
       outlined
       icon="check"
@@ -41,16 +41,16 @@ import { IconButton } from '@dicoauto/toolbox';
     name="Hovered"
     parameters={{ pseudo: { hover: true } }}
   >
-    <IconButton icon="check" />
-    <IconButton
+    <QuickButton icon="check" />
+    <QuickButton
       secondary
       icon="check"
     />
-    <IconButton
+    <QuickButton
       outlined
       icon="check"
     />
-    <IconButton
+    <QuickButton
       secondary
       outlined
       icon="check"
@@ -63,16 +63,16 @@ import { IconButton } from '@dicoauto/toolbox';
     name="Active"
     parameters={{ pseudo: { active: true } }}
   >
-    <IconButton icon="check" />
-    <IconButton
+    <QuickButton icon="check" />
+    <QuickButton
       secondary
       icon="check"
     />
-    <IconButton
+    <QuickButton
       outlined
       icon="check"
     />
-    <IconButton
+    <QuickButton
       secondary
       outlined
       icon="check"
@@ -85,16 +85,16 @@ import { IconButton } from '@dicoauto/toolbox';
     name="Focus"
     parameters={{ pseudo: { focusVisible: true } }}
   >
-    <IconButton icon="check" />
-    <IconButton
+    <QuickButton icon="check" />
+    <QuickButton
       secondary
       icon="check"
     />
-    <IconButton
+    <QuickButton
       outlined
       icon="check"
     />
-    <IconButton
+    <QuickButton
       secondary
       outlined
       icon="check"
@@ -104,21 +104,21 @@ import { IconButton } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Disabled">
-    <IconButton
+    <QuickButton
       disabled
       icon="server"
     />
-    <IconButton
+    <QuickButton
       secondary
       disabled
       icon="server"
     />
-    <IconButton
+    <QuickButton
       outlined
       disabled
       icon="server"
     />
-    <IconButton
+    <QuickButton
       secondary
       outlined
       disabled

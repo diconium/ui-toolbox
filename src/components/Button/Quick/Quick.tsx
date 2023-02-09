@@ -34,7 +34,7 @@ const OUTLINED_SECONDARY_TEMPLATE = `border-4 border-toolbox-secondary text-tool
   focus-visible:text-toolbox-secondary-300
   disabled:border-toolbox-neutral-200 disabled:text-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
-function IconButton({ icon, disabled, outlined, secondary = false, onClick = () => {} }: Props) {
+function QuickButton({ icon, disabled, outlined, secondary = false, onClick = () => {} }: Props) {
   return (
     <DefaultButton
       onClick={() => onClick()}
@@ -49,4 +49,4 @@ function IconButton({ icon, disabled, outlined, secondary = false, onClick = () 
   );
 }
 
-export default IconButton;
+export default QuickButton;
