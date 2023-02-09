@@ -16,15 +16,28 @@ import { SecondaryButton } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Default">
-    <SecondaryButton
-      label="Action"
-      onClick={() => {}}
-    />
-    <SecondaryButton
-      outlined
-      label="Action"
-      onClick={() => {}}
-    />
+    <div className="flex">
+      <SecondaryButton
+        label="Action"
+        onClick={() => {}}
+      />
+      <SecondaryButton
+        outlined
+        label="Action"
+        onClick={() => {}}
+      />
+      <SecondaryButton
+        label="Action"
+        icon="check"
+        onClick={() => {}}
+      />
+      <SecondaryButton
+        outlined
+        label="Action"
+        icon="bolt"
+        onClick={() => {}}
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -33,11 +46,22 @@ import { SecondaryButton } from '@dicoauto/toolbox';
     name="Hovered"
     parameters={{ pseudo: { hover: true } }}
   >
-    <SecondaryButton label="Action" />
-    <SecondaryButton
-      outlined
-      label="Action"
-    />
+    <div className="flex">
+      <SecondaryButton label="Action" />
+      <SecondaryButton
+        outlined
+        label="Action"
+      />
+      <SecondaryButton
+        label="Action"
+        icon="check"
+      />
+      <SecondaryButton
+        outlined
+        label="Action"
+        icon="bolt"
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -46,11 +70,22 @@ import { SecondaryButton } from '@dicoauto/toolbox';
     name="Active"
     parameters={{ pseudo: { active: true } }}
   >
-    <SecondaryButton label="Action" />
-    <SecondaryButton
-      outlined
-      label="Action"
-    />
+    <div className="flex">
+      <SecondaryButton label="Action" />
+      <SecondaryButton
+        outlined
+        label="Action"
+      />
+      <SecondaryButton
+        label="Action"
+        icon="check"
+      />
+      <SecondaryButton
+        outlined
+        label="Action"
+        icon="bolt"
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -59,25 +94,49 @@ import { SecondaryButton } from '@dicoauto/toolbox';
     name="Focus"
     parameters={{ pseudo: { focusVisible: true } }}
   >
-    <SecondaryButton label="Action" />
-    <SecondaryButton
-      outlined
-      label="Action"
-    />
+    <div className="flex">
+      <SecondaryButton label="Action" />
+      <SecondaryButton
+        outlined
+        label="Action"
+      />
+      <SecondaryButton
+        label="Action"
+        icon="check"
+      />
+      <SecondaryButton
+        outlined
+        label="Action"
+        icon="bolt"
+      />
+    </div>
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name="Disabled">
-    <SecondaryButton
-      disabled
-      label="Action"
-    />
-    <SecondaryButton
-      disabled
-      outlined
-      label="Action"
-    />
+    <div className="flex">
+      <SecondaryButton
+        disabled
+        label="Action"
+      />
+      <SecondaryButton
+        disabled
+        outlined
+        label="Action"
+      />
+      <SecondaryButton
+        disabled
+        label="Action"
+        icon="check"
+      />
+      <SecondaryButton
+        disabled
+        outlined
+        label="Action"
+        icon="bolt"
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -86,10 +145,21 @@ import { SecondaryButton } from '@dicoauto/toolbox';
     name="Visited"
     parameters={{ pseudo: { visited: true } }}
   >
-    <SecondaryButton label="Action" />
-    <SecondaryButton
-      outlined
-      label="Action"
-    />
+    <div className="flex">
+      <SecondaryButton label="Action" />
+      <SecondaryButton
+        outlined
+        label="Action"
+      />
+      <SecondaryButton
+        label="Action"
+        icon="check"
+      />
+      <SecondaryButton
+        outlined
+        label="Action"
+        icon="bolt"
+      />
+    </div>
   </Story>
 </Canvas>
