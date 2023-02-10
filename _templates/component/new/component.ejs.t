@@ -7,7 +7,7 @@ export interface Props {}
 
 function <%= name %>({}: Props) {
   return (
-    <div></div>
+    <div><%= name %></div>
   );
 }
 
