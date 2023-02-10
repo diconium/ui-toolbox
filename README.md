@@ -46,3 +46,11 @@ npm run lint:fix
 ```
 npm publish
 ```
+
+### Component generators
+
+If you want to create a new component you can call the following command on the terminal to create all the required files at once.
+
+```
+npm run generate:component <NAME OF NEW COMPONENT>
+```
