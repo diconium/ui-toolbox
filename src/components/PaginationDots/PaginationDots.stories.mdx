@@ -1,0 +1,79 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import PaginationDots from './PaginationDots';
+
+<Meta
+  title="Toolbox/PaginationDots"
+  component={PaginationDots}
+/>
+
+# PaginationDots
+
+To import the `PaginationDots` component simply include the following at the top of your file:
+
+```
+import { PaginationDots } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <PaginationDots
+      pages={[
+        { title: 'Step 1' },
+        { title: 'Step 2' },
+        { title: 'Step 3' },
+        { title: 'Step 4' },
+        { title: 'Step 5' },
+        { title: 'Step 6' },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Current step">
+    <PaginationDots
+      current={4}
+      pages={[
+        { title: 'Step 1' },
+        { title: 'Step 2' },
+        { title: 'Step 3' },
+        { title: 'Step 4' },
+        { title: 'Step 5' },
+        { title: 'Step 6' },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Action">
+    {() => {
+      const [current, set] = useState(0);
+      return (
+        <PaginationDots
+          current={current}
+          onClick={(index) => set(index)}
+          pages={[
+            { title: 'Step 1' },
+            { title: 'Step 2' },
+            { title: 'Step 3' },
+            { title: 'Step 4' },
+            { title: 'Step 5' },
+            { title: 'Step 6' },
+          ]}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="disabled">
+    <PaginationDots
+      disabled
+      current={1}
+      pages={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+    />
+  </Story>
+</Canvas>
