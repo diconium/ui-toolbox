@@ -7,14 +7,16 @@ export interface Props {
   disabled?: boolean;
 }
 
-const Dot = ({ className, title, disabled = false, onClick = () => {} }: Props) => {
+function Dot({ className, title, disabled = false, onClick = () => {} }: Props) {
   return (
     <div
+      role="button"
+      aria-hidden="true"
       title={title}
       onClick={!disabled ? onClick : () => {}}
       className={`w-2 h-2 rounded-full ${!disabled ? 'cursor-pointer' : 'cursor-default'} ${className}`}
     />
   );
-};
+}
 
 export default Dot;
