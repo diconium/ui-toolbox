@@ -8,9 +8,9 @@ export interface Props {
   onClick?: () => void;
 }
 
-const BASE_TEMPLATE = `text-sm leading-4 bg-toolbox-white 
+const BASE_TEMPLATE = `text-sm leading-5 bg-toolbox-white 
 rounded-2xl border text-toolbox-black
-px-6 py-2 font-thin`;
+px-10 py-2 font-thin`;
 
 function Chip({ label, selected = false, disabled = false, onClick = () => {} }: Props) {
   const template = classNames(BASE_TEMPLATE, {
