@@ -26,7 +26,7 @@ function RadioButton({ disabled = false, checked = false, onClick = () => {} }: 
       className={`${BASE_TEMPLATE} ${disabled ? 'border-toolbox-neutral-200' : ' border-toolbox-primary'}`}
       onClick={() => onClick(!checked)}
     >
-      <div className={`w-3 h-3 rounded-full ${filled}`} />
+      <div className={`w-4 h-4 rounded-full ${filled}`} />
     </button>
   );
 }
