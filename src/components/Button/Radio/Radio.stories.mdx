@@ -1,0 +1,54 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import RadioButton from './Radio';
+
+<Meta
+  title="Toolbox/Button/Radio"
+  component={RadioButton}
+/>
+
+# RadioButton
+
+To import the `RadioButton` component simply include the following at the top of your file:
+
+```
+import { RadioButton } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <RadioButton />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Checked">
+    <RadioButton checked />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <div className="flex space-x-4">
+      <RadioButton disabled />
+      <RadioButton
+        disabled
+        checked
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Action">
+    {() => {
+      const [check, set] = useState(false);
+      return (
+        <RadioButton
+          checked={check}
+          onClick={(newState) => set(newState)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>

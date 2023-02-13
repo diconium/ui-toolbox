@@ -5,6 +5,7 @@ export { default as PrimaryButton } from './Button/Primary';
 export { default as SecondaryButton } from './Button/Secondary';
 export { default as QuickButton } from './Button/Quick';
 export { default as StickyButton } from './Button/Sticky';
+export { default as RadioButton } from './Button/Radio';
 export { default as Icon } from './Icon';
 export { default as PaginationDots } from './PaginationDots';
 export { default as Tag } from './Tag';
