@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Dot from './Dot';
 
 export interface Props {
   disabled?: boolean;
@@ -12,7 +13,7 @@ bg-white inline-flex justify-center items-center
 box-border`;
 
 function RadioButton({ disabled = false, checked = false, onClick = () => {} }: Props) {
-  const filled = classNames({
+  const template = classNames({
     'bg-toolbox-primary': checked && !disabled,
     'bg-toolbox-neutral-200': checked && disabled,
     'bg-transparent': !checked && !disabled,
@@ -26,7 +27,7 @@ function RadioButton({ disabled = false, checked = false, onClick = () => {} }: 
       className={`${BASE_TEMPLATE} ${disabled ? 'border-toolbox-neutral-200' : ' border-toolbox-primary'}`}
       onClick={() => onClick(!checked)}
     >
-      <div className={`w-4 h-4 rounded-full ${filled}`} />
+      <Dot template={template} />
     </button>
   );
 }
