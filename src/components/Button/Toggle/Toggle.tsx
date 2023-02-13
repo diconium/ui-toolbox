@@ -11,7 +11,7 @@ export interface Props {
 
 const BASE_TEMPLATE = `w-10 h-6 bg-toolbox-white 
   border-2 rounded-2xl px-0.5
-  inline-flex items-center`;
+  inline-flex items-center box-border`;
 
 function Toggle({ toggled = false, disabled = false, onClick = () => {}, title = '' }: Props) {
   const template = classNames(BASE_TEMPLATE, {
