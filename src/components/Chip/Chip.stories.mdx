@@ -1,0 +1,55 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Chip from './Chip';
+
+<Meta
+  title="Toolbox/Chip"
+  component={Chip}
+/>
+
+# Chip
+
+To import the `Chip` component simply include the following at the top of your file:
+
+```
+import { Chip } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <Chip label="Ingolstadt" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="selected">
+    <Chip
+      selected
+      label="Munich"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="disabled">
+    <Chip
+      disabled
+      label="Munich"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Action">
+    {() => {
+      const [selected, set] = useState(false);
+      return (
+        <Chip
+          label="Stuttgart"
+          selected={selected}
+          onClick={() => set(!selected)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
