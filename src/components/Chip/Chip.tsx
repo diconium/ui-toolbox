@@ -15,7 +15,7 @@ px-10 py-2 font-thin`;
 function Chip({ label, selected = false, disabled = false, onClick = () => {} }: Props) {
   const template = classNames(BASE_TEMPLATE, {
     'border-toolbox-primary': selected,
-    'border-toolbox-neutral-100': !selected,
+    'border-toolbox-neutral-200': !selected,
     'text-toolbox-neutral-200': disabled,
     'cursor-not-allowed': disabled,
     'cursor-pointer': !disabled,
