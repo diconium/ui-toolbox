@@ -8,7 +8,7 @@ export interface Props extends DefaultProps {
 }
 
 const DEFAULT_TEMPLATE = `inline-flex justify-center items-center box-border text-toolbox-white bg-toolbox-secondary hover:bg-toolbox-secondary-600 
-  active:bg-toolbox-secondary-600 active:text-toolbox-secondary-600 
+  active:bg-toolbox-secondary active:text-toolbox-secondary-600 
   focus:outline-none focus-visible:border-toolbox-primary-300 focus-visible:border-4 
   focus-visible:bg-toolbox-secondary disabled:bg-toolbox-neutral-200 disabled:text-toolbox-white disabled:cursor-not-allowed`;
 
