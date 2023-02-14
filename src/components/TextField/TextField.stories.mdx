@@ -1,0 +1,93 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import TextField from './TextField';
+
+<Meta
+  title="Toolbox/TextField"
+  component={TextField}
+/>
+
+# TextField
+
+To import the `TextField` component simply include the following at the top of your file:
+
+```
+import { TextField } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <TextField placeholder="Input your name here" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Value">
+    <TextField
+      value="Lorem Ipsum"
+      placeholder="Input your name here"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Type">
+    {() => {
+      const [value, set] = useState();
+      return (
+        <TextField
+          type="password"
+          label="Password"
+          placeholder="Minimum 8 characters"
+          value={value}
+          onChange={(text) => set(text)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Label">
+    <TextField
+      label="Lorem Ipsum"
+      placeholder="Input your name here"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Hint">
+    <TextField
+      label="Lorem Ipsum"
+      placeholder="Input your name here"
+      hint="lorem ipsum"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <TextField
+      disabled
+      label="Lorem Ipsum"
+      placeholder="Input your name here"
+    />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Action">
+    {() => {
+      const [value, set] = useState();
+      return (
+        <TextField
+          label="Lorem Ipsum"
+          placeholder="Input your name here"
+          value={value}
+          onChange={(text) => set(text)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
