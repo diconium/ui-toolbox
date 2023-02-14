@@ -22,6 +22,15 @@ import { TextField } from '@dicoauto/toolbox';
 </Canvas>
 
 <Canvas>
+  <Story
+    name="Focused"
+    parameters={{ pseudo: { focus: true } }}
+  >
+    <TextField placeholder="Input your name here" />
+  </Story>
+</Canvas>
+
+<Canvas>
   <Story name="With Value">
     <TextField
       value="Lorem Ipsum"
@@ -68,11 +77,43 @@ import { TextField } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Disabled">
-    <TextField
-      disabled
-      label="Lorem Ipsum"
-      placeholder="Input your name here"
-    />
+    <div className="flex flex-col space-y-4">
+      <TextField
+        disabled
+        label="Lorem Ipsum"
+        placeholder="Input your name here"
+      />
+      <TextField
+        disabled
+        label="Lorem Ipsum"
+        placeholder="Input your name here"
+        hint="lorem ipsum"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Validation">
+    <div className="flex flex-col space-y-4">
+      <TextField
+        validation="valid"
+        placeholder="Input your name here"
+        value="Some valid input"
+      />
+      <TextField
+        validation="warning"
+        placeholder="Input your name here"
+        value="Warning about input"
+        hint="Your input should include at least 3 numbers."
+      />
+      <TextField
+        validation="error"
+        placeholder="Input your name here"
+        value="Error about input"
+        hint="Your input must include at least 1 number"
+      />
+    </div>
   </Story>
 </Canvas>
 
