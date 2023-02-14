@@ -14,9 +14,8 @@ export interface Props {
   onChange?: (change: string) => void;
 }
 
-const BASE_TEMPLATE = `w-full border-2 border-toolbox-neutral-200 
-  px-6 py-3 rounded-xl max-w-xs
-  text-toolbox-neutral-500 leading-5 text-sm bg-toolbox-white
+const BASE_TEMPLATE = `w-full border-2 px-6 py-3 rounded-xl max-w-xs
+  leading-5 text-sm bg-toolbox-white
   focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
 
 /**  for tailwind to generate the appropriate classes
@@ -61,6 +60,7 @@ function TextField({
   const color = validationToColor(validation);
   const template = classNames(
     BASE_TEMPLATE,
+    !validation && 'border-toolbox-neutral-200  text-toolbox-neutral-500',
     ...[validation && `border-toolbox-feedback-${color} focus:border-toolbox-feedback-${color}`]
   );
 
