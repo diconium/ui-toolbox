@@ -411,4 +411,5 @@ export default {
   wifi: '\uec47',
   'xmark-large': '\uec48',
   xmark: '\uec49',
+  'circle-xmark': '\ue900'
 };
