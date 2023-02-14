@@ -44,13 +44,21 @@ import { TextField } from '@dicoauto/toolbox';
     {() => {
       const [value, set] = useState();
       return (
-        <TextField
-          type="password"
-          label="Password"
-          placeholder="Minimum 8 characters"
-          value={value}
-          onChange={(text) => set(text)}
-        />
+        <div className="flex flex-col space-y-4">
+          <TextField
+            type="password"
+            label="Password"
+            placeholder="Minimum 8 characters"
+            value={value}
+            onChange={(text) => set(text)}
+          />
+          <TextField
+            type="password"
+            label="Password"
+            placeholder="Minimum 8 characters"
+            value="lorem ipsum"
+          />
+        </div>
       );
     }}
   </Story>
@@ -102,12 +110,32 @@ import { TextField } from '@dicoauto/toolbox';
         value="Some valid input"
       />
       <TextField
+        type="password"
+        validation="valid"
+        placeholder="Input your name here"
+        value="Some valid input"
+      />
+      <TextField
         validation="warning"
         placeholder="Input your name here"
         value="Warning about input"
         hint="Your input should include at least 3 numbers."
       />
       <TextField
+        type="password"
+        validation="warning"
+        placeholder="Input your name here"
+        value="Warning about input"
+        hint="Your input should include at least 3 numbers."
+      />
+      <TextField
+        validation="error"
+        placeholder="Input your name here"
+        value="Error about input"
+        hint="Your input must include at least 1 number"
+      />
+      <TextField
+        type="password"
         validation="error"
         placeholder="Input your name here"
         value="Error about input"
