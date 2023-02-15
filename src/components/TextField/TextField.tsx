@@ -58,10 +58,16 @@ function TextField({
   onChange = () => {},
 }: Props) {
   const color = validationToColor(validation);
+  const isValid = validation === 'valid';
   const template = classNames(
     BASE_TEMPLATE,
     !validation && 'border-toolbox-neutral-200  text-toolbox-neutral-500',
-    ...[validation && `border-toolbox-feedback-${color} focus:border-toolbox-feedback-${color}`]
+    ...[
+      validation && !isValid && `border-toolbox-feedback-${color} focus:border-toolbox-feedback-${color}`,
+      validation && isValid && 'border-toolbox-neutral-200',
+      validation && 'text-toolbox-neutral-500',
+    ],
+    disabled && 'text-toolbox-neutral-200'
   );
 
   return (
@@ -82,7 +88,7 @@ function TextField({
       {validation && (
         <Icon
           icon={validationToIcon(validation)}
-          className={`text-toolbox-feedback-${color} -ml-10`}
+          className={`leading-4 text-base text-toolbox-feedback-${color} -ml-10`}
         />
       )}
     </Template>
