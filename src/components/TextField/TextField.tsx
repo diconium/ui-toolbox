@@ -14,8 +14,8 @@ export interface Props {
   onChange?: (change: string) => void;
 }
 
-const BASE_TEMPLATE = `w-full border-2 px-6 py-3 rounded-xl max-w-xs
-  leading-5 text-sm bg-toolbox-white
+const BASE_TEMPLATE = `w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
+  text-sm bg-toolbox-white
   focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
 
 /**  for tailwind to generate the appropriate classes
