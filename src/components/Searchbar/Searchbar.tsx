@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
+
 import Icon from '../Icon';
 import TextField, { Props as TextProps } from '../TextField';
 
@@ -15,6 +17,10 @@ function Searchbar({
 }: Props) {
   const [query, set] = useState(value || '');
   const [focused, setFocus] = useState(false);
+  const iconTemplate = classNames('pt-3.5 pl-4 leading-4 text-base absolute top-0', {
+    'text-toolbox-neutral-500': !disabled,
+    'text-toolbox-neutral-200': disabled,
+  });
   return (
     <div className="relative">
       <TextField
@@ -33,7 +39,7 @@ function Searchbar({
       {!focused && (
         <Icon
           icon="search"
-          className="pt-3.5 pl-4 text-toolbox-neutral-500 leading-4 text-base absolute top-0"
+          className={iconTemplate}
         />
       )}
     </div>
