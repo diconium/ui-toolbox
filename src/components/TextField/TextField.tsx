@@ -12,6 +12,10 @@ export interface Props {
   validation?: string;
   disabled?: boolean;
   onChange?: (change: string) => void;
+  onEnter?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  className?: string;
 }
 
 const BASE_TEMPLATE = `w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
@@ -56,6 +60,10 @@ function TextField({
   validation,
   disabled = false,
   onChange = () => {},
+  onEnter = () => {},
+  onFocus = () => {},
+  onBlur = () => {},
+  className,
 }: Props) {
   const color = validationToColor(validation);
   const isValid = validation === 'valid';
@@ -68,8 +76,16 @@ function TextField({
       validation && isValid && 'border-toolbox-neutral-200',
       validation && 'text-toolbox-neutral-500',
     ],
-    disabled && 'text-toolbox-neutral-200'
+    disabled && 'text-toolbox-neutral-200',
+    className
   );
+
+  const handleEnter = (event: any) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      onEnter();
+    }
+  };
 
   return (
     <Template
@@ -79,12 +95,15 @@ function TextField({
       validation={validation}
     >
       <input
+        onKeyDown={handleEnter}
         type={type}
         disabled={disabled}
         className={template}
         placeholder={placeholder}
         value={value}
         onChange={(event) => onChange(event.target.value)}
+        onFocus={() => onFocus()}
+        onBlur={() => onBlur()}
       />
       {validation && (
         <Icon

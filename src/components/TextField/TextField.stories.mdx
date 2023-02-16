@@ -178,3 +178,18 @@ import { TextField } from '@dicoauto/toolbox';
     }}
   </Story>
 </Canvas>
+
+<Canvas>
+  <Story name="With onEnter Action">
+    {() => {
+      const [value, set] = useState();
+      return (
+        <TextField
+          label={value || 'Lorem ipsum'}
+          placeholder="Press enter and see"
+          onEnter={() => set('Enter pressed')}
+        />
+      );
+    }}
+  </Story>
+</Canvas>

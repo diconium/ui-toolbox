@@ -1,0 +1,90 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Searchbar from './Searchbar';
+
+<Meta
+  title="Toolbox/Searchbar"
+  component={Searchbar}
+/>
+
+# Searchbar
+
+To import the `Searchbar` component simply include the following at the top of your file:
+
+```
+import { Searchbar } from '@dicoauto/toolbox';
+```
+
+<Canvas>
+  <Story name="Default">
+    <div className="flex flex-col space-y-4">
+      <Searchbar placeholder="Your search query" />
+      <Searchbar
+        value="With Text"
+        placeholder="Your search query"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <div className="flex flex-col space-y-4">
+      <Searchbar
+        disabled
+        placeholder="Your search query"
+      />
+      <Searchbar
+        disabled
+        value="With Text"
+        placeholder="Your search query"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## onSearch action
+
+When the user presses the `enter` on the keyboard, the `onSearch` action is called once.
+Use this when you want to trigger a search, only after the user pressed enter.
+
+<Canvas>
+  <Story name="onSearch action">
+    {() => {
+      const hint = 'Input your search and press Enter';
+      const [query, set] = useState(hint);
+      return (
+        <div className="flex flex-col space-y-4">
+          <span className="text-toolbox-neutral-500">{query || hint}</span>
+          <Searchbar
+            onSearch={(query) => set(query)}
+            placeholder="Your search query"
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## onChange action
+
+When the user enters a new character on the keyboard, the `onChange` action is called.
+This can be useful when you want to trigger a search instantly when the input of the search field changes.
+
+<Canvas>
+  <Story name="onChange action">
+    {() => {
+      const hint = 'Input your search and press Enter';
+      const [query, set] = useState(hint);
+      return (
+        <div className="flex flex-col space-y-4">
+          <span className="text-toolbox-neutral-500">{query || hint}</span>
+          <Searchbar
+            onChange={(query) => set(query)}
+            placeholder="Your search query"
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
