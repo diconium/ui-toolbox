@@ -9,7 +9,7 @@ import { screen, render } from '@testing-library/react';
 import <%= name %> from './<%= name %>';
 
 describe('<%= name %> component', () => {
-  test('can render the default button correctly', () => {
+  test('can render the default component correctly', () => {
     render(<<%= name %> />);
     expect(screen.getByText(/Action/i)).toBeDefined();
   });
