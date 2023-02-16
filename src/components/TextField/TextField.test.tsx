@@ -47,4 +47,33 @@ describe('TextField component', () => {
     expect(func.mock.calls[1]).toEqual(['ba']);
     expect(func.mock.calls[2]).toEqual(['bar']);
   });
+
+  test('can handle onEnter correctly', async () => {
+    const func = jest.fn();
+
+    render(
+      <TextField
+        placeholder="foo"
+        onEnter={func}
+      />
+    );
+    const input = await screen.getByPlaceholderText('foo');
+    await userEvent.type(input, '{enter}');
+    expect(func.mock.calls.length).toBe(1);
+  });
+
+  test('does not trigger onEnter when disabled', async () => {
+    const func = jest.fn();
+
+    render(
+      <TextField
+        disabled
+        placeholder="foo"
+        onEnter={func}
+      />
+    );
+    const input = await screen.getByPlaceholderText('foo');
+    await userEvent.type(input, '{enter}');
+    expect(func.mock.calls.length).toBe(0);
+  });
 });
