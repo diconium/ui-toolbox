@@ -9,7 +9,7 @@ export interface Props {
   disabled?: boolean;
 }
 
-const BASE_TEMPLATE = `w-6 h-6 border-2
+const BASE_TEMPLATE = `w-7 h-7 border-2
   flex justify-center items-center
   box-border`;
 
@@ -30,7 +30,7 @@ function Checkbox({ checked = false, disabled = false, onClick = () => {} }: Pro
       {checked && (
         <Icon
           icon="check"
-          className="text-white leading-3"
+          className="text-white leading-5 text-xl"
         />
       )}
     </button>

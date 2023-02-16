@@ -8,7 +8,7 @@ export interface Props {
   onClick?: (checked: boolean) => void;
 }
 
-const BASE_TEMPLATE = `w-6 h-6 rounded-full border-2
+const BASE_TEMPLATE = `w-7 h-7 rounded-full border-2
 bg-white inline-flex justify-center items-center
 box-border`;
 
@@ -24,7 +24,11 @@ function RadioButton({ disabled = false, checked = false, onClick = () => {} }: 
       type="button"
       aria-checked={checked}
       disabled={disabled}
-      className={`${BASE_TEMPLATE} ${disabled ? 'border-toolbox-neutral-200' : ' border-toolbox-primary'}`}
+      className={classNames([
+        BASE_TEMPLATE,
+        disabled && 'border-toolbox-neutral-200',
+        !disabled && 'border-toolbox-primary',
+      ])}
       onClick={() => onClick(!checked)}
     >
       <Dot template={template} />

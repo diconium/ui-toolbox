@@ -9,7 +9,7 @@ export interface Props {
   title?: string;
 }
 
-const BASE_TEMPLATE = `w-10 h-6 bg-toolbox-white 
+const BASE_TEMPLATE = `w-12 h-7 bg-toolbox-white 
   border-2 rounded-2xl px-0.5
   inline-flex items-center box-border`;
 
