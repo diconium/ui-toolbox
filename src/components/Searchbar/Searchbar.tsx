@@ -6,7 +6,13 @@ export interface Props extends TextProps {
   onSearch?: (query: string) => void;
 }
 
-function Searchbar({ placeholder, disabled, value, onSearch = () => {}, onChange = () => {} }: Props) {
+function Searchbar({
+  placeholder,
+  disabled = false,
+  value = '',
+  onSearch = () => {},
+  onChange = () => {},
+}: Props) {
   const [query, set] = useState(value || '');
   const [focused, setFocus] = useState(false);
   return (
