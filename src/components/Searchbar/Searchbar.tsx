@@ -6,22 +6,30 @@ export interface Props extends TextProps {
   onSearch?: (query: string) => void;
 }
 
-function Searchbar({ placeholder, disabled, value, onSearch = () => {} }: Props) {
+function Searchbar({ placeholder, disabled, value, onSearch = () => {}, onChange = () => {} }: Props) {
   const [query, set] = useState(value || '');
+  const [focused, setFocus] = useState(false);
   return (
     <div className="relative">
-      <Icon
-        icon="search"
-        className="pt-3.5 pl-4 text-toolbox-neutral-500 leading-4 text-base absolute"
-      />
       <TextField
         onEnter={() => onSearch(query)}
         disabled={disabled}
         value={query}
-        onChange={(q) => set(q)}
+        onChange={(q) => {
+          set(q);
+          onChange(q);
+        }}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
         placeholder={placeholder}
-        className="pl-10"
+        className="pl-10 focus:pl-5"
       />
+      {!focused && (
+        <Icon
+          icon="search"
+          className="pt-3.5 pl-4 text-toolbox-neutral-500 leading-4 text-base absolute top-0"
+        />
+      )}
     </div>
   );
 }

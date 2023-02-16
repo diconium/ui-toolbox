@@ -28,21 +28,6 @@ import { Searchbar } from '@dicoauto/toolbox';
 </Canvas>
 
 <Canvas>
-  <Story
-    name="Focused"
-    parameters={{ pseudo: { focus: true } }}
-  >
-    <div className="flex flex-col space-y-4">
-      <Searchbar placeholder="Your search query" />
-      <Searchbar
-        value="With Text"
-        placeholder="Your search query"
-      />
-    </div>
-  </Story>
-</Canvas>
-
-<Canvas>
   <Story name="Disabled">
     <div className="flex flex-col space-y-4">
       <Searchbar
@@ -58,6 +43,11 @@ import { Searchbar } from '@dicoauto/toolbox';
   </Story>
 </Canvas>
 
+## onSearch action
+
+When the user presses the `enter` on the keyboard, the `onSearch` action is called once.
+Use this when you want to trigger a search, only after the user pressed enter.
+
 <Canvas>
   <Story name="onSearch action">
     {() => {
@@ -68,6 +58,29 @@ import { Searchbar } from '@dicoauto/toolbox';
           <span className="text-toolbox-neutral-500">{query || hint}</span>
           <Searchbar
             onSearch={(query) => set(query)}
+            placeholder="Your search query"
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## onChange action
+
+When the user enters a new character on the keyboard, the `onChange` action is called.
+This can be useful when you want to trigger a search instantly when the input of the search field changes.
+
+<Canvas>
+  <Story name="onChange action">
+    {() => {
+      const hint = 'Input your search and press Enter';
+      const [query, set] = useState(hint);
+      return (
+        <div className="flex flex-col space-y-4">
+          <span className="text-toolbox-neutral-500">{query || hint}</span>
+          <Searchbar
+            onChange={(query) => set(query)}
             placeholder="Your search query"
           />
         </div>

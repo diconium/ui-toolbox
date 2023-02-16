@@ -13,6 +13,8 @@ export interface Props {
   disabled?: boolean;
   onChange?: (change: string) => void;
   onEnter?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
   className?: string;
 }
 
@@ -59,6 +61,8 @@ function TextField({
   disabled = false,
   onChange = () => {},
   onEnter = () => {},
+  onFocus = () => {},
+  onBlur = () => {},
   className,
 }: Props) {
   const color = validationToColor(validation);
@@ -98,6 +102,8 @@ function TextField({
         placeholder={placeholder}
         value={value}
         onChange={(event) => onChange(event.target.value)}
+        onFocus={() => onFocus()}
+        onBlur={() => onBlur()}
       />
       {validation && (
         <Icon
