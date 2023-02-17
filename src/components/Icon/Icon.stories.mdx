@@ -1,7 +1,10 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { Icon, Font } from './Icon';
 
-<Meta title="Toolbox/Icon" component={Icon} />
+<Meta
+  title="Toolbox/Icon"
+  component={Icon}
+/>
 
 # Icon
 
@@ -14,6 +17,31 @@ import { Icon } from '@dicoauto/toolbox';
 <Canvas>
   <Story name="Default">
     <Icon icon="address-book" />
+  </Story>
+</Canvas>
+
+## Different sizes
+
+<Canvas>
+  <Story name="Different sizes">
+    <div className="flex space-x-4">
+      <Icon
+        icon="address-book"
+        size="s"
+      />
+      <Icon
+        icon="address-book"
+        size="m"
+      />
+      <Icon
+        icon="address-book"
+        size="lg"
+      />
+      <Icon
+        icon="address-book"
+        size="xl"
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -34,7 +62,10 @@ import { Icon } from '@dicoauto/toolbox';
   >
     <div className="grid grid-cols-6">
       {Object.keys(Font).map((icon) => (
-        <div key={icon} className="flex flex-col text-center">
+        <div
+          key={icon}
+          className="flex flex-col text-center"
+        >
           <Icon icon={icon} />
           <p>{icon}</p>
         </div>

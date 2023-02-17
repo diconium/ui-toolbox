@@ -44,7 +44,10 @@ function QuickButton({ icon, disabled, outlined, secondary = false, onClick = ()
       defaultTemplate={secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE}
       outlinedTemplate={secondary ? OUTLINED_SECONDARY_TEMPLATE : OUTLINED_TEMPLATE}
     >
-      <Icon icon={icon} />
+      <Icon
+        icon={icon}
+        size="lg"
+      />
     </DefaultButton>
   );
 }
