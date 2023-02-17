@@ -1,6 +1,6 @@
 import React from 'react';
 import { jest } from '@jest/globals';
-import { screen, render } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Searchbar from './Searchbar';
@@ -21,8 +21,10 @@ describe('Searchbar component', () => {
       />
     );
     const input = await screen.getByPlaceholderText('foo');
-    await userEvent.type(input, 'bar');
-    await userEvent.type(input, '{enter}');
+    await act(async () => {
+      await userEvent.type(input, 'bar');
+      await userEvent.type(input, '{enter}');
+    });
     expect(func.mock.calls.length).toBe(1);
     expect(func.mock.calls[0]).toEqual(['bar']);
   });
@@ -38,9 +40,13 @@ describe('Searchbar component', () => {
       />
     );
     const input = await screen.getByPlaceholderText('foo');
-    await userEvent.type(input, 'bar');
+    await act(async () => {
+      await userEvent.type(input, 'bar');
+    });
     expect(screen.queryByText('bar')).toBe(null);
-    await userEvent.type(input, '{enter}');
+    await act(async () => {
+      await userEvent.type(input, '{enter}');
+    });
     expect(func.mock.calls.length).toBe(0);
   });
 });

@@ -34,6 +34,77 @@ import { Avatar } from '@dicoauto/toolbox';
 </Canvas>
 
 <Canvas>
+  <Story name="Different border colors">
+    <div className="flex space-x-2">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+        border="border-toolbox-feedback-red"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+        border="border-toolbox-feedback-orange"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+        border="border-toolbox-feedback-green"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Different sizes">
+    <div className="flex space-x-2">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+        size="s"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+        size="m"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+        size="lg"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=044589"
+        alt="Emma"
+        size="xl"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With badge">
+    <div className="flex space-x-2">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+        state="bg-toolbox-feedback-green"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+        state="bg-toolbox-feedback-orange"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+        state="bg-toolbox-feedback-red"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
   <Story name="With state">
     <div className="flex space-x-2">
       <Avatar
@@ -50,6 +121,28 @@ import { Avatar } from '@dicoauto/toolbox';
         link="https://i.pravatar.cc/150?u=08122"
         alt="Bamia"
         state="bg-toolbox-feedback-red"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With badges">
+    <div className="flex space-x-2">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+        badge={1}
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+        badge={25}
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+        badge={999}
       />
     </div>
   </Story>
