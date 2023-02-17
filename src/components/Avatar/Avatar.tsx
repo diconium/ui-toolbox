@@ -12,7 +12,7 @@ export interface Props {
 }
 
 function State({ state }: { state: string }) {
-  return <div className={`absolute bottom-0 right-0 w-4 h-4 rounded-full ${state}`} />;
+  return <div className={`absolute bottom-0 right-0 w-3 h-3 rounded-full ${state}`} />;
 }
 
 const getTemplate = (size: string) => {
