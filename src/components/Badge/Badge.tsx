@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 export interface Props {
@@ -26,8 +26,8 @@ const sizeToStyle = (size: string) => {
 
 const normalize = (badge: number) => (badge > MAX_BADGE_VALUE ? `${MAX_BADGE_VALUE}+` : badge);
 
-const isNormalized = (badge: number) => badge > MAX_BADGE_VALUE;
-const isSingleDegit = (badge: number) => badge < 10;
+export const isNormalized = (badge: number) => badge > MAX_BADGE_VALUE;
+export const isSingleDegit = (badge: number) => badge < 10;
 
 const getWithBadgeWidth = (badge: number) => {
   if (isSingleDegit(badge)) {
@@ -47,21 +47,6 @@ export function Badge({ badge, size = 'lg' }: Props) {
     show ? 'rounded-lg' : 'rounded-full',
   ]);
   return <span className={template}>{show && normalize(badge)}</span>;
-}
-
-interface ContainerProps extends PropsWithChildren {
-  badge: number;
-}
-
-export function BadgeContainer({ badge, children }: ContainerProps) {
-  const template = classNames([
-    'absolute top-0 right-0 -mt-1',
-    isSingleDegit(badge) && 'mr-0.5',
-    !isSingleDegit(badge) && !isNormalized(badge) && '-mr-2',
-    isNormalized(badge) && '-mr-3',
-  ]);
-
-  return <div className={template}>{children}</div>;
 }
 
 export default Badge;

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import Badge, { BadgeContainer } from '../Badge';
+import BadgeContainer from '../Badge/BadgeContainer';
 
 export interface Props {
   link: string;
@@ -38,22 +38,17 @@ function Avatar({
 }: Props) {
   const template = classNames([getTemplate(size), 'object-cover rounded-full', border]);
   return (
-    <div className="relative">
-      {badge && (
-        <BadgeContainer badge={badge}>
-          <Badge
-            size={size}
-            badge={badge}
-          />
-        </BadgeContainer>
-      )}
+    <BadgeContainer
+      badge={badge}
+      size={size}
+    >
       <img
         className={template}
         src={link}
         alt={alt}
       />
       {state && <State state={state} />}
-    </div>
+    </BadgeContainer>
   );
 }
 

@@ -1,5 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import Badge from './Badge';
+import BadgeContainer from './BadgeContainer';
 
 <Meta
   title="Toolbox/Badge"
@@ -57,5 +58,15 @@ import { Badge } from '@dicoauto/toolbox';
       <Badge badge={9} />
       <Badge badge={999} />
     </div>
+  </Story>
+</Canvas>
+
+## Add badges to any other component
+
+<Canvas>
+  <Story name="Add badge to other components">
+    <BadgeContainer badge={999}>
+      <div className="w-16 h-16 bg-toolbox-primary-500" />
+    </BadgeContainer>
   </Story>
 </Canvas>
