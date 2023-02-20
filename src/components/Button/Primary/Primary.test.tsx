@@ -8,7 +8,7 @@ import Button from './Primary';
 describe('Primary Button component', () => {
   test('can render the default button correctly', () => {
     render(<Button label="Action" />);
-    expect(screen.getByText(/Action/i)).toBeDefined();
+    expect(screen.getByText(/Action/i)).toBeInTheDocument();
   });
 
   test('calls the onClick function correctly when clicked', async () => {

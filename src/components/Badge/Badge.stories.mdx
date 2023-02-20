@@ -1,0 +1,72 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Badge from './Badge';
+import BadgeContainer from './BadgeContainer';
+
+<Meta
+  title="Toolbox/Badge"
+  component={Badge}
+/>
+
+# Badge
+
+To import the `Badge` component simply include the following at the top of your file:
+
+```
+import { Badge } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <Badge />
+  </Story>
+</Canvas>
+
+## Different sizes
+
+<Canvas>
+  <Story name="Different sizes">
+    <div className="flex space-x-4">
+      <Badge size="s" />
+      <Badge size="m" />
+      <Badge size="lg" />
+      <Badge size="xl" />
+    </div>
+  </Story>
+</Canvas>
+
+## With labels
+
+<Canvas>
+  <Story name="With Label">
+    <div className="flex space-x-4 mb-4">
+      <Badge badge={9} />
+      <Badge badge={25} />
+      <Badge badge={99} />
+      <Badge badge={999} />
+    </div>
+    <div className="flex space-x-4">
+      <Badge
+        size="s"
+        badge={999}
+      />
+      <Badge
+        size="m"
+        badge={25}
+      />
+      <Badge badge={9} />
+      <Badge badge={999} />
+    </div>
+  </Story>
+</Canvas>
+
+## Add badges to any other component
+
+<Canvas>
+  <Story name="Add badge to other components">
+    <BadgeContainer badge={999}>
+      <div className="w-16 h-16 bg-toolbox-primary-500" />
+    </BadgeContainer>
+  </Story>
+</Canvas>

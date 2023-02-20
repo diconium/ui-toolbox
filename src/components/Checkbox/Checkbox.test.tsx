@@ -8,7 +8,7 @@ import Checkbox from './Checkbox';
 describe('Checkbox component', () => {
   test('can render the default button correctly', () => {
     render(<Checkbox />);
-    expect(screen.getByRole('button')).toBeDefined();
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   test('does call the onClick function correctly', async () => {

@@ -8,7 +8,7 @@ import ToggleButton from './Toggle';
 describe('Toggle component', () => {
   test('can render the default button correctly', () => {
     render(<ToggleButton />);
-    expect(screen.getByRole('button')).toBeDefined();
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   test('calls the onClick function correctly when clicked', async () => {

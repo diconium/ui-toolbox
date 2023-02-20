@@ -8,7 +8,7 @@ import Button from './Quick';
 describe('QuickButton component', () => {
   test('can render the default button correctly', () => {
     render(<Button icon="check" />);
-    expect(screen.getByRole('button')).toBeDefined();
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   test('calls the onClick function correctly when clicked', async () => {

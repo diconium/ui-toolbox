@@ -8,6 +8,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:import/recommended",
+    "plugin:jest-dom/recommended",
     "airbnb"
   ],
   "plugins": [

@@ -16,6 +16,8 @@ function Avatars({ avatars }: Props) {
           <Avatar
             link={link}
             alt={alt}
+            size="xl"
+            border="border-toolbox-white"
           />
         </div>
       ))}

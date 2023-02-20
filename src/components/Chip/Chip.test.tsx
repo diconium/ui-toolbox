@@ -8,7 +8,7 @@ import Chip from './Chip';
 describe('Chip component', () => {
   test('can render the default button correctly', () => {
     render(<Chip label="Berlin" />);
-    expect(screen.getByText(/Berlin/i)).toBeDefined();
+    expect(screen.getByText(/Berlin/i)).toBeInTheDocument();
   });
 
   test('calls the onClick function correctly when clicked', async () => {

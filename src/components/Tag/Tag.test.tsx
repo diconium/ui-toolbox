@@ -8,7 +8,7 @@ import Tag from './Tag';
 describe('Tag component', () => {
   test('can render the default component correctly', () => {
     render(<Tag label="Foo" />);
-    expect(screen.getByText(/Foo/i)).toBeDefined();
+    expect(screen.getByText(/Foo/i)).toBeInTheDocument();
   });
 
   test('calls the onCancel function correctly when clicked', async () => {
