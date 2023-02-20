@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import Icon from '../Icon';
-import Template from './Template';
+import Template, { validationToColor } from './Template';
 
 export interface Props {
   placeholder: string;
@@ -28,18 +28,6 @@ const BASE_TEMPLATE = `w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
   border-toolbox-feedback-orange border-toolbox-feedback-red
   focus:border-toolbox-feedback-orange focus:border-toolbox-feedback-red
 */
-export const validationToColor = (validation?: string) => {
-  if (validation === 'valid') {
-    return 'green';
-  }
-  if (validation === 'warning') {
-    return 'orange';
-  }
-  if (validation === 'error') {
-    return 'red';
-  }
-  return 'black';
-};
 
 const validationToIcon = (validation?: string) => {
   if (validation === 'valid') {

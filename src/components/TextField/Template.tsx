@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from 'react';
 import classNames from 'classnames';
-import { validationToColor } from './TextField';
 
 /**  for tailwind to generate the appropriate classes
    * Do not remove *
@@ -13,6 +12,19 @@ export interface Props extends PropsWithChildren {
   disabled?: boolean;
   validation?: string;
 }
+
+export const validationToColor = (validation?: string) => {
+  if (validation === 'valid') {
+    return 'green';
+  }
+  if (validation === 'warning') {
+    return 'orange';
+  }
+  if (validation === 'error') {
+    return 'red';
+  }
+  return 'black';
+};
 
 const BASE_TEXT = 'text-xs leading-3 px-3 py-1';
 
