@@ -8,7 +8,7 @@ import RadioButton from './Radio';
 describe('RadioButton component', () => {
   test('can render the default button correctly', () => {
     render(<RadioButton />);
-    expect(screen.getByRole('radio')).toBeDefined();
+    expect(screen.getByRole('radio')).toBeInTheDocument();
   });
 
   test('calls the onClick function correctly when clicked', async () => {

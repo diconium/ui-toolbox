@@ -14,6 +14,8 @@ To import the `Avatar` component simply include the following at the top of your
 import { Avatar } from '@dicoauto/toolbox';
 ```
 
+## Default
+
 <Canvas>
   <Story name="Default">
     <div className="flex space-x-2">
@@ -32,6 +34,8 @@ import { Avatar } from '@dicoauto/toolbox';
     </div>
   </Story>
 </Canvas>
+
+## Different border colors
 
 <Canvas>
   <Story name="Different border colors">
@@ -54,6 +58,8 @@ import { Avatar } from '@dicoauto/toolbox';
     </div>
   </Story>
 </Canvas>
+
+## Different sizes
 
 <Canvas>
   <Story name="Different sizes">
@@ -82,6 +88,8 @@ import { Avatar } from '@dicoauto/toolbox';
   </Story>
 </Canvas>
 
+## With state
+
 <Canvas>
   <Story name="With state">
     <div className="flex space-x-2">
@@ -101,12 +109,34 @@ import { Avatar } from '@dicoauto/toolbox';
         state="bg-toolbox-feedback-red"
       />
     </div>
+    <div className="flex space-x-2 mt-4">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+        state="bg-toolbox-feedback-green"
+        size="xl"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+        state="bg-toolbox-feedback-orange"
+        size="xl"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+        state="bg-toolbox-feedback-red"
+        size="xl"
+      />
+    </div>
   </Story>
 </Canvas>
 
+## With badges
+
 <Canvas>
   <Story name="With badges">
-    <div className="flex space-x-2">
+    <div className="flex space-x-4">
       <Avatar
         link="https://i.pravatar.cc/150?u=08188"
         alt="Mike"
@@ -121,6 +151,26 @@ import { Avatar } from '@dicoauto/toolbox';
         link="https://i.pravatar.cc/150?u=08122"
         alt="Bamia"
         badge={999}
+      />
+    </div>
+    <div className="flex space-x-4 mt-4">
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="Mike"
+        badge={1}
+        size="xl"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=47110"
+        alt="Nora"
+        badge={25}
+        size="xl"
+      />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08122"
+        alt="Bamia"
+        badge={999}
+        size="xl"
       />
     </div>
   </Story>

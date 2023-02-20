@@ -8,7 +8,7 @@ import Dot from './Dot';
 describe('PaginationDots/Dot component', () => {
   test('can render the default component correctly', () => {
     render(<Dot title="Foo" />);
-    expect(screen.getByTitle(/Foo/i)).toBeDefined();
+    expect(screen.getByTitle(/Foo/i)).toBeInTheDocument();
   });
 
   test('calls the onClick function correctly when clicked', async () => {

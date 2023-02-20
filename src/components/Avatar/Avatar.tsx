@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import BadgeContainer from '../Badge/BadgeContainer';
+import StateContainer from '../State/StateContainer';
 
 export interface Props {
   link: string;
@@ -9,10 +10,6 @@ export interface Props {
   size?: string;
   border?: string;
   badge?: number;
-}
-
-function State({ state }: { state: string }) {
-  return <div className={`absolute bottom-0 right-0 w-3 h-3 rounded-full ${state}`} />;
 }
 
 const getTemplate = (size: string) => {
@@ -47,7 +44,12 @@ function Avatar({
         src={link}
         alt={alt}
       />
-      {state && <State state={state} />}
+      {state && (
+        <StateContainer
+          color={state}
+          size={size}
+        />
+      )}
     </BadgeContainer>
   );
 }

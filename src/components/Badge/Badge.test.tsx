@@ -6,17 +6,17 @@ import Badge, { MAX_BADGE_VALUE } from './Badge';
 describe('Badge component', () => {
   test('can render the default component correctly', () => {
     render(<Badge badge={9} />);
-    expect(screen.getByText(/9/i)).toBeDefined();
+    expect(screen.getByText(/9/i)).toBeInTheDocument();
   });
 
   test('can normalize the badge label correctly (bigger max)', () => {
     render(<Badge badge={MAX_BADGE_VALUE + 1} />);
-    expect(screen.getByText(`${MAX_BADGE_VALUE}+`)).toBeDefined();
+    expect(screen.getByText(`${MAX_BADGE_VALUE}+`)).toBeInTheDocument();
   });
 
   test('can normalize the badge label correctly (bigger max) - 2 -', () => {
     render(<Badge badge={MAX_BADGE_VALUE + 999} />);
-    expect(screen.getByText(`${MAX_BADGE_VALUE}+`)).toBeDefined();
+    expect(screen.getByText(`${MAX_BADGE_VALUE}+`)).toBeInTheDocument();
   });
 
   test('does show the badge label for size lg', () => {
@@ -26,7 +26,7 @@ describe('Badge component', () => {
         badge={9}
       />
     );
-    expect(screen.getByText(/9/i)).toBeDefined();
+    expect(screen.getByText(/9/i)).toBeInTheDocument();
   });
 
   test('does show the badge label for size xl', () => {
@@ -36,12 +36,12 @@ describe('Badge component', () => {
         badge={9}
       />
     );
-    expect(screen.getByText(/9/i)).toBeDefined();
+    expect(screen.getByText(/9/i)).toBeInTheDocument();
   });
 
   test('can render the default component correctly', () => {
     render(<Badge badge={9} />);
-    expect(screen.getByText(/9/i)).toBeDefined();
+    expect(screen.getByText(/9/i)).toBeInTheDocument();
   });
 
   test('does not show the badge label for size s', () => {
@@ -51,7 +51,7 @@ describe('Badge component', () => {
         badge={9}
       />
     );
-    expect(screen.queryByText(/9/i)).toBe(null);
+    expect(screen.queryByText(/9/i)).not.toBeInTheDocument();
   });
 
   test('does not show the badge label for size m', () => {
@@ -61,6 +61,6 @@ describe('Badge component', () => {
         badge={9}
       />
     );
-    expect(screen.queryByText(/9/i)).toBe(null);
+    expect(screen.queryByText(/9/i)).not.toBeInTheDocument();
   });
 });

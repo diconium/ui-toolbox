@@ -8,7 +8,7 @@ import TextField from './TextField';
 describe('TextField component', () => {
   test('can render the default component correctly', () => {
     render(<TextField placeholder="foo" />);
-    expect(screen.getByPlaceholderText(/foo/i)).toBeDefined();
+    expect(screen.getByPlaceholderText(/foo/i)).toBeInTheDocument();
   });
 
   test('can render the a given value correctly', () => {
@@ -18,7 +18,7 @@ describe('TextField component', () => {
         value="bar"
       />
     );
-    expect(screen.getByDisplayValue(/bar/i)).toBeDefined();
+    expect(screen.getByDisplayValue(/bar/i)).toBeInTheDocument();
   });
 
   test('can render the a given label correctly', () => {
@@ -28,7 +28,7 @@ describe('TextField component', () => {
         label="bar"
       />
     );
-    expect(screen.getByText(/bar/i)).toBeDefined();
+    expect(screen.getByText(/bar/i)).toBeInTheDocument();
   });
 
   test('can handle input changes correctly', async () => {

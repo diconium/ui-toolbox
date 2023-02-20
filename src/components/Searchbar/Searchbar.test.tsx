@@ -8,7 +8,7 @@ import Searchbar from './Searchbar';
 describe('Searchbar component', () => {
   test('can render the default component correctly', () => {
     render(<Searchbar placeholder="foo" />);
-    expect(screen.getByPlaceholderText(/foo/i)).toBeDefined();
+    expect(screen.getByPlaceholderText(/foo/i)).toBeInTheDocument();
   });
 
   test('can handle onSearch correctly', async () => {
@@ -43,7 +43,7 @@ describe('Searchbar component', () => {
     await act(async () => {
       await userEvent.type(input, 'bar');
     });
-    expect(screen.queryByText('bar')).toBe(null);
+    expect(screen.queryByText('bar')).not.toBeInTheDocument();
     await act(async () => {
       await userEvent.type(input, '{enter}');
     });
