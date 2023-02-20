@@ -1,0 +1,90 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import TopNavigation from './TopNavigation';
+import Icon from '../Icon';
+
+<Meta
+  title="Toolbox/TopNavigation"
+  component={TopNavigation}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+  decorators={[
+    (Story) => (
+      <div className="flex justify-center">
+        <div className="w-sm">
+          <Story />
+        </div>
+      </div>
+    ),
+  ]}
+/>
+
+# TopNavigation
+
+To import the `TopNavigation` component simply include the following at the top of your file:
+
+```
+import { TopNavigation } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <TopNavigation title="TITLE" />
+  </Story>
+</Canvas>
+
+## With leading text
+
+<Canvas>
+  <Story name="With leading text">
+    <TopNavigation
+      title="TITLE"
+      leading="some more text"
+    />
+  </Story>
+</Canvas>
+
+## With subtitle
+
+<Canvas>
+  <Story name="With subtitle">
+    <TopNavigation
+      title="TITLE"
+      leading="some more text"
+      subtitle="TEXT"
+    />
+  </Story>
+</Canvas>
+
+## With children
+
+<Canvas>
+  <Story name="With children">
+    <TopNavigation
+      title="TITLE"
+      leading="some more text"
+      subtitle="TEXT"
+    >
+      <Icon icon="filter" />
+      <Icon icon="wifi" />
+      <Icon icon="menu" />
+    </TopNavigation>
+  </Story>
+</Canvas>
+
+## With children on the left side
+
+<Canvas>
+  <Story name="With left side">
+    <TopNavigation
+      title="TITLE"
+      leading="some more text"
+      subtitle="TEXT"
+      left={<Icon icon="arrow-narrow-left" />}
+    >
+      <Icon icon="filter" />
+      <Icon icon="wifi" />
+      <Icon icon="menu" />
+    </TopNavigation>
+  </Story>
+</Canvas>
