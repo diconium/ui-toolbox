@@ -16,8 +16,5 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
-  },
-  "include": [
-    "./test-setup.ts"
-  ]
+  }
 }

@@ -1,1 +1,1 @@
-export { default, Props, BadgeContainer } from './Badge';
+export { default, Props } from './Badge';
