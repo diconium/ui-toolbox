@@ -10,6 +10,12 @@ module.exports = {
       xl: '1280px',
     },
     extend: {
+      width: {
+        sm: '430px'
+      },
+      minWidth: {
+        sm: '430px'
+      },
       colors: {
         toolbox: {
           primary: { ...colors.primary },

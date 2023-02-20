@@ -4,31 +4,31 @@ const defaultViewport = 'responsive';
 
 const viewports = {
   sm: {
-    name: 'Mobile S',
+    name: 'Mobile S 430 x 932',
     styles: {
-      width: '430px',
-      height: '932px',
+      width: '460px',
+      height: '962px',
     }
   },
   md: {
-    name: 'Tablet M',
+    name: 'Tablet M 834 x 1194',
     styles: {
-      width: '834px',
-      height: '1194px',
+      width: '864px',
+      height: '1234px',
     }
   },
   lg: {
-    name: 'Desktop Low Resolution - LG',
+    name: 'Desktop Low Resolution - LG - 1024 x 768',
     styles: {
-      width: '1024px',
-      height: '768px',
+      width: '1054px',
+      height: '798px',
     }
   },
   xl: {
-    name: 'Desktop High Resolution - XL',
+    name: 'Desktop High Resolution - XL - 1280 x 832',
     styles: {
-      width: '1280px',
-      height: '832px',
+      width: '1310px',
+      height: '862px',
     }
   }
 };
