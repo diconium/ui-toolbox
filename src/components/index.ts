@@ -19,3 +19,4 @@ export { default as BadgeContainer } from './Badge/BadgeContainer';
 export { default as State } from './State';
 export { default as StateContainer } from './State/StateContainer';
 export { default as TopNavigation } from './TopNavigation';
+export { default as NavigationBar } from './NavigationBar';
