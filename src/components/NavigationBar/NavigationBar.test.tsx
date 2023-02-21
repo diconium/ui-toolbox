@@ -30,6 +30,7 @@ describe('NavigationBar component', () => {
         ACTION
       </NavigationBar>
     );
+    expect(screen.queryAllByText(/ACTION/i).length).toBe(1);
     expect(screen.queryAllByText(/TEST/i).length).toBe(2);
     expect(screen.queryAllByText(/FOO/i).length).toBe(3);
   });
