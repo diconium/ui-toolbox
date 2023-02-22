@@ -1,6 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import Drawer from './Drawer';
 import PrimaryButton from '../Button/Primary';
+import Chip from '../Chip';
 
 <Meta
   title="Toolbox/Drawer"
@@ -43,11 +44,30 @@ Clicking on the handle on the top will open and close the drawer content.
 <Canvas>
   <Story name="Opened">
     <Drawer opened>
-      <div className="flex flex-col justify-center px-10 pt-7 pb-10">
-        <span className="text-center py-4 font-thin text-base text-toolbox-neutral">
-          Are you really sure?
-        </span>
-        <PrimaryButton label="Action" />
+      <span className="text-center py-4 font-thin text-base text-toolbox-neutral">
+        Are you really sure?
+      </span>
+      <PrimaryButton label="Action" />
+    </Drawer>
+  </Story>
+</Canvas>
+
+## Different layouts for the content area
+
+The Drawer components supports two different layouts: `centered`(default) and `full-width` as shown below:
+
+<Canvas>
+  <Story name="Different content layouts">
+    <Drawer
+      opened
+      layout="full-width"
+    >
+      <div className="text-base font-thin pt-1 pb-3">Location</div>
+      <div className="grid grid-cols-2 gap-x-1 gap-y-2">
+        <Chip label="Ingolstadt" />
+        <Chip label="Munich" />
+        <Chip label="Berlin" />
+        <Chip label="Stuttgart" />
       </div>
     </Drawer>
   </Story>

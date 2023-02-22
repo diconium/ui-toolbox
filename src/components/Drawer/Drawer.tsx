@@ -1,16 +1,24 @@
 import classNames from 'classnames';
 import React, { PropsWithChildren, useState } from 'react';
+import { getLayout } from './Layouts';
 
 export interface Props extends PropsWithChildren {
   opened?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
+  layout?: string;
 }
 
 const BASE_TEMPLATE = `bg-toolbox-white shadow rounded-t-2xl
   border border-toolbox-neutral-50 min-w-sm`;
 
-function Drawer({ children, opened = false, onOpen = () => {}, onClose = () => {} }: Props) {
+function Drawer({
+  children,
+  opened = false,
+  onOpen = () => {},
+  onClose = () => {},
+  layout = 'centered',
+}: Props) {
   const [open, setOpen] = useState(opened);
   const template = classNames(BASE_TEMPLATE, { 'h-14': !open });
   const handle = () => {
@@ -25,6 +33,7 @@ function Drawer({ children, opened = false, onOpen = () => {}, onClose = () => {
       onClose();
     }
   };
+  const Layout = getLayout(layout);
 
   return (
     <div className={template}>
@@ -36,7 +45,7 @@ function Drawer({ children, opened = false, onOpen = () => {}, onClose = () => {
           onClick={handle}
         />
       </div>
-      <div className="flex justify-center">{open && children}</div>
+      {open && <Layout>{children}</Layout>}
     </div>
   );
 }
