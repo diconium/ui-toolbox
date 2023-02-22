@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import Icon from '../Icon';
 import Template, { validationToColor } from './Template';
 
-export interface Props {
+export interface Props extends PropsWithChildren {
   placeholder: string;
   label?: string;
   value?: string;
@@ -16,9 +16,10 @@ export interface Props {
   onFocus?: () => void;
   onBlur?: () => void;
   className?: string;
+  isClearable?: boolean;
 }
 
-const BASE_TEMPLATE = `w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
+const BASE_TEMPLATE = `peer w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
   text-sm bg-toolbox-white
   focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
 
@@ -52,6 +53,8 @@ function TextField({
   onFocus = () => {},
   onBlur = () => {},
   className,
+  isClearable = false,
+  children,
 }: Props) {
   const color = validationToColor(validation);
   const isValid = validation === 'valid';
@@ -94,12 +97,25 @@ function TextField({
         onFocus={() => onFocus()}
         onBlur={() => onBlur()}
       />
+      {children}
       {validation && (
         <Icon
           icon={validationToIcon(validation)}
           size="s"
           className={`text-toolbox-feedback-${color} -ml-10`}
         />
+      )}
+      {isClearable && !!value && (
+        <button
+          type="button"
+          className="-ml-8 mt-1"
+          onClick={() => onChange('')}
+        >
+          <Icon
+            icon="xmark"
+            size="s"
+          />
+        </button>
       )}
     </Template>
   );

@@ -15,6 +15,8 @@ To import the `TextField` component simply include the following at the top of y
 import { TextField } from '@dicoauto/toolbox';
 ```
 
+## Default
+
 <Canvas>
   <Story name="Default">
     <div className="flex flex-col space-y-4">
@@ -26,6 +28,8 @@ import { TextField } from '@dicoauto/toolbox';
     </div>
   </Story>
 </Canvas>
+
+## State:Focused
 
 <Canvas>
   <Story
@@ -42,6 +46,8 @@ import { TextField } from '@dicoauto/toolbox';
   </Story>
 </Canvas>
 
+## Set the value
+
 <Canvas>
   <Story name="With Value">
     <TextField
@@ -50,6 +56,8 @@ import { TextField } from '@dicoauto/toolbox';
     />
   </Story>
 </Canvas>
+
+## Different Types
 
 <Canvas>
   <Story name="Type">
@@ -76,6 +84,8 @@ import { TextField } from '@dicoauto/toolbox';
   </Story>
 </Canvas>
 
+## With Label
+
 <Canvas>
   <Story name="With Label">
     <TextField
@@ -84,6 +94,8 @@ import { TextField } from '@dicoauto/toolbox';
     />
   </Story>
 </Canvas>
+
+## With Hint
 
 <Canvas>
   <Story name="With Hint">
@@ -94,6 +106,8 @@ import { TextField } from '@dicoauto/toolbox';
     />
   </Story>
 </Canvas>
+
+## Disabled
 
 <Canvas>
   <Story name="Disabled">
@@ -118,6 +132,8 @@ import { TextField } from '@dicoauto/toolbox';
     </div>
   </Story>
 </Canvas>
+
+## Validation
 
 <Canvas>
   <Story name="Validation">
@@ -163,6 +179,8 @@ import { TextField } from '@dicoauto/toolbox';
   </Story>
 </Canvas>
 
+## With Action
+
 <Canvas>
   <Story name="With Action">
     {() => {
@@ -179,6 +197,8 @@ import { TextField } from '@dicoauto/toolbox';
   </Story>
 </Canvas>
 
+## With onEnter Action
+
 <Canvas>
   <Story name="With onEnter Action">
     {() => {
@@ -188,6 +208,25 @@ import { TextField } from '@dicoauto/toolbox';
           label={value || 'Lorem ipsum'}
           placeholder="Press enter and see"
           onEnter={() => set('Enter pressed')}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With clear button
+
+<Canvas>
+  <Story name="With clear button">
+    {() => {
+      const [value, set] = useState('Press clear button to clear');
+      return (
+        <TextField
+          isClearable
+          label="Lorem Ipsum"
+          placeholder="Placeholder"
+          value={value}
+          onChange={set}
         />
       );
     }}
