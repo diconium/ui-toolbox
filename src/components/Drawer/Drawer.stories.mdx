@@ -1,0 +1,54 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Drawer from './Drawer';
+import PrimaryButton from '../Button/Primary';
+
+<Meta
+  title="Toolbox/Drawer"
+  component={Drawer}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+  decorators={[
+    (Story) => (
+      <div
+        className="flex justify-center items-end"
+        style={{ height: '240px' }}
+      >
+        <div className="w-sm">
+          <Story />
+        </div>
+      </div>
+    ),
+  ]}
+/>
+
+# Drawer
+
+To import the `Drawer` component simply include the following at the top of your file:
+
+```
+import { Drawer } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <Drawer />
+  </Story>
+</Canvas>
+
+## Open and Close
+
+Clicking on the handle on the top will open and close the drawer content.
+
+<Canvas>
+  <Story name="Opened">
+    <Drawer opened>
+      <div className="flex flex-col justify-center px-10 pt-7 pb-10">
+        <span className="text-center py-4 font-thin text-base text-toolbox-neutral">
+          Are you really sure?
+        </span>
+        <PrimaryButton label="Action" />
+      </div>
+    </Drawer>
+  </Story>
+</Canvas>
