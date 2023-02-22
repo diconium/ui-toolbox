@@ -108,7 +108,7 @@ function TextField({
       {isClearable && !!value && (
         <button
           type="button"
-          className="-ml-8"
+          className="-ml-8 mt-1"
           onClick={() => onChange('')}
         >
           <Icon
