@@ -1,0 +1,103 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import NavigationBar from './NavigationBar';
+import QuickButton from '../Button/Quick';
+import Icon from '../Icon';
+import Avatar from '../Avatar';
+
+<Meta
+  title="Toolbox/NavigationBar"
+  component={NavigationBar}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+  decorators={[
+    (Story) => (
+      <div className="flex justify-center items-center h-48">
+        <div className="w-sm">
+          <Story />
+        </div>
+      </div>
+    ),
+  ]}
+/>
+
+# NavigationBar
+
+To import the `NavigationBar` component simply include the following at the top of your file:
+
+```
+import { NavigationBar } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <NavigationBar />
+  </Story>
+</Canvas>
+
+## With right side
+
+<Canvas>
+  <Story name="With right side">
+    <NavigationBar
+      right={
+        <>
+          <Icon icon="address-book" />
+          <Icon icon="calendar-user" />
+        </>
+      }
+    />
+  </Story>
+</Canvas>
+
+## With left side
+
+<Canvas>
+  <Story name="With left side">
+    <NavigationBar
+      left={
+        <>
+          <Icon icon="address-book" />
+          <Icon icon="calendar-user" />
+        </>
+      }
+    />
+  </Story>
+</Canvas>
+
+## With action
+
+<Canvas>
+  <Story name="With action">
+    <NavigationBar>
+      <QuickButton icon="check" />
+    </NavigationBar>
+  </Story>
+</Canvas>
+
+## All
+
+<Canvas>
+  <Story name="All">
+    <NavigationBar
+      left={
+        <>
+          <Icon icon="mail-check" />
+          <Icon icon="calendar" />
+        </>
+      }
+      right={
+        <>
+          <Icon icon="fingerprint" />
+          <Avatar
+            link="https://i.pravatar.cc/150?u=08188"
+            alt="Mike"
+            badge={9}
+          />
+        </>
+      }
+    >
+      <QuickButton icon="check" />
+    </NavigationBar>
+  </Story>
+</Canvas>

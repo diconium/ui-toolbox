@@ -8,7 +8,7 @@ export interface Props extends DefaultProps {
   secondary?: boolean;
 }
 
-const BASE_TEMPLATE = 'inline-block w-16 h-16 leading-4 rounded-full px-0 py-0';
+const BASE_TEMPLATE = 'inline-block w-14 h-14 leading-4 rounded-full px-0 py-0';
 
 const DEFAULT_TEMPLATE = `text-toolbox-white bg-toolbox-primary hover:bg-toolbox-primary-600
   active:bg-toolbox-primary-600 active:text-toolbox-primary
