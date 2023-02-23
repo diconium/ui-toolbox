@@ -20,9 +20,7 @@ const sizeToTemplate = (size: string) => {
 };
 
 function Dot({ size = 'lg', color = 'bg-toolbox-primary' }: Props) {
-  return (
-    <div className={classNames(...sizeToTemplate(size), 'inline-block rounded-full', color)} />
-  );
+  return <div className={classNames(...sizeToTemplate(size), 'rounded-full', color)} />;
 }
 
 export default Dot;
