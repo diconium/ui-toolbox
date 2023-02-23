@@ -21,3 +21,4 @@ export { default as StateContainer } from './State/StateContainer';
 export { default as TopNavigation } from './TopNavigation';
 export { default as Drawer } from './Drawer';
 export { default as NavigationBar } from './NavigationBar';
+export { default as Swipeable } from './Utils/Swipeable';
