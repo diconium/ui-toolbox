@@ -35,7 +35,7 @@ const validationToIcon = (validation?: string) => {
     return 'circle-check';
   }
   if (validation === 'warning') {
-    return 'circle-information';
+    return 'triangle-exclamation';
   }
   return 'circle-xmark';
 };
