@@ -43,6 +43,7 @@ function Drawer({
 
   return (
     <Swipeable
+      disable={!children}
       options={{
         onSwipedUp: () => setOpen(true),
         onSwipedDown: () => setOpen(false),

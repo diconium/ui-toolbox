@@ -8,6 +8,7 @@ export interface Options extends SwipeableProps {}
 export interface Props extends PropsWithChildren {
   className?: string;
   options?: Options;
+  disable?: boolean;
 }
 
 // available options see: https://github.com/FormidableLabs/react-swipeable
@@ -21,11 +22,15 @@ const DEFAULT_SWIPE_OPTIONS = {
   //   touchEventOptions: { passive: true },
 };
 
-function Swipeable({ options = {}, className, children }: Props) {
+function Swipeable({ options = {}, className, children, disable = false }: Props) {
   const handlers = useSwipeable({
     ...DEFAULT_SWIPE_OPTIONS,
     ...options,
   });
+
+  if (disable) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <div
