@@ -19,7 +19,7 @@ import { Toast } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Default">
-    <div className="flex flex-col space-y-4">
+    <div className="grid grid-cols-2 gap-4">
       <Toast
         label="Text Label"
         type="success"
@@ -36,15 +36,6 @@ import { Toast } from '@dicoauto/toolbox';
         label="Text Label"
         type="info"
       />
-    </div>
-  </Story>
-</Canvas>
-
-## Default filled
-
-<Canvas>
-  <Story name="Default filled">
-    <div className="flex flex-col space-y-4">
       <Toast
         filled
         label="Text Label"
@@ -73,30 +64,25 @@ import { Toast } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Subtext">
-    <Toast
-      label="Text Label"
-      subtext="Text Label"
-    />
-  </Story>
-</Canvas>
-
-## With subtext and filled
-
-<Canvas>
-  <Story name="Subtext and filled">
-    <Toast
-      filled
-      label="Text Label"
-      subtext="Text Label"
-    />
+    <div className="grid grid-cols-2 gap-4">
+      <Toast
+        label="Text Label"
+        subtext="Text Label"
+      />
+      <Toast
+        filled
+        label="Text Label"
+        subtext="Text Label"
+      />
+    </div>
   </Story>
 </Canvas>
 
 ## With icons
 
 <Canvas>
-  <Story name="With Icon">
-    <div className="flex flex-col space-y-4">
+  <Story name="With icon">
+    <div className="grid grid-cols-2 gap-4">
       <Toast
         icon
         label="Text Label"
@@ -114,6 +100,30 @@ import { Toast } from '@dicoauto/toolbox';
       />
       <Toast
         icon
+        label="Text Label"
+        type="info"
+      />
+      <Toast
+        icon
+        filled
+        label="Text Label"
+        type="success"
+      />
+      <Toast
+        icon
+        filled
+        label="Text Label"
+        type="warning"
+      />
+      <Toast
+        icon
+        filled
+        label="Text Label"
+        type="error"
+      />
+      <Toast
+        icon
+        filled
         label="Text Label"
         type="info"
       />
@@ -125,7 +135,7 @@ import { Toast } from '@dicoauto/toolbox';
 
 <Canvas>
   <Story name="Full">
-    <div className="flex flex-col space-y-4">
+    <div className="grid grid-cols-2 gap-4">
       <Toast
         icon
         label="Text Label"
@@ -150,15 +160,6 @@ import { Toast } from '@dicoauto/toolbox';
         subtext="Text Label"
         type="info"
       />
-    </div>
-  </Story>
-</Canvas>
-
-## Full and Filled
-
-<Canvas>
-  <Story name="Filled">
-    <div className="flex flex-col space-y-4">
       <Toast
         icon
         filled
