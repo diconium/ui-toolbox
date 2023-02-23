@@ -108,7 +108,13 @@ describe('Tailwind config', () => {
     expect(colors.white).toBeDefined();
     expect(colors.feedback).toBeDefined();
     expect(colors.feedback.green).toBeDefined();
+    expect(colors.feedback.green.DEFAULT).toBeDefined();
+    expect(colors.feedback.green[50]).toBeDefined();
     expect(colors.feedback.orange).toBeDefined();
+    expect(colors.feedback.orange.DEFAULT).toBeDefined();
+    expect(colors.feedback.orange[50]).toBeDefined();
     expect(colors.feedback.red).toBeDefined();
+    expect(colors.feedback.red.DEFAULT).toBeDefined();
+    expect(colors.feedback.red[50]).toBeDefined();
   });
 });

@@ -1,0 +1,210 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Toast from './Toast';
+
+<Meta
+  title="Toolbox/Toast"
+  component={Toast}
+/>
+
+# Toast
+
+To import the `Toast` component simply include the following at the top of your file:
+
+```
+import { Toast } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <div className="flex flex-col space-y-4">
+      <Toast
+        label="Text Label"
+        type="success"
+      />
+      <Toast
+        label="Text Label"
+        type="warning"
+      />
+      <Toast
+        label="Text Label"
+        type="error"
+      />
+      <Toast
+        label="Text Label"
+        type="info"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Default filled
+
+<Canvas>
+  <Story name="Default filled">
+    <div className="flex flex-col space-y-4">
+      <Toast
+        filled
+        label="Text Label"
+        type="success"
+      />
+      <Toast
+        filled
+        label="Text Label"
+        type="warning"
+      />
+      <Toast
+        filled
+        label="Text Label"
+        type="error"
+      />
+      <Toast
+        filled
+        label="Text Label"
+        type="info"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## With subtext
+
+<Canvas>
+  <Story name="Subtext">
+    <Toast
+      label="Text Label"
+      subtext="Text Label"
+    />
+  </Story>
+</Canvas>
+
+## With subtext and filled
+
+<Canvas>
+  <Story name="Subtext and filled">
+    <Toast
+      filled
+      label="Text Label"
+      subtext="Text Label"
+    />
+  </Story>
+</Canvas>
+
+## With icons
+
+<Canvas>
+  <Story name="With Icon">
+    <div className="flex flex-col space-y-4">
+      <Toast
+        icon
+        label="Text Label"
+        type="success"
+      />
+      <Toast
+        icon
+        label="Text Label"
+        type="warning"
+      />
+      <Toast
+        icon
+        label="Text Label"
+        type="error"
+      />
+      <Toast
+        icon
+        label="Text Label"
+        type="info"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Full
+
+<Canvas>
+  <Story name="Full">
+    <div className="flex flex-col space-y-4">
+      <Toast
+        icon
+        label="Text Label"
+        subtext="Text Label"
+        type="success"
+      />
+      <Toast
+        icon
+        label="Text Label"
+        subtext="Text Label"
+        type="warning"
+      />
+      <Toast
+        icon
+        label="Text Label"
+        subtext="Text Label"
+        type="error"
+      />
+      <Toast
+        icon
+        label="Text Label"
+        subtext="Text Label"
+        type="info"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Full and Filled
+
+<Canvas>
+  <Story name="Filled">
+    <div className="flex flex-col space-y-4">
+      <Toast
+        icon
+        filled
+        label="Text Label"
+        subtext="Text Label"
+        type="success"
+      />
+      <Toast
+        icon
+        filled
+        label="Text Label"
+        subtext="Text Label"
+        type="warning"
+      />
+      <Toast
+        icon
+        filled
+        label="Text Label"
+        subtext="Text Label"
+        type="error"
+      />
+      <Toast
+        icon
+        filled
+        label="Text Label"
+        subtext="Text Label"
+        type="info"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## With action
+
+<Canvas>
+  <Story name="With action">
+    {() => {
+      const [counter, set] = useState(0);
+      return (
+        <Toast
+          icon
+          label="With action"
+          subtext={!counter ? 'Press the X' : `onClose called: ${counter}`}
+          onClose={() => set(counter + 1)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
