@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Dot from './Dot';
+import Dot from '../../Dot';
 
 export interface Props {
   disabled?: boolean;
@@ -31,7 +31,10 @@ function RadioButton({ disabled = false, checked = false, onClick = () => {} }: 
       ])}
       onClick={() => onClick(!checked)}
     >
-      <Dot template={template} />
+      <Dot
+        size="xl"
+        color={template}
+      />
     </button>
   );
 }

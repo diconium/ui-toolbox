@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import Dot from '../Radio/Dot';
+import Dot from '../../Dot';
 
 export interface Props {
   toggled?: boolean;
@@ -34,7 +34,10 @@ function Toggle({ toggled = false, disabled = false, onClick = () => {}, title =
       className={template}
       onClick={() => onClick(!toggled)}
     >
-      <Dot template={dot} />
+      <Dot
+        size="xl"
+        color={dot}
+      />
     </button>
   );
 }
