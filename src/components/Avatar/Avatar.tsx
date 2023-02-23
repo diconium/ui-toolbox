@@ -25,6 +25,8 @@ const getTemplate = (size: string) => {
   return 'w-14 h-14 border-2';
 };
 
+const mapStateSize = (size = 'lg') => (size === 'xl' ? 'lg' : 'm');
+
 function Avatar({
   link,
   alt,
@@ -47,7 +49,7 @@ function Avatar({
       {state && (
         <StateContainer
           color={state}
-          size={size}
+          size={mapStateSize(size)}
         />
       )}
     </BadgeContainer>
