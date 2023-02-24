@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 describe('ProgressBar component', () => {
   test('can render the default component correctly', () => {
     const { container } = render(<ProgressBar />);
-    expect(container.firstChild).toHaveClass('h-1 bg-toolbox-neutral-200');
+    expect(container.firstChild).toHaveClass('h-1 bg-toolbox-neutral-50');
     expect(container.firstChild?.firstChild).toHaveStyle({ width: '0%' });
   });
 
