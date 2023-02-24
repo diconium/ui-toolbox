@@ -5,16 +5,45 @@ import { typeToColor, typeToBorderColor, typeToIcon, typeToTextColor } from './u
 
 export interface Props {
   label: string;
-  subtext?: string;
+  subtitle?: string;
   type?: string;
   onClose?: () => void;
   icon?: boolean;
   filled?: boolean;
 }
 
+function Header({ label, filled }: { label: string; filled: boolean }) {
+  const optional = {
+    'text-toolbox-white': filled,
+  };
+  const template = classNames(['text-toolbox-neutral leading-5 text-base', optional]);
+  return <div className={template}>{label}</div>;
+}
+
+function HeaderWithSubtitle({
+  label,
+  subtitle,
+  filled,
+}: {
+  label: string;
+  subtitle: string;
+  filled: boolean;
+}) {
+  const base = 'text-toolbox-neutral text-base';
+  const optional = {
+    'text-toolbox-white': filled,
+  };
+  return (
+    <div className="flex flex-col">
+      <div className={classNames(base, 'leading-6 font-semibold', optional)}>{label}</div>
+      <div className={classNames(base, 'leading-5', optional)}>{subtitle}</div>
+    </div>
+  );
+}
+
 function Toast({
   label,
-  subtext = '',
+  subtitle = '',
   type = 'info',
   onClose = () => {},
   icon = false,
@@ -25,7 +54,9 @@ function Toast({
     'rounded-2xl border-2 box-border',
     typeToBorderColor(type),
     typeToColor(type, filled),
+    subtitle ? 'h-20' : 'h-13',
   ]);
+
   return (
     <div className={template}>
       <div className="flex-1 flex items-center">
@@ -36,32 +67,18 @@ function Toast({
             size="s"
           />
         )}
-        {!subtext && (
-          <div
-            className={classNames('text-toolbox-neutral leading-5 text-base', {
-              'text-toolbox-white': filled,
-            })}
-          >
-            {label}
-          </div>
+        {!subtitle && (
+          <Header
+            label={label}
+            filled={filled}
+          />
         )}
-        {subtext && (
-          <div className="flex flex-col">
-            <div
-              className={classNames('text-toolbox-neutral leading-6 text-base font-semibold', {
-                'text-toolbox-white': filled,
-              })}
-            >
-              {label}
-            </div>
-            <div
-              className={classNames('text-toolbox-neutral leading-5 text-base', {
-                'text-toolbox-white': filled,
-              })}
-            >
-              {subtext}
-            </div>
-          </div>
+        {subtitle && (
+          <HeaderWithSubtitle
+            label={label}
+            subtitle={subtitle}
+            filled={filled}
+          />
         )}
       </div>
       <button

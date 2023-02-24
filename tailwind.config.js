@@ -10,6 +10,9 @@ module.exports = {
       xl: '1280px',
     },
     extend: {
+      spacing: {
+        13: '3.25rem'
+      },
       width: {
         sm: '430px'
       },

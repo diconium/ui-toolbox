@@ -60,19 +60,19 @@ import { Toast } from '@dicoauto/toolbox';
   </Story>
 </Canvas>
 
-## With subtext
+## With Subtitle
 
 <Canvas>
-  <Story name="Subtext">
+  <Story name="Subtitle">
     <div className="grid grid-cols-2 gap-4">
       <Toast
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
       />
       <Toast
         filled
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
       />
     </div>
   </Story>
@@ -139,53 +139,53 @@ import { Toast } from '@dicoauto/toolbox';
       <Toast
         icon
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="success"
       />
       <Toast
         icon
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="warning"
       />
       <Toast
         icon
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="error"
       />
       <Toast
         icon
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="info"
       />
       <Toast
         icon
         filled
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="success"
       />
       <Toast
         icon
         filled
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="warning"
       />
       <Toast
         icon
         filled
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="error"
       />
       <Toast
         icon
         filled
         label="Text Label"
-        subtext="Text Label"
+        subtitle="Text Label"
         type="info"
       />
     </div>
@@ -202,7 +202,7 @@ import { Toast } from '@dicoauto/toolbox';
         <Toast
           icon
           label="With action"
-          subtext={!counter ? 'Press the X' : `onClose called: ${counter}`}
+          subtitle={!counter ? 'Press the X' : `onClose called: ${counter}`}
           onClose={() => set(counter + 1)}
         />
       );
