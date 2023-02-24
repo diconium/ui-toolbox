@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Spinner from './Spinner';
+
+<Meta
+  title="Toolbox/Spinner"
+  component={Spinner}
+/>
+
+# Spinner
+
+To import the `Spinner` component simply include the following at the top of your file:
+
+```
+import { Spinner } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <Spinner />
+  </Story>
+</Canvas>
+
+## Different sizes
+
+<Canvas>
+  <Story name="Different-sizes">
+    <div className="flex space-x-4 items-end">
+      <Spinner size="s" />
+      <Spinner size="m" />
+      <Spinner size="lg" />
+      <Spinner size="xl" />
+    </div>
+  </Story>
+</Canvas>

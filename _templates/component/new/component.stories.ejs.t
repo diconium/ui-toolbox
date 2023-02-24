@@ -17,6 +17,8 @@ To import the `<%= name %>` component simply include the following at the top of
 import { <%= name %> } from '@dicoauto/toolbox';
 ```
 
+## Default 
+
 <Canvas>
   <Story name="Default">
     <<%= name %> />
