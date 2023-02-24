@@ -1,0 +1,47 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import ProgressBar from './ProgressBar';
+
+<Meta
+  title="Toolbox/ProgressBar"
+  component={ProgressBar}
+/>
+
+# ProgressBar
+
+To import the `ProgressBar` component simply include the following at the top of your file:
+
+```
+import { ProgressBar } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <div className="flex flex-col space-y-4">
+      <ProgressBar />
+      <ProgressBar progress={67} />
+      <ProgressBar progress={100} />
+    </div>
+  </Story>
+</Canvas>
+
+## Dynamic Min and Max
+
+You can set `min` and `max` options if you want to set the minimum progress
+that should be shown. In that case the progress will not drop below the `min` value and not go over the `max` value.
+
+<Canvas>
+  <Story name="Dynamic min and max">
+    <div className="flex flex-col space-y-4">
+      <ProgressBar
+        min={20}
+        progress={10}
+      />
+      <ProgressBar
+        max={60}
+        progress={67}
+      />
+    </div>
+  </Story>
+</Canvas>

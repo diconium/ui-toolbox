@@ -24,3 +24,4 @@ export { default as NavigationBar } from './NavigationBar';
 export { default as Swipeable } from './Utils/Swipeable';
 export { default as Dot } from './Dot';
 export { default as Toast } from './Toast';
+export { default as ProgressBar } from './ProgressBar';
