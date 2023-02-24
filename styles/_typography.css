@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 @layer base {
     html {
@@ -20,13 +20,13 @@
     h2 {
       font-size: 20px;
       line-height: 28px;
-      font-weight: 700;
+      font-weight: 600;
     }
   
     h3 {
       font-size: 17px;
       line-height: 24px;
-      font-weight: 500;
+      font-weight: 600;
     }
   
     h4 {
@@ -49,8 +49,8 @@
 
     small {
       font-size: 14px;
-      line-height: 18px;
-      font-weight: 300;
+      line-height: 20px;
+      font-weight: 400;
     }
 
     @media (min-width: 430px) {
@@ -75,7 +75,7 @@
       h3 {
         font-size: 20px;
         line-height: 28px;
-        font-weight: 500;
+        font-weight: 600;
       }
     
       h4 {
@@ -99,7 +99,7 @@
       small {
         font-size: 13px;
         line-height: 18px;
-        font-weight: 300;
+        font-weight: 400;
       }
     }
   }
