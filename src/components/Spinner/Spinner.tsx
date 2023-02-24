@@ -40,12 +40,12 @@ function Spinner({ size = 'lg' }: Props) {
         strokeWidth="4"
       />
       <path
-        className="stroke-toolbox-neutral-200"
+        className="stroke-toolbox-neutral-50"
         d="M38 20C38 29.9411 29.9411 38 20 38C10.0589 38 2 29.9411 2 20"
         strokeWidth="4"
       />
       <path
-        className="stroke-toolbox-neutral-200"
+        className="stroke-toolbox-neutral-50"
         d="M2 20C2 10.0589 10.0589 2 20 2"
         strokeWidth="4"
       />

@@ -27,7 +27,7 @@ function ProgressBar({ progress = 0, min = MIN, max = MAX, animate = false }: Pr
     { 'motion-safe:animate-pulse': animate },
   ]);
   return (
-    <div className="w-full h-1 bg-toolbox-neutral-200 rounded-2xl">
+    <div className="w-full h-1 bg-toolbox-neutral-50 rounded-2xl">
       <div
         className={template}
         style={{ width: `${normalize(progress, min, max)}%` }}
