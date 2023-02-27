@@ -11,7 +11,7 @@ export default create({
   
   brandTitle: 'diconium',
   brandUrl: 'https://jobs.diconium.com/',
-  brandImage: 'https://jobs.diconium.com/uploads/1622/settings/companies/diconium-jobs-96-6059ae9e056c4.png',
+  brandImage: 'https://jobs.embitel.de/uploads/1306/settings/companies/diconium-96-63c512c9b9afb.png',
   brandTarget: '_blank',
 
   appBg: colors.additional.white,
