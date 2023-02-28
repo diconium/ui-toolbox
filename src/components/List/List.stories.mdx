@@ -1,0 +1,107 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import List from './List';
+import ListItem from '../ListItem';
+import State from '../State';
+import Avatar from '../Avatar';
+import Dot from '../Dot';
+
+<Meta
+  title="Toolbox/List/List"
+  component={List}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+/>
+
+# List
+
+To import the `List` component simply include the following at the top of your file:
+
+```
+import { List } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <List>
+      <ListItem
+        title="Text label"
+        subtitle="Text label"
+        rightBottom={<Dot size="lg" />}
+      />
+      <ListItem title="Text label">
+        <div>
+          <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+          <p className="text-toolbox-neutral-500 leading-5 text-sm">
+            In the context of software or firmware or hardware engineering, a test bench is an
+            environment in which the product under development is tested with the aid of software
+            and hardware tools.
+          </p>
+        </div>
+      </ListItem>
+      <ListItem
+        opened
+        title="Text label"
+        subtitle="Text label"
+        right={
+          <State
+            label="Label text"
+            color="bg-toolbox-feedback-red"
+          />
+        }
+        rightBottom={
+          <Avatar
+            border="border-toolbox-feedback-red"
+            link="https://i.pravatar.cc/150?u=47110"
+            alt="Nora"
+            size="m"
+          />
+        }
+      >
+        <div>
+          <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+          <p className="text-toolbox-neutral-500 leading-5 text-sm">
+            In the context of software or firmware or hardware engineering, a test bench is an
+            environment in which the product under development is tested with the aid of software
+            and hardware tools.
+          </p>
+        </div>
+      </ListItem>
+      <ListItem
+        title="Text label"
+        subtitle="No info, but with avatar"
+        right={
+          <Avatar
+            link="https://i.pravatar.cc/150?u=47110"
+            alt="Nora"
+            size="m"
+          />
+        }
+      />
+      <ListItem
+        title="No subtitle, no content"
+        right={<State label="Label text" />}
+        rightBottom={
+          <Avatar
+            link="https://i.pravatar.cc/150?u=47110"
+            alt="Nora"
+            size="m"
+          />
+        }
+      />
+      <ListItem
+        title="Text label"
+        subtitle="Text label"
+      >
+        <div>
+          <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+          <p className="text-toolbox-neutral-500 leading-5 text-sm">
+            In the context of software or firmware or hardware engineering, a test bench is an
+            environment in which the product under development is tested with the aid of software
+            and hardware tools.
+          </p>
+        </div>
+      </ListItem>
+    </List>
+  </Story>
+</Canvas>
