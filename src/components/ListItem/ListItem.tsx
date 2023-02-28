@@ -10,9 +10,18 @@ export interface Props extends PropsWithChildren {
   right?: ReactNode | undefined;
   rightBottom?: ReactNode | undefined;
   opened?: boolean;
+  textAlignment?: string;
 }
 
-function ListItem({ title, children, subtitle = '', right, rightBottom, opened = false }: Props) {
+function ListItem({
+  title,
+  children,
+  subtitle = '',
+  right,
+  rightBottom,
+  opened = false,
+  textAlignment = 'left',
+}: Props) {
   const [isOpen, toggle] = useState(opened);
   const canBeOpened = !!children;
 
@@ -26,13 +35,16 @@ function ListItem({ title, children, subtitle = '', right, rightBottom, opened =
           <Heading
             title={title}
             placeholder={right}
+            textAlignment={textAlignment}
           />
-          <Subtitle
-            subtitle={subtitle}
-            placeholder={rightBottom}
-            isOpen={isOpen}
-            showChevron={canBeOpened}
-          />
+          {textAlignment !== 'center' && (
+            <Subtitle
+              subtitle={subtitle}
+              placeholder={rightBottom}
+              isOpen={isOpen}
+              showChevron={canBeOpened}
+            />
+          )}
         </div>
       </div>
       {canBeOpened && isOpen && <div className="mt-2">{children}</div>}
