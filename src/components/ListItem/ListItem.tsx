@@ -27,6 +27,7 @@ function ListItem({
   const [isOpen, toggle] = useState(opened);
   const canBeOpened = !!children;
   const renderPlaceholder = upper || lower || canBeOpened;
+  const renderSubtitle = textAlignment !== 'center' && subtitle;
 
   return (
     <Template
@@ -42,10 +43,8 @@ function ListItem({
                 title={title}
                 textAlignment={textAlignment}
               />
-              {textAlignment !== 'center' && (
-                <div className="h-5 text-toolbox-neutral font-semibold text-sm mt-2">
-                  {subtitle}
-                </div>
+              {renderSubtitle && (
+                <div className="text-toolbox-neutral font-semibold text-sm mt-2">{subtitle}</div>
               )}
             </div>
           </div>
