@@ -31,7 +31,7 @@ import { List } from '@dicoauto/toolbox';
       <ListItem
         title="Text label"
         subtitle="Text label"
-        rightBottom={<Dot size="lg" />}
+        lower={<Dot size="lg" />}
       />
       <ListItem title="Text label">
         <div>
@@ -47,13 +47,13 @@ import { List } from '@dicoauto/toolbox';
         opened
         title="Text label"
         subtitle="Text label"
-        right={
+        upper={
           <State
             label="Label text"
             color="bg-toolbox-feedback-red"
           />
         }
-        rightBottom={
+        lower={
           <Avatar
             border="border-toolbox-feedback-red"
             link="https://i.pravatar.cc/150?u=47110"
@@ -74,7 +74,7 @@ import { List } from '@dicoauto/toolbox';
       <ListItem
         title="Text label"
         subtitle="No info, but with avatar"
-        right={
+        upper={
           <Avatar
             link="https://i.pravatar.cc/150?u=47110"
             alt="Nora"
@@ -83,9 +83,25 @@ import { List } from '@dicoauto/toolbox';
         }
       />
       <ListItem
+        title="Selected"
+        textAlignment="center"
+        selected
+      />
+      <ListItem
+        title="Title and Avatar"
+        subtitle="only right side, no right bottom"
+        upper={
+          <Avatar
+            link="https://i.pravatar.cc/150?u=47110"
+            alt="Nora"
+            size="xl"
+          />
+        }
+      />
+      <ListItem
         title="No subtitle, no content"
-        right={<State label="Label text" />}
-        rightBottom={
+        upper={<State label="Label text" />}
+        lower={
           <Avatar
             link="https://i.pravatar.cc/150?u=47110"
             alt="Nora"

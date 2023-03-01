@@ -51,6 +51,36 @@ using `textAlignment` and setting it to `center`. Doing this will also disable t
   </Story>
 </Canvas>
 
+## Selected
+
+<Canvas>
+  <Story name="Selected">
+    <ListItem
+      textAlignment="center"
+      title="Text label"
+      selected
+    />
+  </Story>
+</Canvas>
+
+## Upper slot only
+
+<Canvas>
+  <Story name="Upper slot only">
+    <ListItem
+      title="Title and Avatar"
+      subtitle="Text label"
+      upper={
+        <Avatar
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="xl"
+        />
+      }
+    />
+  </Story>
+</Canvas>
+
 ## With extended Info
 
 <Canvas>
@@ -72,14 +102,14 @@ using `textAlignment` and setting it to `center`. Doing this will also disable t
   </Story>
 </Canvas>
 
-## With right side
+## With upper side and extended
 
 <Canvas>
-  <Story name="With right side">
+  <Story name="With upper side and extended">
     <ListItem
       opened
       title="Text label"
-      right={
+      upper={
         <State
           label="Not at desk"
           color="bg-toolbox-feedback-orange"
@@ -106,13 +136,13 @@ using `textAlignment` and setting it to `center`. Doing this will also disable t
       opened
       title="Text label"
       subtitle="Text label"
-      right={
+      upper={
         <State
           label="Label text"
           color="bg-toolbox-feedback-red"
         />
       }
-      rightBottom={
+      lower={
         <Avatar
           border="border-toolbox-feedback-red"
           link="https://i.pravatar.cc/150?u=47110"
@@ -141,13 +171,13 @@ using `textAlignment` and setting it to `center`. Doing this will also disable t
       opened
       title="Text label"
       subtitle="Text label"
-      right={
+      upper={
         <State
           label="Label text"
           color="bg-toolbox-feedback-red"
         />
       }
-      rightBottom={
+      lower={
         <Avatar
           border="border-toolbox-feedback-red"
           link="https://i.pravatar.cc/150?u=47110"
