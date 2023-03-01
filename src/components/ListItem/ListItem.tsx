@@ -26,6 +26,7 @@ function ListItem({
 }: Props) {
   const [isOpen, toggle] = useState(opened);
   const canBeOpened = !!children;
+  const renderPlaceholder = upper || lower || canBeOpened;
 
   return (
     <Template
@@ -48,14 +49,16 @@ function ListItem({
               )}
             </div>
           </div>
-          <div className="flex-shrink flex">
-            <Placeholder
-              upper={upper}
-              lower={lower}
-              isOpen={isOpen}
-              showChevron={canBeOpened}
-            />
-          </div>
+          {renderPlaceholder && (
+            <div className="flex-shrink flex">
+              <Placeholder
+                upper={upper}
+                lower={lower}
+                isOpen={isOpen}
+                showChevron={canBeOpened}
+              />
+            </div>
+          )}
         </div>
       </div>
       {canBeOpened && isOpen && <div className="mt-2">{children}</div>}
