@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from 'react';
 import dayjs from 'dayjs';
-import Day from './Day';
 
 import Header from './Header';
+import WeekHeader from './WeekHeader';
+import Day from './Day';
 import DefaultAction from './DefaultAction';
-
 import { getWeeks, getTextColor } from './utils';
 
 const FORMAT = 'DD/MM/YYYY';
@@ -46,16 +46,7 @@ function Calendar({
         {children || <DefaultAction onClick={() => onDefaultActionClick()} />}
       </Header>
       <div className="mt-7">
-        <div className="grid grid-cols-7 gap-x-6 mt-2">
-          {weeks[0].map((day) => (
-            <div
-              key={day.format(FORMAT)}
-              className="leading-5 text-sm font-semibold flex justify-center"
-            >
-              {day.format('dd')}
-            </div>
-          ))}
-        </div>
+        <WeekHeader week={weeks[0]} />
         {weeks.map((week) => (
           <div
             key={week[0].format()}
