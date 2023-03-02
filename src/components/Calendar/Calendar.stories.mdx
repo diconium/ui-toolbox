@@ -1,0 +1,124 @@
+import { useState } from 'react';
+import dayjs from 'dayjs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Calendar from './Calendar';
+import Avatar from '../Avatar';
+import Icon from '../Icon';
+
+<Meta
+  title="Toolbox/Calendar"
+  component={Calendar}
+  decorators={[
+    (Story) => (
+      <div className="bg-toolbox-neutral-50 h-auto flex flex-col justify-center">
+        <div className="w-full md:w-1/2 mx-auto">
+          <Story />
+        </div>
+      </div>
+    ),
+  ]}
+/>
+
+# Calendar
+
+To import the `Calendar` component simply include the following at the top of your file:
+
+```
+import { Calendar } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story
+    name="Default"
+    parameters={{
+      chromatic: {
+        disableSnapshot: true /** This snapshot changes every day */,
+      },
+    }}
+  >
+    <Calendar />
+  </Story>
+</Canvas>
+
+## Specific date in the past
+
+<Canvas>
+  <Story name="Specific date in the past">
+    <Calendar date={dayjs(new Date(2021, 7, 11))} />
+  </Story>
+</Canvas>
+
+## With state
+
+You have to pass a state map with key value pairs like shown below. The key must be formated in this style
+`DD/MM/YYYY`.
+
+<Canvas>
+  <Story name="With state">
+    <Calendar
+      date={dayjs(new Date(2021, 5, 14))}
+      state={{
+        '14/06/2021': 'bg-toolbox-feedback-orange',
+        '19/06/2021': 'bg-toolbox-feedback-orange',
+        '21/06/2021': 'bg-toolbox-feedback-red',
+      }}
+    />
+  </Story>
+</Canvas>
+
+## Select a date
+
+<Canvas>
+  <Story name="Select a date">
+    {() => {
+      const [date, set] = useState(dayjs(new Date(2023, 2, 15)));
+      return (
+        <div className="flex flex-col space-y-4 p-4">
+          <div>Please select a date below: {date && date.format('DD.MM.YYYY')}</div>
+          <Calendar
+            date={date}
+            onSelect={(date) => set(date)}
+            onPreviousClick={(date) => set(date)}
+            onNextClick={(date) => set(date)}
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Attach to the default action
+
+You can attach anything you want to the `onDefaultActionClick`handler.
+
+<Canvas>
+  <Story name="Attach to the default action">
+    {() => {
+      const [counter, set] = useState(0);
+      return (
+        <div className="flex flex-col space-y-4 p-4">
+          <div>Please click on the Icon: {counter}</div>
+          <Calendar onDefaultActionClick={() => set(counter + 1)} />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Add any component to the top right corner
+
+<Canvas>
+  <Story name="Add any component to the top right corner">
+    <Calendar date={dayjs(new Date(2021, 7, 11))}>
+      <Icon icon="alarm-clock" />
+      <Icon icon="wifi" />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=044589"
+        alt="Emma"
+        size="m"
+      />
+    </Calendar>
+  </Story>
+</Canvas>
