@@ -11,7 +11,7 @@ import Icon from '../Icon';
   decorators={[
     (Story) => (
       <div className="bg-toolbox-neutral-50 h-auto flex flex-col justify-center">
-        <div className="w-full md:w-1/2 mx-auto my-4">
+        <div className="mx-auto my-4">
           <Story />
         </div>
       </div>
@@ -100,7 +100,10 @@ You can attach anything you want to the `onDefaultActionClick`handler.
       return (
         <div className="flex flex-col space-y-4 p-4">
           <div>Please click on the Icon: {counter}</div>
-          <Calendar onDefaultActionClick={() => set(counter + 1)} />
+          <Calendar
+            date={dayjs(new Date(2023, 3, 15))}
+            onDefaultActionClick={() => set(counter + 1)}
+          />
         </div>
       );
     }}
