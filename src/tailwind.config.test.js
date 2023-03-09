@@ -106,6 +106,7 @@ describe('Tailwind config', () => {
     const colors = config.theme.colors.toolbox;
     expect(colors.black).toBeDefined();
     expect(colors.white).toBeDefined();
+    expect(colors.grey).toBeDefined();
     expect(colors.feedback).toBeDefined();
     expect(colors.feedback.green).toBeDefined();
     expect(colors.feedback.green.DEFAULT).toBeDefined();
