@@ -66,6 +66,7 @@ const additional = {
   },
   black: '#000000',
   white: '#FFFFFF',
+  grey: '#F5F5F5'
 };
 
 module.exports = {
