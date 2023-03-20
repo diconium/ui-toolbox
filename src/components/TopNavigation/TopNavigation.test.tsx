@@ -1,9 +1,16 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
 
+import { TopNavigation as IMPORT } from '../../index';
 import TopNavigation from './TopNavigation';
 
 describe('TopNavigation component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(TopNavigation).toBeDefined();
+    expect(IMPORT).toEqual(TopNavigation);
+  });
+
   test('can render the default component correctly', () => {
     render(<TopNavigation title="Foo" />);
     expect(screen.getByText(/Foo/i)).toBeInTheDocument();

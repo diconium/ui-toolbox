@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Checkbox as IMPORT } from '../../index';
 import Checkbox from './Checkbox';
 
 describe('Checkbox component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Checkbox).toBeDefined();
+    expect(IMPORT).toEqual(Checkbox);
+  });
+
   test('can render the default button correctly', () => {
     render(<Checkbox />);
     expect(screen.getByRole('button')).toBeInTheDocument();
