@@ -1,9 +1,16 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
 
+import { Badge as IMPORT } from '../../index';
 import Badge, { MAX_BADGE_VALUE } from './Badge';
 
 describe('Badge component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Badge).toBeDefined();
+    expect(IMPORT).toEqual(Badge);
+  });
+
   test('can render the default component correctly', () => {
     render(<Badge badge={9} />);
     expect(screen.getByText(/9/i)).toBeInTheDocument();

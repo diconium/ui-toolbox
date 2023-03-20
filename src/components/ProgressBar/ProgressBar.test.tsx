@@ -1,8 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+
+import { ProgressBar as IMPORT } from '../../index';
 import ProgressBar from './ProgressBar';
 
 describe('ProgressBar component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(ProgressBar).toBeDefined();
+    expect(IMPORT).toEqual(ProgressBar);
+  });
+
   test('can render the default component correctly', () => {
     const { container } = render(<ProgressBar />);
     expect(container.firstChild).toHaveClass('h-1 bg-toolbox-neutral-50');
