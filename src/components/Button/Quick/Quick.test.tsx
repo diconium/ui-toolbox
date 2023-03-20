@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { QuickButton as IMPORT } from '../../../index';
 import Button from './Quick';
 
 describe('QuickButton component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Button).toBeDefined();
+    expect(IMPORT).toEqual(Button);
+  });
+
   test('can render the default button correctly', () => {
     render(<Button icon="check" />);
     expect(screen.getByRole('button')).toBeInTheDocument();

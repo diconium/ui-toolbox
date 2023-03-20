@@ -1,9 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import { Dot as IMPORT } from '../../index';
 import Dot from './Dot';
 
 describe('Dot component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Dot).toBeDefined();
+    expect(IMPORT).toEqual(Dot);
+  });
+
   test('can render the default component correctly', () => {
     const { container } = render(<Dot />);
     expect(container.firstChild).toHaveClass('w-4 h-4 bg-toolbox-primary');

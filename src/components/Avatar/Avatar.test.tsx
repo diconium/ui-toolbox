@@ -1,9 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import { Avatar as IMPORT } from '../../index';
 import Avatar from './Avatar';
 
 describe('Avatar component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Avatar).toBeDefined();
+    expect(IMPORT).toEqual(Avatar);
+  });
+
   test('can render the default correctly', () => {
     const { container } = render(
       <Avatar

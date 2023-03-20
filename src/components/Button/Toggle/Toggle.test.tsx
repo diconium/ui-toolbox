@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { ToggleButton as IMPORT } from '../../../index';
 import ToggleButton from './Toggle';
 
 describe('Toggle component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(ToggleButton).toBeDefined();
+    expect(IMPORT).toEqual(ToggleButton);
+  });
+
   test('can render the default button correctly', () => {
     render(<ToggleButton />);
     expect(screen.getByRole('button')).toBeInTheDocument();
