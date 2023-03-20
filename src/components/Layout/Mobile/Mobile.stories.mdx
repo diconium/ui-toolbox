@@ -1,0 +1,107 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Layout from './Mobile';
+import TopNavigation from '../../TopNavigation';
+import NavigationBar from '../../NavigationBar';
+import Icon from '../../Icon';
+import Avatar from '../../Avatar';
+import QuickButton from '../../Button/Quick';
+
+<Meta
+  title="Toolbox/Layout/Mobile"
+  component={Layout}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+  decorators={[
+    (Story) => (
+      <div className="flex justify-center">
+        <div className="w-sm">
+          <Story />
+        </div>
+      </div>
+    ),
+  ]}
+/>
+
+# MobileLayout
+
+To import the `MobileLayout` component simply include the following at the top of your file:
+
+```
+import { MobileLayout } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <Layout
+      className="bg-toolbox-feedback-orange"
+      header={<div className="h-32 bg-toolbox-primary w-full" />}
+      footer={<div className="h-32 bg-toolbox-secondary w-full" />}
+    >
+      <div className="p-16 flex flex-col items-center bg-toolbox-neutral-50 h-[1280px]">
+        SCROLLABLE CONTENT
+      </div>
+    </Layout>
+  </Story>
+</Canvas>
+
+## Additional styles
+
+You can apply additional styles to the content area of the layout via the `className` property.
+
+<Canvas>
+  <Story name="Additional styles">
+    <Layout
+      className="bg-toolbox-feedback-orange"
+      header={<div className="h-32 bg-toolbox-primary w-full" />}
+      footer={<div className="h-32 bg-toolbox-secondary w-full" />}
+    >
+      <div className="p-16 flex flex-col items-center bg-toolbox-feedback-orange h-[1280px]">
+        SCROLLABLE CONTENT
+      </div>
+    </Layout>
+  </Story>
+</Canvas>
+
+## Example
+
+<Canvas>
+  <Story name="Example">
+    <Layout
+      className="bg-toolbox-neutral-50"
+      header={
+        <TopNavigation
+          title="your app"
+          leading="simplified screen building"
+          subtitle="with reusable layouts"
+        >
+          <Icon icon="menu" />
+        </TopNavigation>
+      }
+      footer={
+        <NavigationBar
+          left={
+            <>
+              <Icon icon="mail-check" />
+              <Icon icon="calendar" />
+            </>
+          }
+          right={
+            <>
+              <Icon icon="fingerprint" />
+              <Avatar
+                link="https://i.pravatar.cc/150?u=08188"
+                alt="Mike"
+                badge={4}
+              />
+            </>
+          }
+        >
+          <QuickButton icon="check" />
+        </NavigationBar>
+      }
+    >
+      <div className="h-[1280px]">SCROLLABLE CONTENT</div>
+    </Layout>
+  </Story>
+</Canvas>
