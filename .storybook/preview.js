@@ -1,3 +1,4 @@
+import pretty from 'pretty';
 import '../dist/toolbox.css';
 
 const defaultViewport = 'responsive';
@@ -42,4 +43,9 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  docs: {
+    // can be removed after storybook v7 will be released
+    // https://github.com/storybookjs/storybook/issues/8078
+    transformSource: input => pretty(input)
+  }
 }
