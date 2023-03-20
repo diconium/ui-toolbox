@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export { default as Avatar } from './Avatar';
 export { default as Avatars } from './Avatars';
 export { default as Button } from './Button';
