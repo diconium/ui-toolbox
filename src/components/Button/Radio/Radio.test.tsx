@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { RadioButton as IMPORT } from '../../../index';
 import RadioButton from './Radio';
 
 describe('RadioButton component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(RadioButton).toBeDefined();
+    expect(IMPORT).toEqual(RadioButton);
+  });
+
   test('can render the default button correctly', () => {
     render(<RadioButton />);
     expect(screen.getByRole('radio')).toBeInTheDocument();

@@ -1,9 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import { Spinner as IMPORT } from '../../index';
 import Spinner from './Spinner';
 
 describe('Spinner component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Spinner).toBeDefined();
+    expect(IMPORT).toEqual(Spinner);
+  });
+
   test('can render the default component correctly', () => {
     const { container } = render(<Spinner />);
     expect(container.firstChild).toHaveClass('animate-spin w-10 h-10');
