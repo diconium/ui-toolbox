@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Drawer as IMPORT } from '../../index';
 import Drawer from './Drawer';
 
 describe('Drawer component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Drawer).toBeDefined();
+    expect(IMPORT).toEqual(Drawer);
+  });
+
   test('can render the component correctly', () => {
     render(<Drawer opened>CONTEXT</Drawer>);
     expect(screen.getByText(/CONTEXT/i)).toBeInTheDocument();

@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Tag as IMPORT } from '../../index';
 import Tag from './Tag';
 
 describe('Tag component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Tag).toBeDefined();
+    expect(IMPORT).toEqual(Tag);
+  });
+
   test('can render the default component correctly', () => {
     render(<Tag label="Foo" />);
     expect(screen.getByText(/Foo/i)).toBeInTheDocument();
