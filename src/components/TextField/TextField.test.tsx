@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { TextField as IMPORT } from '../../index';
 import TextField from './TextField';
 
 describe('TextField component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(TextField).toBeDefined();
+    expect(IMPORT).toEqual(TextField);
+  });
+
   test('can render the default component correctly', () => {
     render(<TextField placeholder="foo" />);
     expect(screen.getByPlaceholderText(/foo/i)).toBeInTheDocument();

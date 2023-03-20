@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export default {
   'address-book': '\ueaa5',
   'address-card': '\ueaa6',

@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Chip as IMPORT } from '../../index';
 import Chip from './Chip';
 
 describe('Chip component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Chip).toBeDefined();
+    expect(IMPORT).toEqual(Chip);
+  });
+
   test('can render the default button correctly', () => {
     render(<Chip label="Berlin" />);
     expect(screen.getByText(/Berlin/i)).toBeInTheDocument();

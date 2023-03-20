@@ -3,9 +3,16 @@ import { jest } from '@jest/globals';
 import { screen, render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Searchbar as IMPORT } from '../../index';
 import Searchbar from './Searchbar';
 
 describe('Searchbar component', () => {
+  test('can be imported from the library correctly', () => {
+    expect(IMPORT).toBeDefined();
+    expect(Searchbar).toBeDefined();
+    expect(IMPORT).toEqual(Searchbar);
+  });
+
   test('can render the default component correctly', () => {
     render(<Searchbar placeholder="foo" />);
     expect(screen.getByPlaceholderText(/foo/i)).toBeInTheDocument();
