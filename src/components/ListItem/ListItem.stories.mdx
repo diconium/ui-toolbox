@@ -1,0 +1,190 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import ListItem from './ListItem';
+import State from '../State';
+import Avatar from '../Avatar';
+
+<Meta
+  title="Toolbox/List/ListItem"
+  component={ListItem}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+/>
+
+# ListItem
+
+To import the `ListItem` component simply include the following at the top of your file:
+
+```
+import { ListItem } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <ListItem title="Text label" />
+  </Story>
+</Canvas>
+
+## With subtitle
+
+<Canvas>
+  <Story name="With subtitle">
+    <ListItem
+      title="Text label"
+      subtitle="Text label"
+    />
+  </Story>
+</Canvas>
+
+## Centered Text
+
+In special cases you want to show important information by its own, you can center the title by
+using `textAlignment` and setting it to `center`. Doing this will also disable the subtitle if set.
+
+<Canvas>
+  <Story name="Centered text">
+    <ListItem
+      textAlignment="center"
+      title="Text label"
+      subtitle="Text label"
+    />
+  </Story>
+</Canvas>
+
+## Selected
+
+<Canvas>
+  <Story name="Selected">
+    <ListItem
+      textAlignment="center"
+      title="Text label"
+      selected
+    />
+  </Story>
+</Canvas>
+
+## Upper slot only
+
+<Canvas>
+  <Story name="Upper slot only">
+    <ListItem
+      title="Title and Avatar"
+      subtitle="Text label"
+      upper={
+        <Avatar
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="xl"
+        />
+      }
+    />
+  </Story>
+</Canvas>
+
+## With extended Info
+
+<Canvas>
+  <Story name="With extended Info">
+    <ListItem
+      opened
+      title="Text label"
+      subtitle="Text label"
+    >
+      <div>
+        <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+        <p className="text-toolbox-neutral-500 leading-5 text-sm">
+          In the context of software or firmware or hardware engineering, a test bench is an
+          environment in which the product under development is tested with the aid of software and
+          hardware tools.
+        </p>
+      </div>
+    </ListItem>
+  </Story>
+</Canvas>
+
+## With upper side and extended
+
+<Canvas>
+  <Story name="With upper side and extended">
+    <ListItem
+      opened
+      title="Text label"
+      upper={
+        <State
+          label="Not at desk"
+          color="bg-toolbox-feedback-orange"
+        />
+      }
+    >
+      <div>
+        <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+        <p className="text-toolbox-neutral-500 leading-5 text-sm">
+          In the context of software or firmware or hardware engineering, a test bench is an
+          environment in which the product under development is tested with the aid of software and
+          hardware tools.
+        </p>
+      </div>
+    </ListItem>
+  </Story>
+</Canvas>
+
+## Full
+
+<Canvas>
+  <Story name="Full">
+    <ListItem
+      opened
+      title="Text label"
+      subtitle="Text label"
+      upper={
+        <State
+          label="Label text"
+          color="bg-toolbox-feedback-red"
+        />
+      }
+      lower={
+        <Avatar
+          border="border-toolbox-feedback-red"
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="m"
+        />
+      }
+    >
+      <div>
+        <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+        <p className="text-toolbox-neutral-500 leading-5 text-sm">
+          In the context of software or firmware or hardware engineering, a test bench is an
+          environment in which the product under development is tested with the aid of software and
+          hardware tools.
+        </p>
+      </div>
+    </ListItem>
+  </Story>
+</Canvas>
+
+## Full (no open)
+
+<Canvas>
+  <Story name="Full (no open)">
+    <ListItem
+      opened
+      title="Text label"
+      subtitle="Text label"
+      upper={
+        <State
+          label="Label text"
+          color="bg-toolbox-feedback-red"
+        />
+      }
+      lower={
+        <Avatar
+          border="border-toolbox-feedback-red"
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="m"
+        />
+      }
+    />
+  </Story>
+</Canvas>
