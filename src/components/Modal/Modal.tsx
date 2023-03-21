@@ -43,7 +43,7 @@ function Modal({
           {!isSimpleContent && children}
         </div>
       </div>
-      <div className="mx-2 flex flex-col justify-center">
+      <div className="flex flex-col justify-center">
         <PrimaryButton
           label={acknowledgement}
           onClick={() => onAcknowledge()}

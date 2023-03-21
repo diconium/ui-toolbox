@@ -10,7 +10,7 @@ export interface Props extends PropsWithChildren {
   outlinedTemplate?: string;
 }
 
-const BASE_TEMPLATE = `box-border h-14 text-base leading-4 max-w-xs 
+const BASE_TEMPLATE = `box-border h-14 text-base leading-4 max-w-sm 
   font-semibold uppercase px-20 py-4 rounded-2xl`;
 
 const DEFAULT_TEMPLATE = `text-toolbox-white bg-toolbox-neutral hover:bg-toolbox-neutral-600 
