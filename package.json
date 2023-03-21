@@ -1,10 +1,11 @@
 {
   "name": "@dicoauto/toolbox",
+  "repository": "https://github.com/dicoauto/toolbox",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/toolbox"
+    "registry": "https://npm.pkg.github.com"
   },
   "version": "0.0.1",
-  "description": "General component library for building react apps inside of diconium",
+  "description": "General component library for building react apps for diconium auto",
   "scripts": {
     "build:css:watch": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css --watch",
     "build:css": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css",
