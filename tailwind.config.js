@@ -11,13 +11,16 @@ module.exports = {
     },
     extend: {
       spacing: {
-        13: '3.25rem'
+        13: '3.25rem',
       },
       width: {
-        sm: '430px'
+        sm: '430px',
       },
       minWidth: {
-        sm: '430px'
+        sm: '430px',
+      },
+      maxWidth: {
+        sm: '430px',
       },
       colors: {
         toolbox: {
