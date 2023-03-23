@@ -19,7 +19,7 @@
     "lint": "eslint ./src --ext js,ts,tsx,jsx",
     "lint:fix": "npm run lint -- --fix",
     "generate:component": "hygen component new --name $1",
-    "postinstall": "cp dist/fonts $INIT_CWD/styles/fonts"
+    "postinstall": "node postinstall.mjs"
   },
   "author": "Diconium Auto GmbH - Team Web",
   "license": "ISC",
