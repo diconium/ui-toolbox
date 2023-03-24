@@ -13,7 +13,7 @@
     "test": "jest",
     "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "npm run build:css && build-storybook",
+    "build-storybook": "npm run build:prod && build-storybook",
     "lint": "eslint ./src --ext js,ts,tsx,jsx",
     "lint:fix": "npm run lint -- --fix",
     "generate:component": "hygen component new --name $1",
