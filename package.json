@@ -9,16 +9,15 @@
   "scripts": {
     "build:css:watch": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css --watch",
     "build:css": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css",
-    "build:fonts": "cp -R ./styles/fonts ./dist/",
-    "build:assets": "npm run build:css && npm run build:fonts",
-    "build:prod": "npm run build:assets && NODE_ENV=production rollup -c",
+    "build:prod": "npm run build:css && NODE_ENV=production rollup -c",
     "test": "jest",
     "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "npm run build:assets && build-storybook",
+    "build-storybook": "npm run build:prod && build-storybook",
     "lint": "eslint ./src --ext js,ts,tsx,jsx",
     "lint:fix": "npm run lint -- --fix",
-    "generate:component": "hygen component new --name $1"
+    "generate:component": "hygen component new --name $1",
+    "postinstall": "node postinstall.mjs"
   },
   "author": "Diconium Auto GmbH - Team Web",
   "license": "ISC",
@@ -71,6 +70,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.20.0",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-postcss": "^4.0.2",
     "storybook-addon-pseudo-states": "^1.15.2",
