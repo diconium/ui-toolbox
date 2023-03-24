@@ -73,7 +73,7 @@ You have to pass a state map with key value pairs like shown below. The key must
 <Canvas>
   <Story name="Select a date">
     {() => {
-      const [date, set] = useState(dayjs(new Date(2023, 2, 15)));
+      const [date, set] = useState(dayjs(new Date(2022, 2, 15)));
       return (
         <div className="flex flex-col space-y-4 p-4">
           <div>Please select a date below: {date && date.format('DD.MM.YYYY')}</div>
