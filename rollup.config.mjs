@@ -3,6 +3,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
+import copy from 'rollup-plugin-copy';
+
 import packageJson from './package.json' assert { type: 'json' };
 
 const POSTCSS_OPTIONS = {
@@ -14,6 +16,17 @@ const POSTCSS_OPTIONS = {
   inject: {
     insertAt: 'top',
   },
+};
+
+const FONTS = [
+  'styles/fonts/toolbox.ttf',
+  'styles/fonts/toolbox.eot',
+  'styles/fonts/toolbox.woff',
+  'styles/fonts/toolbox.woff2',
+];
+
+const COPY_ASSETS_OPTIONS = {
+  targets: [{ src: FONTS, dest: 'dist/fonts' }],
 };
 
 export default [
@@ -36,6 +49,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss(POSTCSS_OPTIONS),
+      copy(COPY_ASSETS_OPTIONS),
     ],
   },
   {
