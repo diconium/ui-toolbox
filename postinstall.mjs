@@ -16,22 +16,22 @@ if (
     console.info('Copy fonts to local project.');
     await copyFile(
       `${env.INIT_CWD}/dist/fonts/toolbox.ttf`,
-      `${env.INIT_CWD}/styles/fonts/toolbox.ttf`,
+      `${env.INIT_CWD}/src/styles/fonts/toolbox.ttf`,
       constants.COPYFILE_EXCL
     );
     await copyFile(
       `${env.INIT_CWD}/dist/fonts/toolbox.eot`,
-      `${env.INIT_CWD}/styles/fonts/toolbox.eot`,
+      `${env.INIT_CWD}/src/styles/fonts/toolbox.eot`,
       constants.COPYFILE_EXCL
     );
     await copyFile(
       `${env.INIT_CWD}/dist/fonts/toolbox.woff`,
-      `${env.INIT_CWD}/styles/fonts/toolbox.woff`,
+      `${env.INIT_CWD}/src/styles/fonts/toolbox.woff`,
       constants.COPYFILE_EXCL
     );
     await copyFile(
       `${env.INIT_CWD}/dist/fonts/toolbox.woff2`,
-      `${env.INIT_CWD}/styles/fonts/toolbox.woff2`,
+      `${env.INIT_CWD}/src/styles/fonts/toolbox.woff2`,
       constants.COPYFILE_EXCL
     );
   } catch {
