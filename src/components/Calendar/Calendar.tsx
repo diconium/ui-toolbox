@@ -6,6 +6,7 @@ import WeekHeader from './WeekHeader';
 import DefaultAction from './DefaultAction';
 import { getWeeks } from './utils';
 import Weekdays from './Weekdays';
+import Compact from './Compact';
 
 export interface Props extends PropsWithChildren {
   date?: dayjs.Dayjs | null;
@@ -14,6 +15,8 @@ export interface Props extends PropsWithChildren {
   onNextClick?: (date: dayjs.Dayjs) => void;
   onDefaultActionClick?: () => void;
   state?: any;
+  variant?: string;
+  subtitle?: string;
 }
 
 function Calendar({
@@ -24,9 +27,28 @@ function Calendar({
   onDefaultActionClick = () => {},
   state = {},
   children,
+  variant = 'default',
+  subtitle = '',
 }: Props) {
   const current = date || dayjs();
   const weeks = getWeeks(current.year(), current.month());
+
+  if (variant === 'daily') {
+    return (
+      <Compact
+        date={current}
+        subtitle={subtitle}
+        onLeftClick={() => {
+          const previous = current.subtract(1, 'day').startOf('day');
+          onPreviousClick(previous);
+        }}
+        onRightClick={() => {
+          const next = current.add(1, 'day').startOf('day');
+          onNextClick(next);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="max-w-sm bg-toolbox-white rounded-2xl border border-toolbox-neutral-50 py-5 px-8">
