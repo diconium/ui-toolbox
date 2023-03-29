@@ -36,3 +36,4 @@ export { default as ListItem } from './ListItem';
 export { default as TextArea } from './TextArea';
 export { default as Tooltip } from './Tooltip';
 export { default as Calendar } from './Calendar';
+export { default as Message } from './Message';
