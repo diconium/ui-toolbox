@@ -1,0 +1,43 @@
+# This workflow gathers the pipelines which will be executed on event bases.
+
+name: workflows
+
+on:  
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # build
+  build-prod:
+    uses: DicoAuto/actions/.github/workflows/web-build.yaml@feature/web_launch_sonarqube
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # lint
+  code-smells:
+    uses: DicoAuto/actions/.github/workflows/web-lint.yaml@feature/web_launch_sonarqube
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # unit-tests
+  tests:
+    uses: DicoAuto/actions/.github/workflows/web-test.yaml@feature/web_launch_sonarqube
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # sonarqube
+  sonarqube:
+    needs: [tests]
+    uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@feature/web_launch_sonarqube
+    secrets: inherit
+    with:
+      ref_branch: 'main'
+      verbose: true
+      runner: ubuntu-latest
