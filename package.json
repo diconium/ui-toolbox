@@ -16,8 +16,7 @@
     "build-storybook": "npm run build:prod && build-storybook",
     "lint": "eslint ./src --ext js,ts,tsx,jsx",
     "lint:fix": "npm run lint -- --fix",
-    "generate:component": "hygen component new --name $1",
-    "postinstall": "node postinstall.mjs"
+    "generate:component": "hygen component new --name $1"
   },
   "author": "Diconium Auto GmbH - Team Web",
   "license": "ISC",

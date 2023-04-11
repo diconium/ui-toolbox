@@ -26,10 +26,7 @@ const FONTS = [
 ];
 
 const COPY_ASSETS_OPTIONS = {
-  targets: [
-    { src: FONTS, dest: 'dist/fonts' },
-    { src: './postinstall.mjs', dest: 'dist' },
-  ],
+  targets: [{ src: FONTS, dest: 'dist/fonts' }],
 };
 
 export default [
