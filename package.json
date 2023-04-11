@@ -1,9 +1,6 @@
 {
   "name": "@dicoauto/toolbox",
   "repository": "https://github.com/dicoauto/toolbox",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "version": "0.0.1",
   "description": "General component library for building react apps for diconium auto",
   "scripts": {
