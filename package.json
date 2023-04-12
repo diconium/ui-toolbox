@@ -4,9 +4,12 @@
   "version": "0.0.1",
   "description": "General component library for building react apps for diconium auto",
   "scripts": {
+    "build:clean": "rm -rf dist coverage releases storybook-static",
+    "build:clean:all": "npm run build:clean && rm -rf node_modules",
     "build:css:watch": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css --watch",
     "build:css": "npx tailwindcss -i ./styles/toolbox.css -o ./dist/toolbox.css",
     "build:prod": "npm run build:css && NODE_ENV=production rollup -c",
+    "build:release": "npm run build:clean && mkdir releases && npm run build:prod && npm pack --pack-destination ./releases",
     "test": "jest",
     "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
     "storybook": "start-storybook -p 6006",
