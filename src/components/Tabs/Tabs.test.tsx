@@ -4,7 +4,7 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Tabs as IMPORT } from '../../index';
-import Tabs from './Tabs';
+import Tabs, { Template } from './Tabs';
 
 const FIXTURE = [
   { label: 'All', icon: 'menu' },
@@ -82,5 +82,29 @@ describe('Tabs component', () => {
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
     expect(func.mock.calls[0]).toStrictEqual([1]);
+  });
+
+  test('can render the template correctly', () => {
+    const { container } = render(
+      <Template>
+        <span>foo</span>
+        <span>bar</span>
+      </Template>
+    );
+    expect(screen.getByText(/foo/i)).toBeInTheDocument();
+    expect(screen.getByText(/bar/i)).toBeInTheDocument();
+    expect(container.firstChild).not.toHaveClass('shadow-md');
+  });
+
+  test('can render the template with shadow correctly', () => {
+    const { container } = render(
+      <Template shadow>
+        <span>foo</span>
+        <span>bar</span>
+      </Template>
+    );
+    expect(screen.getByText(/foo/i)).toBeInTheDocument();
+    expect(screen.getByText(/bar/i)).toBeInTheDocument();
+    expect(container.firstChild).toHaveClass('shadow-md');
   });
 });

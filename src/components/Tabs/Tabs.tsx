@@ -13,7 +13,7 @@ interface TemplateProps extends PropsWithChildren {
   shadow?: boolean;
 }
 
-function Template({ children, shadow = false }: TemplateProps) {
+export function Template({ children, shadow = false }: TemplateProps) {
   const template = classNames([
     'z-10 flex px-6 space-x-16 overflow-y-scroll',
     shadow && 'shadow-md',
