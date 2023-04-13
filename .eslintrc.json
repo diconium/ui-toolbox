@@ -9,7 +9,8 @@
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:jest-dom/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:storybook/recommended"
   ],
   "plugins": [
     "jest",
