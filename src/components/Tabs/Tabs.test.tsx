@@ -26,6 +26,37 @@ describe('Tabs component', () => {
     expect(screen.getByText(/Read/i)).toBeInTheDocument();
   });
 
+  test('can render the component with a shadow correctly', () => {
+    const { container } = render(
+      <Tabs
+        shadow
+        tabs={FIXTURE}
+      />
+    );
+    expect(container.firstChild).toHaveClass('shadow-md');
+  });
+
+  test('can render the component with a shadow as a block correctly', () => {
+    const { container } = render(
+      <Tabs shadow>
+        <span>foo</span>
+        <span>bar</span>
+      </Tabs>
+    );
+    expect(container.firstChild).toHaveClass('shadow-md');
+  });
+
+  test('can render the component as a block correctly', () => {
+    render(
+      <Tabs>
+        <span>foo</span>
+        <span>bar</span>
+      </Tabs>
+    );
+    expect(screen.getByText(/foo/i)).toBeInTheDocument();
+    expect(screen.getByText(/bar/i)).toBeInTheDocument();
+  });
+
   test('can render component with selected correctly', () => {
     render(
       <Tabs
