@@ -13,17 +13,17 @@ jobs:
     if: |
       github.event_name == 'pull_request' ||
       github.event_name == 'push' && github.ref_name == 'main'
-    uses: DicoAuto/actions/.github/workflows/web-build.yaml@feature/web_launch_sonarqube
+    uses: DicoAuto/actions/.github/workflows/web-build.yaml@development
     secrets: inherit
     with:
       runner: ubuntu-latest
 
   # lint
-  code-smells:
+  linting:
     if: |
       github.event_name == 'pull_request' ||
       github.event_name == 'push' && github.ref_name == 'main'
-    uses: DicoAuto/actions/.github/workflows/web-lint.yaml@feature/web_launch_sonarqube
+    uses: DicoAuto/actions/.github/workflows/web-lint.yaml@development
     secrets: inherit
     with:
       runner: ubuntu-latest
@@ -33,18 +33,18 @@ jobs:
     if: |
       github.event_name == 'pull_request' ||
       github.event_name == 'push' && github.ref_name == 'main'
-    uses: DicoAuto/actions/.github/workflows/web-test.yaml@feature/web_launch_sonarqube
+    uses: DicoAuto/actions/.github/workflows/web-test.yaml@development
     secrets: inherit
     with:
       runner: ubuntu-latest
 
   # sonarqube
   sonarqube:
-    needs: [tests]
+    needs: [build-prod, linting, tests]
     if: |
       github.event_name == 'pull_request' ||
       github.event_name == 'push' && github.ref_name == 'main'
-    uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@feature/web_launch_sonarqube
+    uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@development
     secrets: inherit
     with:
       ref_branch: 'main'
@@ -54,15 +54,18 @@ jobs:
   # deploy docs
   gh-pages:
     if: github.event_name == 'push' && github.ref_name == 'main'
-    uses: DicoAuto/actions/.github/workflows/web-docs.yaml@feature/web_launch_sonarqube
+    uses: DicoAuto/actions/.github/workflows/web-docs.yaml@development
     secrets: inherit
     with:
       runner: ubuntu-latest
 
   # deploy chromatic
   chromatic:
-    if: github.event_name == 'push'
-    uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@feature/web_launch_sonarqube
+    needs: [build-prod, linting, tests]
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@development
     secrets: inherit
     with:
       runner: ubuntu-latest
