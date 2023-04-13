@@ -4,15 +4,14 @@ name: workflows
 
 on:  
   push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
 
 jobs:
   # build
   build-prod:
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-build.yaml@feature/web_launch_sonarqube
     secrets: inherit
     with:
@@ -20,6 +19,9 @@ jobs:
 
   # lint
   code-smells:
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-lint.yaml@feature/web_launch_sonarqube
     secrets: inherit
     with:
@@ -27,6 +29,9 @@ jobs:
 
   # unit-tests
   tests:
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-test.yaml@feature/web_launch_sonarqube
     secrets: inherit
     with:
@@ -35,9 +40,28 @@ jobs:
   # sonarqube
   sonarqube:
     needs: [tests]
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@feature/web_launch_sonarqube
     secrets: inherit
     with:
       ref_branch: 'main'
       verbose: true
+      runner: ubuntu-latest
+
+  # deploy docs
+  gh-pages:
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-docs.yaml@feature/web_launch_sonarqube
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # deploy chromatic
+  chromatic:
+    if: github.event_name == 'push'
+    uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@feature/web_launch_sonarqube
+    secrets: inherit
+    with:
       runner: ubuntu-latest
