@@ -10,6 +10,7 @@ describe('Tabs/Tab component', () => {
   test('can render the default component correctly', () => {
     const symbol = IconConfig.bell;
     render(<Tab label="Foo" />);
+    expect(screen.getByText(/Foo/i)).toHaveClass('uppercase');
     expect(screen.getByText(/Foo/i)).toBeInTheDocument();
     expect(screen.getByText(symbol)).toBeInTheDocument();
   });

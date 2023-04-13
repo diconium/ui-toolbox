@@ -12,8 +12,8 @@ export interface Props {
 export function Tab({ label, icon = 'bell', selected = false, onClick = () => {} }: Props) {
   const template = classNames([
     'text-base leading-5 px-2 py-3 font-semibold',
+    'whitespace-nowrap uppercase',
     selected ? 'text-toolbox-primary' : 'text-toolbox-neutral-200',
-    'whitespace-nowrap',
   ]);
   return (
     <button
