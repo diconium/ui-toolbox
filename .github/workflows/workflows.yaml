@@ -1,0 +1,74 @@
+# This workflow gathers the pipelines which will be executed on event bases.
+
+name: workflows
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+
+  # build
+  build-prod:
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-build.yaml@development
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # lint
+  linting:
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-lint.yaml@development
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # unit-tests
+  tests:
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-test.yaml@development
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # sonarqube
+  sonarqube:
+    needs: [build-prod, linting, tests]
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@development
+    secrets: inherit
+    with:
+      ref_branch: 'main'
+      verbose: false
+      runner: ubuntu-latest
+
+  # deploy docs
+  gh-pages:
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-docs.yaml@development
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
+
+  # deploy chromatic
+  chromatic:
+    needs: [build-prod, linting, tests]
+    if: |
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
+    uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@development
+    secrets: inherit
+    with:
+      runner: ubuntu-latest
