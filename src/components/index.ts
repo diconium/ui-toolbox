@@ -38,3 +38,4 @@ export { default as Tooltip } from './Tooltip';
 export { default as Calendar } from './Calendar';
 export { default as Message } from './Message';
 export { default as Select } from './Select';
+export { default as Tabs } from './Tabs';
