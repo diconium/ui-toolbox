@@ -2,10 +2,13 @@
 
 name: workflows
 
-on:  
+on:
   push:
+    branches:
+      - main
   pull_request:
-
+    branches:
+      - main
 jobs:
 
   # build
@@ -48,7 +51,7 @@ jobs:
     secrets: inherit
     with:
       ref_branch: 'main'
-      verbose: true
+      verbose: false
       runner: ubuntu-latest
 
   # deploy docs
