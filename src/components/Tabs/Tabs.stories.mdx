@@ -1,0 +1,127 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Tabs from './Tabs';
+import Tab from './Tab';
+
+<Meta
+  title="Toolbox/Tabs"
+  component={Tabs}
+/>
+
+# Tabs
+
+To import the `Tabs` component simply include the following at the top of your file:
+
+```
+import { Tabs, Tab } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    {() => {
+      const [selected, select] = useState(0);
+      return (
+        <Tabs
+          selected={selected}
+          onSelect={(index) => select(index)}
+          tabs={[
+            { label: 'All', icon: 'menu' },
+            { label: 'New', icon: 'engine-warning' },
+            { label: 'Read', icon: 'check' },
+            { label: 'Loader', icon: 'battery-bolt' },
+          ]}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## As block component
+
+<Canvas>
+  <Story name="As block component">
+    {() => {
+      const [selected, select] = useState(0);
+      return (
+        <Tabs>
+          <Tab
+            onClick={() => select(0)}
+            selected={selected === 0}
+            label="All"
+            icon="menu"
+          />
+          <Tab
+            onClick={() => select(1)}
+            selected={selected === 1}
+            label="New"
+            icon="engine-warning"
+          />
+          <Tab
+            onClick={() => select(2)}
+            selected={selected === 2}
+            label="Read"
+            icon="check"
+          />
+          <Tab
+            onClick={() => select(3)}
+            selected={selected === 3}
+            label="Loader"
+            icon="battery-bolt"
+          />
+        </Tabs>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With shadow
+
+<Canvas>
+  <Story name="With shadow">
+    {() => {
+      const [selected, select] = useState(0);
+      return (
+        <Tabs
+          shadow
+          selected={selected}
+          onSelect={(index) => select(index)}
+          tabs={[
+            { label: 'All', icon: 'menu' },
+            { label: 'New', icon: 'engine-warning' },
+            { label: 'Read', icon: 'check' },
+            { label: 'Loader', icon: 'battery-bolt' },
+          ]}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Vertical scroll
+
+<Canvas>
+  <Story name="Vertical scroll">
+    {() => {
+      const [selected, select] = useState(0);
+      return (
+        <Tabs
+          selected={selected}
+          onSelect={(index) => select(index)}
+          tabs={[
+            { label: 'All', icon: 'menu' },
+            { label: 'New', icon: 'engine-warning' },
+            { label: 'Read', icon: 'check' },
+            { label: 'Tab N', icon: 'battery-bolt' },
+            { label: 'Tab N + 1', icon: 'book' },
+            { label: 'Tab N + 2', icon: 'bug' },
+            { label: 'Tab N + 3', icon: 'clone' },
+            { label: 'Tab N + 4', icon: 'eye' },
+            { label: 'Tab N + 5', icon: 'heart' },
+          ]}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
