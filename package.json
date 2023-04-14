@@ -31,7 +31,7 @@
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-actions": "^7.0.2",
-    "@storybook/addon-docs": "^6.5.16",
+    "@storybook/addon-docs": "^7.0.4",
     "@storybook/addon-essentials": "^7.0.4",
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
