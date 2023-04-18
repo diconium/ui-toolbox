@@ -12,8 +12,8 @@ describe('Icon component', () => {
   });
 
   test('can render the an existing icon correctly', () => {
-    render(<Icon icon="airplay" />);
-    expect(screen.getByText('\ueaa7')).toBeInTheDocument();
+    render(<Icon icon="aperture" />);
+    expect(screen.getByText('\ue907')).toBeInTheDocument();
   });
 
   test('can default correctly when the icon does not exist', () => {

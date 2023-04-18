@@ -8,7 +8,7 @@ import IconConfig from '../Icon/config';
 
 describe('Tabs/Tab component', () => {
   test('can render the default component correctly', () => {
-    const symbol = IconConfig.bell;
+    const symbol = IconConfig['tb-face-smile'];
     render(<Tab label="Foo" />);
     expect(screen.getByText(/Foo/i)).toHaveClass('uppercase');
     expect(screen.getByText(/Foo/i)).toBeInTheDocument();
@@ -16,11 +16,11 @@ describe('Tabs/Tab component', () => {
   });
 
   test('can render the component correctly with different icon', () => {
-    const symbol = IconConfig.menu;
+    const symbol = IconConfig['tb-eye'];
     render(
       <Tab
         label="Foo"
-        icon="menu"
+        icon="eye"
       />
     );
     expect(screen.getByText(/Foo/i)).toBeInTheDocument();
