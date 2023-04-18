@@ -9,7 +9,7 @@ export interface Props {
   onClick?: (key: string) => void;
 }
 
-export function Tab({ label, icon = 'bell', selected = false, onClick = () => {} }: Props) {
+export function Tab({ label, icon = 'face-smile', selected = false, onClick = () => {} }: Props) {
   const template = classNames([
     'text-base leading-5 px-2 py-3 font-semibold',
     'whitespace-nowrap uppercase',
