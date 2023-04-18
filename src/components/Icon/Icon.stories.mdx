@@ -63,11 +63,11 @@ import { Icon } from '@dicoauto/toolbox';
     <div className="grid grid-cols-6">
       {Object.keys(Font).map((icon) => (
         <div
-          key={icon}
+          key={icon.replace('tb-', '')}
           className="flex flex-col text-center"
         >
-          <Icon icon={icon} />
-          <p>{icon}</p>
+          <Icon icon={icon.replace('tb-', '')} />
+          <p>{icon.replace('tb-', '')}</p>
         </div>
       ))}
     </div>
