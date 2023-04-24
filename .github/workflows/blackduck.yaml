@@ -6,7 +6,8 @@ on:
     branches:
       - devops/blackduck
 env:
-  DETECT_PROJECT_NAME=${{secrets.DETECT_PROJECT_NAME}}
+  DETECT_PROJECT_NAME: ${{secrets.DETECT_PROJECT_NAME}}
+
 jobs:
   security:
     runs-on: ubuntu-latest
