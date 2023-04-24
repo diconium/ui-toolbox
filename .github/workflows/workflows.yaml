@@ -5,18 +5,13 @@ name: workflows
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+      - devops/blackduck
 jobs:
   # build
   build-prod:
     if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-build.yaml@development
     secrets: inherit
     with:
@@ -25,9 +20,8 @@ jobs:
   # lint
   linting:
     if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-lint.yaml@development
     secrets: inherit
     with:
@@ -36,9 +30,8 @@ jobs:
   # unit-tests
   tests:
     if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-test.yaml@development
     secrets: inherit
     with:
@@ -48,9 +41,8 @@ jobs:
   sonarqube:
     needs: [build-prod, linting, tests]
     if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@development
     secrets: inherit
     with:
@@ -60,9 +52,7 @@ jobs:
 
   # deploy docs
   gh-pages:
-    if: |
-      contains(fromJSON('["push"]'), github.event_name) &&
-      contains(fromJSON('["main"]'), github.ref_name)
+    if: github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-docs.yaml@development
     secrets: inherit
     with:
@@ -72,22 +62,9 @@ jobs:
   chromatic:
     needs: [build-prod, linting, tests]
     if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
+      github.event_name == 'pull_request' ||
+      github.event_name == 'push' && github.ref_name == 'main'
     uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@development
     secrets: inherit
     with:
-      runner: ubuntu-latest
-
-  # scan security & license compliance
-  blackduck:
-    if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
-    uses: DicoAuto/actions/.github/workflows/web-blackduck.yaml@development
-    secrets: inherit
-    with:
-      version_file: package.json
       runner: ubuntu-latest
