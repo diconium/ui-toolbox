@@ -5,12 +5,8 @@ name: workflows
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - devops/blackduck
 jobs:
-
   # build
   build-prod:
     if: |
@@ -72,3 +68,19 @@ jobs:
     secrets: inherit
     with:
       runner: ubuntu-latest
+  
+  setup_java:
+    uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
+  blackduck:
+    uses: synopsys-sig/synopsys-action@v1.1.0
+    with:
+      blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
+      blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+      blackduck_scan_full: true
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      blackduck_automation_fixpr: true
+      blackduck_scan_failure_severities: "ALL"
