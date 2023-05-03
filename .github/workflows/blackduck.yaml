@@ -7,6 +7,7 @@ on:
       - devops/blackduck
 env:
   DETECT_PROJECT_NAME: ${{secrets.DETECT_PROJECT_NAME}}
+  LOGGING_LEVEL_COM_SYNOPSYS_INTEGRATION: DEBUG
 
 jobs:
   security:
@@ -29,13 +30,3 @@ jobs:
             detect-version: 7.9.0
             blackduck-url: ${{ secrets.BLACKDUCK_URL }}
             blackduck-api-token: ${{ secrets.BLACKDUCK_API_TOKEN }}
-
-      # - name: blackduck
-      #   uses: synopsys-sig/synopsys-action@v1.1.0
-      #   with:
-      #     blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
-      #     blackduck_url: ${{ secrets.BLACKDUCK_URL }}
-      #     blackduck_scan_full: true
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     blackduck_automation_fixpr: true
-      #     blackduck_scan_failure_severities: "ALL"
