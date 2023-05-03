@@ -68,3 +68,4 @@ jobs:
     secrets: inherit
     with:
       runner: ubuntu-latest
+      runner: ubuntu-latest
