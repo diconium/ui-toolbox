@@ -22,7 +22,12 @@ const DEFAULT_SWIPE_OPTIONS = {
   //   touchEventOptions: { passive: true },
 };
 
-function Swipeable({ options = {}, className, children, disable = false }: Props) {
+function Swipeable({
+  options = {},
+  className,
+  children,
+  disable = false,
+}: Props) {
   const handlers = useSwipeable({
     ...DEFAULT_SWIPE_OPTIONS,
     ...options,
@@ -33,10 +38,7 @@ function Swipeable({ options = {}, className, children, disable = false }: Props
   }
 
   return (
-    <div
-      {...handlers}
-      className={className}
-    >
+    <div {...handlers} className={className}>
       {children}
     </div>
   );

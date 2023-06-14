@@ -27,7 +27,11 @@ const sizeToStyles = (size: string) => {
 };
 
 export function Icon({ icon, className = '', size = 'm' }: IconProps) {
-  const template = classNames(['toolbox-icons-outlined', className, ...sizeToStyles(size)]);
+  const template = classNames([
+    'toolbox-icons-outlined',
+    className,
+    ...sizeToStyles(size),
+  ]);
   return <span className={template}>{getUnicode(`tb-${icon}`)}</span>;
 }
 

@@ -18,11 +18,7 @@ describe('TopNavigation component', () => {
 
   test('can render the component with children correctly', () => {
     render(
-      <TopNavigation
-        title="Foo"
-        subtitle="bar"
-        leading="awesome"
-      >
+      <TopNavigation title="Foo" subtitle="bar" leading="awesome">
         <span>CONTEXT1</span>
         <span>CONTEXT2</span>
         <span>CONTEXT3</span>

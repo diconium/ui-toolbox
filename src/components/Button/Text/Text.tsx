@@ -16,7 +16,12 @@ const DEFAULT_TEMPLATE = `text-toolbox-primary hover:text-toolbox-primary-600 ac
 const DEFAULT_SECONDARY_TEMPLATE = `text-toolbox-secondary hover:text-toolbox-secondary-600 active:text-toolbox-secondary-300
   disabled:text-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
-function TextButton({ label, secondary = false, disabled, onClick = () => {} }: Props) {
+function TextButton({
+  label,
+  secondary = false,
+  disabled,
+  onClick = () => {},
+}: Props) {
   const template = classNames([
     BASE_TEMPLATE,
     secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE,
@@ -27,7 +32,9 @@ function TextButton({ label, secondary = false, disabled, onClick = () => {} }: 
       defaultTemplate={template}
       onClick={() => onClick()}
     >
-      <span className="visited:underline visited:underline-offset-2">{label}</span>
+      <span className="visited:underline visited:underline-offset-2">
+        {label}
+      </span>
     </DefaultButton>
   );
 }

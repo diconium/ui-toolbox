@@ -40,10 +40,7 @@ describe('Button component', () => {
     const func = jest.fn();
     const user = userEvent.setup();
     render(
-      <Button
-        disabled
-        onClick={func}
-      >
+      <Button disabled onClick={func}>
         Action
       </Button>
     );

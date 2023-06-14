@@ -35,7 +35,9 @@ function Message({
   const template = classNames([
     'max-w-sm bg-toolbox-white rounded-2xl',
     'py-4 px-2',
-    read ? 'border border-toolbox-neutral-50' : 'border-2 border-toolbox-primary',
+    read
+      ? 'border border-toolbox-neutral-50'
+      : 'border-2 border-toolbox-primary',
   ]);
   const textTemplate = classNames([
     'flex-1 text-toolbox-neutral text-sm text-left',
@@ -61,7 +63,11 @@ function Message({
         <div className="flex-1 flex items-center">
           {!read && <Dot size="s" />}
           {read && <div className="w-2" />}
-          <div className={`${read ? 'text-toolbox-neutral' : 'text-toolbox-primary'} px-2`}>
+          <div
+            className={`${
+              read ? 'text-toolbox-neutral' : 'text-toolbox-primary'
+            } px-2`}
+          >
             {header}
           </div>
         </div>
@@ -72,13 +78,12 @@ function Message({
       </div>
       <div className="px-4 flex">
         {isSimple && <p className={textTemplate}>{children}</p>}
-        {!isSimple && <div className="flex-1 justify-start text-left">{children}</div>}
+        {!isSimple && (
+          <div className="flex-1 justify-start text-left">{children}</div>
+        )}
         {!disableChevron && (
           <div className="flex items-start justify-center pl-6">
-            <Icon
-              icon={opened ? 'chevron-down' : 'chevron-up'}
-              size="s"
-            />
+            <Icon icon={opened ? 'chevron-down' : 'chevron-up'} size="s" />
           </div>
         )}
       </div>

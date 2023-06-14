@@ -7,14 +7,15 @@ interface ContainerProps extends PropsWithChildren {
   size?: string;
 }
 
-function StateContainer({ color = 'bg-toolbox-primary', size = 'lg', children }: ContainerProps) {
+function StateContainer({
+  color = 'bg-toolbox-primary',
+  size = 'lg',
+  children,
+}: ContainerProps) {
   if (!children) {
     return (
       <div className="absolute bottom-0 right-0">
-        <State
-          color={color}
-          size={size}
-        />
+        <State color={color} size={size} />
       </div>
     );
   }
@@ -22,10 +23,7 @@ function StateContainer({ color = 'bg-toolbox-primary', size = 'lg', children }:
     <div className="relative inline-block">
       {children}
       <div className="absolute bottom-0 right-0">
-        <State
-          color={color}
-          size={size}
-        />
+        <State color={color} size={size} />
       </div>
     </div>
   );

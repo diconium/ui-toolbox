@@ -21,12 +21,7 @@ describe('Primary Button component', () => {
   test('calls the onClick function correctly when clicked', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Button
-        label="Action"
-        onClick={func}
-      />
-    );
+    render(<Button label="Action" onClick={func} />);
     const button = await screen.getByRole('button');
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);

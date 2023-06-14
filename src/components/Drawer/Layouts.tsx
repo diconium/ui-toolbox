@@ -4,7 +4,9 @@ export interface Props extends PropsWithChildren {}
 
 export function Centered({ children }: Props) {
   return (
-    <div className="flex flex-col justify-center items-center px-10 pt-7 pb-10">{children}</div>
+    <div className="flex flex-col justify-center items-center px-10 pt-7 pb-10">
+      {children}
+    </div>
   );
 }
 

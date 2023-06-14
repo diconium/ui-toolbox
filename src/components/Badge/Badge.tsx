@@ -7,7 +7,7 @@ export interface Props {
 }
 
 export const MAX_BADGE_VALUE = 99;
-const BASE_TEMPLATE = `bg-toolbox-feedback-red text-toolbox-white text-sm 
+const BASE_TEMPLATE = `bg-toolbox-feedback-red text-toolbox-white text-sm
   leading-4 font-semibold inline-block
   text-center align-middle`.replace('\n', '');
 
@@ -27,10 +27,10 @@ const sizeToStyle = (size: string) => {
 const normalize = (badge: number) => (badge > MAX_BADGE_VALUE ? `${MAX_BADGE_VALUE}+` : badge);
 
 export const isNormalized = (badge: number) => badge > MAX_BADGE_VALUE;
-export const isSingleDegit = (badge: number) => badge < 10;
+export const isSingleDigit = (badge: number) => badge < 10;
 
 const getWithBadgeWidth = (badge: number) => {
-  if (isSingleDegit(badge)) {
+  if (isSingleDigit(badge)) {
     return 'w-4';
   }
   if (isNormalized(badge)) {

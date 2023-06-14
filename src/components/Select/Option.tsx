@@ -16,11 +16,7 @@ function Option({ label, selected = false, onSelect = () => {} }: Props) {
       : 'bg-toolbox-white text-toolbox-neutral',
   ]);
   return (
-    <button
-      type="button"
-      className={template}
-      onClick={() => onSelect()}
-    >
+    <button type="button" className={template} onClick={() => onSelect()}>
       {label}
     </button>
   );

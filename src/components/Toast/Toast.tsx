@@ -1,7 +1,12 @@
 import classNames from 'classnames';
 import React from 'react';
 import Icon from '../Icon';
-import { typeToColor, typeToBorderColor, typeToIcon, typeToTextColor } from './utils';
+import {
+  typeToColor,
+  typeToBorderColor,
+  typeToIcon,
+  typeToTextColor,
+} from './utils';
 
 export interface Props {
   label: string;
@@ -16,7 +21,10 @@ function Header({ label, filled }: { label: string; filled: boolean }) {
   const optional = {
     'text-toolbox-white': filled,
   };
-  const template = classNames(['text-toolbox-neutral leading-5 text-base', optional]);
+  const template = classNames([
+    'text-toolbox-neutral leading-5 text-base',
+    optional,
+  ]);
   return <div className={template}>{label}</div>;
 }
 
@@ -35,7 +43,9 @@ function HeaderWithSubtitle({
   };
   return (
     <div className="flex flex-col">
-      <div className={classNames(base, 'leading-6 font-semibold', optional)}>{label}</div>
+      <div className={classNames(base, 'leading-6 font-semibold', optional)}>
+        {label}
+      </div>
       <div className={classNames(base, 'leading-5', optional)}>{subtitle}</div>
     </div>
   );
@@ -67,12 +77,7 @@ function Toast({
             size="s"
           />
         )}
-        {!subtitle && (
-          <Header
-            label={label}
-            filled={filled}
-          />
-        )}
+        {!subtitle && <Header label={label} filled={filled} />}
         {subtitle && (
           <HeaderWithSubtitle
             label={label}
@@ -87,7 +92,9 @@ function Toast({
         onClick={() => onClose()}
       >
         <Icon
-          className={classNames({ 'text-toolbox-white': filled })}
+          className={classNames({
+            'text-toolbox-white': filled,
+          })}
           icon="xmark"
           size="s"
         />

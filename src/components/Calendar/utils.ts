@@ -9,10 +9,7 @@ export const getWeeks = (year: number, month: number) => {
     .startOf('month')
     .startOf('week');
 
-  const endDate = dayjs()
-    .set('year', year)
-    .set('month', month)
-    .endOf('month');
+  const endDate = dayjs().set('year', year).set('month', month).endOf('month');
 
   let day = startDate.subtract(1, 'day');
 

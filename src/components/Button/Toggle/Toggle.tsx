@@ -13,7 +13,12 @@ const BASE_TEMPLATE = `w-12 h-7 bg-toolbox-white
   border-2 rounded-2xl px-0.5
   inline-flex items-center box-border`;
 
-function Toggle({ toggled = false, disabled = false, onClick = () => {}, title = '' }: Props) {
+function Toggle({
+  toggled = false,
+  disabled = false,
+  onClick = () => {},
+  title = '',
+}: Props) {
   const template = classNames(BASE_TEMPLATE, {
     'border-toolbox-neutral-500': !disabled && !toggled,
     'border-toolbox-primary': !disabled && toggled,
@@ -34,10 +39,7 @@ function Toggle({ toggled = false, disabled = false, onClick = () => {}, title =
       className={template}
       onClick={() => onClick(!toggled)}
     >
-      <Dot
-        size="xl"
-        color={dot}
-      />
+      <Dot size="xl" color={dot} />
     </button>
   );
 }

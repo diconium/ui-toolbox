@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 import Icon from '../Icon';
 
 export interface Props {
-  upper?: ReactNode | undefined;
-  lower?: ReactNode | undefined;
+  upper?: ReactNode;
+  lower?: ReactNode;
   isOpen?: boolean;
   showChevron?: boolean;
 }
@@ -19,10 +19,7 @@ function Placeholder({ upper, lower, isOpen, showChevron }: Props) {
           {lower && <div className="flex space-x-1 mx-2">{lower}</div>}
           {showChevron && (
             <div className="flex-shrink flex items-center justify-end">
-              <Icon
-                icon={isOpen ? 'chevron-down' : 'chevron-up'}
-                size="s"
-              />
+              <Icon icon={isOpen ? 'chevron-down' : 'chevron-up'} size="s" />
             </div>
           )}
         </div>

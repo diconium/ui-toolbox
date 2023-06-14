@@ -61,14 +61,17 @@ const additional = {
     },
     green: {
       DEFAULT: '#36A93F',
-      50: '#EBF6EB'
+      50: '#EBF6EB',
     },
   },
   black: '#000000',
   white: '#FFFFFF',
-  grey: '#F5F5F5'
+  grey: '#F5F5F5',
 };
 
 module.exports = {
-  additional, primary, secondary, neutral,
+  additional,
+  primary,
+  secondary,
+  neutral,
 };

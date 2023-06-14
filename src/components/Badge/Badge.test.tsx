@@ -27,22 +27,12 @@ describe('Badge component', () => {
   });
 
   test('does show the badge label for size lg', () => {
-    render(
-      <Badge
-        size="lg"
-        badge={9}
-      />
-    );
+    render(<Badge size="lg" badge={9} />);
     expect(screen.getByText(/9/i)).toBeInTheDocument();
   });
 
   test('does show the badge label for size xl', () => {
-    render(
-      <Badge
-        size="xl"
-        badge={9}
-      />
-    );
+    render(<Badge size="xl" badge={9} />);
     expect(screen.getByText(/9/i)).toBeInTheDocument();
   });
 
@@ -52,22 +42,22 @@ describe('Badge component', () => {
   });
 
   test('does not show the badge label for size s', () => {
-    render(
-      <Badge
-        size="s"
-        badge={9}
-      />
-    );
+    render(<Badge size="s" badge={9} />);
     expect(screen.queryByText(/9/i)).not.toBeInTheDocument();
   });
 
   test('does not show the badge label for size m', () => {
-    render(
-      <Badge
-        size="m"
-        badge={9}
-      />
-    );
+    render(<Badge size="m" badge={9} />);
     expect(screen.queryByText(/9/i)).not.toBeInTheDocument();
+  });
+
+  test('does not show the badge label for size lg without badge', () => {
+    render(<Badge size="lg" data-testid="badge" />);
+    expect(screen.queryByTestId('badge')).not.toBeInTheDocument();
+  });
+
+  test('renders large digit badge correctly', () => {
+    render(<Badge badge={11} />);
+    expect(screen.queryByText(/11/i)).toBeInTheDocument();
   });
 });

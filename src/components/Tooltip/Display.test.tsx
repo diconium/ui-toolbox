@@ -6,10 +6,7 @@ import Display from './Display';
 describe('Tooltip/Display component', () => {
   test('can render the default component correctly', () => {
     const { container, getByText } = render(
-      <Display
-        tooltip="bar"
-        className="foo"
-      />
+      <Display tooltip="bar" className="foo" />
     );
     expect(container.firstChild).toHaveClass('foo');
     expect(getByText(/bar/i)).toBeInTheDocument();

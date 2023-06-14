@@ -24,21 +24,17 @@ function Modal({
   return (
     <div className="max-w-sm flex flex-col bg-toolbox-white rounded-2xl shadow p-6">
       <div className="flex justify-end items-center">
-        <button
-          type="button"
-          onClick={() => onDismiss()}
-        >
-          <Icon
-            icon="xmark"
-            size="s"
-          />
+        <button type="button" onClick={() => onDismiss()}>
+          <Icon icon="xmark" size="s" />
         </button>
       </div>
       <div className="flex flex-col items-center">
         <div className="text-toolbox-neutral text-2xl">{title}</div>
         <div className="py-6">
           {isSimpleContent && (
-            <div className="text-toolbox-neutral leading-5 text-base mx-2">{children}</div>
+            <div className="text-toolbox-neutral leading-5 text-base mx-2">
+              {children}
+            </div>
           )}
           {!isSimpleContent && children}
         </div>
@@ -48,10 +44,7 @@ function Modal({
           label={acknowledgement}
           onClick={() => onAcknowledge()}
         />
-        <TextButton
-          label={dismissal}
-          onClick={() => onDismiss()}
-        />
+        <TextButton label={dismissal} onClick={() => onDismiss()} />
       </div>
     </div>
   );

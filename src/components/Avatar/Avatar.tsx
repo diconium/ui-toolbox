@@ -35,23 +35,15 @@ function Avatar({
   border = 'border-toolbox-primary',
   badge,
 }: Props) {
-  const template = classNames([getTemplate(size), 'object-cover rounded-full', border]);
+  const template = classNames([
+    getTemplate(size),
+    'object-cover rounded-full',
+    border,
+  ]);
   return (
-    <BadgeContainer
-      badge={badge}
-      size={size}
-    >
-      <img
-        className={template}
-        src={link}
-        alt={alt}
-      />
-      {state && (
-        <StateContainer
-          color={state}
-          size={mapStateSize(size)}
-        />
-      )}
+    <BadgeContainer badge={badge} size={size}>
+      <img className={template} src={link} alt={alt} />
+      {state && <StateContainer color={state} size={mapStateSize(size)} />}
     </BadgeContainer>
   );
 }

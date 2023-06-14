@@ -18,11 +18,21 @@ describe('Calendar/utils', () => {
   test('can generate days of a month correctly', () => {
     const weeks = utils.getWeeks(2023, 1);
     expect(weeks.length).toBe(5);
-    expect(weeks[0].map((d) => d.format('D')).join(', ')).toBe('29, 30, 31, 1, 2, 3, 4');
-    expect(weeks[1].map((d) => d.format('D')).join(', ')).toBe('5, 6, 7, 8, 9, 10, 11');
-    expect(weeks[2].map((d) => d.format('D')).join(', ')).toBe('12, 13, 14, 15, 16, 17, 18');
-    expect(weeks[3].map((d) => d.format('D')).join(', ')).toBe('19, 20, 21, 22, 23, 24, 25');
-    expect(weeks[4].map((d) => d.format('D')).join(', ')).toBe('26, 27, 28, 1, 2, 3, 4');
+    expect(weeks[0].map((d) => d.format('D')).join(', ')).toBe(
+      '29, 30, 31, 1, 2, 3, 4'
+    );
+    expect(weeks[1].map((d) => d.format('D')).join(', ')).toBe(
+      '5, 6, 7, 8, 9, 10, 11'
+    );
+    expect(weeks[2].map((d) => d.format('D')).join(', ')).toBe(
+      '12, 13, 14, 15, 16, 17, 18'
+    );
+    expect(weeks[3].map((d) => d.format('D')).join(', ')).toBe(
+      '19, 20, 21, 22, 23, 24, 25'
+    );
+    expect(weeks[4].map((d) => d.format('D')).join(', ')).toBe(
+      '26, 27, 28, 1, 2, 3, 4'
+    );
   });
 
   test('can return the correct text color', () => {

@@ -5,11 +5,21 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import Swipeable from './Swipeable';
 
 const applySwipePattern = (handle: HTMLElement) => {
-  fireEvent.touchStart(handle, { touches: [{ clientX: 0, clientY: 0 }] });
-  fireEvent.touchMove(handle, { touches: [{ clientX: 10, clientY: 10 }] });
-  fireEvent.touchMove(handle, { touches: [{ clientX: 20, clientY: 10 }] });
-  fireEvent.touchMove(handle, { touches: [{ clientX: 20, clientY: 10 }] });
-  fireEvent.touchEnd(handle, { touches: [{ clientX: 10, clientY: 10 }] });
+  fireEvent.touchStart(handle, {
+    touches: [{ clientX: 0, clientY: 0 }],
+  });
+  fireEvent.touchMove(handle, {
+    touches: [{ clientX: 10, clientY: 10 }],
+  });
+  fireEvent.touchMove(handle, {
+    touches: [{ clientX: 20, clientY: 10 }],
+  });
+  fireEvent.touchMove(handle, {
+    touches: [{ clientX: 20, clientY: 10 }],
+  });
+  fireEvent.touchEnd(handle, {
+    touches: [{ clientX: 10, clientY: 10 }],
+  });
   return true;
 };
 
@@ -43,10 +53,7 @@ describe('Swipeable utility', () => {
     const func = jest.fn();
 
     const { getByText } = render(
-      <Swipeable
-        disable
-        options={{ onSwiped: func }}
-      >
+      <Swipeable disable options={{ onSwiped: func }}>
         <div>to be swiped</div>
       </Swipeable>
     );

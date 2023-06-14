@@ -34,20 +34,27 @@ const OUTLINED_SECONDARY_TEMPLATE = `border-4 border-toolbox-secondary text-tool
   focus-visible:text-toolbox-secondary
   disabled:border-toolbox-neutral-200 disabled:text-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
-function QuickButton({ icon, disabled, outlined, secondary = false, onClick = () => {} }: Props) {
+function QuickButton({
+  icon,
+  disabled,
+  outlined,
+  secondary = false,
+  onClick = () => {},
+}: Props) {
   return (
     <DefaultButton
       onClick={() => onClick()}
       outlined={outlined}
       disabled={disabled}
       baseTemplate={BASE_TEMPLATE}
-      defaultTemplate={secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE}
-      outlinedTemplate={secondary ? OUTLINED_SECONDARY_TEMPLATE : OUTLINED_TEMPLATE}
+      defaultTemplate={
+        secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE
+      }
+      outlinedTemplate={
+        secondary ? OUTLINED_SECONDARY_TEMPLATE : OUTLINED_TEMPLATE
+      }
     >
-      <Icon
-        icon={icon}
-        size="lg"
-      />
+      <Icon icon={icon} size="lg" />
     </DefaultButton>
   );
 }

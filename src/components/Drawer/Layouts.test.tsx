@@ -8,14 +8,18 @@ describe('Layout component', () => {
     const Layout = Layouts.getLayout();
     const { container } = render(<Layout>CONTEXT</Layout>);
     expect(screen.getByText(/CONTEXT/i)).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass('flex items-center justify-center');
+    expect(container.firstChild).toHaveClass(
+      'flex items-center justify-center'
+    );
   });
 
   test('can render the centered layout correctly', () => {
     const Layout = Layouts.getLayout('centered');
     const { container } = render(<Layout>CONTEXT</Layout>);
     expect(screen.getByText(/CONTEXT/i)).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass('flex items-center justify-center');
+    expect(container.firstChild).toHaveClass(
+      'flex items-center justify-center'
+    );
   });
 
   test('can render the full-width layout correctly', () => {
@@ -29,6 +33,8 @@ describe('Layout component', () => {
     const Layout = Layouts.getLayout('not-supported-layout');
     const { container } = render(<Layout>CONTEXT</Layout>);
     expect(screen.getByText(/CONTEXT/i)).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass('flex items-center justify-center');
+    expect(container.firstChild).toHaveClass(
+      'flex items-center justify-center'
+    );
   });
 });

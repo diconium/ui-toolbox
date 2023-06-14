@@ -35,10 +35,7 @@ function Select({
           {selected?.label || placeholder}
         </div>
         <div className="flex items-center">
-          <Icon
-            icon={isOpen ? 'chevron-up' : 'chevron-down'}
-            size="s"
-          />
+          <Icon icon={isOpen ? 'chevron-up' : 'chevron-down'} size="s" />
         </div>
       </button>
       {isOpen && (

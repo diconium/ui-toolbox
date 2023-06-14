@@ -12,10 +12,7 @@ function DefaultAction({ onClick = () => {} }: Props) {
       className="flex-shrink flex justify-end items-center text-toolbox-secondary"
       onClick={() => onClick()}
     >
-      <Icon
-        icon="circle-information"
-        size="m"
-      />
+      <Icon icon="circle-information" size="m" />
     </button>
   );
 }

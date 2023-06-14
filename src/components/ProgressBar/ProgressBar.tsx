@@ -21,7 +21,12 @@ const normalize = (progress: number, min: number, max: number) => {
   return Math.round(progress);
 };
 
-function ProgressBar({ progress = 0, min = MIN, max = MAX, animate = false }: Props) {
+function ProgressBar({
+  progress = 0,
+  min = MIN,
+  max = MAX,
+  animate = false,
+}: Props) {
   const template = classNames([
     'bg-toolbox-primary h-1 rounded-2xl',
     { 'motion-safe:animate-pulse': animate },
@@ -30,7 +35,9 @@ function ProgressBar({ progress = 0, min = MIN, max = MAX, animate = false }: Pr
     <div className="w-full h-1 bg-toolbox-neutral-50 rounded-2xl">
       <div
         className={template}
-        style={{ width: `${normalize(progress, min, max)}%` }}
+        style={{
+          width: `${normalize(progress, min, max)}%`,
+        }}
       />
     </div>
   );

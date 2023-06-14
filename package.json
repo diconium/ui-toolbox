@@ -14,6 +14,7 @@
     "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "npm run build:prod && build-storybook",
+    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
     "lint": "eslint ./src --ext js,ts,tsx,jsx",
     "lint:fix": "npm run lint -- --fix",
     "generate:component": "hygen component new --name $1"
@@ -92,6 +93,8 @@
   "dependencies": {
     "classnames": "^2.3.2",
     "dayjs": "^1.11.7",
-    "react-swipeable": "^7.0.0"
+    "fast-glob": "^3.2.2",
+    "react-swipeable": "^7.0.0",
+    "snapdragon": "^0.8.1"
   }
 }

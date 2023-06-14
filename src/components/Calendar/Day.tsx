@@ -30,14 +30,7 @@ function Day({
       onClick={() => onClick(day)}
     >
       <div className={template}>{day.format('D')}</div>
-      <div className="h-2">
-        {state && (
-          <Dot
-            size="s"
-            color={state}
-          />
-        )}
-      </div>
+      <div className="h-2">{state && <Dot size="s" color={state} />}</div>
     </button>
   );
 }

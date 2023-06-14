@@ -7,8 +7,8 @@ import Placeholder from './Placeholder';
 export interface Props extends PropsWithChildren {
   title: string;
   subtitle?: string;
-  upper?: ReactNode | undefined;
-  lower?: ReactNode | undefined;
+  upper?: ReactNode;
+  lower?: ReactNode;
   opened?: boolean;
   textAlignment?: string;
   selected?: boolean;
@@ -39,12 +39,11 @@ function ListItem({
         <div className="flex-grow flex">
           <div className="flex-grow flex items-center">
             <div className="flex-grow flex flex-col">
-              <Heading
-                title={title}
-                textAlignment={textAlignment}
-              />
+              <Heading title={title} textAlignment={textAlignment} />
               {renderSubtitle && (
-                <div className="text-toolbox-neutral font-semibold text-sm mt-2">{subtitle}</div>
+                <div className="text-toolbox-neutral font-semibold text-sm mt-2">
+                  {subtitle}
+                </div>
               )}
             </div>
           </div>

@@ -4,7 +4,7 @@ export interface Props extends PropsWithChildren {
   title: string;
   leading?: string;
   subtitle?: string;
-  left?: ReactNode | undefined;
+  left?: ReactNode;
 }
 
 function TopNavigation({ title, leading, subtitle, children, left }: Props) {

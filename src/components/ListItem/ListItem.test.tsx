@@ -25,10 +25,7 @@ describe('ListItem component', () => {
   test('closes correctly when already opened and clicked', async () => {
     const user = userEvent.setup();
     render(
-      <ListItem
-        opened
-        title="foo"
-      >
+      <ListItem opened title="foo">
         bar
       </ListItem>
     );

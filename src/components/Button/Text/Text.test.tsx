@@ -15,12 +15,7 @@ describe('TextButton component', () => {
     const func = jest.fn();
     const user = userEvent.setup();
 
-    render(
-      <Button
-        label="Action"
-        onClick={func}
-      />
-    );
+    render(<Button label="Action" onClick={func} />);
 
     const button = await screen.getByText('Action');
     await user.click(button);
@@ -31,13 +26,7 @@ describe('TextButton component', () => {
     const func = jest.fn();
     const user = userEvent.setup();
 
-    render(
-      <Button
-        disabled
-        label="Action"
-        onClick={func}
-      />
-    );
+    render(<Button disabled label="Action" onClick={func} />);
 
     const button = await screen.getByText('Action');
     await user.click(button);

@@ -1,7 +1,7 @@
-import React from 'react';
 import { jest } from '@jest/globals';
-import { screen, render, act } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 
 import { Drawer as IMPORT } from '../../index';
 import Drawer from './Drawer';
@@ -24,7 +24,7 @@ describe('Drawer component', () => {
 
     render(<Drawer onOpen={func}>CONTEXT</Drawer>);
     expect(func.mock.calls.length).toBe(0);
-    const handle = await screen.getByRole('button');
+    const handle = screen.getByRole('button');
     await act(async () => {
       await user.click(handle);
     });
@@ -36,18 +36,28 @@ describe('Drawer component', () => {
     const user = userEvent.setup();
 
     render(
-      <Drawer
-        opened
-        onClose={func}
-      >
+      <Drawer opened onClose={func}>
         CONTEXT
       </Drawer>
     );
     expect(func.mock.calls.length).toBe(0);
-    const handle = await screen.getByRole('button');
+    const handle = screen.getByRole('button');
     await act(async () => {
       await user.click(handle);
     });
     expect(func.mock.calls.length).toBe(1);
+  });
+
+  test('does not call the onOpen handler without content', async () => {
+    const func = jest.fn();
+    const user = userEvent.setup();
+
+    render(<Drawer onOpen={func} />);
+    expect(func.mock.calls.length).toBe(0);
+    const handle = screen.getByRole('button');
+    await act(async () => {
+      await user.click(handle);
+    });
+    expect(func.mock.calls.length).toBe(0);
   });
 });

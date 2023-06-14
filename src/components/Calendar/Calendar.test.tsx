@@ -16,89 +16,67 @@ describe('Calendar component', () => {
   test('calls the onSelect function correctly when clicked', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Calendar
-        date={FIXTURE}
-        onSelect={func}
-      />
-    );
+    render(<Calendar date={FIXTURE} onSelect={func} />);
     const button = await screen.getByText('8');
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 4, 8)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      dayjs(new Date(2019, 4, 8)).startOf('day'),
+    ]);
   });
 
   test('calls the onPreviousClick function correctly when clicked', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Calendar
-        date={FIXTURE}
-        onPreviousClick={func}
-      />
-    );
+    render(<Calendar date={FIXTURE} onPreviousClick={func} />);
     const button = await screen.getAllByRole('button')[0];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 3, 30)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      dayjs(new Date(2019, 3, 30)).startOf('day'),
+    ]);
   });
 
   test('calls the onPreviousClick function correctly when clicked in daily variant', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Calendar
-        variant="daily"
-        date={FIXTURE}
-        onPreviousClick={func}
-      />
-    );
+    render(<Calendar variant="daily" date={FIXTURE} onPreviousClick={func} />);
     const button = await screen.getAllByRole('button')[0];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 4, 30)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      dayjs(new Date(2019, 4, 30)).startOf('day'),
+    ]);
   });
 
   test('calls the onNextClick function correctly when clicked in daily variant', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Calendar
-        variant="daily"
-        date={FIXTURE}
-        onNextClick={func}
-      />
-    );
+    render(<Calendar variant="daily" date={FIXTURE} onNextClick={func} />);
     const button = await screen.getAllByRole('button')[1];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 5, 1)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      dayjs(new Date(2019, 5, 1)).startOf('day'),
+    ]);
   });
 
   test('calls the onNextClick function correctly when clicked', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Calendar
-        date={FIXTURE}
-        onNextClick={func}
-      />
-    );
+    render(<Calendar date={FIXTURE} onNextClick={func} />);
     const button = await screen.getAllByRole('button')[1];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 5, 1)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      dayjs(new Date(2019, 5, 1)).startOf('day'),
+    ]);
   });
 
   test('calls the onDefaultActionClick function correctly when clicked', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Calendar
-        date={FIXTURE}
-        onDefaultActionClick={func}
-      />
-    );
+    render(<Calendar date={FIXTURE} onDefaultActionClick={func} />);
     const button = await screen.getAllByRole('button')[2];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);

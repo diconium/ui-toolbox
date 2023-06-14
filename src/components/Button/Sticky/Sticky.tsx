@@ -14,7 +14,13 @@ const DEFAULT_TEMPLATE = 'bg-toolbox-primary hover:bg-toolbox-primary-600';
 
 const DEFAULT_SECONDARY_TEMPLATE = 'bg-toolbox-secondary hover:bg-toolbox-secondary-600';
 
-function Sticky({ label, secondary, disabled, left, onClick = () => {} }: Props) {
+function Sticky({
+  label,
+  secondary,
+  disabled,
+  left,
+  onClick = () => {},
+}: Props) {
   const side = classnames({
     'right-0 rounded-tl-full': !left,
     'left-0 rounded-tr-full': left,
@@ -23,7 +29,9 @@ function Sticky({ label, secondary, disabled, left, onClick = () => {} }: Props)
     <DefaultButton
       disabled={disabled}
       baseTemplate={`${BASE_TEMPLATE} ${side}`}
-      defaultTemplate={secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE}
+      defaultTemplate={
+        secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE
+      }
       onClick={() => onClick()}
     >
       <span className={`${left ? '-ml-8' : '-mr-8'}`}>{label}</span>

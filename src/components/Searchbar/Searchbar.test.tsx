@@ -21,12 +21,7 @@ describe('Searchbar component', () => {
   test('can handle onSearch correctly', async () => {
     const func = jest.fn();
 
-    render(
-      <Searchbar
-        placeholder="foo"
-        onSearch={func}
-      />
-    );
+    render(<Searchbar placeholder="foo" onSearch={func} />);
     const input = await screen.getByPlaceholderText('foo');
     await act(async () => {
       await userEvent.type(input, 'bar');
@@ -39,13 +34,7 @@ describe('Searchbar component', () => {
   test('does not trigger onSearch when disabled', async () => {
     const func = jest.fn();
 
-    render(
-      <Searchbar
-        disabled
-        placeholder="foo"
-        onSearch={func}
-      />
-    );
+    render(<Searchbar disabled placeholder="foo" onSearch={func} />);
     const input = await screen.getByPlaceholderText('foo');
     await act(async () => {
       await userEvent.type(input, 'bar');

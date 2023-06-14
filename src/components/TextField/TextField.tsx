@@ -29,7 +29,6 @@ const BASE_TEMPLATE = `peer w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
   border-toolbox-feedback-orange border-toolbox-feedback-red
   focus:border-toolbox-feedback-orange focus:border-toolbox-feedback-red
 */
-
 const validationToIcon = (validation?: string) => {
   if (validation === 'valid') {
     return 'circle-check';
@@ -111,10 +110,7 @@ function TextField({
           className="-ml-8 mt-1"
           onClick={() => onChange('')}
         >
-          <Icon
-            icon="xmark"
-            size="s"
-          />
+          <Icon icon="xmark" size="s" />
         </button>
       )}
     </Template>

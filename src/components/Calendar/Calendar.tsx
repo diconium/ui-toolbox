@@ -55,7 +55,10 @@ function Calendar({
       <Header
         date={current}
         onLeftClick={() => {
-          const previous = current.endOf('month').subtract(1, 'month').startOf('day');
+          const previous = current
+            .endOf('month')
+            .subtract(1, 'month')
+            .startOf('day');
           onPreviousClick(previous);
         }}
         onRightClick={() => {

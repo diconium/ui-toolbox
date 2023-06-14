@@ -603,5 +603,5 @@ export default {
   'tb-text-width': '\ueb57',
   'tb-text': '\ueb58',
   'tb-underline': '\ueb59',
-  'tb-circle-xmark': '\ueb5a'
+  'tb-circle-xmark': '\ueb5a',
 };

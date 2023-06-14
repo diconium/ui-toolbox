@@ -19,7 +19,9 @@ describe('Layout/Centered component', () => {
         <div>foo</div>
       </Layout>
     );
-    expect(screen.getByText(/foo/i).parentElement?.parentElement).toHaveClass('baz');
+    expect(screen.getByText(/foo/i).parentElement?.parentElement).toHaveClass(
+      'baz'
+    );
   });
 
   test('can render the with a footer correctly', () => {

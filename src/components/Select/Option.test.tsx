@@ -12,24 +12,16 @@ describe('Select/Option component', () => {
   });
 
   test('can render the selected version correctly', () => {
-    render(
-      <Option
-        label="foo"
-        selected
-      />
+    render(<Option label="foo" selected />);
+    expect(screen.getByText(/foo/i)).toHaveClass(
+      'bg-toolbox-primary-50 text-toolbox-primary'
     );
-    expect(screen.getByText(/foo/i)).toHaveClass('bg-toolbox-primary-50 text-toolbox-primary');
   });
 
   test('can handle the onSelect handler correctly', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Option
-        label="foo"
-        onSelect={func}
-      />
-    );
+    render(<Option label="foo" onSelect={func} />);
     const option = await screen.getByText('foo');
     await user.click(option);
     expect(func.mock.calls.length).toBe(1);

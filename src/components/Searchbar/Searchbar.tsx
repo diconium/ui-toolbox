@@ -16,10 +16,13 @@ function Searchbar({
   onChange = () => {},
 }: Props) {
   const [query, set] = useState(value || '');
-  const iconTemplate = classNames('pt-3.5 pl-4 absolute top-0 peer-focus:hidden', {
-    'text-toolbox-neutral-500': !disabled,
-    'text-toolbox-neutral-200': disabled,
-  });
+  const iconTemplate = classNames(
+    'pt-3.5 pl-4 absolute top-0 peer-focus:hidden',
+    {
+      'text-toolbox-neutral-500': !disabled,
+      'text-toolbox-neutral-200': disabled,
+    }
+  );
   return (
     <div className="relative">
       <TextField
@@ -34,11 +37,7 @@ function Searchbar({
         className="pl-10 focus:pl-5"
         isClearable={!disabled}
       >
-        <Icon
-          icon="search"
-          size="s"
-          className={iconTemplate}
-        />
+        <Icon icon="search" size="s" className={iconTemplate} />
       </TextField>
     </div>
   );

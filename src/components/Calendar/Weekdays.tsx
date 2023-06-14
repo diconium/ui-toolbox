@@ -13,7 +13,12 @@ export interface Props {
   state?: any;
 }
 
-function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Props) {
+function Weekdays({
+  week = [],
+  onSelect = () => {},
+  selected,
+  state = {},
+}: Props) {
   return (
     <div className="grid grid-cols-7 gap-x-6 mt-2">
       {week.map((day) => (

@@ -12,7 +12,11 @@ const BASE_TEMPLATE = `w-7 h-7 rounded-full border-2
 bg-white inline-flex justify-center items-center
 box-border`;
 
-function RadioButton({ disabled = false, checked = false, onClick = () => {} }: Props) {
+function RadioButton({
+  disabled = false,
+  checked = false,
+  onClick = () => {},
+}: Props) {
   const template = classNames({
     'bg-toolbox-primary': checked && !disabled,
     'bg-toolbox-neutral-200': checked && disabled,
@@ -31,10 +35,7 @@ function RadioButton({ disabled = false, checked = false, onClick = () => {} }: 
       ])}
       onClick={() => onClick(!checked)}
     >
-      <Dot
-        size="xl"
-        color={template}
-      />
+      <Dot size="xl" color={template} />
     </button>
   );
 }

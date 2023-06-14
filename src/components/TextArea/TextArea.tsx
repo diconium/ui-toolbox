@@ -33,11 +33,7 @@ function TextArea({
   ]);
 
   return (
-    <Template
-      label={label}
-      hint={hint}
-      disabled={disabled}
-    >
+    <Template label={label} hint={hint} disabled={disabled}>
       <textarea
         rows={rows}
         disabled={disabled}

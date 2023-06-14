@@ -15,9 +15,18 @@ describe('Avatars component', () => {
     const { container } = render(
       <Avatars
         avatars={[
-          { link: 'https://i.pravatar.cc/150?u=08188', alt: 'Mike' },
-          { link: 'https://i.pravatar.cc/150?u=47110', alt: 'Nora' },
-          { link: 'https://i.pravatar.cc/150?u=08122', alt: 'Bamia' },
+          {
+            link: 'https://i.pravatar.cc/150?u=08188',
+            alt: 'Mike',
+          },
+          {
+            link: 'https://i.pravatar.cc/150?u=47110',
+            alt: 'Nora',
+          },
+          {
+            link: 'https://i.pravatar.cc/150?u=08122',
+            alt: 'Bamia',
+          },
         ]}
       />
     );

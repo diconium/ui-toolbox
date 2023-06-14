@@ -30,12 +30,7 @@ describe('Toggle component', () => {
   test('does not call the onClick function when it is disabled', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <ToggleButton
-        disabled
-        onClick={func}
-      />
-    );
+    render(<ToggleButton disabled onClick={func} />);
     const button = await screen.getByRole('button');
     await user.click(button);
     expect(func.mock.calls.length).toBe(0);

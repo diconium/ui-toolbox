@@ -10,7 +10,12 @@ export interface Props {
   subtitle?: string;
 }
 
-function Compact({ date, onLeftClick = () => {}, onRightClick = () => {}, subtitle = '' }: Props) {
+function Compact({
+  date,
+  onLeftClick = () => {},
+  onRightClick = () => {},
+  subtitle = '',
+}: Props) {
   return (
     <div className="max-w-sm bg-toolbox-white rounded-2xl border border-toolbox-neutral-50 py-5 px-8 flex">
       <div className="flex items-center">
@@ -19,10 +24,7 @@ function Compact({ date, onLeftClick = () => {}, onRightClick = () => {}, subtit
           className="flex-shrink flex justify-end items-center"
           onClick={() => onLeftClick()}
         >
-          <Icon
-            icon="chevron-left"
-            size="m"
-          />
+          <Icon icon="chevron-left" size="m" />
         </button>
       </div>
       <div className="flex flex-col px-12 items-center">
@@ -40,10 +42,7 @@ function Compact({ date, onLeftClick = () => {}, onRightClick = () => {}, subtit
           className="flex-shrink flex justify-end items-center"
           onClick={() => onRightClick()}
         >
-          <Icon
-            icon="chevron-right"
-            size="m"
-          />
+          <Icon icon="chevron-right" size="m" />
         </button>
       </div>
     </div>

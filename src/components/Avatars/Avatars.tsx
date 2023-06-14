@@ -9,10 +9,7 @@ function Avatars({ avatars }: Props) {
   return (
     <div className="flex">
       {avatars.map(({ link, alt }, index) => (
-        <div
-          key={link}
-          className={index === 0 ? '' : '-ml-5'}
-        >
+        <div key={link} className={index === 0 ? '' : '-ml-5'}>
           <Avatar
             link={link}
             alt={alt}

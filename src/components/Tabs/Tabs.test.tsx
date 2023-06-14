@@ -27,12 +27,7 @@ describe('Tabs component', () => {
   });
 
   test('can render the component with a shadow correctly', () => {
-    const { container } = render(
-      <Tabs
-        shadow
-        tabs={FIXTURE}
-      />
-    );
+    const { container } = render(<Tabs shadow tabs={FIXTURE} />);
     expect(container.firstChild).toHaveClass('shadow-md');
   });
 
@@ -58,27 +53,19 @@ describe('Tabs component', () => {
   });
 
   test('can render component with selected correctly', () => {
-    render(
-      <Tabs
-        tabs={FIXTURE}
-        selected={1}
-      />
-    );
+    render(<Tabs tabs={FIXTURE} selected={1} />);
     expect(screen.getByText(/All/i)).toBeInTheDocument();
-    expect(screen.getByText(/New/i)).toHaveClass('text-toolbox-primary font-semibold');
+    expect(screen.getByText(/New/i)).toHaveClass(
+      'text-toolbox-primary font-semibold'
+    );
   });
 
   test('can handle onSelect calls correctly', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Tabs
-        tabs={FIXTURE}
-        onSelect={func}
-      />
-    );
+    render(<Tabs tabs={FIXTURE} onSelect={func} />);
 
-    const button = await screen.getByText(/New/i);
+    const button = screen.getByText(/New/i);
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
     expect(func.mock.calls[0]).toStrictEqual([1]);

@@ -16,12 +16,7 @@ describe('StickyButton component', () => {
   test('can be clicked correctly correctly', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
-    render(
-      <Button
-        label="Skip"
-        onClick={func}
-      />
-    );
+    render(<Button label="Skip" onClick={func} />);
     const button = await screen.getByRole('button');
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);

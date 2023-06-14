@@ -18,7 +18,13 @@ const OUTLINED_TEMPLATE = `inline-flex justify-center items-center box-border h-
   focus:outline-none focus-visible:border-4 focus-visible:border-toolbox-primary-300 focus-visible:text-toolbox-secondary
   disabled:text-toolbox-neutral-200 disabled:border-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
-function Secondary({ label, disabled, outlined, icon, onClick = () => {} }: Props) {
+function Secondary({
+  label,
+  disabled,
+  outlined,
+  icon,
+  onClick = () => {},
+}: Props) {
   return (
     <DefaultButton
       disabled={disabled}
@@ -27,13 +33,10 @@ function Secondary({ label, disabled, outlined, icon, onClick = () => {} }: Prop
       outlinedTemplate={OUTLINED_TEMPLATE}
       onClick={() => onClick()}
     >
-      {icon && (
-        <Icon
-          icon={icon}
-          className="leading-6 -ml-4 mr-4"
-        />
-      )}
-      <span className="visited:underline visited:underline-offset-2">{label}</span>
+      {icon && <Icon icon={icon} className="leading-6 -ml-4 mr-4" />}
+      <span className="visited:underline visited:underline-offset-2">
+        {label}
+      </span>
     </DefaultButton>
   );
 }

@@ -25,7 +25,9 @@ function Drawer({
   swipeOptions = {},
 }: Props) {
   const [open, setOpen] = useState(opened);
-  const template = classNames(BASE_TEMPLATE, { 'h-14': !open });
+  const template = classNames(BASE_TEMPLATE, {
+    'h-14': !open,
+  });
 
   const onToggle = () => {
     if (!children) {

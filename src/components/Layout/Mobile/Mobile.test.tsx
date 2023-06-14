@@ -6,10 +6,7 @@ import Layout from './Mobile';
 describe('Layout/Mobile component', () => {
   test('can render the default component correctly', () => {
     render(
-      <Layout
-        header={<div>bar</div>}
-        footer={<div>baz</div>}
-      >
+      <Layout header={<div>bar</div>} footer={<div>baz</div>}>
         <div>foo</div>
       </Layout>
     );

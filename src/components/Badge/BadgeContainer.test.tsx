@@ -12,10 +12,7 @@ describe('BadgeContainer component', () => {
 
   test('does not show the badge label when size is too small', () => {
     render(
-      <Container
-        badge={9}
-        size="xs"
-      >
+      <Container badge={9} size="xs">
         CONTEXT
       </Container>
     );

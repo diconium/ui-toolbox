@@ -13,7 +13,11 @@ const BASE_TEMPLATE = `w-7 h-7 border-2
   flex justify-center items-center
   box-border`;
 
-function Checkbox({ checked = false, disabled = false, onClick = () => {} }: Props) {
+function Checkbox({
+  checked = false,
+  disabled = false,
+  onClick = () => {},
+}: Props) {
   const template = classNames(BASE_TEMPLATE, {
     'bg-toolbox-primary': checked && !disabled,
     'bg-toolbox-neutral-200': checked && disabled,
@@ -28,10 +32,7 @@ function Checkbox({ checked = false, disabled = false, onClick = () => {} }: Pro
       onClick={() => onClick(!checked)}
     >
       {checked && (
-        <Icon
-          icon="check"
-          className="text-white leading-5 text-xl"
-        />
+        <Icon icon="check" className="text-white leading-5 text-xl" />
       )}
     </button>
   );

@@ -5,3 +5,4 @@ storybook-static
 coverage
 *.tgz
 releases
+sonar-project.properties

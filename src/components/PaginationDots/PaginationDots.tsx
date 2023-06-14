@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import Dot from '../Dot';
 
@@ -13,10 +12,15 @@ export interface Props {
   disabled?: boolean;
 }
 
-function PaginationDots({ current = 0, pages, disabled = false, onClick = () => {} }: Props) {
+function PaginationDots({
+  current = 0,
+  pages,
+  disabled = false,
+  onClick = () => {},
+}: Props) {
   const steps = pages.map(({ title }, index) => (
     <button
-      key={index}
+      key={`${title || 'dot'}${index}`}
       type="button"
       disabled={disabled}
       className="flex items-center"
@@ -25,7 +29,9 @@ function PaginationDots({ current = 0, pages, disabled = false, onClick = () => 
     >
       <Dot
         size={index === current ? 'm' : 's'}
-        color={index === current ? 'bg-toolbox-primary' : 'bg-toolbox-neutral-500'}
+        color={
+          index === current ? 'bg-toolbox-primary' : 'bg-toolbox-neutral-500'
+        }
       />
     </button>
   ));
