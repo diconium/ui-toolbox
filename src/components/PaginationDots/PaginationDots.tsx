@@ -20,7 +20,7 @@ function PaginationDots({
 }: Props) {
   const steps = pages.map(({ title }, index) => (
     <button
-      key={`${title || 'dot'}${index}`}
+      key={`${title || 'dot'}${index}`} // NOSONAR
       type="button"
       disabled={disabled}
       className="flex items-center"
