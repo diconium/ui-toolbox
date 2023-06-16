@@ -70,4 +70,23 @@ describe('Badge component', () => {
     );
     expect(screen.queryByText(/9/i)).not.toBeInTheDocument();
   });
+
+  test('does not show the badge label for size lg without badge', () => {
+    render(
+      <Badge
+        size="lg"
+        data-testid="badge"
+      />
+    );
+    expect(screen.queryByTestId('badge')).not.toBeInTheDocument();
+  });
+
+  test('renders large digit badge correctly', () => {
+    render(
+      <Badge
+        badge={11}
+      />
+    );
+    expect(screen.queryByText(/11/i)).toBeInTheDocument();
+  });
 });

@@ -1,0 +1,86 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Table from './Table';
+import ListItem from '../ListItem';
+import State from '../State';
+
+<Meta
+  title="Toolbox/Table"
+  component={Table}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+/>
+
+# Table
+
+To import the `Table` component simply include the following at the top of your file:
+
+```
+import { Table } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <Table
+      rows={[
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+## Without header
+
+<Canvas>
+  <Story name="Without header">
+    <Table
+      hideHeader
+      rows={[
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+## First column highlighted
+
+<Canvas>
+  <Story name="First column highlighted">
+    <Table
+      columnBold
+      rows={[
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+## Expandable
+
+<Canvas>
+  <Story name="Expandable">
+    <ListItem
+      title="Text Label"
+      lower={
+        <span className="pr-4">
+          <State className="pl-12" />
+        </span>
+      }
+    >
+      <Table
+        hideBorder
+        rows={[
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        ]}
+      />
+    </ListItem>
+  </Story>
+</Canvas>
