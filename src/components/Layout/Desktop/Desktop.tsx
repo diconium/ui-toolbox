@@ -7,11 +7,21 @@ export interface Props extends PropsWithChildren {
   className?: string;
 }
 
-function Desktop({ header, children, footer, className }: Props) {
-  const template = classNames(['flex-1 overflow-hidden w-full', className]);
+function Desktop({
+  header,
+  children,
+  footer,
+  className,
+}: Props) {
+  const template = classNames([
+    'flex-1 overflow-hidden w-full',
+    className,
+  ]);
   return (
     <div className="flex h-screen w-full">
-      <div className="h-screen relative shadow-md">{header}</div>
+      <div className="h-screen relative shadow-md overflow-y-auto">
+        {header}
+      </div>
       <div className={template}>{children}</div>
       <div className="h-screen shadow-md">{footer}</div>
     </div>

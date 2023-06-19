@@ -23,6 +23,24 @@ describe('Table component', () => {
         ]}
       />
     );
-    expect(screen.getAllByText(/Label/i).length).toEqual(3);
+    expect(screen.getAllByText(/label/i).length).toEqual(3);
+  });
+  test('can render the component without header correctly', () => {
+    render(
+      <Table
+        hideHeader
+        columnBold
+        rows={[
+          {
+            Text1: 'Label1',
+            Text2: 'Label2',
+            Text3: 'Label3',
+          },
+        ]}
+      />
+    );
+    expect(
+      screen.queryByText(/text/i)
+    ).not.toBeInTheDocument();
   });
 });

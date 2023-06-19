@@ -54,7 +54,7 @@ function SideNavigation({
           />
         ))}
       </div>
-      <div className="flex-1" />
+      <div className="flex-1 my-1" />
       <div className="flex flex-col gap-3">
         {footer?.map((listItem) => (
           <SideNavigationItem
