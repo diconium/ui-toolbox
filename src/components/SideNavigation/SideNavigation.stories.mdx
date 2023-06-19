@@ -1,0 +1,170 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import SideNavigation from './SideNavigation';
+
+<Meta
+  title="Toolbox/SideNavigation"
+  component={SideNavigation}
+  parameters={{
+    viewport: { defaultViewport: 'lg' },
+    layout: 'fullscreen',
+  }}
+/>
+
+# SideNavigation
+
+To import the `SideNavigation` component simply include the following at the top of your file:
+
+```
+import { SideNavigation } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <div className="bg-toolbox-neutral-50">
+      <SideNavigation
+        header={[
+          {
+            label: 'PROFILE',
+            avatar: {
+              link: 'https://i.pravatar.cc/151?u=08188',
+              alt: 'Mike',
+            },
+            state: 'bg-toolbox-feedback-red',
+          },
+          {
+            label: 'INBOX',
+            icon: {
+              icon: 'message-circle',
+              size: 'lg',
+            },
+            badge: 25,
+          },
+          {
+            label: 'BOOK',
+            icon: {
+              icon: 'calendar-plus-alt',
+              size: 'lg',
+            },
+          },
+        ]}
+        center={[
+          {
+            label: 'TEST RACKS',
+            icon: {
+              icon: 'circle-question',
+              size: 'md',
+            },
+          },
+          {
+            label: 'TEAMS',
+            icon: {
+              icon: 'users',
+              size: 'md',
+            },
+          },
+          {
+            label: 'SETTINGS',
+            icon: {
+              icon: 'filter',
+              size: 'md',
+            },
+          },
+        ]}
+        footer={[
+          {
+            label: 'LOGOUT',
+            icon: {
+              icon: 'arrow-right-from-bracket',
+              size: 'md',
+            },
+          },
+          {
+            label: 'BANSHEE',
+            icon: {
+              icon: 'circle-question',
+              size: 'md',
+            },
+          },
+        ]}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Closed
+
+<Canvas>
+  <Story name="Closed">
+    <div className="bg-toolbox-neutral-50">
+      <SideNavigation
+        opened={false}
+        header={[
+          {
+            label: 'PROFILE',
+            avatar: {
+              link: 'https://i.pravatar.cc/151?u=08188',
+              alt: 'Mike',
+            },
+            state: 'bg-toolbox-feedback-red',
+          },
+          {
+            label: 'INBOX',
+            icon: {
+              icon: 'message-circle',
+              size: 'lg',
+            },
+            badge: 25,
+          },
+          {
+            label: 'BOOK',
+            icon: {
+              icon: 'calendar-plus-alt',
+              size: 'lg',
+            },
+          },
+        ]}
+        center={[
+          {
+            label: 'TEST RACKS',
+            icon: {
+              icon: 'circle-question',
+              size: 'md',
+            },
+          },
+          {
+            label: 'TEAMS',
+            icon: {
+              icon: 'users',
+              size: 'md',
+            },
+          },
+          {
+            label: 'SETTINGS',
+            icon: {
+              icon: 'filter',
+              size: 'md',
+            },
+          },
+        ]}
+        footer={[
+          {
+            label: 'LOGOUT',
+            icon: {
+              icon: 'arrow-right-from-bracket',
+              size: 'md',
+            },
+          },
+          {
+            label: 'BANSHEE',
+            icon: {
+              icon: 'circle-question',
+              size: 'md',
+            },
+          },
+        ]}
+      />
+    </div>
+  </Story>
+</Canvas>

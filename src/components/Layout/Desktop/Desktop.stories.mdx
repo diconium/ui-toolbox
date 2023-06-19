@@ -1,0 +1,163 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Layout from './Desktop';
+import TopNavigation from '../../TopNavigation';
+import NavigationBar from '../../NavigationBar';
+import List from '../../List';
+import Icon from '../../Icon';
+import Avatar from '../../Avatar';
+import QuickButton from '../../Button/Quick';
+import BadgeContainer from '../../Badge/BadgeContainer';
+import StateContainer from '../../State/StateContainer';
+import SideNavigation from '../../SideNavigation'
+
+<Meta
+  title="Toolbox/Layout/Desktop"
+  component={Layout}
+  parameters={{
+    viewport: { defaultViewport: 'lg' },
+    layout: 'fullscreen',
+  }}
+  decorators={[
+    (Story) => (
+      <div className="flex justify-center">
+        <Story />
+      </div>
+    ),
+  ]}
+/>
+
+# DesktopLayout
+
+To import the `DesktopLayout` component simply include the following at the top of your file:
+
+```
+import { DesktopLayout } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <Layout
+      header={
+        <div className="bg-toolbox-primary h-screen p-4 w-[206px]">
+          SIDE NAV
+        </div>
+      }
+      footer={
+        <div className="bg-toolbox-secondary h-screen p-4 min-w-sm">
+          ACTION CONTAINER
+        </div>
+      }
+    >
+      <div className="h-screen p-4">MAIN CONTENT</div>
+    </Layout>
+  </Story>
+</Canvas>
+
+## Additional styles
+
+You can apply additional styles to the content area of the layout via the `className` property.
+
+<Canvas>
+  <Story name="Additional styles">
+    <Layout
+      className="bg-toolbox-feedback-orange"
+      header={
+        <div className="bg-toolbox-primary h-screen p-4 w-[206px]">
+          SIDE NAV
+        </div>
+      }
+      footer={
+        <div className="bg-toolbox-secondary h-screen p-4 min-w-sm">
+          ACTION CONTAINER
+        </div>
+      }
+    >
+      <div className="h-screen p-4">MAIN CONTENT</div>
+    </Layout>
+  </Story>
+</Canvas>
+
+## Example
+
+<Canvas>
+  <Story name="Example">
+    <Layout
+      className="bg-toolbox-neutral-50"
+      header={
+      <SideNavigation
+      header={[
+        {
+          label: 'PROFILE',
+          avatar: {
+            link: 'https://i.pravatar.cc/151?u=08188',
+            alt: 'Mike',
+          },
+          state: 'bg-toolbox-feedback-red',
+        },
+        {
+          label: 'INBOX',
+          icon: {
+            icon: 'message-circle',
+            size: 'lg',
+          },
+          badge: 25,
+        },
+        {
+          label: 'BOOK',
+          icon: {
+            icon: 'calendar-plus-alt',
+            size: 'lg',
+          },
+        },
+      ]}
+      center={[
+        {
+          label: 'TEST RACKS',
+          icon: {
+            icon: 'circle-question',
+            size: 'md',
+          },
+        },
+        {
+          label: 'TEAMS',
+          icon: {
+            icon: 'users',
+            size: 'md',
+          },
+        },
+        {
+          label: 'SETTINGS',
+          icon: {
+            icon: 'filter',
+            size: 'md',
+          },
+        },
+      ]}
+      footer={[
+        {
+          label: 'LOGOUT',
+          icon: {
+            icon: 'arrow-right-from-bracket',
+            size: 'md',
+          },
+        },
+        {
+          label: 'BANSHEE',
+          icon: {
+            icon: 'circle-question',
+            size: 'md',
+          },
+        },
+      ]}
+    />
+      }
+      footer={
+        <div className="min-w-sm p-4">ACTION CONTAINER</div>
+      }
+    >
+      <div className="h-[1280px] p-4">MAIN CONTENT</div>
+    </Layout>
+  </Story>
+</Canvas>
