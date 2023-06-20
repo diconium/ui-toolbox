@@ -9,7 +9,7 @@ export interface Props extends PropsWithChildren {
 
 function TopNavigation({ title, leading, subtitle, children, left }: Props) {
   return (
-    <div className="shadow min-w-sm">
+    <div className="shadow min-w-sm w-full">
       <div className="flex flex-col space-y-1 px-8 py-2">
         <div className="flex items-center h-10">
           <div className="flex flex-none text-toolbox-neutral">{left}</div>

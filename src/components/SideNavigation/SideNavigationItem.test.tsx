@@ -11,7 +11,10 @@ describe('SideNavigationItem component', () => {
   });
 
   test('can render the default component correctly', () => {
-    render(<SideNavigationItem label="test-label" />);
+    const icon = { icon: 'message-circle', size: 'lg' };
+    render(
+      <SideNavigationItem label="test-label" icon={icon} />
+    );
     expect(
       screen.getByText(/test-label/i)
     ).toBeInTheDocument();
