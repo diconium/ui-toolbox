@@ -1,0 +1,139 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Table from './Table';
+import ListItem from '../ListItem';
+import State from '../State';
+
+<Meta
+  title="Toolbox/Table"
+  component={Table}
+  parameters={{ viewport: { defaultViewport: 'sm' } }}
+/>
+
+# Table
+
+To import the `Table` component simply include the following at the top of your file:
+
+```
+import { Table } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <div className="w-[450px]">
+      <Table
+        rows={[
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        ]}
+        config={[
+          { key: 'HW', render: 'default' },
+          { key: 'ECU', render: 'default' },
+          { key: 'SW', render: 'default' },
+          { key: 'Rev.', render: 'default' },
+        ]}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Without header
+
+<Canvas>
+  <Story name="Without header">
+    <div className="w-[450px]">
+      <Table
+        rows={[
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        ]}
+        config={[
+          { key: 'HW', render: 'default', options: { hideHeader: true } },
+          { key: 'ECU', render: 'default', options: { hideHeader: true } },
+          { key: 'SW', render: 'default', options: { hideHeader: true } },
+          { key: 'Rev.', render: 'default', options: { hideHeader: true } },
+        ]}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## First column bold
+
+<Canvas>
+  <Story name="First column bold">
+    <div className="w-[450px]">
+      <Table
+        rows={[
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+        ]}
+        config={[
+          { key: 'ECU', render: 'default', options: { className: 'font-bold' } },
+          { key: 'HW', render: 'default' },
+          { key: 'SW', render: 'default' },
+          { key: 'Rev.', render: 'default' },
+        ]}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Expandable
+
+<Canvas>
+  <Story name="Expandable">
+    <div className="w-[450px]">
+      <ListItem
+        title="Text Label"
+        lower={
+          <span className="pr-4">
+            <State className="pl-12" />
+          </span>
+        }
+      >
+        <Table
+          rows={[
+            { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+            { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+            { ECU: 'Label', HW: 'Label', SW: 'Label', 'Rev.': 'Label' },
+          ]}
+          config={[
+            { key: 'ECU', render: 'default' },
+            { key: 'HW', render: 'default' },
+            { key: 'SW', render: 'default' },
+            { key: 'Rev.', render: 'default' },
+          ]}
+          className="border-none"
+        />
+      </ListItem>
+    </div>
+  </Story>
+</Canvas>
+
+## Icon cells
+
+<Canvas>
+  <Story name="Icon cells">
+    <div className="w-[450px]">
+      <Table
+        columnBold
+        rows={[
+          { ECU: 'Label', HW: 'Label', SW: 'Label', Icon: 'arrow-left' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', Icon: 'arrow-right' },
+          { ECU: 'Label', HW: 'Label', SW: 'Label', Icon: 'arrow-up' },
+        ]}
+        config={[
+          { key: 'ECU', render: 'default' },
+          { key: 'HW', render: 'default' },
+          { key: 'SW', render: 'default' },
+          { key: 'Icon', render: 'icon', options: { size: 'sm' } },
+        ]}
+      />
+    </div>
+  </Story>
+</Canvas>
