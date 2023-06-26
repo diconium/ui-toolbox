@@ -3,16 +3,9 @@ import dayjs from 'dayjs';
 export const getWeeks = (year: number, month: number) => {
   const weeks = [];
 
-  const startDate = dayjs()
-    .set('year', year)
-    .set('month', month)
-    .startOf('month')
-    .startOf('week');
+  const startDate = dayjs().set('year', year).set('month', month).startOf('month').startOf('week');
 
-  const endDate = dayjs()
-    .set('year', year)
-    .set('month', month)
-    .endOf('month');
+  const endDate = dayjs().set('year', year).set('month', month).endOf('month');
 
   let day = startDate.subtract(1, 'day');
 

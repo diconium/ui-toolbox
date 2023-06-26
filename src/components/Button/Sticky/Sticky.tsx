@@ -8,7 +8,8 @@ export interface Props extends DefaultProps {
   left?: boolean;
 }
 
-const BASE_TEMPLATE = 'text-toolbox-white text-base max-w-xs font-semibold uppercase w-36 h-36 absolute bottom-0';
+const BASE_TEMPLATE = ` text-toolbox-white text-base max-w-xs
+ font-semibold uppercase w-36 h-36 absolute bottom-0`;
 
 const DEFAULT_TEMPLATE = 'bg-toolbox-primary hover:bg-toolbox-primary-600';
 

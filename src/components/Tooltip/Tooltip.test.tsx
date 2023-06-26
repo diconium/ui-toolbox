@@ -19,12 +19,12 @@ describe('Tooltip component', () => {
   test('can render the custom tooltips correctly', () => {
     render(
       <Tooltip
-        tooltip={(
+        tooltip={
           <div>
             <span>bazz</span>
             <p className="underline">text</p>
           </div>
-        )}
+        }
       >
         <span>foo</span>
       </Tooltip>
