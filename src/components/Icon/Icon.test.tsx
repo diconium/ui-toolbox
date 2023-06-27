@@ -25,4 +25,39 @@ describe('Icon component', () => {
     render(<Icon icon="" />);
     expect(screen.getByText('NA')).toBeInTheDocument();
   });
+
+  test('can render all sizes correctly', () => {
+    const { container: small } = render(
+      <Icon
+        icon="aperture"
+        size="s"
+      />
+    );
+    const { container: medium } = render(
+      <Icon
+        icon="aperture"
+        size="m"
+      />
+    );
+    const { container: large } = render(
+      <Icon
+        icon="aperture"
+        size="lg"
+      />
+    );
+    const { container: xlarge } = render(
+      <Icon
+        icon="aperture"
+        size="xl"
+      />
+    );
+    const smallTag = small.querySelector('span');
+    const mediumTag = medium.querySelector('span');
+    const largeTag = large.querySelector('span');
+    const xlargeTag = xlarge.querySelector('span');
+    expect(smallTag).not.toBe(null);
+    expect(mediumTag).not.toBe(null);
+    expect(largeTag).not.toBe(null);
+    expect(xlargeTag).not.toBe(null);
+  });
 });

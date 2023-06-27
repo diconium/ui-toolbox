@@ -20,12 +20,12 @@ describe('Tooltip/Display component', () => {
   test('can render the custom tooltips correctly', () => {
     render(
       <Display
-        tooltip={(
+        tooltip={
           <div>
             <span>bazz</span>
             <p className="underline">text</p>
           </div>
-        )}
+        }
       />
     );
     expect(screen.getByText(/baz/i)).toBeInTheDocument();
