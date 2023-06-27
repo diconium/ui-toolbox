@@ -12,7 +12,8 @@ export const typeToColor = (type = 'info', filled = false) => {
     case 'error':
       color = `bg-toolbox-feedback-red${shade}`;
       break;
-    default: break;
+    default:
+      break;
   }
 
   return color;
@@ -31,7 +32,8 @@ export const typeToBorderColor = (type = 'info') => {
     case 'error':
       border = 'border-toolbox-feedback-red';
       break;
-    default: break;
+    default:
+      break;
   }
 
   return border;
@@ -50,7 +52,8 @@ export const typeToIcon = (type = 'info') => {
     case 'error':
       icon = 'circle-xmark';
       break;
-    default: break;
+    default:
+      break;
   }
 
   return icon;
@@ -72,7 +75,8 @@ export const typeToTextColor = (type = 'info', filled = false) => {
     case 'error':
       text = 'text-toolbox-feedback-red';
       break;
-    default: break;
+    default:
+      break;
   }
 
   return text;

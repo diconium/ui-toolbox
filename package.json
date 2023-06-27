@@ -16,7 +16,8 @@
     "build-storybook": "npm run build:prod && build-storybook",
     "lint": "eslint ./src --ext js,ts,tsx,jsx",
     "lint:fix": "npm run lint -- --fix",
-    "generate:component": "hygen component new --name $1"
+    "generate:component": "hygen component new --name $1",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "author": "Diconium Auto GmbH - Team Web",
   "license": "ISC",
@@ -51,6 +52,7 @@
     "chromatic": "^6.17.3",
     "eslint": "^8.39.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jest-dom": "^4.0.3",
