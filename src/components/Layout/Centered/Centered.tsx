@@ -3,7 +3,7 @@ import React, { ReactNode, PropsWithChildren } from 'react';
 
 export interface Props extends PropsWithChildren {
   className?: string;
-  footer?: ReactNode | undefined;
+  footer?: ReactNode;
 }
 
 function Centered({ children, className, footer }: Props) {

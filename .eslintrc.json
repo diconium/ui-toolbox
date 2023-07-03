@@ -32,6 +32,7 @@
     "no-undef": "off",
     "comma-dangle": "off",
     "object-curly-newline": "off",
+    "no-restricted-globals": "off",
     "react/no-array-index-key": "off"
   }
 }
