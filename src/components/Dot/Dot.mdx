@@ -1,0 +1,27 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Dot from './Dot';
+import * as DotStories from './Dot.stories';
+
+<Meta of={DotStories} />
+
+# Dot
+
+To import the `Dot` component simply include the following at the top of your file:
+
+```
+import { Dot } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={DotStories.Default} />
+
+## Different sizes
+
+The Dot component comes in different sizes: `xl, lg, m, s`
+
+<Canvas of={DotStories.DifferentSizes} />
+
+## Custom color
+
+<Canvas of={DotStories.DifferentColors} />

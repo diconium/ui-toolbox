@@ -1,0 +1,54 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import ListItem from './ListItem';
+import State from '../State';
+import Avatar from '../Avatar';
+import * as ListItemStories from './ListItem.stories';
+
+<Meta of={ListItemStories} />
+
+# ListItem
+
+To import the `ListItem` component simply include the following at the top of your file:
+
+```
+import { ListItem } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ListItemStories.Default} />
+
+## With subtitle
+
+<Canvas of={ListItemStories.WithSubtitle} />
+
+## Centered Text
+
+In special cases you want to show important information by its own, you can center the title by
+using `textAlignment` and setting it to `center`. Doing this will also disable the subtitle if set.
+
+<Canvas of={ListItemStories.CenteredText} />
+
+## Selected
+
+<Canvas of={ListItemStories.Selected} />
+
+## Upper slot only
+
+<Canvas of={ListItemStories.UpperSlotOnly} />
+
+## With extended Info
+
+<Canvas of={ListItemStories.WithExtendedInfo} />
+
+## With upper side and extended
+
+<Canvas of={ListItemStories.WithUpperSideAndExtended} />
+
+## Full
+
+<Canvas of={ListItemStories.Full} />
+
+## Full (no open)
+
+<Canvas of={ListItemStories.FullNoOpen} />

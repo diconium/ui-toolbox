@@ -1,0 +1,34 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import ToggleButton from './Toggle';
+import * as ToggleStories from './Toggle.stories';
+
+<Meta of={ToggleStories} />
+
+# ToggleButton
+
+To import the `ToggleButton` component simply include the following at the top of your file:
+
+```
+import { ToggleButton } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ToggleStories.Default} />
+
+## WithTitle
+
+<Canvas of={ToggleStories.WithTitle} />
+
+## Toggled
+
+<Canvas of={ToggleStories.Toggled} />
+
+## Disabled
+
+<Canvas of={ToggleStories.Disabled} />
+
+## WithAction
+
+<Canvas of={ToggleStories.WithAction} />

@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import QuickButton from './Quick';
+import * as QuickStories from './Quick.stories';
+
+<Meta of={QuickStories} />
+
+# QuickButton
+
+To import the `QuickButton` component simply include the following at the top of your file:
+
+```
+import { QuickButton } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={QuickStories.Default} />
+
+## Hovered
+
+<Canvas of={QuickStories.Hovered} />
+
+## Active
+
+<Canvas of={QuickStories.Active} />
+
+## Focus
+
+<Canvas of={QuickStories.Focus} />
+
+## Disabled
+
+<Canvas of={QuickStories.Disabled} />

@@ -1,0 +1,30 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import State from './State';
+import StateContainer from './StateContainer';
+import * as StateStories from './State.stories';
+
+<Meta of={StateStories} />
+
+# State
+
+To import the `State` component simply include the following at the top of your file:
+
+```
+import { State } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={StateStories.Default} />
+
+## Different sizes
+
+<Canvas of={StateStories.DifferentSizes} />
+
+## With label
+
+<Canvas of={StateStories.WithLabel} />
+
+## Attach state to any other component
+
+<Canvas of={StateStories.AttachStateToAnyOtherComponent} />

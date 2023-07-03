@@ -10,7 +10,8 @@
     "plugin:import/recommended",
     "plugin:jest-dom/recommended",
     "airbnb",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "plugins": ["jest", "react"],
   "env": {

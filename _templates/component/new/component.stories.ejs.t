@@ -1,26 +1,15 @@
 ---
-to: src/components/<%= name %>/<%= name %>.stories.mdx
+to: src/components/<%= name %>/<%= name %>.stories.tsx
 ---
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import React from 'react';
 import <%= name %> from './<%= name %>';
 
-<Meta
-  title="Toolbox/<%= name %>"
-  component={<%= name %>}
-/>
+export default {
+  title: 'Toolbox/<%= name %>',
+  component: <%= name %>,
+};
 
-# <%= name %>
-
-To import the `<%= name %>` component simply include the following at the top of your file:
-
-```
-import { <%= name %> } from '@dicoauto/toolbox';
-```
-
-## Default 
-
-<Canvas>
-  <Story name="Default">
-    <<%= name %> />
-  </Story>
-</Canvas>
+export function Default() {
+  return <<%= name %> />
+}

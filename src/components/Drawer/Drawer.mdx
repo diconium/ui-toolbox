@@ -1,0 +1,34 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Drawer from './Drawer';
+import PrimaryButton from '../Button/Primary';
+import Chip from '../Chip';
+import * as DrawerStories from './Drawer.stories';
+
+<Meta of={DrawerStories} />
+
+# Drawer
+
+The Drawer component implements swipeable behavior from `react-swipeable` and can be swiped up (to open)
+and swiped down (to close).
+
+To import the `Drawer` component simply include the following at the top of your file:
+
+```
+import { Drawer } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={DrawerStories.Default} />
+
+## Open and Close
+
+Clicking on the handle on the top will open and close the drawer content.
+
+<Canvas of={DrawerStories.Opened} />
+
+## Different layouts for the content area
+
+The Drawer components supports two different layouts: `centered`(default) and `full-width` as shown below:
+
+<Canvas of={DrawerStories.DifferentContentLayouts} />

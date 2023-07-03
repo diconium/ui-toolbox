@@ -1,0 +1,22 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import PaginationDots from './PaginationDots';
+import * as PaginationDotsStories from './PaginationDots.stories';
+
+<Meta of={PaginationDotsStories} />
+
+# PaginationDots
+
+To import the `PaginationDots` component simply include the following at the top of your file:
+
+```
+import { PaginationDots } from '@dicoauto/toolbox';
+```
+
+<Canvas of={PaginationDotsStories.Default} />
+
+<Canvas of={PaginationDotsStories.CurrentStep} />
+
+<Canvas of={PaginationDotsStories.WithAction} />
+
+<Canvas of={PaginationDotsStories.Disabled} />
