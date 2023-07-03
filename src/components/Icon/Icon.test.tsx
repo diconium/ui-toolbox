@@ -51,13 +51,21 @@ describe('Icon component', () => {
         size="xl"
       />
     );
+    const { container: xxlarge } = render(
+      <Icon
+        icon="aperture"
+        size="2xl"
+      />
+    );
     const smallTag = small.querySelector('span');
     const mediumTag = medium.querySelector('span');
     const largeTag = large.querySelector('span');
     const xlargeTag = xlarge.querySelector('span');
+    const xxlargeTag = xxlarge.querySelector('span');
     expect(smallTag).not.toBe(null);
     expect(mediumTag).not.toBe(null);
     expect(largeTag).not.toBe(null);
     expect(xlargeTag).not.toBe(null);
+    expect(xxlargeTag).not.toBe(null);
   });
 });
