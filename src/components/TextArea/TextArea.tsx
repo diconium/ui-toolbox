@@ -12,7 +12,7 @@ export interface Props extends PropsWithChildren {
   hint?: string;
 }
 
-const BASE_TEMPLATE = `peer w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
+const BASE_TEMPLATE = `peer w-full border px-4 py-2.5 rounded-lg max-w-xs
   text-sm bg-toolbox-white
   focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
 
@@ -30,6 +30,7 @@ function TextArea({
     BASE_TEMPLATE,
     !disabled && 'text-toolbox-neutral-500',
     disabled && 'text-toolbox-neutral-200',
+    disabled && 'border-toolbox-neutral-50',
   ]);
 
   return (
