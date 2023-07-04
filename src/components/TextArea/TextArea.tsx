@@ -29,7 +29,7 @@ function TextArea({
   const template = classNames([
     BASE_TEMPLATE,
     !disabled && 'text-toolbox-neutral-500',
-    disabled && 'text-toolbox-neutral-200',
+    disabled && 'text-toolbox-neutral',
     disabled && 'border-toolbox-neutral-50',
   ]);
 
