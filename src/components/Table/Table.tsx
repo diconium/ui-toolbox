@@ -32,7 +32,7 @@ function Table({ rows = [], config = [], className }: Props) {
   }, []);
   const template = classNames(
     'bg-toolbox-white text-toolbox-neutral-900 w-full text-left text-sm min-w-max border rounded-2xl',
-    className?.includes('border-none') || 'px-5 py-2',
+    className?.includes('border-none') || 'px-6 py-2',
     className
   );
   const getConfig = (column: string) => config.find(({ key }) => key === column);
