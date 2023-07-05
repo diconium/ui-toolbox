@@ -25,7 +25,7 @@ interface Props extends React.ComponentProps<'table'> {
   config: Config[];
 }
 
-function Table({ rows, config, className }: Props) {
+function Table({ rows = [], config = [], className }: Props) {
   const [rowsWithId, setRowsWithId] = useState<RowWithId[]>([]);
   useEffect(() => {
     setRowsWithId(assignId(rows));
@@ -38,6 +38,12 @@ function Table({ rows, config, className }: Props) {
   const getConfig = (column: string) => config.find(({ key }) => key === column);
   const columns = config.map(({ key }) => key);
   const hideTableHeader = config.every(({ options }) => options?.hideHeader);
+  if (!rows.length) {
+    return 'No rows provided';
+  }
+  if (!config.length) {
+    return 'No table configuration provided';
+  }
   return (
     <div className={template}>
       <table className="w-full table-auto">
