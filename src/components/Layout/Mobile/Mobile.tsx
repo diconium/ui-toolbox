@@ -2,8 +2,8 @@ import React, { ReactNode, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 
 export interface Props extends PropsWithChildren {
-  header?: ReactNode | undefined;
-  footer?: ReactNode | undefined;
+  header?: ReactNode;
+  footer?: ReactNode;
   className?: string;
 }
 

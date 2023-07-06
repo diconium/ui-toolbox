@@ -61,14 +61,16 @@ function TextField({
   const template = classNames(
     BASE_TEMPLATE,
     !validation && 'border-toolbox-neutral-200',
-    !validation && !disabled && 'text-toolbox-neutral-500',
+    !validation && !disabled && 'text-toolbox-neutral-900',
+    !validation && !disabled && 'placeholder-toolbox-neutral-500',
     ...[
       validation && !isValid && `border-toolbox-feedback-${color}`,
       validation && !isValid && `focus:border-toolbox-feedback-${color}`,
       validation && isValid && 'border-toolbox-neutral-200',
       validation && 'text-toolbox-neutral-500',
     ],
-    disabled && 'text-toolbox-neutral-200',
+    disabled && 'border-toolbox-neutral-50',
+    disabled && 'placeholder-toolbox-neutral-200',
     className
   );
 
