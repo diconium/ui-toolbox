@@ -1,0 +1,35 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Message from './Message';
+import Avatar from '../Avatar';
+import * as MessageStories from './Message.stories';
+
+<Meta of={MessageStories} />
+
+# Message
+
+To import the `Message` component simply include the following at the top of your file:
+
+```
+import { Message } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={MessageStories.Default} />
+
+## No Chevron
+
+<Canvas of={MessageStories.NoChevron} />
+
+## onToggle
+
+<Canvas of={MessageStories.OnToggle} />
+
+## onOpen / onClose
+
+<Canvas of={MessageStories.OnOpen} />
+
+## Custom contents
+
+<Canvas of={MessageStories.CustomContents} />

@@ -1,0 +1,37 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import SecondaryButton from './Secondary';
+import * as SecondaryStories from './Secondary.stories';
+
+<Meta of={SecondaryStories} />
+
+# SecondaryButton
+
+To import the `SecondaryButton` component simply include the following at the top of your file:
+
+```
+import { SecondaryButton } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={SecondaryStories.Default} />
+
+## Hovered
+
+<Canvas of={SecondaryStories.Hovered} />
+
+## Active
+
+<Canvas of={SecondaryStories.Active} />
+
+## Focus
+
+<Canvas of={SecondaryStories.Focus} />
+
+## Disabled
+
+<Canvas of={SecondaryStories.Disabled} />
+
+## Visited
+
+<Canvas of={SecondaryStories.Visited} />

@@ -1,0 +1,28 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import ProgressBar from './ProgressBar';
+import * as ProgressBarStories from './ProgressBar.stories';
+
+<Meta of={ProgressBarStories} />
+
+# ProgressBar
+
+To import the `ProgressBar` component simply include the following at the top of your file:
+
+```
+import { ProgressBar } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ProgressBarStories.Default} />
+
+## With pulse effect
+
+<Canvas of={ProgressBarStories.WithEffect} />
+
+## Dynamic Min and Max
+
+You can set `min` and `max` options if you want to set the minimum progress
+that should be shown. In that case the progress will not drop below the `min` value and not go over the `max` value.
+
+<Canvas of={ProgressBarStories.DynamicMinAndMax} />

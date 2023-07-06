@@ -1,0 +1,23 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Layout from './Desktop';
+import Avatar from '../../Avatar';
+import StickyButton from '../../Button/Sticky';
+import * as DesktopStories from './Desktop.stories';
+
+<Meta of={DesktopStories} />
+
+# DesktopLayout
+
+To import the `DesktopLayout` component simply include the following at the top of your file:
+
+```
+import { DesktopLayout } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={DesktopStories.Default} />
+
+## Additional styles
+
+<Canvas of={DesktopStories.AdditionalStyles} />

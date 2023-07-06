@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import NavigationBar from './NavigationBar';
+import QuickButton from '../Button/Quick';
+import Icon from '../Icon';
+import Avatar from '../Avatar';
+import * as NavigationBarStories from './NavigationBar.stories';
+
+<Meta of={NavigationBarStories} />
+
+# NavigationBar
+
+To import the `NavigationBar` component simply include the following at the top of your file:
+
+```
+import { NavigationBar } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={NavigationBarStories.Default} />
+
+## With right side
+
+<Canvas of={NavigationBarStories.WithRightSide} />
+
+## With left side
+
+<Canvas of={NavigationBarStories.WithLeftSide} />
+
+## With action
+
+<Canvas of={NavigationBarStories.WithAction} />
+
+## All
+
+<Canvas of={NavigationBarStories.All} />

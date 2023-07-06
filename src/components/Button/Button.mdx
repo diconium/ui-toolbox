@@ -1,0 +1,37 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Button from './Button';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+To import the `Button` component simply include the following at the top of your file:
+
+```
+import { Button } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ButtonStories.Default} />
+
+## Hovered
+
+<Canvas of={ButtonStories.Hovered} />
+
+## Active
+
+<Canvas of={ButtonStories.Active} />
+
+## Focused
+
+<Canvas of={ButtonStories.Focused} />
+
+## Disabled
+
+<Canvas of={ButtonStories.Disabled} />
+
+## Visited
+
+<Canvas of={ButtonStories.Visited} />

@@ -1,0 +1,34 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import TopNavigation from './TopNavigation';
+import Icon from '../Icon';
+import * as TopNavigationStories from './TopNavigation.stories';
+
+<Meta of={TopNavigationStories} />
+
+# TopNavigation
+
+To import the `TopNavigation` component simply include the following at the top of your file:
+
+```
+import { TopNavigation } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={TopNavigationStories.Default} />
+
+## With leading text
+
+<Canvas of={TopNavigationStories.WithLeadingText} />
+
+## With subtitle
+
+<Canvas of={TopNavigationStories.WithSubtitle} />
+
+## With children
+
+<Canvas of={TopNavigationStories.WithChildren} />
+
+## With children on the left side
+
+<Canvas of={TopNavigationStories.WithLeftSide} />

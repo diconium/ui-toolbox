@@ -1,0 +1,22 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as TypographyStories from './typography.stories';
+
+<Meta of={TypographyStories} />
+
+## Typography
+
+The standard font family for this library is the google font [Poppins](https://fonts.google.com/specimen/Poppins).
+We support two font weights: `Regular 400` and `SemiBold 600`.
+It will automatically be set to the default when you include this package into your project.
+
+<Canvas>
+  <Story of={TypographyStories.Headers} />
+</Canvas>
+
+<Canvas>
+  <Story of={TypographyStories.Body} />
+</Canvas>
+
+<Canvas>
+  <Story of={TypographyStories.Footnote} />
+</Canvas>

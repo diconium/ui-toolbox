@@ -1,0 +1,37 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import TextButton from './Text';
+import * as TextStories from './Text.stories';
+
+<Meta of={TextStories} />
+
+# TextButton
+
+To import the `TextButton` component simply include the following at the top of your file:
+
+```
+import { TextButton } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={TextStories.Default} />
+
+## Hovered
+
+<Canvas of={TextStories.Hovered} />
+
+## Active
+
+<Canvas of={TextStories.Active} />
+
+## Disabled
+
+<Canvas of={TextStories.Disabled} />
+
+## Visited
+
+<Canvas of={TextStories.Visited} />
+
+## With action
+
+<Canvas of={TextStories.WithAction} />

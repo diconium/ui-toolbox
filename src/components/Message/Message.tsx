@@ -35,7 +35,7 @@ function Message({
   const template = classNames([
     'max-w-sm bg-toolbox-white rounded-2xl',
     'py-4 px-2',
-    read ? 'border border-toolbox-neutral-50' : 'border-2 border-toolbox-primary',
+    read ? 'border border-toolbox-neutral-50' : 'border border-toolbox-primary',
   ]);
   const textTemplate = classNames([
     'flex-1 text-toolbox-neutral text-sm text-left',

@@ -1,0 +1,22 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Tag from './Tag';
+import * as TagStories from './Tag.stories';
+
+<Meta of={TagStories} />
+
+# Tag
+
+To import the `Tag` component simply include the following at the top of your file:
+
+```
+import { Tag } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={TagStories.Default} />
+
+## With action
+
+<Canvas of={TagStories.WithAction} />
