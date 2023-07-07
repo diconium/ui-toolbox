@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import React from 'react';
+import Icon from '../Icon/Icon';
 import Cell, { Content } from './Cell';
 import Header from './Header';
 import assignId from './utils';
@@ -26,10 +27,7 @@ interface Props extends React.ComponentProps<'table'> {
 }
 
 function Table({ rows = [], config = [], className }: Props) {
-  const [rowsWithId, setRowsWithId] = useState<RowWithId[]>([]);
-  useEffect(() => {
-    setRowsWithId(assignId(rows));
-  }, []);
+  const rowsWithId = assignId(rows);
   const template = classNames(
     'bg-toolbox-white text-toolbox-neutral-900 w-full text-left text-sm min-w-max border rounded-2xl',
     className?.includes('border-none') || 'px-6 py-2',
@@ -38,12 +36,6 @@ function Table({ rows = [], config = [], className }: Props) {
   const getConfig = (column: string) => config.find(({ key }) => key === column);
   const columns = config.map(({ key }) => key);
   const hideTableHeader = config.every(({ options }) => options?.hideHeader);
-  if (!rows.length) {
-    return 'No rows provided';
-  }
-  if (!config.length) {
-    return 'No table configuration provided';
-  }
   return (
     <div className={template}>
       <table className="w-full table-auto">
@@ -62,17 +54,32 @@ function Table({ rows = [], config = [], className }: Props) {
           </thead>
         )}
         <tbody>
-          {rowsWithId.map(({ id, cells }) => (
-            <tr key={id}>
-              {columns.map((column) => (
-                <Cell
-                  key={cells[column]?.id}
-                  content={cells[column]}
-                  config={getConfig(column)}
+          {rowsWithId?.length ? (
+            rowsWithId?.map(({ id, cells }) => (
+              <tr key={id}>
+                {columns.map((column) => (
+                  <Cell
+                    key={cells[column]?.id}
+                    content={cells[column]}
+                    config={getConfig(column)}
+                  />
+                ))}
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td
+                className="pt-5 pb-4 text-center text-toolbox-neutral-200"
+                colSpan={config.length}
+              >
+                <Icon
+                  icon="table-layout"
+                  className="block pb-1"
                 />
-              ))}
+                No available data
+              </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>

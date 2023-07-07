@@ -9,9 +9,9 @@
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:jest-dom/recommended",
+    "plugin:storybook/recommended",
     "airbnb",
-    "prettier",
-    "plugin:storybook/recommended"
+    "prettier"
   ],
   "plugins": ["jest", "react"],
   "env": {
