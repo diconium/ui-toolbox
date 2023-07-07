@@ -30,12 +30,15 @@ export const isOutOfRange = (day: dayjs.Dayjs, current: dayjs.Dayjs) => {
   return isBefore || isAfter;
 };
 
-export const getTextColor = (day: dayjs.Dayjs) => {
+export const getTextColor = (day: dayjs.Dayjs, selected?: dayjs.Dayjs | null) => {
   const today = dayjs().startOf('day');
-  if (day.isBefore(today)) {
+  if (day.isBefore(selected) || day.isBefore(today)) {
     return 'text-toolbox-neutral-200';
   }
-
+  const isNextMonth = day.month() - (selected || today).month() > 0;
+  if (isNextMonth) {
+    return 'text-toolbox-neutral-200';
+  }
   return 'text-toolbox-neutral';
 };
 
