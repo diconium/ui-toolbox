@@ -1,0 +1,29 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import StickyButton from './Sticky';
+import * as StickyStories from './Sticky.stories';
+
+<Meta of={StickyStories} />
+
+# StickyButton
+
+To import the `StickyButton` component simply include the following at the top of your file:
+
+```
+import { StickyButton } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={StickyStories.Default} />
+
+## LeftSide
+
+<Canvas of={StickyStories.LeftSide} />
+
+## Secondary
+
+<Canvas of={StickyStories.Secondary} />
+
+## Disabled
+
+<Canvas of={StickyStories.Disabled} />

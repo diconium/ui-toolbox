@@ -35,7 +35,7 @@ function Avatar({
   border = 'border-toolbox-primary',
   badge,
 }: Props) {
-  const template = classNames([getTemplate(size), 'object-cover rounded-full', border]);
+  const template = classNames([getTemplate(size), 'object-cover rounded-full max-w-fit', border]);
   return (
     <BadgeContainer
       badge={badge}

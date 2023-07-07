@@ -1,0 +1,30 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Chip from './Chip';
+import * as ChipStories from './Chip.stories';
+
+<Meta of={ChipStories} />
+
+# Chip
+
+To import the `Chip` component simply include the following at the top of your file:
+
+```
+import { Chip } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ChipStories.Default} />
+
+## Selected
+
+<Canvas of={ChipStories.Selected} />
+
+## Disabled
+
+<Canvas of={ChipStories.Disabled} />
+
+## With action
+
+<Canvas of={ChipStories.WithAction} />

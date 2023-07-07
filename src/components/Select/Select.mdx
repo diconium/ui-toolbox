@@ -1,0 +1,26 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Select from './Select';
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select
+
+To import the `Select` component simply include the following at the top of your file:
+
+```
+import { Select } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={SelectStories.Default} />
+
+## Opened
+
+<Canvas of={SelectStories.Opened} />
+
+## Opened & Selected
+
+<Canvas of={SelectStories.OpenedAndSelected} />

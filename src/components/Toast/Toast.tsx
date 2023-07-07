@@ -51,7 +51,7 @@ function Toast({
 }: Props) {
   const template = classNames([
     'flex items-center max-w-sm px-6 py-4',
-    'rounded-2xl border-2 box-border',
+    'rounded-2xl border box-border',
     typeToBorderColor(type),
     typeToColor(type, filled),
     subtitle ? 'h-20' : 'h-13',

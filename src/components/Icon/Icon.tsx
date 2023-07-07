@@ -22,6 +22,9 @@ const sizeToStyles = (size: string) => {
   if (size === 'xl') {
     return ['leading-[56px]', 'text-[56px]'];
   }
+  if (size === '2xl') {
+    return ['leading-[160px]', 'text-[160px]'];
+  }
 
   return [];
 };

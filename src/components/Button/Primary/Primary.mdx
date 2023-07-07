@@ -1,0 +1,37 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import PrimaryButton from './Primary';
+import * as PrimaryStories from './Primary.stories';
+
+<Meta of={PrimaryStories} />
+
+# PrimaryButton
+
+To import the `PrimaryButton` component simply include the following at the top of your file:
+
+```
+import { PrimaryButton } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={PrimaryStories.Default} />
+
+## Hovered
+
+<Canvas of={PrimaryStories.Hovered} />
+
+## Active
+
+<Canvas of={PrimaryStories.Active} />
+
+## Focus
+
+<Canvas of={PrimaryStories.Focus} />
+
+## Disabled
+
+<Canvas of={PrimaryStories.Disabled} />
+
+## Visited
+
+<Canvas of={PrimaryStories.Visited} />

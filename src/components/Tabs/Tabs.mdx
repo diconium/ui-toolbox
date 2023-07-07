@@ -1,0 +1,31 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Tabs from './Tabs';
+import Tab from './Tab';
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+To import the `Tabs` component simply include the following at the top of your file:
+
+```
+import { Tabs, Tab } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={TabsStories.Default} />
+
+## As block component
+
+<Canvas of={TabsStories.AsBlockComponent} />
+
+## With shadow
+
+<Canvas of={TabsStories.WithShadow} />
+
+## Vertical scroll
+
+<Canvas of={TabsStories.VerticalScroll} />

@@ -1,0 +1,29 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Icon, Font } from './Icon';
+import * as IconStories from './Icon.stories';
+
+<Meta of={IconStories} />
+
+# Icon
+
+To import the `Icon` component simply include the following at the top of your file:
+
+```
+import { Icon } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={IconStories.Default} />
+
+## Different sizes
+
+<Canvas of={IconStories.DifferentSizes} />
+
+## Icon does not exist
+
+<Canvas of={IconStories.IconDoesNotExist} />
+
+## All icons
+
+<Canvas of={IconStories.All} />

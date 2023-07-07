@@ -1,0 +1,27 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Modal from './Modal';
+import Avatar from '../Avatar';
+import * as ModalStories from './Modal.stories';
+
+<Meta of={ModalStories} />
+
+# Modal
+
+To import the `Modal` component simply include the following at the top of your file:
+
+```
+import { Modal } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ModalStories.Default} />
+
+## Custom content
+
+<Canvas of={ModalStories.CustomContent} />
+
+## With actions
+
+<Canvas of={ModalStories.WithActions} />

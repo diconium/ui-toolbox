@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Icon from '../Icon';
 import Option from './Option';
 
-type OptionType = {
+export type OptionType = {
   id: string | number;
   label: string;
 };

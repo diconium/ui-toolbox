@@ -1,0 +1,45 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import TextArea from './TextArea';
+import Icon from '../Icon';
+import * as TextAreaStories from './TextArea.stories';
+
+<Meta of={TextAreaStories} />
+
+# TextArea
+
+To import the `TextArea` component simply include the following at the top of your file:
+
+```
+import { TextArea } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={TextAreaStories.Default} />
+
+## Label
+
+<Canvas of={TextAreaStories.Label} />
+
+## Hint
+
+<Canvas of={TextAreaStories.Hint} />
+
+## Different rows
+
+The `TextArea`component defaults to 5 rows, if not set explicitly.
+
+<Canvas of={TextAreaStories.DifferentRows} />
+
+## State:Focused
+
+<Canvas of={TextAreaStories.Focused} />
+
+## With Action
+
+<Canvas of={TextAreaStories.WithAction} />
+
+## Disabled
+
+<Canvas of={TextAreaStories.Disabled} />

@@ -1,0 +1,58 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import TextField from './TextField';
+import * as TextFieldStories from './TextField.stories';
+
+<Meta of={TextFieldStories} />
+
+# TextField
+
+To import the `TextField` component simply include the following at the top of your file:
+
+```
+import { TextField } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={TextFieldStories.Default} />
+
+## State:Focused
+
+<Canvas of={TextFieldStories.Focused} />
+
+## Set the value
+
+<Canvas of={TextFieldStories.WithValue} />
+
+## Different Types
+
+<Canvas of={TextFieldStories.Type} />
+
+## With Label
+
+<Canvas of={TextFieldStories.WithLabel} />
+
+## With Hint
+
+<Canvas of={TextFieldStories.WithHint} />
+
+## Disabled
+
+<Canvas of={TextFieldStories.Disabled} />
+
+## Validation
+
+<Canvas of={TextFieldStories.Validation} />
+
+## With Action
+
+<Canvas of={TextFieldStories.WithAction} />
+
+## With onEnter Action
+
+<Canvas of={TextFieldStories.WithOnEnterAction} />
+
+## With clear button
+
+<Canvas of={TextFieldStories.WithClearButton} />

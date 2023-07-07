@@ -1,0 +1,15 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Avatars from './Avatars';
+import * as AvatarsStories from './Avatars.stories';
+
+<Meta of={AvatarsStories} />
+
+# Avatars
+
+To import the `Avatars` component simply include the following at the top of your file:
+
+```
+import { Avatars } from '@dicoauto/toolbox';
+```
+
+<Canvas of={AvatarsStories.Default} />

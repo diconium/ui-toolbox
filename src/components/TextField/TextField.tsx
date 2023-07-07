@@ -19,7 +19,7 @@ export interface Props extends PropsWithChildren {
   isClearable?: boolean;
 }
 
-const BASE_TEMPLATE = `peer w-full border-2 px-4 py-2.5 rounded-lg max-w-xs
+const BASE_TEMPLATE = `peer w-full border px-4 py-2.5 rounded-lg max-w-xs
   text-sm bg-toolbox-white
   focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
 
@@ -61,14 +61,17 @@ function TextField({
   const template = classNames(
     BASE_TEMPLATE,
     !validation && 'border-toolbox-neutral-200',
-    !validation && !disabled && 'text-toolbox-neutral-500',
+    !validation && 'text-toolbox-neutral-900',
+    !validation && !disabled && 'placeholder-toolbox-neutral-500',
     ...[
       validation && !isValid && `border-toolbox-feedback-${color}`,
       validation && !isValid && `focus:border-toolbox-feedback-${color}`,
       validation && isValid && 'border-toolbox-neutral-200',
       validation && 'text-toolbox-neutral-500',
     ],
-    disabled && 'text-toolbox-neutral-200',
+    disabled && 'border-toolbox-neutral-50',
+    disabled && 'placeholder-toolbox-neutral-200',
+    disabled && 'text-toolbox-neutral',
     className
   );
 

@@ -1,0 +1,32 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Layout from './Mobile';
+import TopNavigation from '../../TopNavigation';
+import NavigationBar from '../../NavigationBar';
+import Icon from '../../Icon';
+import Avatar from '../../Avatar';
+import QuickButton from '../../Button/Quick';
+import * as MobileStories from './Mobile.stories';
+
+<Meta of={MobileStories} />
+
+# MobileLayout
+
+To import the `MobileLayout` component simply include the following at the top of your file:
+
+```
+import { MobileLayout } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={MobileStories.Default} />
+
+## Additional styles
+
+You can apply additional styles to the content area of the layout via the `className` property.
+
+<Canvas of={MobileStories.AdditionalStyles} />
+
+## Example
+
+<Canvas of={MobileStories.Example} />

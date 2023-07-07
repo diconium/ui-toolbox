@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/blocks';
+
+# @dicoauto toolbox
+
+This library serves as a common basis for all web applications from diconium Auto. It provides
+a collection of easy to use UI components to build applications with react.
+
+## installation
+
+The library is provided as a simple npm package and can be installed via:
+
+```
+npm install @dicoauto/toolbox --save
+```
+
+## prerequisits
+
+To include the styles of the package you have to include the following in your css of the project:
+
+Either in your css file, if you are using a css preprocessor (e.g. postcss)
+
+```
+@import '@dicoauto/toolbox/dist/toolbox.css';
+```
+
+Or simply just include the file via a script tag in your header of your html file.
+
+### icon font
+
+To have access to the toolbox icons you must copy the icon font from the `dist` folder of the package
+to your target project. The font has to be located relative to your main stylesheat at this location ` fonts/`.
