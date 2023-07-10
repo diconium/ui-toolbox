@@ -33,7 +33,7 @@ const meta: Meta<typeof Drawer> = {
 export default meta;
 
 export function Default() {
-  return <Drawer />
+  return <Drawer />;
 }
 
 export function Opened() {

@@ -7,16 +7,20 @@ export default {
 };
 
 export function Default() {
-  return <div className="flex space-x-2">
-    <Tag label="ECU-2" />
-    <Tag label="Audi" />
-    <Tag label="Volkswagen" />
-  </div>
+  return (
+    <div className="flex space-x-2">
+      <Tag label="ECU-2" />
+      <Tag label="Audi" />
+      <Tag label="Volkswagen" />
+    </div>
+  );
 }
 
 export function WithAction() {
-  return <Tag
-    label="Audi"
-    onCancel={() => {}}
-  />
+  return (
+    <Tag
+      label="Audi"
+      onCancel={() => {}}
+    />
+  );
 }

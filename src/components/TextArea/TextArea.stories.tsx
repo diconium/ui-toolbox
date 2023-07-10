@@ -7,51 +7,59 @@ export default {
 };
 
 export function Default() {
-  return <div className="flex flex-col space-y-4">
-    <TextArea placeholder="Placeholder text here" />
-    <TextArea
-      placeholder="Placeholder text here"
-      value="With text"
-    />
-  </div>
+  return (
+    <div className="flex flex-col space-y-4">
+      <TextArea placeholder="Placeholder text here" />
+      <TextArea
+        placeholder="Placeholder text here"
+        value="With text"
+      />
+    </div>
+  );
 }
 
 export function Label() {
-  return <div className="flex flex-col space-y-4">
-    <TextArea
-      label="With label"
-      placeholder="Placeholder text here"
-    />
-    <TextArea
-      label="With label"
-      placeholder="Placeholder text here"
-      value="With text"
-    />
-  </div>
+  return (
+    <div className="flex flex-col space-y-4">
+      <TextArea
+        label="With label"
+        placeholder="Placeholder text here"
+      />
+      <TextArea
+        label="With label"
+        placeholder="Placeholder text here"
+        value="With text"
+      />
+    </div>
+  );
 }
 
 export function Hint() {
-  return <div className="flex flex-col space-y-4">
-    <TextArea
-      label="With label"
-      hint="Your hint"
-      placeholder="Placeholder text here"
-    />
-    <TextArea
-      label="With label"
-      hint="Your hint"
-      placeholder="Placeholder text here"
-      value="With text"
-    />
-  </div>
+  return (
+    <div className="flex flex-col space-y-4">
+      <TextArea
+        label="With label"
+        hint="Your hint"
+        placeholder="Placeholder text here"
+      />
+      <TextArea
+        label="With label"
+        hint="Your hint"
+        placeholder="Placeholder text here"
+        value="With text"
+      />
+    </div>
+  );
 }
 
 export function DifferentRows() {
-  return <TextArea
-    rows={10}
-    placeholder="Placeholder text here"
-    value="With text"
-  />
+  return (
+    <TextArea
+      rows={10}
+      placeholder="Placeholder text here"
+      value="With text"
+    />
+  );
 }
 
 export const Focused = {
@@ -89,15 +97,17 @@ export function WithAction() {
 }
 
 export function Disabled() {
-  return <div className="flex flex-col space-y-4">
-    <TextArea
-      disabled
-      placeholder="Placeholder text here"
-    />
-    <TextArea
-      disabled
-      placeholder="Placeholder text here"
-      value="With text"
-    />
-  </div>
+  return (
+    <div className="flex flex-col space-y-4">
+      <TextArea
+        disabled
+        placeholder="Placeholder text here"
+      />
+      <TextArea
+        disabled
+        placeholder="Placeholder text here"
+        value="With text"
+      />
+    </div>
+  );
 }

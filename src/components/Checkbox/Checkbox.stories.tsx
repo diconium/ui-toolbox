@@ -7,21 +7,23 @@ export default {
 };
 
 export function Default() {
-  return <Checkbox />
+  return <Checkbox />;
 }
 
 export function Checked() {
-  return <Checkbox checked />
+  return <Checkbox checked />;
 }
 
 export function Disabled() {
-  return <div className="flex space-x-4">
-    <Checkbox disabled />
-    <Checkbox
-      disabled
-      checked
-    />
-  </div>
+  return (
+    <div className="flex space-x-4">
+      <Checkbox disabled />
+      <Checkbox
+        disabled
+        checked
+      />
+    </div>
+  );
 }
 
 export function WithAction() {

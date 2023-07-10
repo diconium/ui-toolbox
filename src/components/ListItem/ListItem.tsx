@@ -1,10 +1,10 @@
-import React, { PropsWithChildren, ReactNode, useState } from 'react';
+import React, { ComponentProps, ReactNode, useState } from 'react';
 
-import Template from './Template';
 import Heading from './Heading';
 import Placeholder from './Placeholder';
+import Template from './Template';
 
-export interface Props extends PropsWithChildren {
+export interface Props extends ComponentProps<'button'> {
   title: string;
   subtitle?: string;
   upper?: ReactNode | undefined;
@@ -23,6 +23,7 @@ function ListItem({
   opened = false,
   textAlignment = 'left',
   selected = false,
+  className
 }: Props) {
   const [isOpen, toggle] = useState(opened);
   const canBeOpened = !!children;
@@ -34,6 +35,7 @@ function ListItem({
       onClick={() => toggle(!isOpen)}
       canBeOpened={canBeOpened}
       selected={selected}
+      className={className}
     >
       <div className="flex">
         <div className="flex-grow flex">

@@ -7,7 +7,7 @@ export default {
 };
 
 export function Default() {
-  return <Dot />
+  return <Dot />;
 }
 
 export function DifferentSizes() {

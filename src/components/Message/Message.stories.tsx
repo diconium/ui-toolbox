@@ -19,37 +19,41 @@ const meta: Meta<typeof Message> = {
 export default meta;
 
 export function Default() {
-  return <div className="flex flex-col space-y-4">
-    <Message
-      title="Text label"
-      header="Text label"
-      timestamp={new Date(2022, 2, 2, 9, 12).toISOString()}
-    >
-      You can put any text you like into a message to create components like: Notifications,
-      Inboxes, and many more. This is some random text to fill into the message. Let it roll.
-    </Message>
-    <Message
-      read
-      title="Text label"
-      header="Text label"
-      timestamp={new Date(2022, 4, 17, 15, 37).toISOString()}
-    >
-      You can put any text you like into a message to create components like: Notifications,
-      Inboxes, and many more. This is some random text to fill into the message. Let it roll.
-    </Message>
-  </div>
+  return (
+    <div className="flex flex-col space-y-4">
+      <Message
+        title="Text label"
+        header="Text label"
+        timestamp={new Date(2022, 2, 2, 9, 12).toISOString()}
+      >
+        You can put any text you like into a message to create components like: Notifications,
+        Inboxes, and many more. This is some random text to fill into the message. Let it roll.
+      </Message>
+      <Message
+        read
+        title="Text label"
+        header="Text label"
+        timestamp={new Date(2022, 4, 17, 15, 37).toISOString()}
+      >
+        You can put any text you like into a message to create components like: Notifications,
+        Inboxes, and many more. This is some random text to fill into the message. Let it roll.
+      </Message>
+    </div>
+  );
 }
 
 export function NoChevron() {
-  return <Message
-    read
-    disableChevron
-    title="Text label"
-    header="Text label"
-    timestamp={new Date(2022, 2, 12, 7, 22).toISOString()}
-  >
-    You can put any text you like into a message.
-  </Message>
+  return (
+    <Message
+      read
+      disableChevron
+      title="Text label"
+      header="Text label"
+      timestamp={new Date(2022, 2, 12, 7, 22).toISOString()}
+    >
+      You can put any text you like into a message.
+    </Message>
+  );
 }
 
 export function OnToggle() {
