@@ -27,8 +27,8 @@ describe('Calendar/utils', () => {
 
   test('can return the correct text color', () => {
     const issue = dayjs(TODAY).subtract(1, 'month');
-    const now = dayjs(TODAY).add(1, 'minute');
+    const tomorrow = dayjs(TODAY).add(1, 'day');
     expect(utils.getTextColor(issue)).not.toBe('text-toolbox-neutral');
-    expect(utils.getTextColor(now)).toBe('text-toolbox-neutral');
+    expect(utils.getTextColor(tomorrow)).toBe('text-toolbox-neutral');
   });
 });

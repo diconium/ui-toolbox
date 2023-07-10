@@ -21,7 +21,7 @@ function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Prop
           key={day.format(FORMAT)}
           day={day}
           selected={day.format(FORMAT) === selected?.format(FORMAT)}
-          textColor={getTextColor(day)}
+          textColor={getTextColor(day, selected)}
           onClick={() => onSelect(day)}
           state={state[day.format(FORMAT)]}
         />
