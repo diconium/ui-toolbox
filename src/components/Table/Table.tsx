@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Icon from '../Icon/Icon';
 import Cell, { Content } from './Cell';
 import Header from './Header';
@@ -24,9 +24,10 @@ export interface Config {
 interface Props extends React.ComponentProps<'table'> {
   rows: Row[];
   config: Config[];
+  empty?: ReactNode;
 }
 
-function Table({ rows = [], config = [], className }: Props) {
+function Table({ rows = [], config = [], className, empty }: Props) {
   const rowsWithId = assignId(rows);
   const template = classNames(
     'bg-toolbox-white text-toolbox-neutral-900 w-full text-left text-sm min-w-max border rounded-2xl',
@@ -72,11 +73,7 @@ function Table({ rows = [], config = [], className }: Props) {
                 className="pt-5 pb-4 text-center text-toolbox-neutral-200"
                 colSpan={config.length}
               >
-                <Icon
-                  icon="table-layout"
-                  className="block pb-1"
-                />
-                No available data
+                {empty}
               </td>
             </tr>
           )}

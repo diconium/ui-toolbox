@@ -1,26 +1,16 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import Table from './Table';
+import React from 'react';
 import ListItem from '../ListItem';
 import State from '../State';
+import Table from './Table';
+import Icon from '../Icon';
 
-<Meta
-  title="Toolbox/Table"
-  component={Table}
-  parameters={{ viewport: { defaultViewport: 'sm' } }}
-/>
+export default {
+  title: 'Toolbox/Table',
+  component: Table,
+};
 
-# Table
-
-To import the `Table` component simply include the following at the top of your file:
-
-```
-import { Table } from '@dicoauto/toolbox';
-```
-
-## Default
-
-<Canvas>
-  <Story name="Default">
+export function Default() {
+  return (
     <div className="w-[450px]">
       <Table
         rows={[
@@ -36,30 +26,34 @@ import { Table } from '@dicoauto/toolbox';
         ]}
       />
     </div>
-  </Story>
-</Canvas>
-
-## Empty
-
-<Canvas>
-  <Story name="Empty">
+  );
+}
+export function Empty() {
+  return (
     <div className="w-[450px]">
       <Table
+        rows={[]}
         config={[
           { key: 'HW', render: 'default' },
           { key: 'ECU', render: 'default' },
           { key: 'SW', render: 'default' },
           { key: 'Rev.', render: 'default' },
         ]}
+        empty={
+          <>
+            <Icon
+              icon="table-layout"
+              className="block pb-1"
+            />
+            <p>No available data</p>
+          </>
+        }
       />
     </div>
-  </Story>
-</Canvas>
-
-## Without header
-
-<Canvas>
-  <Story name="Without header">
+  );
+}
+export function WithoutHeader() {
+  return (
     <div className="w-[450px]">
       <Table
         rows={[
@@ -75,13 +69,11 @@ import { Table } from '@dicoauto/toolbox';
         ]}
       />
     </div>
-  </Story>
-</Canvas>
+  );
+}
 
-## First column bold
-
-<Canvas>
-  <Story name="First column bold">
+export function FirstColumnBold() {
+  return (
     <div className="w-[450px]">
       <Table
         rows={[
@@ -97,19 +89,17 @@ import { Table } from '@dicoauto/toolbox';
         ]}
       />
     </div>
-  </Story>
-</Canvas>
+  );
+}
 
-## Expandable
-
-<Canvas>
-  <Story name="Expandable">
+export function Expandable() {
+  return (
     <div className="w-[450px]">
       <ListItem
         title="Text Label"
         lower={
           <span className="pr-4">
-            <State className="pl-12" />
+            <State />
           </span>
         }
       >
@@ -129,16 +119,13 @@ import { Table } from '@dicoauto/toolbox';
         />
       </ListItem>
     </div>
-  </Story>
-</Canvas>
+  );
+}
 
-## Icon cells
-
-<Canvas>
-  <Story name="Icon cells">
+export function IconCells() {
+  return (
     <div className="w-[450px]">
       <Table
-        columnBold
         rows={[
           { ECU: 'Label', HW: 'Label', SW: 'Label', Icon: 'arrow-left' },
           { ECU: 'Label', HW: 'Label', SW: 'Label', Icon: 'arrow-right' },
@@ -152,5 +139,5 @@ import { Table } from '@dicoauto/toolbox';
         ]}
       />
     </div>
-  </Story>
-</Canvas>
+  );
+}

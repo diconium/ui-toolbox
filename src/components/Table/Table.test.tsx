@@ -89,6 +89,7 @@ describe('Table component', () => {
     expect(container.querySelector('span')).toBeInTheDocument();
     expect(screen.queryByText(/FooLabel/i)).toBeInTheDocument();
   });
+
   test('can render the component with incorrect key without error', () => {
     render(
       <Table
