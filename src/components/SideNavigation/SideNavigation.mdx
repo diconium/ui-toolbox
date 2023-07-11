@@ -1,0 +1,21 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import SideNavigation from './SideNavigation';
+import * as SideNavigationStories from './SideNavigation.stories';
+
+<Meta of={SideNavigationStories} />
+
+# SideNavigation
+
+To import the `SideNavigation` component simply include the following at the top of your file:
+
+```
+import { SideNavigation } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={SideNavigationStories.Default} />
+
+## Closed
+
+<Canvas of={SideNavigationStories.Closed} />
