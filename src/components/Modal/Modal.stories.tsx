@@ -18,25 +18,27 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 
 export function Default() {
-  return <Modal title="Welcome">See all the new features we have added so far.</Modal>
+  return <Modal title="Welcome">See all the new features we have added so far.</Modal>;
 }
 
 export function CustomContent() {
-  return <Modal
-    title="Invite Team"
-    acknowledgement="Send invitation"
-  >
-    <div className="flex items-center">
-      <Avatar
-        link="https://i.pravatar.cc/150?u=47110"
-        alt="Nora"
-        size="lg"
-      />
-      <div className="mx-2 text-toolbox-neutral leading-5 text-xs italic w-56">
-        Do you want to invite this new user to your app?
+  return (
+    <Modal
+      title="Invite Team"
+      acknowledgement="Send invitation"
+    >
+      <div className="flex items-center">
+        <Avatar
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="lg"
+        />
+        <div className="mx-2 text-toolbox-neutral leading-5 text-xs italic w-56">
+          Do you want to invite this new user to your app?
+        </div>
       </div>
-    </div>
-  </Modal>
+    </Modal>
+  );
 }
 
 export function WithActions() {

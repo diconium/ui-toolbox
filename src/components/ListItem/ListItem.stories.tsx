@@ -146,3 +146,21 @@ export function FullNoOpen() {
     }
   />
 }
+
+export function WithoutBorder() {
+    return <ListItem
+      opened
+      title="Text title"
+      subtitle="Text subtitle"
+      className="border-none"
+    >
+      <div>
+        <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+        <p className="text-toolbox-neutral-500 leading-5 text-sm">
+          In the context of software or firmware or hardware engineering, a test bench is an
+          environment in which the product under development is tested with the aid of software and
+          hardware tools.
+        </p>
+      </div>
+    </ListItem>
+  }

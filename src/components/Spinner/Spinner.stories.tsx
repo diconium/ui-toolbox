@@ -7,14 +7,16 @@ export default {
 };
 
 export function Default() {
-  return <Spinner />
+  return <Spinner />;
 }
 
 export function DifferentSizes() {
-  return <div className="flex space-x-4 items-end">
-    <Spinner size="s" />
-    <Spinner size="m" />
-    <Spinner size="lg" />
-    <Spinner size="xl" />
-  </div>
+  return (
+    <div className="flex space-x-4 items-end">
+      <Spinner size="s" />
+      <Spinner size="m" />
+      <Spinner size="lg" />
+      <Spinner size="xl" />
+    </div>
+  );
 }

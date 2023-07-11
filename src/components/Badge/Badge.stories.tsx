@@ -8,7 +8,7 @@ export default {
 };
 
 export function Default() {
-  return <Badge />
+  return <Badge />;
 }
 
 export function DifferentSizes() {

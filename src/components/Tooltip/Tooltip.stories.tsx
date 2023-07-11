@@ -78,94 +78,102 @@ export const InAction = {
 };
 
 export function Default() {
-  return <Container>
-    <span className="text-base text-toolbox-neutral underline">Tooltip here</span>
-    <Display tooltip="Text label for tooltip, information about something. This is some more info." />
-  </Container>
+  return (
+    <Container>
+      <span className="text-base text-toolbox-neutral underline">Tooltip here</span>
+      <Display tooltip="Text label for tooltip, information about something. This is some more info." />
+    </Container>
+  );
 }
 
 export function DifferentSides() {
-  return <div className="grid grid-cols-2 gap-16 m-32">
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip left side</span>
-      <Display
-        side="left"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip top side</span>
-      <Display
-        side="top"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip bottom side</span>
-      <Display
-        side="bottom"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip right side</span>
-      <Display
-        side="right"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-  </div>
+  return (
+    <div className="grid grid-cols-2 gap-16 m-32">
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip left side</span>
+        <Display
+          side="left"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip top side</span>
+        <Display
+          side="top"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip bottom side</span>
+        <Display
+          side="bottom"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip right side</span>
+        <Display
+          side="right"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+    </div>
+  );
 }
 
 export function DifferentVariants() {
-  return <div className="grid grid-cols-2 gap-16 m-32">
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip top side left</span>
-      <Display
-        side="top|left"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip top side right</span>
-      <Display
-        side="top|right"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip bottom side left</span>
-      <Display
-        side="bottom|left"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-    <Container>
-      <span className="text-base text-toolbox-neutral underline">Tooltip bottom side right</span>
-      <Display
-        side="bottom|right"
-        tooltip="Text label for tooltip, information about something. This is some more info."
-      />
-    </Container>
-  </div>
+  return (
+    <div className="grid grid-cols-2 gap-16 m-32">
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip top side left</span>
+        <Display
+          side="top|left"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip top side right</span>
+        <Display
+          side="top|right"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip bottom side left</span>
+        <Display
+          side="bottom|left"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+      <Container>
+        <span className="text-base text-toolbox-neutral underline">Tooltip bottom side right</span>
+        <Display
+          side="bottom|right"
+          tooltip="Text label for tooltip, information about something. This is some more info."
+        />
+      </Container>
+    </div>
+  );
 }
 
 export function CustomContent() {
-  return <Container>
-    <span className="text-base text-toolbox-neutral underline">Tooltip here</span>
-    <Display
-      tooltip={
-        <div className="flex space-x-2 items-center">
-          <Avatar
-            link="https://i.pravatar.cc/150?u=47110"
-            alt="Nora"
-            size="m"
-          />
-          <span className="text-xs flex-1">
-            Text label for tooltip, information about something. This is some more info.
-          </span>
-        </div>
-      }
-    />
-  </Container>
+  return (
+    <Container>
+      <span className="text-base text-toolbox-neutral underline">Tooltip here</span>
+      <Display
+        tooltip={
+          <div className="flex space-x-2 items-center">
+            <Avatar
+              link="https://i.pravatar.cc/150?u=47110"
+              alt="Nora"
+              size="m"
+            />
+            <span className="text-xs flex-1">
+              Text label for tooltip, information about something. This is some more info.
+            </span>
+          </div>
+        }
+      />
+    </Container>
+  );
 }

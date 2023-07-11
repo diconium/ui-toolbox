@@ -8,7 +8,7 @@ export interface Props extends PropsWithChildren {
 }
 
 function Mobile({ header, children, footer, className }: Props) {
-  const template = classNames(['flex-1 overflow-y-scroll px-8 py-4', className]);
+  const template = classNames(['flex-1 overflow-y-scroll', className]);
   return (
     <div className="flex flex-col h-screen w-full">
       <div className="flex flex-shrink">{header}</div>

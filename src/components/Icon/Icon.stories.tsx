@@ -7,32 +7,34 @@ export default {
 };
 
 export function Default() {
-  return <Icon icon="address-book" />
+  return <Icon icon="address-book" />;
 }
 
 export function DifferentSizes() {
-  return <div className="flex space-x-4">
-    <Icon
-      icon="address-book"
-      size="s"
-    />
-    <Icon
-      icon="address-book"
-      size="m"
-    />
-    <Icon
-      icon="address-book"
-      size="lg"
-    />
-    <Icon
-      icon="address-book"
-      size="xl"
-    />
-  </div>
+  return (
+    <div className="flex space-x-4">
+      <Icon
+        icon="address-book"
+        size="s"
+      />
+      <Icon
+        icon="address-book"
+        size="m"
+      />
+      <Icon
+        icon="address-book"
+        size="lg"
+      />
+      <Icon
+        icon="address-book"
+        size="xl"
+      />
+    </div>
+  );
 }
 
 export function IconDoesNotExist() {
-  return <Icon icon="foo" />
+  return <Icon icon="foo" />;
 }
 
 export const All = {

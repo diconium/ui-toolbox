@@ -31,7 +31,7 @@ export default meta;
 
 export function Default() {
   return <Layout
-    className="bg-toolbox-feedback-orange"
+    className="bg-toolbox-feedback-orange px-8 py-4"
     header={<div className="h-32 bg-toolbox-primary w-full" />}
     footer={<div className="h-32 bg-toolbox-secondary w-full" />}
   >
@@ -43,7 +43,7 @@ export function Default() {
 
 export function AdditionalStyles() {
   return <Layout
-    className="bg-toolbox-feedback-orange"
+    className="bg-toolbox-feedback-orange px-8 py-4"
     header={<div className="h-32 bg-toolbox-primary w-full" />}
     footer={<div className="h-32 bg-toolbox-secondary w-full" />}
   >
@@ -55,7 +55,7 @@ export function AdditionalStyles() {
 
 export function Example() {
   return <Layout
-    className="bg-toolbox-neutral-50"
+    className="bg-toolbox-neutral-50 px-8 py-4"
     header={
       <TopNavigation
         title="your app"
