@@ -9,9 +9,9 @@
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:jest-dom/recommended",
+    "plugin:storybook/recommended",
     "airbnb",
-    "prettier",
-    "plugin:storybook/recommended"
+    "prettier"
   ],
   "plugins": ["jest", "react"],
   "env": {
@@ -33,6 +33,7 @@
     "no-undef": "off",
     "comma-dangle": "off",
     "object-curly-newline": "off",
+    "react/jsx-props-no-spreading": "off",
     "no-restricted-globals": "off",
     "react/no-array-index-key": "off"
   }

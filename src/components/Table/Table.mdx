@@ -1,0 +1,40 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Table from './Table';
+import * as TableStories from './Table.stories';
+
+<Meta of={TableStories} />
+
+# Table
+
+To import the `Table` component simply include the following at the top of your file:
+
+```
+import { Table } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={TableStories.Default} />
+
+## Empty
+
+To define the Table component behavior with an empty state, provide the placeholder component to the property **empty**.
+
+<Canvas of={TableStories.Empty} />
+
+## Without header
+
+<Canvas of={TableStories.WithoutHeader} />
+
+## First column bold
+
+<Canvas of={TableStories.FirstColumnBold} />
+
+## Expandable
+
+<Canvas of={TableStories.Expandable} />
+
+## Icon cells
+
+<Canvas of={TableStories.IconCells} />
