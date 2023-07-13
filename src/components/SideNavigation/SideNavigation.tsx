@@ -16,35 +16,21 @@ function SideNavigation({ top, children, bottom, closed }: Props) {
   const onToggle = () => setOpen((pre) => !pre);
 
   return (
-    <div className={template}>
-      <div className="flex flex-col gap-2">
+    <nav className={template}>
+      <section className="flex flex-col flex-1">
+        <button
+          type="button"
+          onClick={onToggle}
+          className="ml-auto py-1 hover:text-toolbox-primary-900"
+        >
+          <Icon icon={open ? 'chevron-left' : 'chevron-right'} />
+        </button>
         {top}
-        <div className="flex place-items-center gap-3 py-1">
-          <div className="border w-full my-6" />
-        </div>
+        <div className="border my-7" />
         {children}
-      </div>
-      <div className="flex-1 my-1" />
-      <div className="flex flex-col gap-3">
-        {bottom}
-        <div className="flex place-items-center gap-3 py-1">
-          <div className="border w-full my-5" />
-        </div>
-        <div className="flex place-items-center gap-3 py-1">
-          <button
-            type="button"
-            className="pr-3 ml-auto"
-            onClick={onToggle}
-          >
-            <Icon
-              icon={open ? 'chevron-left' : 'chevron-right'}
-              size="md"
-              className="hover:text-toolbox-primary-900"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
+      </section>
+      <section className="flex flex-col gap-10">{bottom}</section>
+    </nav>
   );
 }
 
