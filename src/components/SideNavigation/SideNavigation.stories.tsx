@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '../Avatar';
 import BadgeContainer from '../Badge/BadgeContainer';
 import Icon from '../Icon';
@@ -15,6 +15,7 @@ export default {
 };
 
 export function Default() {
+  const [closed, setClosed] = useState(false);
   return (
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
@@ -22,7 +23,7 @@ export function Default() {
           <div className="flex flex-col">
             <a
               href="/"
-              className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
             >
               <StateContainer
                 color="bg-toolbox-feedback-green"
@@ -37,7 +38,7 @@ export function Default() {
             </a>
             <a
               href="/"
-              className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
             >
               <BadgeContainer badge={25}>
                 <Icon
@@ -54,7 +55,7 @@ export function Default() {
             <button type="button">
               <a
                 href="/"
-                className="flex place-items-center gap-3 hover:text-toolbox-primary-900"
+                className="flex place-items-center gap-5 hover:text-toolbox-primary-900"
               >
                 <Icon
                   icon="arrow-right-from-bracket"
@@ -63,14 +64,24 @@ export function Default() {
                 <span className="font-semibold whitespace-nowrap">LOGOUT</span>
               </a>
             </button>
-            <small className="block text-center mt-8">V0.4.6</small>
+            {closed ? (
+              <Icon
+                icon="circle-information"
+                size="s"
+                className="block text-center mt-8"
+              />
+            ) : (
+              <small className="block text-center mt-8">V0.4.6</small>
+            )}
           </div>
         }
+        closed={closed}
+        setClosed={setClosed}
       >
         <div className="flex flex-col">
           <a
             href="/"
-            className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
           >
             <Icon
               icon="calendar-lines"
@@ -80,7 +91,7 @@ export function Default() {
           </a>
           <a
             href="/"
-            className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
           >
             <Icon
               icon="users"
@@ -95,15 +106,17 @@ export function Default() {
 }
 
 export function Closed() {
+  const [closed, setClosed] = useState(true);
   return (
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
-        closed
+        closed={closed}
+        setClosed={setClosed}
         top={
           <div className="flex flex-col">
             <a
               href="/"
-              className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
             >
               <StateContainer
                 color="bg-toolbox-feedback-green"
@@ -118,7 +131,7 @@ export function Closed() {
             </a>
             <a
               href="/"
-              className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
             >
               <BadgeContainer badge={25}>
                 <Icon
@@ -135,7 +148,7 @@ export function Closed() {
             <button type="button">
               <a
                 href="/"
-                className="flex place-items-center gap-3 hover:text-toolbox-primary-900"
+                className="flex place-items-center gap-5 hover:text-toolbox-primary-900"
               >
                 <Icon
                   icon="arrow-right-from-bracket"
@@ -144,14 +157,22 @@ export function Closed() {
                 <span className="font-semibold whitespace-nowrap">LOGOUT</span>
               </a>
             </button>
-            <small className="block text-center mt-8">V0.4.6</small>
+            {closed ? (
+              <Icon
+                icon="circle-information"
+                size="s"
+                className="block text-center mt-8"
+              />
+            ) : (
+              <small className="block text-center mt-8">V0.4.6</small>
+            )}
           </div>
         }
       >
         <div className="flex flex-col">
           <a
             href="/"
-            className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
           >
             <Icon
               icon="calendar-lines"
@@ -161,7 +182,7 @@ export function Closed() {
           </a>
           <a
             href="/"
-            className="flex place-items-center gap-3 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
           >
             <Icon
               icon="users"
