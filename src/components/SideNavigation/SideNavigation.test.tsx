@@ -29,7 +29,7 @@ describe('SideNavigation component', () => {
       <SideNavigation
         top={<span>test-top</span>}
         bottom={<span>test-bottom</span>}
-        closed
+        opened={false}
       >
         test-center
       </SideNavigation>

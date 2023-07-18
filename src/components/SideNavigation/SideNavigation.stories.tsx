@@ -15,7 +15,7 @@ export default {
 };
 
 export function Default() {
-  const [closed, setClosed] = useState(false);
+  const [open, setOpen] = useState(true);
   return (
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
@@ -64,19 +64,20 @@ export function Default() {
                 <span className="font-semibold whitespace-nowrap">LOGOUT</span>
               </a>
             </button>
-            {closed ? (
+            {open ? (
+              <small className="block text-center mt-8">V0.4.6</small>
+            ) : (
               <Icon
                 icon="circle-information"
                 size="s"
                 className="block text-center mt-8"
               />
-            ) : (
-              <small className="block text-center mt-8">V0.4.6</small>
             )}
           </div>
         }
-        closed={closed}
-        setClosed={setClosed}
+        opened={open}
+        onOpen={() => setOpen(true)}
+        onClosed={() => setOpen(false)}
       >
         <div className="flex flex-col">
           <a
@@ -106,12 +107,13 @@ export function Default() {
 }
 
 export function Closed() {
-  const [closed, setClosed] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
-        closed={closed}
-        setClosed={setClosed}
+        opened={open}
+        onOpen={() => setOpen(true)}
+        onClosed={() => setOpen(false)}
         top={
           <div className="flex flex-col">
             <a
@@ -157,14 +159,14 @@ export function Closed() {
                 <span className="font-semibold whitespace-nowrap">LOGOUT</span>
               </a>
             </button>
-            {closed ? (
+            {open ? (
+              <small className="block text-center mt-8">V0.4.6</small>
+            ) : (
               <Icon
                 icon="circle-information"
                 size="s"
                 className="block text-center mt-8"
               />
-            ) : (
-              <small className="block text-center mt-8">V0.4.6</small>
             )}
           </div>
         }
