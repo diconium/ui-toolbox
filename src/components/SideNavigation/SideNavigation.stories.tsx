@@ -20,10 +20,10 @@ export function Default() {
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
         top={
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-5">
             <a
               href="/"
-              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 hover:text-toolbox-primary-900"
             >
               <StateContainer
                 color="bg-toolbox-feedback-green"
@@ -38,7 +38,7 @@ export function Default() {
             </a>
             <a
               href="/"
-              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 hover:text-toolbox-primary-900"
             >
               <BadgeContainer badge={25}>
                 <Icon
@@ -51,7 +51,7 @@ export function Default() {
           </div>
         }
         bottom={
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-6">
             <button type="button">
               <a
                 href="/"
@@ -65,12 +65,12 @@ export function Default() {
               </a>
             </button>
             {open ? (
-              <small className="block text-center mt-8">V0.4.6</small>
+              <small className="block text-center">V0.4.6</small>
             ) : (
               <Icon
                 icon="circle-information"
                 size="s"
-                className="block text-center mt-8"
+                className="block text-center"
               />
             )}
           </div>
@@ -79,10 +79,10 @@ export function Default() {
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-5">
           <a
             href="/"
-            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5  hover:text-toolbox-primary-900"
           >
             <Icon
               icon="calendar-lines"
@@ -92,7 +92,7 @@ export function Default() {
           </a>
           <a
             href="/"
-            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5  hover:text-toolbox-primary-900"
           >
             <Icon
               icon="users"
@@ -115,10 +115,10 @@ export function Closed() {
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
         top={
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-5">
             <a
               href="/"
-              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 hover:text-toolbox-primary-900"
             >
               <StateContainer
                 color="bg-toolbox-feedback-green"
@@ -133,7 +133,7 @@ export function Closed() {
             </a>
             <a
               href="/"
-              className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+              className="flex place-items-center gap-5 hover:text-toolbox-primary-900"
             >
               <BadgeContainer badge={25}>
                 <Icon
@@ -146,7 +146,7 @@ export function Closed() {
           </div>
         }
         bottom={
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-6">
             <button type="button">
               <a
                 href="/"
@@ -160,21 +160,21 @@ export function Closed() {
               </a>
             </button>
             {open ? (
-              <small className="block text-center mt-8">V0.4.6</small>
+              <small className="block text-center">V0.4.6</small>
             ) : (
               <Icon
                 icon="circle-information"
                 size="s"
-                className="block text-center mt-8"
+                className="block text-center"
               />
             )}
           </div>
         }
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-5">
           <a
             href="/"
-            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5  hover:text-toolbox-primary-900"
           >
             <Icon
               icon="calendar-lines"
@@ -184,7 +184,7 @@ export function Closed() {
           </a>
           <a
             href="/"
-            className="flex place-items-center gap-5 py-1 hover:text-toolbox-primary-900"
+            className="flex place-items-center gap-5  hover:text-toolbox-primary-900"
           >
             <Icon
               icon="users"

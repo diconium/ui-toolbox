@@ -46,7 +46,7 @@ function SideNavigation({
           <Icon icon={open ? 'chevron-left' : 'chevron-right'} />
         </button>
         {top}
-        <div className="border my-5" />
+        <div className="border my-6" />
         {children}
       </section>
       <section className="flex flex-col gap-10">{bottom}</section>
