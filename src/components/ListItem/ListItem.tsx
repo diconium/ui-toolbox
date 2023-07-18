@@ -7,9 +7,11 @@ import Template from './Template';
 export interface Props extends ComponentProps<'button'> {
   title: string;
   subtitle?: string;
-  upper?: ReactNode | undefined;
-  lower?: ReactNode | undefined;
+  upper?: ReactNode;
+  lower?: ReactNode;
   opened?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
   textAlignment?: string;
   selected?: boolean;
 }
@@ -21,18 +23,28 @@ function ListItem({
   upper,
   lower,
   opened = false,
+  onOpen = () => {},
+  onClose = () => {},
   textAlignment = 'left',
   selected = false,
-  className
+  className,
 }: Props) {
-  const [isOpen, toggle] = useState(opened);
+  const [isOpen, setIsOpen] = useState(opened);
   const canBeOpened = !!children;
   const renderPlaceholder = upper || lower || canBeOpened;
   const renderSubtitle = textAlignment !== 'center' && subtitle;
 
+  const onToggle = () => {
+    setIsOpen((previous) => {
+      const next = !previous;
+      const callback = next ? onOpen : onClose;
+      callback();
+      return next;
+    });
+  };
   return (
     <Template
-      onClick={() => toggle(!isOpen)}
+      onClick={onToggle}
       canBeOpened={canBeOpened}
       selected={selected}
       className={className}
