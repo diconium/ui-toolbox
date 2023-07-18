@@ -77,7 +77,7 @@ export function Default() {
         }
         opened={open}
         onOpen={() => setOpen(true)}
-        onClosed={() => setOpen(false)}
+        onClose={() => setOpen(false)}
       >
         <div className="flex flex-col">
           <a
@@ -113,7 +113,7 @@ export function Closed() {
       <SideNavigation
         opened={open}
         onOpen={() => setOpen(true)}
-        onClosed={() => setOpen(false)}
+        onClose={() => setOpen(false)}
         top={
           <div className="flex flex-col">
             <a
