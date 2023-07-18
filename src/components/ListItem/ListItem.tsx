@@ -11,7 +11,7 @@ export interface Props extends ComponentProps<'button'> {
   lower?: ReactNode;
   opened?: boolean;
   onOpen?: () => void;
-  onClosed?: () => void;
+  onClose?: () => void;
   textAlignment?: string;
   selected?: boolean;
 }
@@ -23,8 +23,8 @@ function ListItem({
   upper,
   lower,
   opened = false,
-  onOpen,
-  onClosed,
+  onOpen = () => {},
+  onClose = () => {},
   textAlignment = 'left',
   selected = false,
   className,
@@ -35,14 +35,11 @@ function ListItem({
   const renderSubtitle = textAlignment !== 'center' && subtitle;
 
   const onToggle = () => {
-    setIsOpen((pre) => {
-      const updated = !pre;
-      if (updated) {
-        onOpen?.();
-      } else {
-        onClosed?.();
-      }
-      return updated;
+    setIsOpen((previous) => {
+      const next = !previous;
+      const callback = next ? onOpen : onClose;
+      callback();
+      return next;
     });
   };
   return (

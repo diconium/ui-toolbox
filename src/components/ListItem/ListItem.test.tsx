@@ -29,13 +29,13 @@ describe('ListItem component', () => {
   });
 
   test('closes correctly when already opened and clicked', async () => {
-    const onClosed = jest.fn();
+    const onClose = jest.fn();
     const user = userEvent.setup();
     render(
       <ListItem
         opened
         title="foo"
-        onClosed={onClosed}
+        onClose={onClose}
       >
         bar
       </ListItem>
@@ -44,6 +44,6 @@ describe('ListItem component', () => {
     const item = screen.getByRole('button');
     await act(() => user.click(item));
     expect(screen.queryByText(/bar/i)).not.toBeInTheDocument();
-    expect(onClosed).toBeCalled();
+    expect(onClose).toBeCalled();
   });
 });

@@ -15,140 +15,157 @@ export default {
 };
 
 export function Default() {
-  return <ListItem title="Text label" />
+  return <ListItem title="Text label" />;
 }
 
 export function WithSubtitle() {
-  return <ListItem
-    title="Text label"
-    subtitle="Text label"
-  />
+  return (
+    <ListItem
+      title="Text label"
+      subtitle="Text label"
+    />
+  );
 }
 
 export function CenteredText() {
-  return <ListItem
-    textAlignment="center"
-    title="Text label"
-    subtitle="Text label"
-  />
+  return (
+    <ListItem
+      textAlignment="center"
+      title="Text label"
+      subtitle="Text label"
+    />
+  );
 }
 
 export function Selected() {
-  return <ListItem
-    textAlignment="center"
-    title="Text label"
-    selected
-  />
+  return (
+    <ListItem
+      textAlignment="center"
+      title="Text label"
+      selected
+    />
+  );
 }
 
 export function UpperSlotOnly() {
-  return <ListItem
-    title="Title and Avatar"
-    subtitle="Text label"
-    upper={
-      <Avatar
-        link="https://i.pravatar.cc/150?u=47110"
-        alt="Nora"
-        size="xl"
-      />
-    }
-  />
+  return (
+    <ListItem
+      title="Title and Avatar"
+      subtitle="Text label"
+      upper={
+        <Avatar
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="xl"
+        />
+      }
+    />
+  );
 }
 
 export function WithExtendedInfo() {
-  return <ListItem
-    opened
-    title="Text label"
-    subtitle="Text label"
-  >
-    <div>
-      <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
-      <p className="text-toolbox-neutral-500 leading-5 text-sm">
-        In the context of software or firmware or hardware engineering, a test bench is an
-        environment in which the product under development is tested with the aid of software and
-        hardware tools.
-      </p>
-    </div>
-  </ListItem>
+  return (
+    <ListItem
+      opened
+      title="Text label"
+      subtitle="Text label"
+    >
+      <div>
+        <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+        <p className="text-toolbox-neutral-500 leading-5 text-sm">
+          In the context of software or firmware or hardware engineering, a test bench is an
+          environment in which the product under development is tested with the aid of software and
+          hardware tools.
+        </p>
+      </div>
+    </ListItem>
+  );
 }
 
 export function WithUpperSideAndExtended() {
-  return <ListItem
-    opened
-    title="Text label"
-    upper={
-      <State
-        label="Not at desk"
-        color="bg-toolbox-feedback-orange"
-      />
-    }
-  >
-    <div>
-      <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
-      <p className="text-toolbox-neutral-500 leading-5 text-sm">
-        In the context of software or firmware or hardware engineering, a test bench is an
-        environment in which the product under development is tested with the aid of software and
-        hardware tools.
-      </p>
-    </div>
-  </ListItem>
+  return (
+    <ListItem
+      opened
+      title="Text label"
+      upper={
+        <State
+          label="Not at desk"
+          color="bg-toolbox-feedback-orange"
+        />
+      }
+    >
+      <div>
+        <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+        <p className="text-toolbox-neutral-500 leading-5 text-sm">
+          In the context of software or firmware or hardware engineering, a test bench is an
+          environment in which the product under development is tested with the aid of software and
+          hardware tools.
+        </p>
+      </div>
+    </ListItem>
+  );
 }
 
 export function Full() {
-  return <ListItem
-    opened
-    title="Text label"
-    subtitle="Text label"
-    upper={
-      <State
-        label="Label text"
-        color="bg-toolbox-feedback-red"
-      />
-    }
-    lower={
-      <Avatar
-        border="border-toolbox-feedback-red"
-        link="https://i.pravatar.cc/150?u=47110"
-        alt="Nora"
-        size="m"
-      />
-    }
-  >
-    <div>
-      <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
-      <p className="text-toolbox-neutral-500 leading-5 text-sm">
-        In the context of software or firmware or hardware engineering, a test bench is an
-        environment in which the product under development is tested with the aid of software and
-        hardware tools.
-      </p>
-    </div>
-  </ListItem>
+  return (
+    <ListItem
+      opened
+      title="Text label"
+      subtitle="Text label"
+      upper={
+        <State
+          label="Label text"
+          color="bg-toolbox-feedback-red"
+        />
+      }
+      lower={
+        <Avatar
+          border="border-toolbox-feedback-red"
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="m"
+        />
+      }
+    >
+      <div>
+        <div className="text-toolbox-neutral leading-5 text-sm">Bluetooth Connection Test</div>
+        <p className="text-toolbox-neutral-500 leading-5 text-sm">
+          In the context of software or firmware or hardware engineering, a test bench is an
+          environment in which the product under development is tested with the aid of software and
+          hardware tools.
+        </p>
+      </div>
+    </ListItem>
+  );
 }
 
 export function FullNoOpen() {
-  return <ListItem
-    opened
-    title="Text label"
-    subtitle="Text label"
-    upper={
-      <State
-        label="Label text"
-        color="bg-toolbox-feedback-red"
-      />
-    }
-    lower={
-      <Avatar
-        border="border-toolbox-feedback-red"
-        link="https://i.pravatar.cc/150?u=47110"
-        alt="Nora"
-        size="m"
-      />
-    }
-  />
+  return (
+    <ListItem
+      opened
+      title="Text label"
+      subtitle="Text label"
+      upper={
+        <State
+          label="Label text"
+          color="bg-toolbox-feedback-red"
+        />
+      }
+      lower={
+        <Avatar
+          border="border-toolbox-feedback-red"
+          link="https://i.pravatar.cc/150?u=47110"
+          alt="Nora"
+          size="m"
+        />
+      }
+    />
+  );
 }
 
 export function WithoutBorder() {
-    return <ListItem
+  return (
+    <ListItem
       opened
       title="Text title"
       subtitle="Text subtitle"
@@ -163,4 +180,5 @@ export function WithoutBorder() {
         </p>
       </div>
     </ListItem>
-  }
+  );
+}
