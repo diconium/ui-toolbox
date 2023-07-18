@@ -11,32 +11,39 @@ describe('ListItem component', () => {
   });
 
   test('expands correctly when clicked', async () => {
+    const onOpen = jest.fn();
     const user = userEvent.setup();
-    render(<ListItem title="foo">bar</ListItem>);
+    render(
+      <ListItem
+        title="foo"
+        onOpen={onOpen}
+      >
+        bar
+      </ListItem>
+    );
     expect(screen.queryByText(/bar/i)).not.toBeInTheDocument();
-
-    const item = await screen.getByRole('button');
-
+    const item = screen.getByRole('button');
     await act(() => user.click(item));
-
     expect(screen.getByText(/bar/i)).toBeInTheDocument();
+    expect(onOpen).toBeCalled();
   });
 
   test('closes correctly when already opened and clicked', async () => {
+    const onClosed = jest.fn();
     const user = userEvent.setup();
     render(
       <ListItem
         opened
         title="foo"
+        onClosed={onClosed}
       >
         bar
       </ListItem>
     );
     expect(screen.getByText(/bar/i)).toBeInTheDocument();
-
-    const item = await screen.getByRole('button');
-
+    const item = screen.getByRole('button');
     await act(() => user.click(item));
     expect(screen.queryByText(/bar/i)).not.toBeInTheDocument();
+    expect(onClosed).toBeCalled();
   });
 });

@@ -1,4 +1,4 @@
-import React, { ComponentProps, Dispatch, ReactNode, SetStateAction, useState } from 'react';
+import React, { ComponentProps, ReactNode, useState } from 'react';
 
 import Heading from './Heading';
 import Placeholder from './Placeholder';
@@ -7,10 +7,11 @@ import Template from './Template';
 export interface Props extends ComponentProps<'button'> {
   title: string;
   subtitle?: string;
-  upper?: ReactNode | undefined;
-  lower?: ReactNode | undefined;
+  upper?: ReactNode;
+  lower?: ReactNode;
   opened?: boolean;
-  setOpened?: Dispatch<SetStateAction<boolean>>;
+  onOpen?: () => void;
+  onClosed?: () => void;
   textAlignment?: string;
   selected?: boolean;
 }
@@ -22,7 +23,8 @@ function ListItem({
   upper,
   lower,
   opened = false,
-  setOpened,
+  onOpen,
+  onClosed,
   textAlignment = 'left',
   selected = false,
   className,
@@ -33,8 +35,15 @@ function ListItem({
   const renderSubtitle = textAlignment !== 'center' && subtitle;
 
   const onToggle = () => {
-    setIsOpen((pre) => !pre);
-    setOpened?.((pre) => !pre);
+    setIsOpen((pre) => {
+      const updated = !pre;
+      if (updated) {
+        onOpen?.();
+      } else {
+        onClosed?.();
+      }
+      return updated;
+    });
   };
   return (
     <Template
