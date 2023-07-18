@@ -30,7 +30,7 @@
     "@jest/globals": "^29.6.1",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
-    "@rollup/plugin-typescript": "^11.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
     "@storybook/addon-actions": "^7.0.23",
     "@storybook/addon-docs": "^7.0.23",
     "@storybook/addon-essentials": "^7.0.26",
