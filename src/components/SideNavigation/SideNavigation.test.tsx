@@ -1,8 +1,8 @@
 import React from 'react';
 import { act, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { SideNavigation as IMPORT } from '../../index';
 import SideNavigation from './SideNavigation';
-import userEvent from '@testing-library/user-event';
 
 describe('SideNavigation component', () => {
   test('can be imported from the library correctly', () => {
@@ -45,7 +45,7 @@ describe('SideNavigation component', () => {
     const onClose = jest.fn();
     const { container } = render(
       <SideNavigation
-        opened={true}
+        opened
         top={<span>test-top</span>}
         bottom={<span>test-bottom</span>}
         onOpen={onClose}
