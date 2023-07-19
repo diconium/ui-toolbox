@@ -18,12 +18,6 @@ function assignDataAttribute(node: ChildNode, selector: string, reference: strin
   return updatedNode;
 }
 
-function replaceParentWithChild(parentNode: HTMLElement, childNode: HTMLElement) {
-  const fragment = new DocumentFragment();
-  fragment.append(childNode);
-  parentNode.replaceWith(fragment);
-}
-
 function useTestId(shouldUseProvider: boolean, selector: string, reference: string) {
   const parentRef = useRef<HTMLTemplateElement>(null);
 
@@ -34,7 +28,7 @@ function useTestId(shouldUseProvider: boolean, selector: string, reference: stri
       if (parentNode && children?.length === 1) {
         const childNode = children[0];
         const childWithAttribute = assignDataAttribute(childNode, selector, reference);
-        replaceParentWithChild(parentNode, childWithAttribute);
+        parentNode.replaceWith(childWithAttribute);
       }
     }
   }, [parentRef.current]);
