@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React, { ReactNode } from 'react';
-import Icon from '../Icon/Icon';
 import Cell, { Content } from './Cell';
 import Header from './Header';
 import assignId from './utils';
