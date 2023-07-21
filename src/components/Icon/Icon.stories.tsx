@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Font } from './Icon';
+import { Icon, Font, Automotive } from './Icon';
 
 export default {
   title: 'Toolbox/Icon',
@@ -41,6 +41,29 @@ export const All = {
   render: () => (
     <div className="grid grid-cols-6">
       {Object.keys(Font).map((icon) => (
+        <div
+          key={icon.replace('tb-', '')}
+          className="flex flex-col text-center"
+        >
+          <Icon icon={icon.replace('tb-', '')} />
+          <p>{icon.replace('tb-', '')}</p>
+        </div>
+      ))}
+    </div>
+  ),
+
+  /** This snapshot is to big for chromatic */
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
+};
+
+export const AutomotiveFont = {
+  render: () => (
+    <div className="grid grid-cols-6">
+      {Object.keys(Automotive).map((icon) => (
         <div
           key={icon.replace('tb-', '')}
           className="flex flex-col text-center"

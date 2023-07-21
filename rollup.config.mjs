@@ -26,8 +26,18 @@ const FONTS = [
   'styles/fonts/toolbox.woff2',
 ];
 
+const AUTOMOTIVE_FONTS = [
+  'styles/fonts/automotive/toolbox-automotive.ttf',
+  'styles/fonts/automotive/toolbox-automotive.eot',
+  'styles/fonts/automotive/toolbox-automotive.woff',
+  'styles/fonts/automotive/toolbox-automotive.woff2',
+];
+
 const COPY_ASSETS_OPTIONS = {
-  targets: [{ src: FONTS, dest: 'dist/fonts' }],
+  targets: [
+    { src: FONTS, dest: 'dist/fonts' },
+    { src: AUTOMOTIVE_FONTS, dest: 'dist/fonts/automotive' },
+  ],
 };
 
 export default [
