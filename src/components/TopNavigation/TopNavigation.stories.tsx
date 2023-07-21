@@ -25,7 +25,7 @@ const meta: Meta<typeof TopNavigation> = {
 export default meta;
 
 export function Default() {
-  return <TopNavigation title="TITLE" />
+  return <TopNavigation title="TITLE" />;
 }
 
 export function WithLeadingText() {

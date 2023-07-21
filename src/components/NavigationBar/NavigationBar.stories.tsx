@@ -28,56 +28,64 @@ const meta: Meta<typeof NavigationBar> = {
 export default meta;
 
 export function Default() {
-  return <NavigationBar />
+  return <NavigationBar />;
 }
 
 export function WithRightSide() {
-  return <NavigationBar
-    right={
-      <>
-        <Icon icon="address-book" />
-        <Icon icon="calendar-user" />
-      </>
-    }
-  />
+  return (
+    <NavigationBar
+      right={
+        <>
+          <Icon icon="address-book" />
+          <Icon icon="calendar-user" />
+        </>
+      }
+    />
+  );
 }
 
 export function WithLeftSide() {
-  return <NavigationBar
-    left={
-      <>
-        <Icon icon="address-book" />
-        <Icon icon="calendar-user" />
-      </>
-    }
-  />
+  return (
+    <NavigationBar
+      left={
+        <>
+          <Icon icon="address-book" />
+          <Icon icon="calendar-user" />
+        </>
+      }
+    />
+  );
 }
 
 export function WithAction() {
-  return <NavigationBar>
-    <QuickButton icon="check" />
-  </NavigationBar>
+  return (
+    <NavigationBar>
+      <QuickButton icon="check" />
+    </NavigationBar>
+  );
 }
 
 export function All() {
-  return <NavigationBar
-    left={
-      <>
-        <Icon icon="mail-check" />
-        <Icon icon="calendar" />
-      </>
-    }
-    right={
-      <>
-        <Icon icon="fingerprint" />
-        <Avatar
-          link="https://i.pravatar.cc/150?u=08188"
-          alt="Mike"
-          badge={9}
-        />
-      </>
-    }
-  >
-    <QuickButton icon="check" />
-  </NavigationBar>
+  return (
+    <NavigationBar
+      left={
+        <>
+          <Icon icon="mail-check" />
+          <Icon icon="calendar" />
+        </>
+      }
+      right={
+        <>
+          <Icon icon="fingerprint" />
+          <Avatar
+            link="https://i.pravatar.cc/150?u=08188"
+            alt="Mike"
+            badge={9}
+          />
+        </>
+      }
+    >
+      <QuickButton icon="check" />
+    </NavigationBar>
+  );
 }

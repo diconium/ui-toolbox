@@ -7,12 +7,18 @@ export interface Props extends ComponentProps<'button'> {
   selected?: boolean;
 }
 
-function Template({ children, className, onClick = () => {}, canBeOpened = false, selected = false }: Props) {
+function Template({
+  children,
+  className,
+  onClick = () => {},
+  canBeOpened = false,
+  selected = false,
+}: Props) {
   const template = classNames([
     'bg-toolbox-white px-6 py-4 border rounded-2xl',
     'w-full text-left',
     selected ? 'border-toolbox-primary' : 'border-toolbox-neutral-50',
-    className
+    className,
   ]);
 
   if (canBeOpened) {

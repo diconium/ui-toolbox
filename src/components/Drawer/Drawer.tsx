@@ -23,7 +23,7 @@ function Drawer({
   onClose = () => {},
   layout = 'centered',
   swipeOptions = {},
-  className
+  className,
 }: Props) {
   const [open, setOpen] = useState(opened);
   const template = classNames(BASE_TEMPLATE, { 'h-14': !open }, className);
