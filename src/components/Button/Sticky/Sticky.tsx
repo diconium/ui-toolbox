@@ -27,7 +27,7 @@ function Sticky({ label, secondary, disabled, left, onClick = () => {} }: Props)
       defaultTemplate={secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE}
       onClick={() => onClick()}
     >
-      <span className={`${left ? '-ml-8' : '-mr-8'}`}>{label}</span>
+      <span className={left ? '-ml-8' : '-mr-8'}>{label}</span>
     </DefaultButton>
   );
 }
