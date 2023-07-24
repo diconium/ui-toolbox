@@ -8,7 +8,7 @@ export default {
 
 export function Default() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextArea placeholder="Placeholder text here" />
       <TextArea
         placeholder="Placeholder text here"
@@ -20,7 +20,7 @@ export function Default() {
 
 export function Label() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextArea
         label="With label"
         placeholder="Placeholder text here"
@@ -36,7 +36,7 @@ export function Label() {
 
 export function Hint() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextArea
         label="With label"
         hint="Your hint"
@@ -54,17 +54,19 @@ export function Hint() {
 
 export function DifferentRows() {
   return (
-    <TextArea
-      rows={10}
-      placeholder="Placeholder text here"
-      value="With text"
-    />
+    <div className="flex flex-col space-y-4 w-[320px]">
+      <TextArea
+        rows={10}
+        placeholder="Placeholder text here"
+        value="With text"
+      />
+    </div>
   );
 }
 
 export const Focused = {
   render: () => (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextArea
         label="With label"
         disabled
@@ -88,17 +90,19 @@ export const Focused = {
 export function WithAction() {
   const [value, set] = useState<string>();
   return (
-    <TextArea
-      placeholder="Placeholder text"
-      value={value}
-      onChange={(text) => set(text)}
-    />
+    <div className="flex flex-col space-y-4 w-[320px]">
+      <TextArea
+        placeholder="Placeholder text"
+        value={value}
+        onChange={(text) => set(text)}
+      />
+    </div>
   );
 }
 
 export function Disabled() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextArea
         disabled
         placeholder="Placeholder text here"
