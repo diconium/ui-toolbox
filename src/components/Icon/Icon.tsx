@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import Font, { Automotive } from './config';
+import { DEFAULT, AUTOMOTIVE } from './config';
 
 export interface IconProps {
   icon: string;
@@ -8,10 +8,10 @@ export interface IconProps {
   size?: string;
 }
 
-export { Font, Automotive };
+export { DEFAULT, AUTOMOTIVE };
 
 const getUnicode = (key: string) =>
-  Font[key as keyof typeof Font] || Automotive[key as keyof typeof Automotive] || 'NA';
+  DEFAULT[key as keyof typeof DEFAULT] || AUTOMOTIVE[key as keyof typeof AUTOMOTIVE] || 'NA';
 
 const sizeToStyles = (size: string) => {
   if (size === 's') {

@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-export default {
+const DEFAULT = {
   'tb-address-book': '\ue900',
   'tb-address-card': '\ue901',
   'tb-alarm-clock-alt': '\ue902',
@@ -606,7 +606,7 @@ export default {
   'tb-circle-xmark': '\ueb5a',
 };
 
-const Automotive = {
+const AUTOMOTIVE = {
   'tb-circuit': '\ue800',
   'tb-car-battery': '\ue801',
   'tb-engine-warning': '\ue802',
@@ -765,4 +765,4 @@ const Automotive = {
   'tb-tb-server': '\ue89b',
 };
 
-export { Automotive };
+export { DEFAULT, AUTOMOTIVE };

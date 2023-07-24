@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Font, Automotive } from './Icon';
+import { Icon, DEFAULT, AUTOMOTIVE } from './Icon';
 
 export default {
   title: 'Toolbox/Icon',
@@ -40,7 +40,7 @@ export function IconDoesNotExist() {
 export const All = {
   render: () => (
     <div className="grid grid-cols-6">
-      {Object.keys(Font).map((icon) => (
+      {Object.keys(DEFAULT).map((icon) => (
         <div
           key={icon.replace('tb-', '')}
           className="flex flex-col text-center"
@@ -63,7 +63,7 @@ export const All = {
 export const AutomotiveFont = {
   render: () => (
     <div className="grid grid-cols-6">
-      {Object.keys(Automotive).map((icon) => (
+      {Object.keys(AUTOMOTIVE).map((icon) => (
         <div
           key={icon.replace('tb-', '')}
           className="flex flex-col text-center"
