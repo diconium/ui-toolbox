@@ -1,8 +1,5 @@
 @import '_typography.css';
 @import 'fonts/_icon-font.css';
 
-/* remove next line to avoid bundling automotive font in build */
-@import 'fonts/automotive/_icon-font-automotive.css';
-
 @import "tailwindcss/base";
 @import "tailwindcss/utilities";
