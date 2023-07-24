@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useRef, useEffect } from 'react';
+import React, { PropsWithChildren, useRef, useEffect, ReactElement } from 'react';
 
 interface Props extends PropsWithChildren {
   reference: string;
@@ -41,11 +41,11 @@ function TestProvider({
   selector = 'test',
   reference,
   enableInProduction = false,
-}: Props) {
+}: Props): ReactElement {
   const shouldUseProvider = process.env.NODE_ENV === 'test' || enableInProduction;
   const parentRef = useTestId(shouldUseProvider, selector, reference);
   if (!shouldUseProvider) {
-    return children;
+    return children as unknown as ReactElement;
   }
   return <Wrapper ref={parentRef}>{children}</Wrapper>;
 }
