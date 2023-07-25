@@ -3,12 +3,20 @@ import { screen, render } from '@testing-library/react';
 
 import { Icon as IMPORT } from '../../index';
 import Icon from './Icon';
+import {DEFAULT, AUTOMOTIVE} from './config'
 
 describe('Icon component', () => {
   test('can be imported from the library correctly', () => {
     expect(IMPORT).toBeDefined();
     expect(Icon).toBeDefined();
     expect(IMPORT).toEqual(Icon);
+  });
+
+  test('all configurations contain complete set of icons', () => {
+    const defaultConfig = Object.keys(DEFAULT)
+    const automotiveConfig = Object.keys(AUTOMOTIVE)
+    expect(defaultConfig.length).toEqual(603);
+    expect(automotiveConfig.length).toEqual(156);
   });
 
   test('can render the an existing icon correctly', () => {
