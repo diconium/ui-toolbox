@@ -32,7 +32,8 @@ export const Disabled = {
 
 export function WithAction() {
   const [toggle, set] = useState(false);
-  return (
+  
+return (
     <ToggleButton
       toggled={toggle}
       onClick={(newState) => set(newState)}

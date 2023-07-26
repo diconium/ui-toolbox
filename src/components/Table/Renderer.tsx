@@ -18,7 +18,8 @@ function getRenderer(config?: Config) {
       );
     };
   }
-  return function ({ content }: RenderProps) {
+  
+return function ({ content }: RenderProps) {
     return <span>{content?.value || 'No value provided'}</span>;
   };
 }

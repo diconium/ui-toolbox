@@ -19,7 +19,8 @@ function State({ size = 'lg', color = 'bg-toolbox-primary', label }: Props) {
       </div>
     );
   }
-  return (
+  
+return (
     <Dot
       size={size}
       color={color}

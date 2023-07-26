@@ -10,7 +10,8 @@ const applySwipePattern = (handle: HTMLElement) => {
   fireEvent.touchMove(handle, { touches: [{ clientX: 20, clientY: 10 }] });
   fireEvent.touchMove(handle, { touches: [{ clientX: 20, clientY: 10 }] });
   fireEvent.touchEnd(handle, { touches: [{ clientX: 10, clientY: 10 }] });
-  return true;
+  
+return true;
 };
 
 describe('Swipeable utility', () => {

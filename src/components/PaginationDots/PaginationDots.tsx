@@ -29,7 +29,8 @@ function PaginationDots({ current = 0, pages, disabled = false, onClick = () => 
       />
     </button>
   ));
-  return <div className="flex space-x-2 items-center">{steps}</div>;
+  
+return <div className="flex space-x-2 items-center">{steps}</div>;
 }
 
 export default PaginationDots;

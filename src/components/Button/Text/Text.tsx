@@ -21,7 +21,8 @@ function TextButton({ label, secondary = false, disabled, onClick = () => {} }: 
     BASE_TEMPLATE,
     secondary ? DEFAULT_SECONDARY_TEMPLATE : DEFAULT_TEMPLATE,
   ]);
-  return (
+  
+return (
     <DefaultButton
       disabled={disabled}
       defaultTemplate={template}

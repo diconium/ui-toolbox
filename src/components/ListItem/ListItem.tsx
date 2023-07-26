@@ -39,10 +39,12 @@ function ListItem({
       const next = !previous;
       const callback = next ? onOpen : onClose;
       callback();
-      return next;
+      
+return next;
     });
   };
-  return (
+  
+return (
     <Template
       onClick={onToggle}
       canBeOpened={canBeOpened}

@@ -36,7 +36,8 @@ function Table({ rows = [], config = [], className, empty }: Props) {
   const getConfig = (column: string) => config.find(({ key }) => key === column);
   const columns = config.map(({ key }) => key);
   const hideTableHeader = config.every(({ options }) => options?.hideHeader);
-  return (
+  
+return (
     <div className={template}>
       <table className="w-full table-auto">
         {!hideTableHeader && (

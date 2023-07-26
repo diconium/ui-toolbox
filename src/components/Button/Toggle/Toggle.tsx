@@ -26,7 +26,8 @@ function Toggle({ toggled = false, disabled = false, onClick = () => {}, title =
     'bg-toolbox-primary': !disabled && toggled,
     'bg-toolbox-neutral-200': disabled,
   });
-  return (
+  
+return (
     <button
       title={title}
       type="button"
