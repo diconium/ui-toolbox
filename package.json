@@ -39,7 +39,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addons": "^7.0.23",
     "@storybook/blocks": "^7.1.1",
-    "@storybook/react": "^7.0.23",
+    "@storybook/react": "^7.1.1",
     "@storybook/react-webpack5": "^7.1.0",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/theming": "^7.1.0",
