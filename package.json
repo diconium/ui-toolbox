@@ -31,7 +31,7 @@
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
-    "@storybook/addon-actions": "^7.1.0",
+    "@storybook/addon-actions": "^7.1.1",
     "@storybook/addon-docs": "^7.0.23",
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-interactions": "^7.0.27",
