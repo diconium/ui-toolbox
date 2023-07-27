@@ -17,7 +17,8 @@ function Header({ label, filled }: { label: string; filled: boolean }) {
     'text-toolbox-white': filled,
   };
   const template = classNames(['text-toolbox-neutral leading-5 text-base', optional]);
-  return <div className={template}>{label}</div>;
+  
+return <div className={template}>{label}</div>;
 }
 
 function HeaderWithSubtitle({
@@ -33,7 +34,8 @@ function HeaderWithSubtitle({
   const optional = {
     'text-toolbox-white': filled,
   };
-  return (
+  
+return (
     <div className="flex flex-col">
       <div className={classNames(base, 'leading-6 font-semibold', optional)}>{label}</div>
       <div className={classNames(base, 'leading-5', optional)}>{subtitle}</div>

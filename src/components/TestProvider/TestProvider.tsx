@@ -15,7 +15,8 @@ const Wrapper = React.forwardRef(
 function assignDataAttribute(node: ChildNode, selector: string, reference: string) {
   const updatedNode = node.cloneNode(true) as HTMLElement;
   updatedNode.dataset[selector] = reference;
-  return updatedNode;
+  
+return updatedNode;
 }
 
 function useTestId(shouldUseProvider: boolean, selector: string, reference: string) {
@@ -47,7 +48,8 @@ function TestProvider({
   if (!shouldUseProvider) {
     return children as unknown as ReactElement;
   }
-  return <Wrapper ref={parentRef}>{children}</Wrapper>;
+  
+return <Wrapper ref={parentRef}>{children}</Wrapper>;
 }
 
 export default TestProvider;

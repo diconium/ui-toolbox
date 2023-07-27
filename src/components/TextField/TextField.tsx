@@ -37,7 +37,8 @@ const validationToIcon = (validation?: string) => {
   if (validation === 'warning') {
     return 'triangle-exclamation';
   }
-  return 'circle-xmark';
+  
+return 'circle-xmark';
 };
 
 function TextField({

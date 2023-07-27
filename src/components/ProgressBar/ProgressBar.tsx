@@ -18,7 +18,8 @@ const normalize = (progress: number, min: number, max: number) => {
   if (progress > max) {
     return max;
   }
-  return Math.round(progress);
+  
+return Math.round(progress);
 };
 
 function ProgressBar({ progress = 0, min = MIN, max = MAX, animate = false }: Props) {
@@ -26,7 +27,8 @@ function ProgressBar({ progress = 0, min = MIN, max = MAX, animate = false }: Pr
     'bg-toolbox-primary h-1 rounded-2xl',
     { 'motion-safe:animate-pulse': animate },
   ]);
-  return (
+  
+return (
     <div className="w-full h-1 bg-toolbox-neutral-50 rounded-2xl">
       <div
         className={template}

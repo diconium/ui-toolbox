@@ -35,6 +35,7 @@
     "object-curly-newline": "off",
     "react/jsx-props-no-spreading": "off",
     "no-restricted-globals": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "newline-before-return": "error"
   }
 }

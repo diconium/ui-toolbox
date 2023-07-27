@@ -28,7 +28,8 @@ export function Disabled() {
 
 export function WithAction() {
   const [checked, set] = useState(false);
-  return (
+  
+return (
     <Checkbox
       checked={checked}
       onClick={() => set(!checked)}

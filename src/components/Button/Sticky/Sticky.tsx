@@ -20,7 +20,8 @@ function Sticky({ label, secondary, disabled, left, onClick = () => {} }: Props)
     'right-0 rounded-tl-full': !left,
     'left-0 rounded-tr-full': left,
   });
-  return (
+  
+return (
     <DefaultButton
       disabled={disabled}
       baseTemplate={`${BASE_TEMPLATE} ${side}`}

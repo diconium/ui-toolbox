@@ -9,5 +9,6 @@ export interface Props {
 
 export default function Header({ header, config }: Props) {
   const template = classNames(['first:pl-0 last:pr-0 last:w-0 p-2', config?.options?.className]);
-  return <th className={template}>{header}</th>;
+  
+return <th className={template}>{header}</th>;
 }

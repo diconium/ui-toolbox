@@ -32,7 +32,8 @@ function Template({
       </button>
     );
   }
-  return <div className={template}>{children}</div>;
+  
+return <div className={template}>{children}</div>;
 }
 
 export default Template;

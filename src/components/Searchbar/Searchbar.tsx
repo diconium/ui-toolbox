@@ -20,7 +20,8 @@ function Searchbar({
     'text-toolbox-neutral-500': !disabled,
     'text-toolbox-neutral-200': disabled,
   });
-  return (
+  
+return (
     <div className="relative">
       <TextField
         onEnter={() => onSearch(query)}

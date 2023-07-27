@@ -21,7 +21,8 @@ const sizeToStyle = (size: string) => {
   if (size === 'lg') {
     return 'w-3 h-3';
   }
-  return 'w-4 h-4';
+  
+return 'w-4 h-4';
 };
 
 const normalize = (badge: number) => (badge > MAX_BADGE_VALUE ? `${MAX_BADGE_VALUE}+` : badge);
@@ -36,7 +37,8 @@ const getWithBadgeWidth = (badge: number) => {
   if (isNormalized(badge)) {
     return 'w-8';
   }
-  return 'w-7';
+  
+return 'w-7';
 };
 
 export function Badge({ badge, size = 'lg' }: Props) {
@@ -46,7 +48,8 @@ export function Badge({ badge, size = 'lg' }: Props) {
     show ? `${getWithBadgeWidth(badge)} h-4` : sizeToStyle(size),
     show ? 'rounded-lg' : 'rounded-full',
   ]);
-  return <span className={template}>{show && normalize(badge)}</span>;
+  
+return <span className={template}>{show && normalize(badge)}</span>;
 }
 
 export default Badge;

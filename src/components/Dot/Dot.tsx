@@ -16,7 +16,8 @@ const sizeToTemplate = (size: string) => {
   if (size === 'm') {
     return ['w-3', 'h-3'];
   }
-  return ['w-2', 'h-2'];
+  
+return ['w-2', 'h-2'];
 };
 
 function Dot({ size = 'lg', color = 'bg-toolbox-primary' }: Props) {

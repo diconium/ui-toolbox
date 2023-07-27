@@ -37,7 +37,8 @@ function Button({
 }: Props) {
   const template = !outlined ? defaultTemplate : outlinedTemplate;
   const classes = classnames(baseTemplate, template);
-  return (
+  
+return (
     <button
       type="button"
       onClick={() => onClick()}

@@ -31,7 +31,8 @@ function SideNavigation({
       const next = !previous;
       const callback = next ? onOpen : onClose;
       callback();
-      return next;
+      
+return next;
     });
   };
 

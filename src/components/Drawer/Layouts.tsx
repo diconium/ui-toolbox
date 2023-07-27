@@ -16,7 +16,8 @@ export const getLayout = (layout = 'centered') => {
   if (layout === 'full-width') {
     return FullWidth;
   }
-  return Centered;
+  
+return Centered;
 };
 
 export default { Centered, FullWidth, getLayout };

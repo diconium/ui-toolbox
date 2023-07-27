@@ -31,7 +31,8 @@ const options = [
 
 export function Default() {
   const [selectedDefault, selectDefault] = useState<OptionType>();
-  return (
+  
+return (
     <Select
       selected={selectedDefault}
       placeholder="Select one option please"

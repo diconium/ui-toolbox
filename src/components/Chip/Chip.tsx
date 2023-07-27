@@ -20,7 +20,8 @@ function Chip({ label, selected = false, disabled = false, onClick = () => {} }:
     'cursor-not-allowed': disabled,
     'cursor-pointer': !disabled,
   });
-  return (
+  
+return (
     <button
       type="button"
       className={template}
