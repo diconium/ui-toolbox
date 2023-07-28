@@ -1,4 +1,4 @@
-# Toolbox - React UI Component Library from Diconium Auto
+# Toolbox - React UI Component Library of diconium auto
 
 <a href="https://diconium.com/" target="_blank">
     <img src=".github/diconium-auto.png" style="height:50px; margin-block: 10px;">
