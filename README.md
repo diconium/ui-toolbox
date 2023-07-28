@@ -1,18 +1,68 @@
-# Toolbox
+# Toolbox - React UI Component Library of diconium auto
 
-This project is a collection of common UI components to be the basis for all future web applications at Diconium Auto.
+<a href="https://diconium.com/" target="_blank">
+    <img src=".github/diconium-auto.png" style="height:50px; margin-block: 10px;">
+</a>
 
-### Automation
+**Toolbox** is a comprehensive React UI component library that provides a wide range of ready-to-use components to help you build stunning user interfaces for your web applications. This project is a collection of common UI components to be the basis for all future web applications at Diconium Auto. It offers a collection of reusable and customizable components, making it easier for developers to create consistent and visually appealing interfaces.
 
-![Linting](https://github.com/dicoauto/toolbox/actions/workflows/lint.yml/badge.svg)
+[![Apache 2.0 License](https://img.shields.io/badge/License-Apache-2.svg)](https://choosealicense.com/licenses/apache-2.0/)
+![Github Actions](https://github.com/dicoauto/toolbox/actions/workflows/workflows.yaml/badge.svg)
+<a href="https://docs.toolbox.diconium.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg">
+</a>
 
-![Unit tests](https://github.com/dicoauto/toolbox/actions/workflows/test.yml/badge.svg)
+## Features
 
-![Snapshot tests](https://github.com/dicoauto/toolbox/actions/workflows/chromatic.yml/badge.svg)
+- **Customizable Components:** Each component in Toolbox is designed to be highly customizable, allowing you to easily adapt the look and feel to match your application's design and branding.
 
-![Documentation](https://github.com/dicoauto/toolbox/actions/workflows/docs.yml/badge.svg)
+- **Responsive and Mobile-Friendly:** Toolbox components are built with responsiveness in mind, ensuring a seamless user experience across various devices and screen sizes.
 
-![Build](https://github.com/dicoauto/toolbox/actions/workflows/build.yml/badge.svg)
+- **Easy Integration:** Integrating Toolbox components into your existing React project is a breeze. With simple import statements, you can start using the components right away.
+
+- **Well-Documented:** We provide comprehensive documentation for each component, along with examples and usage guidelines to facilitate smooth integration.
+
+- **Consistent Design Language:** Toolbox components follow a consistent and coherent design language, promoting a polished and professional UI across your entire application.
+
+## Table of Contents
+
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Testing](#testing)
+4. [Linting](#linting)
+5. [Usage](#usage)
+6. [Components](#components)
+7. [Contributing](#contributing)
+8. [License](#license)
+
+## Installation
+
+To install **Toolbox** in your project, simply use npm:
+
+```bash
+npm install @dicoauto/toolbox
+```
+
+## Linting
+Toolbox comes with a set of linting rules to maintain code consistency and readability. You can run the linting process using the following npm command:
+
+```bash
+npm run lint
+// or
+npm run lint:fix
+```
+
+## Usage
+Using a component from Toolbox is straightforward. Import the component you need and use it in your React application:
+
+```jsx
+import React from 'react';
+import { Button } from 'toolbox';
+
+function App() {
+  return <Button>Click me</Button>;
+}
+```
 
 ### Run storybook locally
 
@@ -27,26 +77,6 @@ npm run storybook
 npm run build:prod
 ```
 
-### Run tests
-
-```
-npm run test
-```
-
-### Run Linting
-
-```
-npm run lint
-// or
-npm run lint:fix
-```
-
-### Publish the library
-
-```
-npm publish
-```
-
 ### Component generators
 
 If you want to create a new component you can call the following command on the terminal to create all the required files at once.
@@ -54,3 +84,69 @@ If you want to create a new component you can call the following command on the 
 ```
 npm run generate:component <NAME OF NEW COMPONENT>
 ```
+
+## Components
+Toolbox provides the following set of components:
+
+- Avatar
+- Avatars
+- Button
+- Primary
+- Secondary
+- Quick
+- Sticky
+- Radio
+- Text
+- Toggle
+- Icon
+- PaginationDots
+- Tag
+- Chip
+- Checkbox
+- TextField
+- Searchbar
+- Badge
+- BadgeContainer
+- State
+- StateContainer
+- TopNavigation
+- Drawer
+- NavigationBar
+- Utils/Swipeable
+- Dot
+- Toast
+- ProgressBar
+- Spinner
+- Layout/Mobile
+- Layout/Centered
+- Layout/Desktop
+- Modal
+- List
+- ListItem
+- TextArea
+- Tooltip
+- Calendar
+- Message
+- Select
+- Tabs
+- Table
+- SideNavigation
+- TestProvider
+
+Please refer to the [documentation](https://docs.toolbox.diconium.com) for each component to learn more about their props, customization options, and examples of usage.
+
+## Contributors
+
+<a href="https://github.com/robdembitel">
+  <img src="https://github.com/robdembitel.png" style="height: 50px">
+</a>
+<a href="https://github.com/5041A">
+  <img src="https://github.com/5041A.png?size=50">
+</a>
+
+## License
+Toolbox is released under the Apache License 2.0.
+
+Happy coding!
+
+© 2023 Diconium Auto. All rights reserved.
