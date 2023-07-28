@@ -1,8 +1,14 @@
 # Toolbox - React UI Component Library from Diconium Auto
 
-![Toolbox Logo](toolbox-logo.png)
+![Toolbox Logo](.github/diconium-auto.png)
 
 **Toolbox** is a comprehensive React UI component library that provides a wide range of ready-to-use components to help you build stunning user interfaces for your web applications. This project is a collection of common UI components to be the basis for all future web applications at Diconium Auto. It offers a collection of reusable and customizable components, making it easier for developers to create consistent and visually appealing interfaces.
+
+[![Apache 2.0 License](https://img.shields.io/badge/License-Apache-2.svg)](https://choosealicense.com/licenses/apache-2.0/)
+![Github Actions](https://github.com/dicoauto/toolbox/actions/workflows/workflows.yaml/badge.svg)
+<a href="https://docs.toolbox.diconium.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg">
+</a>
 
 ## Features
 
@@ -129,8 +135,12 @@ Please refer to the documentation for each component to learn more about their p
 
 ## Contributors
 
-[![](https://github.com/robdembitel.png?size=50)](https://github.com/robdembitel)
-[![](https://github.com/5041A.png?size=50)](https://github.com/5041A)
+<a href="https://github.com/robdembitel">
+  <img src="https://github.com/robdembitel.png" style="height: 50px">
+</a>
+<a href="https://github.com/5041A">
+  <img src="https://github.com/5041A.png?size=50">
+</a>
 
 ## License
 Toolbox is released under the Apache License 2.0.
