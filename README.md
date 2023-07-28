@@ -1,6 +1,8 @@
 # Toolbox - React UI Component Library from Diconium Auto
 
-![Toolbox Logo](.github/diconium-auto.png)
+<a href="https://diconium.com/" target="_blank">
+    <img src=".github/diconium-auto.png" style="height:50px; margin-block: 10px;">
+</a>
 
 **Toolbox** is a comprehensive React UI component library that provides a wide range of ready-to-use components to help you build stunning user interfaces for your web applications. This project is a collection of common UI components to be the basis for all future web applications at Diconium Auto. It offers a collection of reusable and customizable components, making it easier for developers to create consistent and visually appealing interfaces.
 
@@ -131,7 +133,7 @@ Toolbox provides the following set of components:
 - SideNavigation
 - TestProvider
 
-Please refer to the documentation for each component to learn more about their props, customization options, and examples of usage.
+Please refer to the [documentation](https://docs.toolbox.diconium.com) for each component to learn more about their props, customization options, and examples of usage.
 
 ## Contributors
 
