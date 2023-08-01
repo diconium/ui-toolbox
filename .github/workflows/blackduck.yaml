@@ -1,0 +1,32 @@
+# This workflow gathers the pipelines which will be executed on event bases.
+
+name: Security
+on:
+  push:
+    branches:
+      - devops/blackduck
+env:
+  DETECT_PROJECT_NAME: ${{secrets.DETECT_PROJECT_NAME}}
+  LOGGING_LEVEL_COM_SYNOPSYS_INTEGRATION: DEBUG
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: setup_java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Run Synopsys Detect
+        uses: synopsys-sig/detect-action@v0.3.4
+        with:
+            scan-mode: INTELLIGENT
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            detect-version: 7.9.0
+            blackduck-url: ${{ secrets.BLACKDUCK_URL }}
+            blackduck-api-token: ${{ secrets.BLACKDUCK_API_TOKEN }}
