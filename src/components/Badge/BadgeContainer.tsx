@@ -17,7 +17,7 @@ function BadgeContainer({ badge, size = 'lg', children }: ContainerProps) {
   ]);
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block min-w-max">
       {badge && (
         <div className={template}>
           <Badge

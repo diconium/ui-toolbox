@@ -18,7 +18,8 @@ function StateContainer({ color = 'bg-toolbox-primary', size = 'lg', children }:
       </div>
     );
   }
-  return (
+  
+return (
     <div className="relative inline-block">
       {children}
       <div className="absolute bottom-0 right-0">

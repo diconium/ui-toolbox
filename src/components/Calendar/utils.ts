@@ -3,16 +3,9 @@ import dayjs from 'dayjs';
 export const getWeeks = (year: number, month: number) => {
   const weeks = [];
 
-  const startDate = dayjs()
-    .set('year', year)
-    .set('month', month)
-    .startOf('month')
-    .startOf('week');
+  const startDate = dayjs().set('year', year).set('month', month).startOf('month').startOf('week');
 
-  const endDate = dayjs()
-    .set('year', year)
-    .set('month', month)
-    .endOf('month');
+  const endDate = dayjs().set('year', year).set('month', month).endOf('month');
 
   let day = startDate.subtract(1, 'day');
 
@@ -23,7 +16,8 @@ export const getWeeks = (year: number, month: number) => {
         // eslint-disable-next-line no-loop-func
         .map(() => {
           day = day.add(1, 'day');
-          return day;
+          
+return day;
         })
     );
   }
@@ -34,16 +28,21 @@ export const getWeeks = (year: number, month: number) => {
 export const isOutOfRange = (day: dayjs.Dayjs, current: dayjs.Dayjs) => {
   const isBefore = day.isBefore(current.startOf('month'), 'day');
   const isAfter = day.isAfter(current.endOf('month'), 'day');
-  return isBefore || isAfter;
+  
+return isBefore || isAfter;
 };
 
-export const getTextColor = (day: dayjs.Dayjs) => {
+export const getTextColor = (day: dayjs.Dayjs, selected?: dayjs.Dayjs | null) => {
   const today = dayjs().startOf('day');
-  if (day.isBefore(today)) {
+  if (day.isBefore(selected) || day.isBefore(today)) {
     return 'text-toolbox-neutral-200';
   }
-
-  return 'text-toolbox-neutral';
+  const isNextMonth = day.month() - (selected || today).month() > 0;
+  if (isNextMonth) {
+    return 'text-toolbox-neutral-200';
+  }
+  
+return 'text-toolbox-neutral';
 };
 
 export default { getWeeks, isOutOfRange, getTextColor };

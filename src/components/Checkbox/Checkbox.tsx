@@ -20,7 +20,8 @@ function Checkbox({ checked = false, disabled = false, onClick = () => {} }: Pro
     'border-toolbox-primary': !disabled,
     'border-toolbox-neutral-200': disabled,
   });
-  return (
+  
+return (
     <button
       type="button"
       disabled={disabled}

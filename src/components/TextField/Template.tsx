@@ -23,7 +23,8 @@ export const validationToColor = (validation?: string) => {
   if (validation === 'error') {
     return 'red';
   }
-  return 'black';
+  
+return 'black';
 };
 
 const BASE_TEXT = 'text-xs leading-3 px-3 py-1';
@@ -37,7 +38,8 @@ function Template({ label, hint, disabled, validation, children }: Props) {
     },
     validation && `text-toolbox-feedback-${validationToColor(validation)}`
   );
-  return (
+  
+return (
     <div className="flex flex-col">
       {label && <span className={mask}>{label}</span>}
       <div className="inline-flex items-center">{children}</div>

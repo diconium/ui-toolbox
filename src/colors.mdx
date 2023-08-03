@@ -1,0 +1,47 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as ColorsStories from './colors.stories';
+
+<Meta of={ColorsStories} />
+
+## Colors
+
+The library comes with a set of colors as shown below. They are available in the
+standard tailwindcss nomenclature e.g.
+
+```
+[modifier]-toolbox-[primary|secondary]-[name of color]
+```
+
+### Examples:
+
+```
+bg-toolbox-primary-50
+
+bg-toolbox-secondary-300
+```
+
+### Primary colors
+
+#### Purple
+
+<Canvas of={ColorsStories.Primary} />
+
+### Secondary colors
+
+#### Teal
+
+<Canvas of={ColorsStories.Secondary} />
+
+### Neutral colors
+
+#### Grey
+
+<Canvas of={ColorsStories.Neutrals} />
+
+### Feedback colors
+
+<Canvas of={ColorsStories.Feedback} />
+
+### Additional colors
+
+<Canvas of={ColorsStories.Additional} />

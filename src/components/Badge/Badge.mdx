@@ -1,0 +1,30 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Badge from './Badge';
+import BadgeContainer from './BadgeContainer';
+import * as BadgeStories from './Badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+To import the `Badge` component simply include the following at the top of your file:
+
+```
+import { Badge } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={BadgeStories.Default} />
+
+## Different sizes
+
+<Canvas of={BadgeStories.DifferentSizes} />
+
+## With labels
+
+<Canvas of={BadgeStories.WithLabel} />
+
+## Add badges to any other component
+
+<Canvas of={BadgeStories.AddBadgeToOtherComponents} />

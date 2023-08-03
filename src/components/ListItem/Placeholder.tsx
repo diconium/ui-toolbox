@@ -12,7 +12,7 @@ function Placeholder({ upper, lower, isOpen, showChevron }: Props) {
   const showLower = lower || showChevron;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-end">
       {upper && <div className="flex space-x-1">{upper}</div>}
       {showLower && (
         <div className="flex justify-end mt-2">

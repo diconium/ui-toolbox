@@ -15,7 +15,8 @@ export function Tab({ label, icon = 'face-smile', selected = false, onClick = ()
     'whitespace-nowrap uppercase',
     selected ? 'text-toolbox-primary' : 'text-toolbox-neutral-200',
   ]);
-  return (
+  
+return (
     <button
       type="button"
       className="flex justify-center items-center"

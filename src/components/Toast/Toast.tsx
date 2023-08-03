@@ -17,7 +17,8 @@ function Header({ label, filled }: { label: string; filled: boolean }) {
     'text-toolbox-white': filled,
   };
   const template = classNames(['text-toolbox-neutral leading-5 text-base', optional]);
-  return <div className={template}>{label}</div>;
+  
+return <div className={template}>{label}</div>;
 }
 
 function HeaderWithSubtitle({
@@ -33,7 +34,8 @@ function HeaderWithSubtitle({
   const optional = {
     'text-toolbox-white': filled,
   };
-  return (
+  
+return (
     <div className="flex flex-col">
       <div className={classNames(base, 'leading-6 font-semibold', optional)}>{label}</div>
       <div className={classNames(base, 'leading-5', optional)}>{subtitle}</div>
@@ -51,7 +53,7 @@ function Toast({
 }: Props) {
   const template = classNames([
     'flex items-center max-w-sm px-6 py-4',
-    'rounded-2xl border-2 box-border',
+    'rounded-2xl border box-border',
     typeToBorderColor(type),
     typeToColor(type, filled),
     subtitle ? 'h-20' : 'h-13',

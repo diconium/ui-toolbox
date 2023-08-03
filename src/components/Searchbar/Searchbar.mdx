@@ -1,0 +1,36 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Searchbar from './Searchbar';
+import * as SearchbarStories from './Searchbar.stories';
+
+<Meta of={SearchbarStories} />
+
+# Searchbar
+
+To import the `Searchbar` component simply include the following at the top of your file:
+
+```
+import { Searchbar } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={SearchbarStories.Default} />
+
+## Disabled
+
+<Canvas of={SearchbarStories.Disabled} />
+
+## onSearch action
+
+When the user presses the `enter` on the keyboard, the `onSearch` action is called once.
+Use this when you want to trigger a search, only after the user pressed enter.
+
+<Canvas of={SearchbarStories.OnSearchAction} />
+
+## onChange action
+
+When the user enters a new character on the keyboard, the `onChange` action is called.
+This can be useful when you want to trigger a search instantly when the input of the search field changes.
+
+<Canvas of={SearchbarStories.OnChangeAction} />

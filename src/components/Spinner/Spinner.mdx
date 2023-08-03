@@ -1,0 +1,21 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Spinner from './Spinner';
+import * as SpinnerStories from './Spinner.stories';
+
+<Meta of={SpinnerStories} />
+
+# Spinner
+
+To import the `Spinner` component simply include the following at the top of your file:
+
+```
+import { Spinner } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={SpinnerStories.Default} />
+
+## Different sizes
+
+<Canvas of={SpinnerStories.DifferentSizes} />

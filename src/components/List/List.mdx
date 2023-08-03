@@ -1,0 +1,21 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import List from './List';
+import ListItem from '../ListItem';
+import State from '../State';
+import Avatar from '../Avatar';
+import Dot from '../Dot';
+import * as ListStories from './List.stories';
+
+<Meta of={ListStories} />
+
+# List
+
+To import the `List` component simply include the following at the top of your file:
+
+```
+import { List } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ListStories.Default} />

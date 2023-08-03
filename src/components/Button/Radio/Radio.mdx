@@ -1,0 +1,30 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import RadioButton from './Radio';
+import * as RadioStories from './Radio.stories';
+
+<Meta of={RadioStories} />
+
+# RadioButton
+
+To import the `RadioButton` component simply include the following at the top of your file:
+
+```
+import { RadioButton } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={RadioStories.Default} />
+
+## Checked
+
+<Canvas of={RadioStories.Checked} />
+
+## Disabled
+
+<Canvas of={RadioStories.Disabled} />
+
+## WithAction
+
+<Canvas of={RadioStories.WithAction} />

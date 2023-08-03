@@ -1,0 +1,37 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Tooltip, { Container } from './Tooltip';
+import Display from './Display';
+import Avatar from '../Avatar';
+import * as TooltipStories from './Tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+To import the `Tooltip` component simply include the following at the top of your file:
+
+```
+import { Tooltip } from '@dicoauto/toolbox';
+```
+
+The section below shows how to use the `Tooltip` in your project.
+
+## In Action
+
+<Canvas of={TooltipStories.InAction} />
+
+## Default
+
+<Canvas of={TooltipStories.Default} />
+
+## Different sides
+
+<Canvas of={TooltipStories.DifferentSides} />
+
+## Different variants
+
+<Canvas of={TooltipStories.DifferentVariants} />
+
+## Custom content
+
+<Canvas of={TooltipStories.CustomContent} />

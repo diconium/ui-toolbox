@@ -8,9 +8,9 @@ export interface Props {
   onClick?: () => void;
 }
 
-const BASE_TEMPLATE = `text-sm leading-5 bg-toolbox-white 
-rounded-2xl border text-toolbox-black
-px-10 py-2 font-thin`;
+const BASE_TEMPLATE = `text-sm leading-5 bg-toolbox-white
+rounded-2xl border text-toolbox-black whitespace-nowrap
+px-10 py-1 font-thin`;
 
 function Chip({ label, selected = false, disabled = false, onClick = () => {} }: Props) {
   const template = classNames(BASE_TEMPLATE, {
@@ -20,7 +20,8 @@ function Chip({ label, selected = false, disabled = false, onClick = () => {} }:
     'cursor-not-allowed': disabled,
     'cursor-pointer': !disabled,
   });
-  return (
+  
+return (
     <button
       type="button"
       className={template}

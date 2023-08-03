@@ -1,0 +1,34 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Toast from './Toast';
+import * as ToastStories from './Toast.stories';
+
+<Meta of={ToastStories} />
+
+# Toast
+
+To import the `Toast` component simply include the following at the top of your file:
+
+```
+import { Toast } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={ToastStories.Default} />
+
+## With Subtitle
+
+<Canvas of={ToastStories.Subtitle} />
+
+## With icons
+
+<Canvas of={ToastStories.WithIcon} />
+
+## Full
+
+<Canvas of={ToastStories.Full} />
+
+## With action
+
+<Canvas of={ToastStories.WithAction} />

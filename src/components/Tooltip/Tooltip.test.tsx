@@ -3,6 +3,7 @@ import { screen, render } from '@testing-library/react';
 
 import Tooltip from './Tooltip';
 
+const className = 'text-toolbox-neutral';
 describe('Tooltip component', () => {
   test('can render the default component correctly', () => {
     render(
@@ -12,19 +13,19 @@ describe('Tooltip component', () => {
     );
     expect(screen.getByText(/foo/i)).toBeInTheDocument();
     expect(screen.getByText(/bar/i)).toBeInTheDocument();
-    expect(screen.getByText(/bar/i)).toHaveClass('text-toolbox-neutral');
+    expect(screen.getByText(/bar/i)).toHaveClass(className);
     expect(screen.getByText(/bar/i).tagName).toBe('SPAN');
   });
 
   test('can render the custom tooltips correctly', () => {
     render(
       <Tooltip
-        tooltip={(
+        tooltip={
           <div>
             <span>bazz</span>
             <p className="underline">text</p>
           </div>
-        )}
+        }
       >
         <span>foo</span>
       </Tooltip>
@@ -32,9 +33,9 @@ describe('Tooltip component', () => {
     expect(screen.getByText(/foo/i)).toBeInTheDocument();
     expect(screen.getByText(/baz/i)).toBeInTheDocument();
     expect(screen.getByText(/text/i)).toBeInTheDocument();
-    expect(screen.getByText(/baz/i)).not.toHaveClass('text-toolbox-neutral');
+    expect(screen.getByText(/baz/i)).not.toHaveClass(className);
     expect(screen.getByText(/text/i).tagName).toBe('P');
     expect(screen.getByText(/text/i)).toHaveClass('underline');
-    expect(screen.getByText(/text/i)).not.toHaveClass('text-toolbox-neutral');
+    expect(screen.getByText(/text/i)).not.toHaveClass(className);
   });
 });

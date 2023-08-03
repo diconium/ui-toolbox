@@ -4,6 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 import copy from 'rollup-plugin-copy';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 import packageJson from './package.json' assert { type: 'json' };
 
@@ -25,8 +26,18 @@ const FONTS = [
   'styles/fonts/toolbox.woff2',
 ];
 
+const AUTOMOTIVE_FONTS = [
+  'styles/fonts/automotive/toolbox-automotive.ttf',
+  'styles/fonts/automotive/toolbox-automotive.eot',
+  'styles/fonts/automotive/toolbox-automotive.woff',
+  'styles/fonts/automotive/toolbox-automotive.woff2',
+];
+
 const COPY_ASSETS_OPTIONS = {
-  targets: [{ src: FONTS, dest: 'dist/fonts' }],
+  targets: [
+    { src: FONTS, dest: 'dist/fonts' },
+    { src: AUTOMOTIVE_FONTS, dest: 'dist/fonts/automotive' },
+  ],
 };
 
 export default [
@@ -45,6 +56,7 @@ export default [
       },
     ],
     plugins: [
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),

@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import React, { PropsWithChildren, useState } from 'react';
+import React, { ComponentProps, useState } from 'react';
 
 import Swipeable, { Options } from '../Utils/Swipeable';
 
 import { getLayout } from './Layouts';
 
-export interface Props extends PropsWithChildren {
+export interface Props extends ComponentProps<'div'> {
   opened?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
@@ -14,7 +14,7 @@ export interface Props extends PropsWithChildren {
 }
 
 const BASE_TEMPLATE = `bg-toolbox-white shadow rounded-t-2xl
-  border border-toolbox-neutral-50 min-w-sm`;
+  border border-toolbox-neutral-50`;
 
 function Drawer({
   children,
@@ -23,9 +23,10 @@ function Drawer({
   onClose = () => {},
   layout = 'centered',
   swipeOptions = {},
+  className,
 }: Props) {
   const [open, setOpen] = useState(opened);
-  const template = classNames(BASE_TEMPLATE, { 'h-14': !open });
+  const template = classNames(BASE_TEMPLATE, { 'h-14': !open }, className);
 
   const onToggle = () => {
     if (!children) {

@@ -1,0 +1,54 @@
+import { useState } from 'react';
+import dayjs from 'dayjs';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Calendar from './Calendar';
+import Avatar from '../Avatar';
+import Icon from '../Icon';
+import * as CalendarStories from './Calendar.stories';
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+To import the `Calendar` component simply include the following at the top of your file:
+
+```
+import { Calendar } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={CalendarStories.Default} />
+
+## Daily View
+
+<Canvas of={CalendarStories.DailyView} />
+
+## Specific date in the past
+
+<Canvas of={CalendarStories.SpecificDateInThePast} />
+
+## Specific date in the future
+
+<Canvas of={CalendarStories.SpecificDateInTheFuture} />
+
+## With state
+
+You have to pass a state map with key value pairs like shown below. The key must be formated in this style
+`DD/MM/YYYY`.
+
+<Canvas of={CalendarStories.WithState} />
+
+## Select a date
+
+<Canvas of={CalendarStories.SelectADate} />
+
+## Attach to the default action
+
+You can attach anything you want to the `onDefaultActionClick`handler.
+
+<Canvas of={CalendarStories.AttachToTheDefaultAction} />
+
+## Add any component to the top right corner
+
+<Canvas of={CalendarStories.AddAnyComponentToTheTopRightCorner} />

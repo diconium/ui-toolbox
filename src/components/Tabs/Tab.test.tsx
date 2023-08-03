@@ -4,7 +4,7 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Tab from './Tab';
-import IconConfig from '../Icon/config';
+import { DEFAULT as IconConfig } from '../Icon/config';
 
 describe('Tabs/Tab component', () => {
   test('can render the default component correctly', () => {
@@ -48,7 +48,7 @@ describe('Tabs/Tab component', () => {
       />
     );
 
-    const button = await screen.getByText(/Foo/i);
+    const button = screen.getByText(/Foo/i);
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
     expect(func.mock.calls[0]).toStrictEqual(['Foo']);

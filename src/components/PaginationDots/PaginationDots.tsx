@@ -16,7 +16,7 @@ export interface Props {
 function PaginationDots({ current = 0, pages, disabled = false, onClick = () => {} }: Props) {
   const steps = pages.map(({ title }, index) => (
     <button
-      key={index}
+      key={index} // NOSONAR
       type="button"
       disabled={disabled}
       className="flex items-center"
@@ -29,7 +29,8 @@ function PaginationDots({ current = 0, pages, disabled = false, onClick = () => 
       />
     </button>
   ));
-  return <div className="flex space-x-2 items-center">{steps}</div>;
+  
+return <div className="flex space-x-2 items-center">{steps}</div>;
 }
 
 export default PaginationDots;

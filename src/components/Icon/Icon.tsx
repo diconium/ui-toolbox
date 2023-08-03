@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import Font from './config';
+import { DEFAULT, AUTOMOTIVE } from './config';
 
 export interface IconProps {
   icon: string;
@@ -8,9 +8,10 @@ export interface IconProps {
   size?: string;
 }
 
-export { Font };
+export { DEFAULT, AUTOMOTIVE };
 
-const getUnicode = (key: string) => Font[key as keyof typeof Font] || 'NA';
+const getUnicode = (key: string) =>
+  DEFAULT[key as keyof typeof DEFAULT] || AUTOMOTIVE[key as keyof typeof AUTOMOTIVE] || 'NA';
 
 const sizeToStyles = (size: string) => {
   if (size === 's') {
@@ -22,13 +23,17 @@ const sizeToStyles = (size: string) => {
   if (size === 'xl') {
     return ['leading-[56px]', 'text-[56px]'];
   }
+  if (size === '2xl') {
+    return ['leading-[160px]', 'text-[160px]'];
+  }
 
   return [];
 };
 
 export function Icon({ icon, className = '', size = 'm' }: IconProps) {
   const template = classNames(['toolbox-icons-outlined', className, ...sizeToStyles(size)]);
-  return <span className={template}>{getUnicode(`tb-${icon}`)}</span>;
+  
+return <span className={template}>{getUnicode(`tb-${icon}`)}</span>;
 }
 
 export default Icon;

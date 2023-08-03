@@ -9,12 +9,11 @@
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:jest-dom/recommended",
-    "airbnb"
+    "plugin:storybook/recommended",
+    "airbnb",
+    "prettier"
   ],
-  "plugins": [
-    "jest",
-    "react"
-  ],
+  "plugins": ["jest", "react"],
   "env": {
     "jest/globals": true
   },
@@ -33,6 +32,10 @@
     "react/require-default-props": "off",
     "no-undef": "off",
     "comma-dangle": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-restricted-globals": "off",
+    "react/no-array-index-key": "off",
+    "newline-before-return": "error"
   }
 }

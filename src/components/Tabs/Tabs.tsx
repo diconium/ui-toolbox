@@ -18,7 +18,8 @@ export function Template({ children, shadow = false }: TemplateProps) {
     'z-10 flex px-6 space-x-16 overflow-y-scroll',
     shadow && 'shadow-md',
   ]);
-  return <div className={template}>{children}</div>;
+  
+return <div className={template}>{children}</div>;
 }
 
 export function Tabs({
@@ -43,7 +44,8 @@ export function Tabs({
       </Template>
     );
   }
-  return <Template shadow={shadow}>{children}</Template>;
+  
+return <Template shadow={shadow}>{children}</Template>;
 }
 
 export default Tabs;

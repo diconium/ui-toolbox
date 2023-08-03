@@ -1,0 +1,30 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import Checkbox from './Checkbox';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+To import the `Checkbox` component simply include the following at the top of your file:
+
+```
+import { Checkbox } from '@dicoauto/toolbox';
+```
+
+## Default
+
+<Canvas of={CheckboxStories.Default} />
+
+## Checked
+
+<Canvas of={CheckboxStories.Checked} />
+
+## Disabled
+
+<Canvas of={CheckboxStories.Disabled} />
+
+## With action
+
+<Canvas of={CheckboxStories.WithAction} />

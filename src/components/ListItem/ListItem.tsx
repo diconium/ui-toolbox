@@ -1,15 +1,17 @@
-import React, { PropsWithChildren, ReactNode, useState } from 'react';
+import React, { ComponentProps, ReactNode, useState } from 'react';
 
-import Template from './Template';
 import Heading from './Heading';
 import Placeholder from './Placeholder';
+import Template from './Template';
 
-export interface Props extends PropsWithChildren {
+export interface Props extends ComponentProps<'button'> {
   title: string;
   subtitle?: string;
-  upper?: ReactNode | undefined;
-  lower?: ReactNode | undefined;
+  upper?: ReactNode;
+  lower?: ReactNode;
   opened?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
   textAlignment?: string;
   selected?: boolean;
 }
@@ -21,19 +23,33 @@ function ListItem({
   upper,
   lower,
   opened = false,
+  onOpen = () => {},
+  onClose = () => {},
   textAlignment = 'left',
   selected = false,
+  className,
 }: Props) {
-  const [isOpen, toggle] = useState(opened);
+  const [isOpen, setIsOpen] = useState(opened);
   const canBeOpened = !!children;
   const renderPlaceholder = upper || lower || canBeOpened;
   const renderSubtitle = textAlignment !== 'center' && subtitle;
 
-  return (
+  const onToggle = () => {
+    setIsOpen((previous) => {
+      const next = !previous;
+      const callback = next ? onOpen : onClose;
+      callback();
+      
+return next;
+    });
+  };
+  
+return (
     <Template
-      onClick={() => toggle(!isOpen)}
+      onClick={onToggle}
       canBeOpened={canBeOpened}
       selected={selected}
+      className={className}
     >
       <div className="flex">
         <div className="flex-grow flex">

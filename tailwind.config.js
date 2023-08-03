@@ -22,6 +22,9 @@ module.exports = {
       maxWidth: {
         sm: '430px',
       },
+      boxShadow: {
+        md: '0px 4px 9px rgba(0, 0, 0, 0.25)',
+      },
       colors: {
         toolbox: {
           primary: { ...colors.primary },

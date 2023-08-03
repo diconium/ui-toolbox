@@ -3,7 +3,7 @@ import React, { ReactNode, PropsWithChildren } from 'react';
 
 export interface Props extends PropsWithChildren {
   className?: string;
-  footer?: ReactNode | undefined;
+  footer?: ReactNode;
 }
 
 function Centered({ children, className, footer }: Props) {
@@ -12,7 +12,8 @@ function Centered({ children, className, footer }: Props) {
     'px-14 py-7 relative',
     className,
   ]);
-  return (
+  
+return (
     <div className={template}>
       <div className="flex-1 flex justify-center items-center">{children}</div>
       <div className="flex flex-shrink">{footer}</div>
