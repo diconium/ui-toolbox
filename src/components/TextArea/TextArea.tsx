@@ -12,7 +12,7 @@ export interface Props extends PropsWithChildren {
   hint?: string;
 }
 
-const BASE_TEMPLATE = `peer w-full border px-4 py-2.5 rounded-lg max-w-xs resize-none min-w-full
+const BASE_TEMPLATE = `peer w-full border px-4 py-2.5 rounded-lg resize-none min-w-full
   text-sm bg-toolbox-white
   focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
 

@@ -8,7 +8,7 @@ export default {
 
 export function Default() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <Searchbar placeholder="Your search query" />
       <Searchbar
         value="With Text"
@@ -20,7 +20,7 @@ export function Default() {
 
 export function Disabled() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <Searchbar
         disabled
         placeholder="Your search query"
@@ -39,7 +39,7 @@ export function OnSearchAction() {
   const [query, setQuery] = useState(hint);
 
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <span className="text-toolbox-neutral-500">{query || hint}</span>
       <Searchbar
         onSearch={(searchQuery) => setQuery(searchQuery)}
@@ -54,7 +54,7 @@ export function OnChangeAction() {
   const [queryWithOnChange, setQueryWithOnChange] = useState(hint);
 
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <span className="text-toolbox-neutral-500">{queryWithOnChange || hint}</span>
       <Searchbar
         onChange={(query) => setQueryWithOnChange(query)}

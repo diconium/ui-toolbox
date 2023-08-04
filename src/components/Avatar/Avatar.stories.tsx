@@ -70,6 +70,11 @@ export function DifferentSizes() {
         alt="Emma"
         size="xl"
       />
+      <Avatar
+        link="https://i.pravatar.cc/150?u=044597"
+        alt="Anna"
+        size="2xl"
+      />
     </div>
   );
 }

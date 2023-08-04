@@ -65,13 +65,22 @@ describe('Avatar component', () => {
         size="xl"
       />
     );
+    const { container: xxlarge } = render(
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="foo"
+        size="2xl"
+      />
+    );
     const smallTag = small.querySelector('img');
     const mediumTag = medium.querySelector('img');
     const largeTag = large.querySelector('img');
     const xlargeTag = xlarge.querySelector('img');
+    const xxlargeTag = xxlarge.querySelector('img');
     expect(smallTag).not.toBe(null);
     expect(mediumTag).not.toBe(null);
     expect(largeTag).not.toBe(null);
     expect(xlargeTag).not.toBe(null);
+    expect(xxlargeTag).not.toBe(null);
   });
 });

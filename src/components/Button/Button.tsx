@@ -10,13 +10,13 @@ export interface Props extends PropsWithChildren {
   outlinedTemplate?: string;
 }
 
-const BASE_TEMPLATE = `box-border h-14 text-base leading-4 max-w-sm 
+const BASE_TEMPLATE = `box-border h-14 text-base leading-4
   font-semibold uppercase px-20 py-4 rounded-2xl`;
 
-const DEFAULT_TEMPLATE = `text-toolbox-white bg-toolbox-neutral hover:bg-toolbox-neutral-600 
-  active:bg-toolbox-neutral active:text-toolbox-neutral-600 
-  focus:outline-none focus-visible:border-toolbox-neutral-300 focus-visible:border-4 
-  focus-visible:bg-toolbox-neutral visited:underline visited:underline-offset-2 
+const DEFAULT_TEMPLATE = `text-toolbox-white bg-toolbox-neutral hover:bg-toolbox-neutral-600
+  active:bg-toolbox-neutral active:text-toolbox-neutral-600
+  focus:outline-none focus-visible:border-toolbox-neutral-300 focus-visible:border-4
+  focus-visible:bg-toolbox-neutral visited:underline visited:underline-offset-2
   disabled:bg-toolbox-neutral-200 disabled:text-toolbox-white disabled:cursor-not-allowed`;
 
 const OUTLINED_TEMPLATE = `bg-white border-4 border-toolbox-neutral text-toolbox-black
@@ -37,7 +37,7 @@ function Button({
 }: Props) {
   const template = !outlined ? defaultTemplate : outlinedTemplate;
   const classes = classnames(baseTemplate, template);
-  
+
 return (
     <button
       type="button"

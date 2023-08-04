@@ -22,11 +22,17 @@ const getTemplate = (size: string) => {
   if (size === 'lg') {
     return 'w-10 h-10 border-2';
   }
-  
+  if (size === 'xl') {
+    return 'w-14 w-14 border-2';
+  }
+  if (size === '2xl') {
+    return 'w-40 w-40 border-2';
+  }
+
 return 'w-14 h-14 border-2';
 };
 
-const mapStateSize = (size = 'lg') => (size === 'xl' ? 'lg' : 'm');
+const mapStateSize = (size = 'lg') => (size === 'xl' || size === '2xl' ? 'lg' : 'm');
 
 function Avatar({
   link,
@@ -37,7 +43,7 @@ function Avatar({
   badge,
 }: Props) {
   const template = classNames([getTemplate(size), 'object-cover rounded-full max-w-fit', border]);
-  
+
 return (
     <BadgeContainer
       badge={badge}
