@@ -7,20 +7,13 @@ interface Props extends PropsWithChildren {
 }
 
 const Wrapper = React.forwardRef(
-  (props: PropsWithChildren, ref: React.ForwardedRef<HTMLTemplateElement>) => (
-    <template ref={ref}>{props?.children}</template>
+  (props: PropsWithChildren, ref: React.ForwardedRef<HTMLDivElement>) => (
+    <div ref={ref}>{props?.children}</div>
   )
 );
 
-function assignDataAttribute(node: ChildNode, selector: string, reference: string) {
-  const updatedNode = node.cloneNode(true) as HTMLElement;
-  updatedNode.dataset[selector] = reference;
-  
-return updatedNode;
-}
-
 function useTestId(shouldUseProvider: boolean, selector: string, reference: string) {
-  const parentRef = useRef<HTMLTemplateElement>(null);
+  const parentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (shouldUseProvider) {
@@ -28,8 +21,7 @@ function useTestId(shouldUseProvider: boolean, selector: string, reference: stri
       const children = parentNode?.children;
       if (parentNode && children?.length === 1) {
         const childNode = children[0];
-        const childWithAttribute = assignDataAttribute(childNode, selector, reference);
-        parentNode.replaceWith(childWithAttribute);
+        (childNode as HTMLElement).dataset[selector] = reference;
       }
     }
   }, [parentRef.current]);
@@ -43,12 +35,12 @@ function TestProvider({
   reference,
   enableInProduction = false,
 }: Props): ReactElement {
-  const shouldUseProvider = process.env.NODE_ENV === 'test' || enableInProduction;
+  const shouldUseProvider = process.env.NEXT_PUBLIC_NODE_ENV === 'test' || enableInProduction;
   const parentRef = useTestId(shouldUseProvider, selector, reference);
   if (!shouldUseProvider) {
     return children as unknown as ReactElement;
   }
-  
+
 return <Wrapper ref={parentRef}>{children}</Wrapper>;
 }
 

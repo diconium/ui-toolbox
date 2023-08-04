@@ -5,6 +5,11 @@ import { TestProvider as IMPORT, TextField } from '../../index';
 import TestProvider from './TestProvider';
 
 describe('TestProvider component in development environment', () => {
+  beforeEach(() => {
+        process.env = {
+          NEXT_PUBLIC_NODE_ENV: 'test',
+        };
+  });
   test('can be imported from the library correctly', () => {
     expect(IMPORT).toBeDefined();
     expect(TestProvider).toBeDefined();
@@ -74,7 +79,7 @@ describe('TestProvider component in production environment', () => {
 
   beforeEach(() => {
     process.env = {
-      NODE_ENV: 'prod',
+      NODE_ENV: 'production',
     };
   });
 
