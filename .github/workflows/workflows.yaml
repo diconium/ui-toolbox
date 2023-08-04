@@ -5,7 +5,11 @@ name: workflows
 on:
   push:
     branches:
-      - devops/blackduck
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   # build
   build-prod:
@@ -67,4 +71,16 @@ jobs:
     uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@development
     secrets: inherit
     with:
+      runner: ubuntu-latest
+
+ # scan security & license compliance
+  blackduck:
+    if: |
+      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
+      (contains(fromJSON('["main"]'), github.base_ref) ||
+      contains(fromJSON('["main"]'), github.ref_name))
+    uses: DicoAuto/actions/.github/workflows/web-blackduck.yaml@development
+    secrets: inherit
+    with:
+      version_file: package.json
       runner: ubuntu-latest
