@@ -17,7 +17,7 @@ function Header({ label, filled }: { label: string; filled: boolean }) {
     'text-toolbox-white': filled,
   };
   const template = classNames(['text-toolbox-neutral leading-5 text-base', optional]);
-  
+
 return <div className={template}>{label}</div>;
 }
 
@@ -34,7 +34,7 @@ function HeaderWithSubtitle({
   const optional = {
     'text-toolbox-white': filled,
   };
-  
+
 return (
     <div className="flex flex-col">
       <div className={classNames(base, 'leading-6 font-semibold', optional)}>{label}</div>
@@ -52,7 +52,7 @@ function Toast({
   filled = false,
 }: Props) {
   const template = classNames([
-    'flex items-center max-w-sm px-6 py-4',
+    'flex items-center px-6 py-4',
     'rounded-2xl border box-border',
     typeToBorderColor(type),
     typeToColor(type, filled),

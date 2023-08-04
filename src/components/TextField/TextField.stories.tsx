@@ -8,7 +8,7 @@ export default {
 
 export function Default() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextField placeholder="Placeholder text" />
       <TextField
         value="with text"
@@ -20,7 +20,7 @@ export function Default() {
 
 export const Focused = {
   render: () => (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextField placeholder="Placeholder text" />
       <TextField
         value="with text"
@@ -48,7 +48,7 @@ export function Type() {
   const [value, set] = useState<string>();
 
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextField
         type="password"
         label="Password"
@@ -68,26 +68,30 @@ export function Type() {
 
 export function WithLabel() {
   return (
-    <TextField
-      label="Lorem Ipsum"
-      placeholder="Placeholder text"
-    />
+    <div className="w-[320px]">
+        <TextField
+          label="Lorem Ipsum"
+          placeholder="Placeholder text"
+        />
+    </div>
   );
 }
 
 export function WithHint() {
   return (
-    <TextField
-      label="Lorem Ipsum"
-      placeholder="Placeholder text"
-      hint="lorem ipsum"
-    />
+    <div className="w-[320px]">
+        <TextField
+          label="Lorem Ipsum"
+          placeholder="Placeholder text"
+          hint="lorem ipsum"
+        />
+    </div>
   );
 }
 
 export function Disabled() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextField
         disabled
         label="Lorem Ipsum"
@@ -111,7 +115,7 @@ export function Disabled() {
 
 export function Validation() {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 w-[320px]">
       <TextField
         validation="valid"
         placeholder="Placeholder text"
@@ -157,12 +161,14 @@ export function WithAction() {
   const [value, set] = useState<string>();
 
   return (
-    <TextField
-      label="Lorem Ipsum"
-      placeholder="Placeholder text"
-      value={value}
-      onChange={(text) => set(text)}
-    />
+    <div className="w-[320px]">
+        <TextField
+          label="Lorem Ipsum"
+          placeholder="Placeholder text"
+          value={value}
+          onChange={(text) => set(text)}
+        />
+    </div>
   );
 }
 
@@ -170,11 +176,13 @@ export function WithOnEnterAction() {
   const [value, set] = useState<string>();
 
   return (
-    <TextField
-      label={value || 'Lorem ipsum'}
-      placeholder="Press enter and see"
-      onEnter={() => set('Enter pressed')}
-    />
+    <div className="w-[320px]">
+        <TextField
+          label={value || 'Lorem ipsum'}
+          placeholder="Press enter and see"
+          onEnter={() => set('Enter pressed')}
+        />
+    </div>
   );
 }
 
@@ -182,12 +190,14 @@ export function WithClearButton() {
   const [value, set] = useState('Press clear button to clear');
 
   return (
-    <TextField
-      isClearable
-      label="Lorem Ipsum"
-      placeholder="Placeholder"
-      value={value}
-      onChange={set}
-    />
+    <div className="w-[320px]">
+        <TextField
+          isClearable
+          label="Lorem Ipsum"
+          placeholder="Placeholder"
+          value={value}
+          onChange={set}
+        />
+    </div>
   );
 }

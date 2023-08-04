@@ -19,7 +19,7 @@ export interface Props extends PropsWithChildren {
   isClearable?: boolean;
 }
 
-const BASE_TEMPLATE = `peer w-full border px-4 py-2.5 rounded-lg max-w-xs
+const BASE_TEMPLATE = `peer w-full border px-4 py-2.5 rounded-lg
   text-sm bg-toolbox-white
   focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
 
@@ -37,7 +37,7 @@ const validationToIcon = (validation?: string) => {
   if (validation === 'warning') {
     return 'triangle-exclamation';
   }
-  
+
 return 'circle-xmark';
 };
 
