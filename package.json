@@ -1,7 +1,7 @@
 {
   "name": "@dicoauto/toolbox",
   "repository": "https://github.com/dicoauto/toolbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "General component library for building react apps for diconium auto",
   "scripts": {
     "build:clean": "rm -rf dist coverage releases storybook-static",
