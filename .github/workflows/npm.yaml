@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - v**
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,6 +20,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@DicoAuto'
       - run: npm ci
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
