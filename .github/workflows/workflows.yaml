@@ -17,9 +17,10 @@ jobs:
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
       (contains(fromJSON('["main"]'), github.base_ref) ||
        contains(fromJSON('["main"]'), github.ref_name))
-    uses: DicoAuto/actions/.github/workflows/web-build.yaml@v1.1.10
+    uses: DicoAuto/actions/.github/workflows/web-build.yaml@development
     secrets: inherit
     with:
+      use_private_registry: false
       runner: ubuntu-latest
 
   # lint
@@ -28,9 +29,10 @@ jobs:
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
       (contains(fromJSON('["main"]'), github.base_ref) ||
        contains(fromJSON('["main"]'), github.ref_name))
-    uses: DicoAuto/actions/.github/workflows/web-lint.yaml@v1.1.10
+    uses: DicoAuto/actions/.github/workflows/web-lint.yaml@development
     secrets: inherit
     with:
+      use_private_registry: false
       runner: ubuntu-latest
 
   # unit-tests
@@ -39,9 +41,10 @@ jobs:
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
       (contains(fromJSON('["main"]'), github.base_ref) ||
        contains(fromJSON('["main"]'), github.ref_name))
-    uses: DicoAuto/actions/.github/workflows/web-test.yaml@v1.1.10
+    uses: DicoAuto/actions/.github/workflows/web-test.yaml@development
     secrets: inherit
     with:
+      use_private_registry: false
       runner: ubuntu-latest
 
   # sonarqube
@@ -51,7 +54,7 @@ jobs:
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
       (contains(fromJSON('["main"]'), github.base_ref) ||
        contains(fromJSON('["main"]'), github.ref_name))
-    uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@v1.1.10
+    uses: DicoAuto/actions/.github/workflows/web-sonarqube.yaml@development
     secrets: inherit
     with:
       ref_branch: 'main'
@@ -63,7 +66,7 @@ jobs:
     if: |
       contains(fromJSON('["push"]'), github.event_name) &&
       contains(fromJSON('["main"]'), github.ref_name)
-    uses: DicoAuto/actions/.github/workflows/web-docs.yaml@v1.1.10
+    uses: DicoAuto/actions/.github/workflows/web-docs.yaml@development
     secrets: inherit
     with:
       runner: ubuntu-latest
@@ -75,7 +78,7 @@ jobs:
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
       (contains(fromJSON('["main"]'), github.base_ref) ||
       contains(fromJSON('["main"]'), github.ref_name))
-    uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@v1.1.10
+    uses: DicoAuto/actions/.github/workflows/web-chromatic.yaml@development
     secrets: inherit
     with:
       runner: ubuntu-latest
@@ -86,7 +89,7 @@ jobs:
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
       (contains(fromJSON('["main"]'), github.base_ref) ||
       contains(fromJSON('["main"]'), github.ref_name))
-    uses: DicoAuto/actions/.github/workflows/web-blackduck.yaml@v1.1.10
+    uses: DicoAuto/actions/.github/workflows/web-blackduck.yaml@development
     secrets: inherit
     with:
       version_file: package.json
