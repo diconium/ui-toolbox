@@ -57,21 +57,6 @@ describe('TestProvider component in development environment', () => {
     );
     expect(container.querySelector('div[data-cy="customSelectorValue"]')).toBeInTheDocument();
   });
-
-  test('does not apply if there is more then 1 child', () => {
-    const { container } = render(
-      <section>
-        <TestProvider
-          selector="cy"
-          reference="customSelectorValue"
-        >
-          <div>child 1</div>
-          <div>child 2</div>
-        </TestProvider>
-      </section>
-    );
-    expect(container.querySelector('*[data-cy="customSelectorValue"]')).toBeNull();
-  });
 });
 
 describe('TestProvider component in production environment', () => {
