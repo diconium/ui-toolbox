@@ -1,28 +1,25 @@
-import React, { PropsWithChildren, useRef, useEffect, ReactElement } from 'react';
+import React, { useRef, useEffect, ReactElement, PropsWithRef } from 'react';
 
-interface Props extends PropsWithChildren {
+interface Props extends PropsWithRef<HTMLTemplateElement> {
   reference: string;
   selector?: string;
   enableInProduction?: boolean;
 }
 
 const Wrapper = React.forwardRef(
-  (props: PropsWithChildren, ref: React.ForwardedRef<HTMLDivElement>) => (
-    <div ref={ref}>{props?.children}</div>
-  )
+  (props: PropsWithRef, ref: React.ForwardedRef<HTMLTemplateElement>) => (
+    <template ref={ref} />
+  ),
 );
 
 function useTestId(shouldUseProvider: boolean, selector: string, reference: string) {
-  const parentRef = useRef<HTMLDivElement>(null);
+  const parentRef = useRef<HTMLTemplateElement>(null);
 
   useEffect(() => {
     if (shouldUseProvider) {
       const parentNode = parentRef.current;
-      const children = parentNode?.children;
-      if (parentNode && children?.length === 1) {
-        const childNode = children[0];
-        (childNode as HTMLElement).dataset[selector] = reference;
-      }
+      const sibling = parentNode?.nextElementSibling as HTMLElement;
+      sibling.dataset[selector] = reference;
     }
   }, [parentRef.current]);
 
@@ -41,7 +38,12 @@ function TestProvider({
     return children as unknown as ReactElement;
   }
 
-return <Wrapper ref={parentRef}>{children}</Wrapper>;
+  return (
+    <>
+      <Wrapper ref={parentRef} />
+      {children}
+    </>
+  );
 }
 
 export default TestProvider;
