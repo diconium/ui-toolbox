@@ -8,7 +8,7 @@ export interface Props {
 function Avatars({ avatars }: Props) {
   return (
     <div className="flex">
-      {avatars.map(({ link, alt }, index) => (
+      {avatars.map(({ link, alt, size, border, state, badge }, index) => (
         <div
           key={link}
           className={index === 0 ? '' : '-ml-5'}
@@ -16,8 +16,10 @@ function Avatars({ avatars }: Props) {
           <Avatar
             link={link}
             alt={alt}
-            size="xl"
-            border="border-toolbox-white"
+            size={size || 'xl'}
+            border={border || "border-toolbox-white"}
+            state={state}
+            badge={badge}
           />
         </div>
       ))}

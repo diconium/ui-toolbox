@@ -1,16 +1,15 @@
-import React, { useRef, useEffect, ReactElement, PropsWithRef } from 'react';
+import React, { ReactElement, useEffect, useRef, ReactNode } from 'react';
 
-interface Props extends PropsWithRef<HTMLTemplateElement> {
+interface Props {
+  children: ReactNode;
   reference: string;
   selector?: string;
   enableInProduction?: boolean;
 }
 
-const Wrapper = React.forwardRef(
-  (props: PropsWithRef, ref: React.ForwardedRef<HTMLTemplateElement>) => (
-    <template ref={ref} />
-  ),
-);
+const Wrapper = React.forwardRef((_props, ref: React.ForwardedRef<HTMLTemplateElement>) => (
+  <template ref={ref} />
+));
 
 function useTestId(shouldUseProvider: boolean, selector: string, reference: string) {
   const parentRef = useRef<HTMLTemplateElement>(null);
