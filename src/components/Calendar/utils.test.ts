@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
-
 import utils from './utils';
+
+jest.useFakeTimers().setSystemTime(new Date('2023-01-10'));
 
 const TODAY = dayjs().startOf('day');
 

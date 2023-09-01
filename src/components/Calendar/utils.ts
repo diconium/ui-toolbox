@@ -18,7 +18,7 @@ export const getWeeks = (year: number, month: number) => {
           day = day.add(1, 'day');
           
 return day;
-        })
+        }),
     );
   }
 
@@ -28,8 +28,8 @@ return day;
 export const isOutOfRange = (day: dayjs.Dayjs, current: dayjs.Dayjs) => {
   const isBefore = day.isBefore(current.startOf('month'), 'day');
   const isAfter = day.isAfter(current.endOf('month'), 'day');
-  
-return isBefore || isAfter;
+
+  return isBefore || isAfter;
 };
 
 export const getTextColor = (day: dayjs.Dayjs, selected?: dayjs.Dayjs | null) => {
@@ -41,8 +41,8 @@ export const getTextColor = (day: dayjs.Dayjs, selected?: dayjs.Dayjs | null) =>
   if (isNextMonth) {
     return 'text-toolbox-neutral-200';
   }
-  
-return 'text-toolbox-neutral';
+
+  return 'text-toolbox-neutral';
 };
 
 export default { getWeeks, isOutOfRange, getTextColor };
