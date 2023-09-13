@@ -1,10 +1,10 @@
-# Toolbox - React UI Component Library of diconium auto
+# Toolbox - React UI Component Library of diconium
 
 <a href="https://diconium.com/" target="_blank">
-    <img src=".github/diconium-auto.png" style="height:50px; margin-block: 10px;">
+    <img src=".github/diconium.png" style="height:50px; margin-block: 10px;">
 </a>
 
-**Toolbox** is a comprehensive React UI component library that provides a wide range of ready-to-use components to help you build stunning user interfaces for your web applications. This project is a collection of common UI components to be the basis for all future web applications at Diconium Auto. It offers a collection of reusable and customizable components, making it easier for developers to create consistent and visually appealing interfaces.
+**Toolbox** is a common UI components library to build faster similar themed React web applications.
 
 [![Apache 2.0 License](https://img.shields.io/badge/License-Apache-2.svg)](https://choosealicense.com/licenses/apache-2.0/)
 ![Github Actions](https://github.com/dicoauto/toolbox/actions/workflows/workflows.yaml/badge.svg)
@@ -24,16 +24,6 @@
 
 - **Consistent Design Language:** Toolbox components follow a consistent and coherent design language, promoting a polished and professional UI across your entire application.
 
-## Table of Contents
-
-1. [Features](#features)
-2. [Installation](#installation)
-3. [Testing](#testing)
-4. [Linting](#linting)
-5. [Usage](#usage)
-6. [Components](#components)
-7. [Contributing](#contributing)
-8. [License](#license)
 
 ## Installation
 
@@ -135,6 +125,12 @@ Toolbox provides the following set of components:
 
 Please refer to the [documentation](https://docs.toolbox.diconium.com) for each component to learn more about their props, customization options, and examples of usage.
 
+## Contribute
+If you want to enhance the Toolbox, you are welcome to fork the repository and create a pull request.
+Please take into account, that we will have to conduct a code review before accepting your changes.
+
+More details on how to best do that are described in our [Contributing guideline](https://github.com/DicoAuto/toolbox/blob/main/CONTRIBUTING.md).
+
 ## Contributors
 
 <a href="https://github.com/robdembitel">
@@ -149,4 +145,4 @@ Toolbox is released under the Apache License 2.0.
 
 Happy coding!
 
-© 2023 Diconium Auto. All rights reserved.
+© 2023 diconium GmbH. All rights reserved.

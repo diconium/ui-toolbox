@@ -2,7 +2,7 @@
   "name": "@dicoauto/toolbox",
   "repository": "https://github.com/dicoauto/toolbox",
   "version": "1.0.0",
-  "description": "General component library for building react apps for diconium auto",
+  "description": "Common UI components library to build faster similar themed React web applications.",
   "scripts": {
     "build:clean": "rm -rf dist coverage releases storybook-static",
     "build:clean:all": "npm run build:clean && rm -rf node_modules",
@@ -19,8 +19,8 @@
     "generate:component": "hygen component new --name $1",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
-  "author": "Diconium Auto GmbH - Team Web",
-  "license": "ISC",
+  "author": "Diconium GmbH - Team Web",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "^7.22.10",
     "@babel/eslint-parser": "^7.22.15",
