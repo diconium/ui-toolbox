@@ -13,7 +13,7 @@
 <p><strong>@diconium/ui-toolbox</strong> is a common UI components library to build faster similar themed React web applications.</p>
 
 [![Apache 2.0 License](https://img.shields.io/badge/License-Apache-2.svg)](https://choosealicense.com/licenses/apache-2.0/)
-![Github Actions](https://github.com/dicoauto/toolbox/actions/workflows/workflows.yaml/badge.svg)
+![Github Actions](https://github.com/diconium/ui-toolbox/actions/workflows/workflows.yaml/badge.svg)
 [![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://docs.toolbox.diconium.com/)
 
 </div>

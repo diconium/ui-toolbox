@@ -1,6 +1,6 @@
 {
-  "name": "@dicoauto/toolbox",
-  "repository": "https://github.com/dicoauto/toolbox",
+  "name": "@diconium/ui-toolbox",
+  "repository": "https://github.com/diconium/ui-toolbox",
   "version": "1.0.0",
   "description": "Common UI components library to build faster similar themed React web applications.",
   "scripts": {
@@ -19,7 +19,7 @@
     "generate:component": "hygen component new --name $1",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
-  "author": "Diconium GmbH - Team Web",
+  "author": "diconium",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "^7.23.0",
