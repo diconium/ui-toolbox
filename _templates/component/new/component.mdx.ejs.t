@@ -13,7 +13,7 @@ import * as <%= name %>Stories from './<%= name %>.stories';
 To import the `<%= name %>` component simply include the following at the top of your file:
 
 ```
-import { <%= name %> } from '@dicoauto/toolbox';
+import { <%= name %> } from '@diconium/ui-toolbox';
 ```
 
 ## Default
