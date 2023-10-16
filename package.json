@@ -41,7 +41,7 @@
     "@storybook/blocks": "^7.4.6",
     "@storybook/react": "^7.3.0",
     "@storybook/react-webpack5": "^7.4.6",
-    "@storybook/testing-library": "^0.2.1",
+    "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.4.6",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
