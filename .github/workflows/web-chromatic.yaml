@@ -1,0 +1,27 @@
+name: Chromatic
+
+on:
+  workflow_call:
+    inputs:
+      runner:
+        description: 'Runner name'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ${{ inputs.runner }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install package dependencies
+        run: npm install
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

@@ -1,0 +1,43 @@
+name: Blackduck
+on:
+  workflow_call:
+    inputs:
+      version_file:
+        description: 'Version file'
+        required: true
+        type: string
+      runner:
+        description: 'Runner name'
+        required: true
+        type: string
+
+jobs:
+  scan:
+    runs-on: ${{ inputs.runner }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: setup_java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Detect version
+        run: |
+          echo "VERSION_NAME=$(cat ${{github.workspace}}/${{ inputs.version_file }} | jq -r .version)" >> $GITHUB_ENV
+
+      - name: Run Synopsys Action
+        uses: synopsys-sig/synopsys-action@v1.2.0
+        with:
+          github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
+          blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
+          blackduck_apiToken: ${{ secrets.ORG_BLACKDUCK_API_TOKEN }}
+          # Use Intelligent scan on push and Rapid on PR
+          blackduck_scan_full: ${{ github.event_name == 'push' }}
+        env:
+          DETECT_PROJECT_NAME: ${{ secrets.DETECT_PROJECT_NAME }}
+          DETECT_PROJECT_VERSION_NAME: ${{ env.VERSION_NAME }}
+          LOGGING_LEVEL_COM_SYNOPSYS_INTEGRATION: DEBUG
