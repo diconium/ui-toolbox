@@ -1,0 +1,78 @@
+# This workflow will be called by actions.yml
+# This workflow scans the code using sonarqube
+name: sonarqube
+
+on:
+  workflow_call:
+    inputs:
+      verbose:
+        description: 'verbose output'
+        required: true
+        type: string
+      runner:
+        description: 'Runner name'
+        required: true
+        type: string
+
+jobs:
+  scan:
+    runs-on: ${{ inputs.runner }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Download coverage report
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-${{ github.run_id }}
+          path: coverage
+
+      - name: Check contents & Change permissions
+        run: |
+          sudo chown -R ${USER}:${USER} coverage
+
+      - name: Launch pull request
+        if: github.event_name == 'pull_request'
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.ORG_SONAR_HOST_URL }}
+          GITHUB_TOKEN: ${{ secrets.ORG_CI_GH_TOKEN }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
+            -Dsonar.pullrequest.branch=${{ github.head_ref }}
+            -Dsonar.pullrequest.base=${{ github.base_ref }}
+            -Dsonar.pullrequest.github.repository=${{ github.repository }}
+            -Dsonar.scm.provider=git
+            -Dsonar.verbose=${{ inputs.verbose }}
+
+      - name: Launch ${{ github.ref_name }} branch
+        if: github.event_name == 'push'
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.ORG_SONAR_HOST_URL }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.scm.provider=git
+            -Dsonar.verbose=${{ inputs.verbose }}
+
+      # Check the Quality Gate status.
+      - name: SonarQube Quality Gate check
+        if: github.event_name == 'pull_request'
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+      #  # Force to fail step after specific time.
+        timeout-minutes: 10
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.ORG_SONAR_HOST_URL }}
+
+      #- name: "Example show SonarQube Quality Gate Status value"
+      #  run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
