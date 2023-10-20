@@ -140,9 +140,7 @@ Please take into account, that we will have to conduct a code review before acce
 
 More details on how to best do that are described in our [Contributing guideline](https://github.com/DicoAuto/toolbox/blob/main/CONTRIBUTING.md).
 
-<a href="https://www.freepik.com/" target="_blank" alt="Designed by rawpixel.com / Freepik">
-    <img src=".github/illustration.png"/>
-</a>
+<img src=".github/illustration.png"/>
 
 ## Contributors
 
