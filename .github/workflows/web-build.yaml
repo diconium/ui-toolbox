@@ -22,11 +22,11 @@ jobs:
 
       - name: Set up NodeJS environment without registry
         if : ${{ inputs.use_private_registry == false }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
 
       - name: Set up NodeJS environment with registry
         if : ${{ inputs.use_private_registry == true }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
