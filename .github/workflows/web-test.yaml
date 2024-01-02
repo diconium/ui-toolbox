@@ -52,7 +52,7 @@ jobs:
         run: npm run test:coverage
 
       - name: Archive coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           # Upload entire repository
           name: coverage-${{ github.run_id }}
