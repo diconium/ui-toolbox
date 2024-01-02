@@ -18,7 +18,7 @@ const OUTLINED_TEMPLATE = `inline-flex justify-center items-center box-border h-
   focus:outline-none focus-visible:border-4 focus-visible:border-toolbox-primary-300 focus-visible:text-toolbox-secondary
   disabled:text-toolbox-neutral-200 disabled:border-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
-function Secondary({ label, disabled, outlined, icon, onClick = () => {} }: Props) {
+function Secondary({ label, disabled, outlined, icon, type,  onClick = () => {} }: Props) {
   return (
     <DefaultButton
       disabled={disabled}
@@ -26,6 +26,7 @@ function Secondary({ label, disabled, outlined, icon, onClick = () => {} }: Prop
       defaultTemplate={DEFAULT_TEMPLATE}
       outlinedTemplate={OUTLINED_TEMPLATE}
       onClick={() => onClick()}
+      type={type}
     >
       {icon && (
         <Icon
