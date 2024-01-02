@@ -3,7 +3,7 @@ import React from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 // import userEvent from '@testing-library/user-event';
 
-import { Form as IMPORT } from '../../index';
+import { Form as IMPORT, PrimaryButton } from '../../index';
 import Form from './Form';
 
 describe('Form component', () => {
@@ -14,8 +14,12 @@ describe('Form component', () => {
   });
 
   test('can render the default component correctly', () => {
-    render(<Form onSubmit={() => {}} />);
-    // expect(screen.getByText(/Action/i)).toBeInTheDocument();
+    render(<Form onSubmit={() => {}}>
+      <button type="submit">
+        Submit
+      </button>
+    </Form>);
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
   });
 
   test('cand render Form and submits correctly', () => {
