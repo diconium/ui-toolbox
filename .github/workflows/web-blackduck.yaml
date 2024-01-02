@@ -30,7 +30,7 @@ jobs:
           echo "VERSION_NAME=$(cat ${{github.workspace}}/${{ inputs.version_file }} | jq -r .version)" >> $GITHUB_ENV
 
       - name: Run Synopsys Action
-        uses: synopsys-sig/synopsys-action@v1.5.0
+        uses: synopsys-sig/synopsys-action@v1.6.0
         with:
           github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
           blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
