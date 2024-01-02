@@ -8,6 +8,7 @@ export interface Props extends PropsWithChildren {
   baseTemplate?: string;
   defaultTemplate?: string;
   outlinedTemplate?: string;
+  type?: "button" | "submit";
 }
 
 const BASE_TEMPLATE = `box-border h-14 text-base leading-4
@@ -27,6 +28,7 @@ const OUTLINED_TEMPLATE = `bg-white border-4 border-toolbox-neutral text-toolbox
   disabled:text-toolbox-neutral-200 disabled:border-toolbox-neutral-200 disabled:cursor-not-allowed`;
 
 function Button({
+  type = 'button',
   children,
   onClick = () => {},
   disabled = false,
@@ -40,7 +42,7 @@ function Button({
 
 return (
     <button
-      type="button"
+      type={type}
       onClick={() => onClick()}
       className={classes}
       disabled={disabled}
