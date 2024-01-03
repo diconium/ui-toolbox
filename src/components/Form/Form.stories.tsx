@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Form from './Form';
-import Button from '../Button';
 import TextField from '../TextField';
 import Checkbox from '../Checkbox';
 import PrimaryButton from '../Button/Primary';
@@ -25,7 +24,7 @@ export function Default() {
 export function WithInput() {
   const [check, set] = useState(false);
   const [checked, setChecked] = useState(false);
-  
+
   return (
     <Form onSubmit={() => {}}>
       <div className="w-full">
@@ -36,9 +35,9 @@ export function WithInput() {
         <div className="flex items-center space-x-2 mt-2">
           <span className="mr-2">Checkbox Selection:</span>
           <Checkbox
-      checked={checked}
-      onClick={() => setChecked(!checked)}
-    />
+            checked={checked}
+            onClick={() => setChecked(!checked)}
+          />
         </div>
         <div className="flex items-center space-x-2 mt-2">
           <span className="mr-2">Radio Selection:</span>

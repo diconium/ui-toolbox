@@ -1,9 +1,6 @@
 import React from 'react';
-// import { jest } from '@jest/globals';
 import { screen, render, fireEvent } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
-
-import { Form as IMPORT, PrimaryButton } from '../../index';
+import { Form as IMPORT, PrimaryButton, TextField } from '../../index';
 import Form from './Form';
 
 describe('Form component', () => {
@@ -14,11 +11,11 @@ describe('Form component', () => {
   });
 
   test('can render the default component correctly', () => {
-    render(<Form onSubmit={() => {}}>
-      <button type="submit">
-        Submit
-      </button>
-    </Form>);
+    render(
+      <Form onSubmit={() => {}}>
+        <button type="submit">Submit</button>
+      </Form>,
+    );
     expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
   });
 
@@ -26,12 +23,38 @@ describe('Form component', () => {
     const onSubmit = jest.fn(); // mock function for form submission
     const { getByText } = render(
       <Form onSubmit={onSubmit}>
-        <button type="submit">Submit</button>
-      </Form>
+        <PrimaryButton
+          label="Submit"
+          type="submit"
+        />
+      </Form>,
     );
-  
-    fireEvent.click(getByText('Submit')); // simulate button click
-  
-    expect(onSubmit).toHaveBeenCalled(); // check if onSubmit function has been called
+
+    fireEvent.click(getByText('Submit'));
+
+    expect(onSubmit).toHaveBeenCalled();
+  });
+
+  test('submit form on pressing Enter key', () => {
+    const onSubmit = jest.fn();
+    render(
+      <Form onSubmit={onSubmit}>
+        <TextField
+          type="text"
+          placeholder={''}
+        />
+        <PrimaryButton
+          label="Submit"
+          type="submit"
+        />
+      </Form>,
+    );
+
+    const inputElement = screen.getByRole('textbox');
+    fireEvent.focus(inputElement);
+    fireEvent.change(inputElement, { target: { value: 'Hello' } });
+    fireEvent.keyDown(inputElement, { key: 'Enter', code: 'Enter' });
+
+    expect(onSubmit).toHaveBeenCalled();
   });
 });

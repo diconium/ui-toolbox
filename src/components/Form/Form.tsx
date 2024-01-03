@@ -15,18 +15,17 @@ function Form({ children, onSubmit }: Props) {
 
     document.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onSubmit]);
-  
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    onSubmit();
+  };
+
   return (
     <form
       className="flex flex-col space-y-2"
-      onSubmit={(event) => {
-        event.preventDefault();
-        onSubmit();
-      }}
+      onSubmit={handleSubmit}
     >
       {children}
     </form>
