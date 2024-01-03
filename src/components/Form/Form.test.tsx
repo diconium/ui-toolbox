@@ -41,7 +41,7 @@ describe('Form component', () => {
       <Form onSubmit={onSubmit}>
         <TextField
           type="text"
-          placeholder={''}
+          placeholder=""
         />
         <PrimaryButton
           label="Submit"
