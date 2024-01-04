@@ -23,10 +23,10 @@ const getTemplate = (size: string) => {
     return 'w-10 h-10 border-2';
   }
   if (size === 'xl') {
-    return 'w-14 w-14 border-2';
+    return 'w-14 h-14 border-2';
   }
   if (size === '2xl') {
-    return 'w-40 w-40 border-2';
+    return 'w-40 h-40 border-2';
   }
 
 return 'w-14 h-14 border-2';

@@ -83,4 +83,28 @@ describe('Avatar component', () => {
     expect(xlargeTag).not.toBe(null);
     expect(xxlargeTag).not.toBe(null);
   });
+
+  test('can render with custom border correctly', () => {
+    const { container } = render(
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="foo"
+        border="border-red-500"
+      />
+    );
+    const tag = container.querySelector('img');
+    expect(tag?.classList.contains('border-red-500')).toBe(true);
+  });
+
+  test('can render with badge correctly', () => {
+    const { container } = render(
+      <Avatar
+        link="https://i.pravatar.cc/150?u=08188"
+        alt="foo"
+        badge={3}
+      />
+    );
+    const badgeContainer = container.querySelector('div');
+    expect(badgeContainer?.textContent).toBe('3');
+  });
 });

@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import classNames from 'classnames';
 
-import Badge, { isNormalized, isSingleDegit } from './Badge';
+import Badge, { isNormalized, isSingleDigit } from './Badge';
 
 interface ContainerProps extends PropsWithChildren {
   badge?: number;
@@ -11,8 +11,8 @@ interface ContainerProps extends PropsWithChildren {
 function BadgeContainer({ badge, size = 'lg', children }: ContainerProps) {
   const template = classNames([
     'absolute top-0 right-0 -mt-1',
-    badge && isSingleDegit(badge) && 'mr-0.5',
-    badge && !isSingleDegit(badge) && !isNormalized(badge) && '-mr-2',
+    badge && isSingleDigit(badge) && 'mr-0.5',
+    badge && !isSingleDigit(badge) && !isNormalized(badge) && '-mr-2',
     badge && isNormalized(badge) && '-mr-3',
   ]);
 
