@@ -22,7 +22,7 @@ describe('Button component', () => {
     const func = jest.fn();
     const user = userEvent.setup();
     render(<Button onClick={func}>Action</Button>);
-    const button = await screen.getByRole('button');
+    const button = screen.getByRole('button');
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
   });
