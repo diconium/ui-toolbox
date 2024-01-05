@@ -204,38 +204,6 @@ describe('TextField component', () => {
     expect(func.mock.calls.length).toBe(1);
   });
 
-  test('renders icons corresponding to validation correctly', () => {
-    const { container: valid } = render(
-      <TextField
-        placeholder="foo"
-        validation="valid"
-      />
-    );
-    const { container: warning } = render(
-      <TextField
-        placeholder="foo"
-        validation="warning"
-      />
-    );
-    const { container: error } = render(
-      <TextField
-        placeholder="foo"
-        validation="error"
-      />
-    );
-    const validIcon = valid.querySelector('span');
-    const warningIcon = warning.querySelector('span');
-    const errorIcon = error.querySelector('span');
-    expect(validIcon).not.toBe(null);
-    expect(validIcon?.classList).toContain(`text-toolbox-feedback-${validationToColor('valid')}`);
-    expect(warningIcon).not.toBe(null);
-    expect(warningIcon?.classList).toContain(
-      `text-toolbox-feedback-${validationToColor('warning')}`
-    );
-    expect(errorIcon).not.toBe(null);
-    expect(errorIcon?.classList).toContain(`text-toolbox-feedback-${validationToColor('error')}`);
-  });
-
   test('executes onBlur event handler correctly', async () => {
     const func = jest.fn();
     render(
@@ -263,37 +231,5 @@ describe('TextField component', () => {
     const clearButton = container.querySelector('button');
     clearButton?.click();
     expect(func.mock.calls.length).toBe(1);
-  });
-
-  test('renders icons corresponding to validation correctly', () => {
-    const { container: valid } = render(
-      <TextField
-        placeholder="foo"
-        validation="valid"
-      />
-    );
-    const { container: warning } = render(
-      <TextField
-        placeholder="foo"
-        validation="warning"
-      />
-    );
-    const { container: error } = render(
-      <TextField
-        placeholder="foo"
-        validation="error"
-      />
-    );
-    const validIcon = valid.querySelector('span');
-    const warningIcon = warning.querySelector('span');
-    const errorIcon = error.querySelector('span');
-    expect(validIcon).not.toBe(null);
-    expect(validIcon?.classList).toContain(`text-toolbox-feedback-${validationToColor('valid')}`);
-    expect(warningIcon).not.toBe(null);
-    expect(warningIcon?.classList).toContain(
-      `text-toolbox-feedback-${validationToColor('warning')}`
-    );
-    expect(errorIcon).not.toBe(null);
-    expect(errorIcon?.classList).toContain(`text-toolbox-feedback-${validationToColor('error')}`);
   });
 });

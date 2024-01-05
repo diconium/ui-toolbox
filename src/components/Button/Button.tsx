@@ -37,13 +37,13 @@ function Button({
   defaultTemplate = DEFAULT_TEMPLATE,
   outlinedTemplate = OUTLINED_TEMPLATE,
 }: Props) {
-  const template = !outlined ? defaultTemplate : outlinedTemplate;
+  const template = outlined ? outlinedTemplate : defaultTemplate;
   const classes = classnames(baseTemplate, template);
 
 return (
     <button
       type={type === 'submit' ? 'submit' : 'button'}
-      onClick={() => onClick()}
+      onClick={onClick}
       className={classes}
       disabled={disabled}
     >

@@ -22,7 +22,7 @@ describe('RadioButton component', () => {
     const func = jest.fn();
     const user = userEvent.setup();
     render(<RadioButton onClick={func} />);
-    const button = await screen.getByRole('radio');
+    const button = screen.getByRole('radio');
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
   });
@@ -36,7 +36,7 @@ describe('RadioButton component', () => {
         onClick={func}
       />
     );
-    const button = await screen.getByRole('radio');
+    const button = screen.getByRole('radio');
     await user.click(button);
     expect(func.mock.calls.length).toBe(0);
   });

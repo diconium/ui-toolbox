@@ -28,10 +28,10 @@ return 'w-4 h-4';
 const normalize = (badge: number) => (badge > MAX_BADGE_VALUE ? `${MAX_BADGE_VALUE}+` : badge);
 
 export const isNormalized = (badge: number) => badge > MAX_BADGE_VALUE;
-export const isSingleDegit = (badge: number) => badge < 10;
+export const isSingleDigit = (badge: number) => badge < 10;
 
 const getWithBadgeWidth = (badge: number) => {
-  if (isSingleDegit(badge)) {
+  if (isSingleDigit(badge)) {
     return 'w-4';
   }
   if (isNormalized(badge)) {
