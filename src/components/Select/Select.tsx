@@ -29,7 +29,7 @@ function Select({
       <button
         type="button"
         className="w-full flex items-center"
-        onClick={() => set(true)}
+        onClick={() => set(!isOpen)}
       >
         <div className="flex-1 text-left text-toolbox-neutral leading-5 text-base px-4 py-2">
           {selected?.label || placeholder}
