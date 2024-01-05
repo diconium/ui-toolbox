@@ -43,6 +43,7 @@ return next;
           type="button"
           onClick={onToggle}
           className={arrowTemplate}
+          aria-label="Toggle"
         >
           <Icon icon={open ? 'chevron-left' : 'chevron-right'} />
         </button>

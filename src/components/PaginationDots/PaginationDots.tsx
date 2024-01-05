@@ -22,6 +22,7 @@ function PaginationDots({ current = 0, pages, disabled = false, onClick = () => 
       className="flex items-center"
       title={title}
       onClick={() => onClick(index)}
+      aria-label="Button"
     >
       <Dot
         size={index === current ? 'm' : 's'}

@@ -18,7 +18,7 @@ export default function Cell({ content, config }: Props) {
   
 return (
     <td className={template}>
-      <Component content={content} />
+      <Component content={content} aria-label="Cell" />
     </td>
   );
 }

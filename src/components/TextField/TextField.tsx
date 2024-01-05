@@ -114,6 +114,7 @@ function TextField({
           type="button"
           className="-ml-8 mt-1"
           onClick={() => onChange('')}
+          aria-label="Clear"
         >
           <Icon
             icon="xmark"
