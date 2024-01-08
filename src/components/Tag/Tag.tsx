@@ -12,6 +12,7 @@ function Tag({ label, onCancel = () => {} }: Props) {
       <button
         type="button"
         onClick={() => onCancel()}
+        aria-label="Cancel"
       >
         <Icon
           icon="circle-xmark"

@@ -34,6 +34,7 @@ return (
       disabled={disabled}
       className={template}
       onClick={() => onClick(!toggled)}
+      aria-label="Dot"
     >
       <Dot
         size="xl"

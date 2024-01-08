@@ -87,6 +87,7 @@ function Toast({
         className="flex items-center"
         type="button"
         onClick={() => onClose()}
+        aria-label="Close"
       >
         <Icon
           className={classNames({ 'text-toolbox-white': filled })}

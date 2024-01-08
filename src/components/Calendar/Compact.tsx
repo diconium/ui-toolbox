@@ -18,6 +18,7 @@ function Compact({ date, onLeftClick = () => {}, onRightClick = () => {}, subtit
           type="button"
           className="flex-shrink flex justify-end items-center"
           onClick={() => onLeftClick()}
+          aria-label="LeftClick"
         >
           <Icon
             icon="chevron-left"
@@ -39,6 +40,7 @@ function Compact({ date, onLeftClick = () => {}, onRightClick = () => {}, subtit
           type="button"
           className="flex-shrink flex justify-end items-center"
           onClick={() => onRightClick()}
+          aria-label="RightClick"
         >
           <Icon
             icon="chevron-right"

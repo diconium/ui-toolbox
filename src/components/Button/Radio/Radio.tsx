@@ -31,6 +31,7 @@ return (
         !disabled && 'border-toolbox-primary',
       ])}
       onClick={() => onClick(!checked)}
+      aria-label="Click"
     >
       <Dot
         size="xl"

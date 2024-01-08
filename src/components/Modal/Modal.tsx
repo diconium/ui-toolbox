@@ -27,6 +27,7 @@ function Modal({
         <button
           type="button"
           onClick={() => onDismiss()}
+          aria-label="Dismiss"
         >
           <Icon
             icon="xmark"
