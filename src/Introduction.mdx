@@ -25,7 +25,18 @@ Either in your css file, if you are using a css preprocessor (e.g. postcss)
 
 Or simply just include the file via a script tag in your header of your html file.
 
-### icon font
+### icon fonts
+The library comes with its own set of icons included, that you are free to add to your project. The library
+includes:
+- base icon set, for more general use
+- automotive icon set, if you are building an app in the automotive context.
 
-To have access to the toolbox icons you must copy the icon font from the `dist` folder of the package
-to your target project. The font has to be located relative to your main stylesheat at this location ` fonts/`.
+To include the icon font of the ui-toolbox also add the following to your project:
+
+```
+# for the default icon set add
+@import '@diconium/ui-toolbox/dist/fonts/base.css';
+
+# for additional icon sets add
+@import '@diconium/ui-toolbox/dist/fonts/automotive.css';
+```

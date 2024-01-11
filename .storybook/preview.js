@@ -1,5 +1,6 @@
-import pretty from 'pretty';
 import '../dist/toolbox.css';
+import '../dist/fonts/base.css';
+import '../dist/fonts/automotive.css';
 
 const defaultViewport = 'responsive';
 

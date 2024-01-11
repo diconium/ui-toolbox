@@ -2,12 +2,11 @@
     font-family: 'Diconium Toolbox Outlined';
     font-style: normal;
     font-weight: 100 700;
-    src: url('fonts/toolbox.ttf') format('truetype'),
-        url('fonts/toolbox.eot') format('eot'),
-        url('fonts/toolbox.woff') format('woff'),
-        url('fonts/toolbox.eot') format('woff2');
+    src: url('./base/toolbox.ttf') format('truetype'),
+        url('./base/toolbox.eot') format('eot'),
+        url('./base/toolbox.woff') format('woff'),
+        url('./base/toolbox.eot') format('woff2');
 }
-
 
 .toolbox-icons-outlined {
     font-family: 'Diconium Toolbox Outlined', 'Diconium Toolbox Automotive Outlined';
