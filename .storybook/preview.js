@@ -1,6 +1,6 @@
-import '../dist/toolbox.css';
 import '../dist/fonts/base.css';
 import '../dist/fonts/automotive.css';
+import '../dist/toolbox.css';
 
 const defaultViewport = 'responsive';
 
