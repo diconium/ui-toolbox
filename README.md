@@ -64,6 +64,7 @@ function App() {
 ### Run storybook locally
 
 ```
+npm run build:css:fonts
 npm run build:css:watch
 npm run storybook
 ```

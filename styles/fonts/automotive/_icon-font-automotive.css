@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Diconium Toolbox Automotive Outlined';
-    font-style: normal;
-    font-weight: 100 700;
-    src: url('fonts/automotive/toolbox-automotive.ttf') format('truetype'),
-        url('fonts/automotive/toolbox-automotive.eot') format('eot'),
-        url('fonts/automotive/toolbox-automotive.woff') format('woff'),
-        url('fonts/automotive/toolbox-automotive.eot') format('woff2');
-}
