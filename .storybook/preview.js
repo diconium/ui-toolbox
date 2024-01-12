@@ -46,11 +46,4 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  docs: {
-    // can be removed after storybook v7 will be released
-    // https://github.com/storybookjs/storybook/issues/8078
-    // source: {
-    //     transform:input => pretty(input)
-    // }
-  },
 };
