@@ -1,17 +1,23 @@
 module.exports = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-docs', '@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions', 'storybook-addon-pseudo-states'],
+  addons: [
+    '@storybook/addon-docs',
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    'storybook-addon-pseudo-states',
+  ],
   framework: {
     name: '@storybook/react-webpack5',
-    options: {}
+    options: {},
   },
   features: {
-    buildStoriesJson: true
+    buildStoriesJson: true,
   },
   docs: {
-    autodocs: true
+    autodocs: true,
   },
   core: {
-    disableTelemetry: true
-  }
+    disableTelemetry: true,
+  },
 };
