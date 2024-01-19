@@ -25,7 +25,7 @@ describe('ListItem component', () => {
     const item = screen.getByRole('button');
     await act(() => user.click(item));
     expect(screen.getByText(/bar/i)).toBeInTheDocument();
-    expect(onOpen).toBeCalled();
+    expect(onOpen).toHaveBeenCalled();
   });
 
   test('closes correctly when already opened and clicked', async () => {
@@ -45,5 +45,11 @@ describe('ListItem component', () => {
     await act(() => user.click(item));
     expect(screen.queryByText(/bar/i)).not.toBeInTheDocument();
     expect(onClose).toBeCalled();
+  });
+
+  test('renders with custom baseTemplate', () => {
+    render(<ListItem title="foo" baseTemplate="custom-template" />);
+    const templateElement = screen.getByText(/foo/i).closest('.custom-template');
+    expect(templateElement).toBeInTheDocument();
   });
 });

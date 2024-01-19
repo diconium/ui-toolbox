@@ -5,6 +5,7 @@ export interface Props extends ComponentProps<'button'> {
   onClick?: () => void;
   canBeOpened?: boolean;
   selected?: boolean;
+  baseTemplate?: string;
 }
 
 function Template({
@@ -13,10 +14,11 @@ function Template({
   onClick = () => {},
   canBeOpened = false,
   selected = false,
+  baseTemplate = ''
 }: Props) {
+  const DEFAULT_TEMPLATE = baseTemplate ? baseTemplate : 'bg-toolbox-white px-6 py-4 border rounded-2xl w-full text-left';
   const template = classNames([
-    'bg-toolbox-white px-6 py-4 border rounded-2xl',
-    'w-full text-left',
+    DEFAULT_TEMPLATE,
     selected ? 'border-toolbox-primary' : 'border-toolbox-neutral-50',
     className,
   ]);

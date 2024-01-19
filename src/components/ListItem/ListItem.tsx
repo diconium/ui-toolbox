@@ -14,6 +14,7 @@ export interface Props extends ComponentProps<'button'> {
   onClose?: () => void;
   textAlignment?: string;
   selected?: boolean;
+  baseTemplate?: string;
 }
 
 function ListItem({
@@ -28,6 +29,7 @@ function ListItem({
   textAlignment = 'left',
   selected = false,
   className,
+  baseTemplate = ''
 }: Props) {
   const [isOpen, setIsOpen] = useState(opened);
   const canBeOpened = !!children;
@@ -50,6 +52,7 @@ return (
       canBeOpened={canBeOpened}
       selected={selected}
       className={className}
+      baseTemplate={baseTemplate}
     >
       <div className="flex">
         <div className="flex-grow flex">
