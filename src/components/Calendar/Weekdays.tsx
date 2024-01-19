@@ -1,5 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import { Range } from './Calendar';
 
 import Day from './Day';
 import { getTextColor } from './utils';
@@ -9,7 +10,7 @@ export const FORMAT = 'DD/MM/YYYY';
 export interface Props {
   week?: dayjs.Dayjs[];
   onSelect?: (selected: dayjs.Dayjs) => void;
-  selected?: dayjs.Dayjs | null;
+  selected?: Range;
   state?: any;
 }
 
@@ -20,8 +21,11 @@ function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Prop
         <Day
           key={day.format(FORMAT)}
           day={day}
-          selected={day.format(FORMAT) === selected?.format(FORMAT)}
-          textColor={getTextColor(day, selected)}
+          selected={
+            selected?.start?.format(FORMAT) === day.format(FORMAT) ||
+            selected?.end?.format(FORMAT) === day.format(FORMAT)
+          }
+          textColor={getTextColor(day, selected?.start)}
           onClick={() => onSelect(day)}
           state={state[day.format(FORMAT)]}
         />

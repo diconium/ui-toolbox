@@ -8,9 +8,13 @@ import { getWeeks } from './utils';
 import Weekdays from './Weekdays';
 import Compact from './Compact';
 
+export interface Range {
+  start?: dayjs.Dayjs | null;
+  end?: dayjs.Dayjs | null;
+}
 export interface Props extends PropsWithChildren {
-  date?: dayjs.Dayjs | null;
-  onSelect?: (date: dayjs.Dayjs) => void;
+  range?: Range;
+  onSelect?: (date:  dayjs.Dayjs) => void;
   onPreviousClick?: (date: dayjs.Dayjs) => void;
   onNextClick?: (date: dayjs.Dayjs) => void;
   onDefaultActionClick?: () => void;
@@ -20,7 +24,7 @@ export interface Props extends PropsWithChildren {
 }
 
 function Calendar({
-  date = null,
+  range = { start: null, end: null},
   onSelect = () => {},
   onPreviousClick = () => {},
   onNextClick = () => {},
@@ -30,7 +34,7 @@ function Calendar({
   variant = 'default',
   subtitle = '',
 }: Props) {
-  const current = date || dayjs();
+  const current = range?.start || dayjs();
   const weeks = getWeeks(current.year(), current.month());
 
   if (variant === 'daily') {
@@ -71,7 +75,7 @@ function Calendar({
           <Weekdays
             key={week[0].format()}
             week={week}
-            selected={date || current}
+            selected={ range }
             onSelect={(d) => onSelect(d)}
             state={state}
           />
