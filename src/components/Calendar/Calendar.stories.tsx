@@ -77,7 +77,19 @@ export function SelectADate() {
   const [dateSelectADate, setSelectADate] = useState({start: dayjs(new Date(2022, 2, 15)), end: null} as Range);
   const select = (date: dayjs.Dayjs) => {
     console.log(date);
-    setSelectADate({start: date, end: null});
+    if(dateSelectADate.start && dateSelectADate.end){
+      setSelectADate({start: date, end: null});
+    } else if(dateSelectADate.start && dateSelectADate.end === null ){
+      if(dateSelectADate.start > date){
+        setSelectADate({start: date, end: dateSelectADate.start});
+      }else{
+        setSelectADate({...dateSelectADate, end: date});
+      }
+      
+    } else if(dateSelectADate.start == null) {
+      setSelectADate({...dateSelectADate, start: date})
+    }
+    
   }
   return (
     <div className="flex flex-col space-y-4 p-4">

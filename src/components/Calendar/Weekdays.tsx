@@ -16,7 +16,7 @@ export interface Props {
 
 function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Props) {
   return (
-    <div className="grid grid-cols-7 gap-x-6 mt-2">
+    <div className={`grid grid-cols-7 mt-2`}>
       {week.map((day) => (
         <Day
           key={day.format(FORMAT)}
@@ -25,6 +25,8 @@ function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Prop
             selected?.start?.format(FORMAT) === day.format(FORMAT) ||
             selected?.end?.format(FORMAT) === day.format(FORMAT)
           }
+          inRange={(selected?.start && selected?.end && day > selected?.start &&
+              day < selected?.end ) || false }
           textColor={getTextColor(day, selected?.start)}
           onClick={() => onSelect(day)}
           state={state[day.format(FORMAT)]}
