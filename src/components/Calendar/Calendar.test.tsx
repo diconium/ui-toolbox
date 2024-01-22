@@ -5,7 +5,7 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Calendar from './Calendar';
 
-const FIXTURE = {start: dayjs(new Date(2019, 4, 31)).startOf('day')};
+const FIXTURE = { start: dayjs(new Date(2019, 4, 31)).startOf('day') };
 
 describe('Calendar component', () => {
   test('can render the default component correctly', () => {
@@ -20,7 +20,7 @@ describe('Calendar component', () => {
       <Calendar
         range={FIXTURE}
         onSelect={func}
-      />
+      />,
     );
     const button = await screen.getByText('8');
     await user.click(button);
@@ -35,7 +35,7 @@ describe('Calendar component', () => {
       <Calendar
         range={FIXTURE}
         onPreviousClick={func}
-      />
+      />,
     );
     const button = await screen.getAllByRole('button')[0];
     await user.click(button);
@@ -51,7 +51,7 @@ describe('Calendar component', () => {
         variant="daily"
         range={FIXTURE}
         onPreviousClick={func}
-      />
+      />,
     );
     const button = await screen.getAllByRole('button')[0];
     await user.click(button);
@@ -67,7 +67,7 @@ describe('Calendar component', () => {
         variant="daily"
         range={FIXTURE}
         onNextClick={func}
-      />
+      />,
     );
     const button = await screen.getAllByRole('button')[1];
     await user.click(button);
@@ -82,7 +82,7 @@ describe('Calendar component', () => {
       <Calendar
         range={FIXTURE}
         onNextClick={func}
-      />
+      />,
     );
     const button = await screen.getAllByRole('button')[1];
     await user.click(button);
@@ -97,7 +97,7 @@ describe('Calendar component', () => {
       <Calendar
         range={FIXTURE}
         onDefaultActionClick={func}
-      />
+      />,
     );
     const button = await screen.getAllByRole('button')[2];
     await user.click(button);
@@ -111,8 +111,31 @@ describe('Calendar component', () => {
         <div>foo</div>
         <div>foo</div>
         <div>foo</div>
-      </Calendar>
+      </Calendar>,
     );
     expect(screen.getAllByText(/foo/i).length).toBe(3);
+  });
+
+  test('selects a date on the first click and a range on the second click', async () => {
+    const onSelect = jest.fn();
+    const user = userEvent.setup();
+
+    render(
+      <Calendar
+        range={FIXTURE}
+        onSelect={onSelect}
+      />,
+    );
+
+    const firstDayButton = await screen.getByText('8');
+    await user.click(firstDayButton);
+
+    expect(onSelect.mock.calls.length).toBe(1);
+    expect(onSelect.mock.calls[0]).toEqual([dayjs(new Date(2019, 4, 8)).startOf('day')]);
+
+    const secondDayButton = screen.getByText('9');
+    await user.click(secondDayButton);
+    expect(onSelect.mock.calls.length).toBe(2);
+    expect(onSelect.mock.calls[1]).toEqual([dayjs(new Date(2019, 4, 9)).startOf('day')]);
   });
 });
