@@ -56,12 +56,6 @@ function Calendar({
       onSelect({ ...range, start: date });
     }
   };
-  const selectPrevious = (date: dayjs.Dayjs) => {
-    onPreviousClick({start: date, end: null})
-  }
-  const selectNext = (date: dayjs.Dayjs) => {
-    onPreviousClick({start: date, end: null})
-  }
 
   if (variant === 'daily') {
     return (
