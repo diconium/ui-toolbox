@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import dayjs from 'dayjs';
 
 import Header from './Header';
@@ -14,9 +14,10 @@ export interface Range {
 }
 export interface Props extends PropsWithChildren {
   range?: Range;
-  onSelect?: (date:  dayjs.Dayjs) => void;
-  onPreviousClick?: (date: dayjs.Dayjs) => void;
-  onNextClick?: (date: dayjs.Dayjs) => void;
+  isSingleDate?: boolean;
+  onSelect?: (range: Range) => void;
+  onPreviousClick?: (range: Range) => void;
+  onNextClick?: (range: Range) => void;
   onDefaultActionClick?: () => void;
   state?: any;
   variant?: string;
@@ -24,7 +25,8 @@ export interface Props extends PropsWithChildren {
 }
 
 function Calendar({
-  range = { start: null, end: null},
+  range = { start: null, end: null },
+  isSingleDate = true,
   onSelect = () => {},
   onPreviousClick = () => {},
   onNextClick = () => {},
@@ -37,6 +39,30 @@ function Calendar({
   const current = range?.start || dayjs();
   const weeks = getWeeks(current.year(), current.month());
 
+  const select = (date: dayjs.Dayjs) => {
+    if (isSingleDate) {
+      onSelect({ start: date, end: null });
+      return;
+    }
+    if (range.start && range.end) {
+      onSelect({ start: date, end: null });
+    } else if (range.start && range.end === null) {
+      if (range.start > date) {
+        onSelect({ start: date, end: range.start });
+      } else {
+        onSelect({ ...range, end: date });
+      }
+    } else if (range.start == null) {
+      onSelect({ ...range, start: date });
+    }
+  };
+  const selectPrevious = (date: dayjs.Dayjs) => {
+    onPreviousClick({start: date, end: null})
+  }
+  const selectNext = (date: dayjs.Dayjs) => {
+    onPreviousClick({start: date, end: null})
+  }
+
   if (variant === 'daily') {
     return (
       <Compact
@@ -44,11 +70,11 @@ function Calendar({
         subtitle={subtitle}
         onLeftClick={() => {
           const previous = current.subtract(1, 'day').startOf('day');
-          onPreviousClick(previous);
+          onPreviousClick({start: previous, end: null});
         }}
         onRightClick={() => {
           const next = current.add(1, 'day').startOf('day');
-          onNextClick(next);
+          onNextClick({start: next, end: null});
         }}
       />
     );
@@ -60,11 +86,11 @@ function Calendar({
         date={current}
         onLeftClick={() => {
           const previous = current.endOf('month').subtract(1, 'month').startOf('day');
-          onPreviousClick(previous);
+          onPreviousClick({start: previous, end: null});
         }}
         onRightClick={() => {
           const next = current.startOf('month').add(1, 'month').startOf('day');
-          onNextClick(next);
+          onNextClick({start: next, end: null});
         }}
       >
         {children || <DefaultAction onClick={() => onDefaultActionClick()} />}
@@ -75,8 +101,8 @@ function Calendar({
           <Weekdays
             key={week[0].format()}
             week={week}
-            selected={ range }
-            onSelect={(d) => onSelect(d)}
+            selected={range}
+            onSelect={(d) => select(d)}
             state={state}
           />
         ))}

@@ -32,21 +32,21 @@ export const Default = {
 };
 
 export function DailyView() {
-  const [dateDailyView, setDailyView] = useState(dayjs(new Date(2022, 2, 2)));
+  const [dateDailyView, setDailyView] = useState({start: dayjs(new Date(2022, 2, 2)), end: null} as Range); 
 
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
         Please select a date below:
-        {dateDailyView && dateDailyView.format('DD.MM.YYYY')}
+        {dateDailyView.start && dateDailyView.start.format('DD.MM.YYYY')}
       </div>
       <Calendar
         variant="daily"
         subtitle="6 slots available"
-        range={{start: dateDailyView, end:null}}
-        onSelect={(date) => setDailyView(date)}
-        onPreviousClick={(date) => setDailyView(date)}
-        onNextClick={(date) => setDailyView(date)}
+        range={dateDailyView}
+        onSelect={(range: Range) => setDailyView(range)}
+        onPreviousClick={(range: Range) => setDailyView(range)}
+        onNextClick={(range: Range) => setDailyView(range)}
       />
     </div>
   );
@@ -87,9 +87,9 @@ export function SelectADate() {
       </div>
       <Calendar
         range={dateSelectADate}
-        onSelect={(date) => setSelectADate({start: date, end: null})}
-        onPreviousClick={(date) => setSelectADate({start: date, end: null})}
-        onNextClick={(date) => setSelectADate({start: date, end: null})}
+        onSelect={(range: Range) => setSelectADate(range)}
+        onPreviousClick={(range: Range) => setSelectADate(range)}
+        onNextClick={(range: Range) => setSelectADate(range)}
       />
     </div>
   );
@@ -97,25 +97,7 @@ export function SelectADate() {
 
 export function SelectARange() {
   const [dateSelectADate, setSelectADate] = useState({start: dayjs(new Date(2024, 1, 15)), end: null} as Range);
-  const select = (date: dayjs.Dayjs, reset = false) => {
-    if(reset){
-      setSelectADate({start: date, end: null});
-      return;
-    }
-    if(dateSelectADate.start && dateSelectADate.end){
-      setSelectADate({start: date, end: null});
-    } else if(dateSelectADate.start && dateSelectADate.end === null ){
-      if(dateSelectADate.start > date){
-        setSelectADate({start: date, end: dateSelectADate.start});
-      }else{
-        setSelectADate({...dateSelectADate, end: date});
-      }
-      
-    } else if(dateSelectADate.start == null) {
-      setSelectADate({...dateSelectADate, start: date})
-    }
-    
-  }
+
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
@@ -124,9 +106,10 @@ export function SelectARange() {
       </div>
       <Calendar
         range={dateSelectADate}
-        onSelect={(range) => select(range)}
-        onPreviousClick={(range) => select(range, true)}
-        onNextClick={(range) => select(range, true)}
+        isSingleDate={false}
+        onSelect={(range: Range) => setSelectADate(range)}
+        onPreviousClick={(range: Range) => setSelectADate(range)}
+        onNextClick={(range: Range) => setSelectADate(range)}
       />
     </div>
   );

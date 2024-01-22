@@ -25,7 +25,9 @@ describe('Calendar component', () => {
     const button = await screen.getByText('8');
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 4, 8)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      { start: dayjs(new Date(2019, 4, 8)).startOf('day'), end: null },
+    ]);
   });
 
   test('calls the onPreviousClick function correctly when clicked', async () => {
@@ -40,7 +42,9 @@ describe('Calendar component', () => {
     const button = await screen.getAllByRole('button')[0];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 3, 30)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      { start: dayjs(new Date(2019, 3, 30)).startOf('day'), end: null },
+    ]);
   });
 
   test('calls the onPreviousClick function correctly when clicked in daily variant', async () => {
@@ -56,7 +60,9 @@ describe('Calendar component', () => {
     const button = await screen.getAllByRole('button')[0];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 4, 30)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      { start: dayjs(new Date(2019, 4, 30)).startOf('day'), end: null },
+    ]);
   });
 
   test('calls the onNextClick function correctly when clicked in daily variant', async () => {
@@ -72,7 +78,9 @@ describe('Calendar component', () => {
     const button = await screen.getAllByRole('button')[1];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 5, 1)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      { start: dayjs(new Date(2019, 5, 1)).startOf('day'), end: null },
+    ]);
   });
 
   test('calls the onNextClick function correctly when clicked', async () => {
@@ -87,7 +95,9 @@ describe('Calendar component', () => {
     const button = await screen.getAllByRole('button')[1];
     await user.click(button);
     expect(func.mock.calls.length).toBe(1);
-    expect(func.mock.calls[0]).toEqual([dayjs(new Date(2019, 5, 1)).startOf('day')]);
+    expect(func.mock.calls[0]).toEqual([
+      { start: dayjs(new Date(2019, 5, 1)).startOf('day'), end: null },
+    ]);
   });
 
   test('calls the onDefaultActionClick function correctly when clicked', async () => {
@@ -131,11 +141,15 @@ describe('Calendar component', () => {
     await user.click(firstDayButton);
 
     expect(onSelect.mock.calls.length).toBe(1);
-    expect(onSelect.mock.calls[0]).toEqual([dayjs(new Date(2019, 4, 8)).startOf('day')]);
+    expect(onSelect.mock.calls[0]).toEqual([
+      { start: dayjs(new Date(2019, 4, 8)).startOf('day'), end: null },
+    ]);
 
     const secondDayButton = screen.getByText('9');
     await user.click(secondDayButton);
     expect(onSelect.mock.calls.length).toBe(2);
-    expect(onSelect.mock.calls[1]).toEqual([dayjs(new Date(2019, 4, 9)).startOf('day')]);
+    expect(onSelect.mock.calls[1]).toEqual([
+      { start: dayjs(new Date(2019, 4, 9)).startOf('day'), end: null },
+    ]);
   });
 });
