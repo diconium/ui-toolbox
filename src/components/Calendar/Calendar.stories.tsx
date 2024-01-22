@@ -74,9 +74,12 @@ export const Default = {
 // }
 
 export function SelectADate() {
-  const [dateSelectADate, setSelectADate] = useState({start: dayjs(new Date(2022, 2, 15)), end: null} as Range);
-  const select = (date: dayjs.Dayjs) => {
-    console.log(date);
+  const [dateSelectADate, setSelectADate] = useState({start: dayjs(new Date(2024, 1, 15)), end: null} as Range);
+  const select = (date: dayjs.Dayjs, reset = false) => {
+    if(reset){
+      setSelectADate({start: date, end: null});
+      return;
+    }
     if(dateSelectADate.start && dateSelectADate.end){
       setSelectADate({start: date, end: null});
     } else if(dateSelectADate.start && dateSelectADate.end === null ){
@@ -100,8 +103,8 @@ export function SelectADate() {
       <Calendar
         range={dateSelectADate}
         onSelect={(range) => select(range)}
-        onPreviousClick={(range) => select(range)}
-        onNextClick={(range) => select(range)}
+        onPreviousClick={(range) => select(range, true)}
+        onNextClick={(range) => select(range, true)}
       />
     </div>
   );
