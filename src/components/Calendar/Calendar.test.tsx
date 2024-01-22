@@ -5,11 +5,11 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Calendar from './Calendar';
 
-const FIXTURE = dayjs(new Date(2019, 4, 31)).startOf('day');
+const FIXTURE = {start: dayjs(new Date(2019, 4, 31)).startOf('day')};
 
 describe('Calendar component', () => {
   test('can render the default component correctly', () => {
-    render(<Calendar date={FIXTURE} />);
+    render(<Calendar range={FIXTURE} />);
     expect(screen.getByText(/May 2019/i)).toBeInTheDocument();
   });
 
@@ -18,7 +18,7 @@ describe('Calendar component', () => {
     const user = userEvent.setup();
     render(
       <Calendar
-        date={FIXTURE}
+        range={FIXTURE}
         onSelect={func}
       />
     );
@@ -33,7 +33,7 @@ describe('Calendar component', () => {
     const user = userEvent.setup();
     render(
       <Calendar
-        date={FIXTURE}
+        range={FIXTURE}
         onPreviousClick={func}
       />
     );
@@ -49,7 +49,7 @@ describe('Calendar component', () => {
     render(
       <Calendar
         variant="daily"
-        date={FIXTURE}
+        range={FIXTURE}
         onPreviousClick={func}
       />
     );
@@ -65,7 +65,7 @@ describe('Calendar component', () => {
     render(
       <Calendar
         variant="daily"
-        date={FIXTURE}
+        range={FIXTURE}
         onNextClick={func}
       />
     );
@@ -80,7 +80,7 @@ describe('Calendar component', () => {
     const user = userEvent.setup();
     render(
       <Calendar
-        date={FIXTURE}
+        range={FIXTURE}
         onNextClick={func}
       />
     );
@@ -95,7 +95,7 @@ describe('Calendar component', () => {
     const user = userEvent.setup();
     render(
       <Calendar
-        date={FIXTURE}
+        range={FIXTURE}
         onDefaultActionClick={func}
       />
     );
@@ -107,7 +107,7 @@ describe('Calendar component', () => {
 
   test('can render a custom right corner correctly', () => {
     render(
-      <Calendar date={FIXTURE}>
+      <Calendar range={FIXTURE}>
         <div>foo</div>
         <div>foo</div>
         <div>foo</div>
