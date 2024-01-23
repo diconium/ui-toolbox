@@ -48,7 +48,7 @@ function Calendar({
       onSelect({ start: date, end: null });
     } else if (range.start && range.end === null) {
       if (range.start > date) {
-        onSelect({ start: date, end: range.start });
+        onSelect({ start: date, end: null });
       } else {
         onSelect({ ...range, end: date });
       }
