@@ -23,8 +23,8 @@ function Day({
   const template = classNames([
     'leading-6 text-base text-center',
     textColor,
-    selected && 'bg-toolbox-secondary text-toolbox-white w-full h-6 rounded-full',
-    inRange && 'bg-toolbox-secondary-400 text-toolbox-white w-full h-6 rounded-full'
+    selected && 'bg-toolbox-secondary text-toolbox-white w-6 h-6 rounded-full',
+    inRange && 'bg-toolbox-secondary-400 text-toolbox-white w-6 h-6 rounded-full'
   ]);
   
 return (
