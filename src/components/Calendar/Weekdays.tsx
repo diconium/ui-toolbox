@@ -29,10 +29,10 @@ function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Prop
           selected={
             isSelected(day)
           }
-          // inRange={
-          //   (selected?.start && selected?.end && day > selected?.start && day < selected?.end) ||
-          //   false
-          // }
+          inRange={
+            (selected.length > 1 && day > selected[0] && day < selected[1]) ||
+            false
+          }
           textColor={getTextColor(day, selected[0])}
           onClick={() => onSelect(day)}
           state={state[day.format(FORMAT)]}

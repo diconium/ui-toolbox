@@ -54,19 +54,6 @@ function Calendar({
         onSelect([date])
       }
     }
-    // if (range.start && range.end) {
-    //   onSelect({ start: date, end: null });
-    // } else
-    
-    // if (range.start && range.end === null) {
-    //   if (range.start > date) {
-    //     onSelect({ start: date, end: null });
-    //   } else {
-    //     onSelect({ ...range, end: date });
-    //   }
-    // } else if (range.start == null) {
-    //   onSelect({ ...range, start: date });
-    // }
   };
 
   if (variant === 'daily') {
