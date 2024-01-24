@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import type { Meta } from '@storybook/react';
 import Avatar from '../Avatar';
 import Icon from '../Icon';
-import Calendar, { Range } from './Calendar';
+import Calendar from './Calendar';
 
 const meta: Meta<typeof Calendar> = {
   title: 'Toolbox/Calendar',
@@ -21,7 +21,7 @@ const meta: Meta<typeof Calendar> = {
 
 export default meta;
 export const Default = {
-  render: () => <Calendar />,
+  render: () => <Calendar dates={[]} />,
 
   /** This snapshot changes every day */
   parameters: {
@@ -32,38 +32,38 @@ export const Default = {
 };
 
 export function DailyView() {
-  const [dateDailyView, setDailyView] = useState({start: dayjs(new Date(2022, 2, 2)), end: null} as Range); 
+  const [dateDailyView, setDailyView] = useState([dayjs(new Date(2022, 2, 2))]); 
 
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
         Please select a date below:
-        {dateDailyView.start && dateDailyView.start.format('DD.MM.YYYY')}
+        {dateDailyView.length > 0  && dateDailyView[0].format('DD.MM.YYYY')}
       </div>
       <Calendar
         variant="daily"
         subtitle="6 slots available"
-        range={dateDailyView}
-        onSelect={(range: Range) => setDailyView(range)}
-        onPreviousClick={(range: Range) => setDailyView(range)}
-        onNextClick={(range: Range) => setDailyView(range)}
+        dates={dateDailyView}
+        onSelect={(dates: dayjs.Dayjs[]) => setDailyView(dates)}
+        onPreviousClick={(dates: dayjs.Dayjs[]) => setDailyView(dates)}
+        onNextClick={(dates: dayjs.Dayjs[]) => setDailyView(dates)}
       />
     </div>
   );
 }
 
 export function SpecificDateInThePast() {
-  return <Calendar range={{start: dayjs(new Date(2021, 7, 11))}} />;
+  return <Calendar dates={[dayjs(new Date(2021, 7, 11))]} />;
 }
 
 export function SpecificDateInTheFuture() {
-  return <Calendar range={{start: dayjs(new Date(2024, 7, 11))}} />;
+  return <Calendar dates={[dayjs(new Date(2024, 7, 11))]} />;
 }
 
 export function WithState() {
   return (
     <Calendar
-      range={{start: dayjs(new Date(2021, 5, 14))}}
+      dates={[dayjs(new Date(2021, 5, 14))]}
       state={{
         '14/06/2021': 'bg-toolbox-feedback-orange',
         '19/06/2021': 'bg-toolbox-feedback-orange',
@@ -74,42 +74,42 @@ export function WithState() {
 }
 
 export function SelectADate() {
-  const [dateSelectADate, setSelectADate] = useState({start: dayjs(new Date(2024, 1, 15)), end: null} as Range);
+  const [dateSelectADate, setSelectADate] = useState([dayjs(new Date(2024, 1, 15))]);
   const select = (date: dayjs.Dayjs) => {
-      setSelectADate({start: date, end: null});
+      setSelectADate([date]);
     
   }
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
         Please select a date below:
-        {dateSelectADate.start && dateSelectADate.start.format('DD.MM.YYYY')}
+        {dateSelectADate.length > 0  && dateSelectADate[0].format('DD.MM.YYYY')}
       </div>
       <Calendar
-        range={dateSelectADate}
-        onSelect={(range: Range) => setSelectADate(range)}
-        onPreviousClick={(range: Range) => setSelectADate(range)}
-        onNextClick={(range: Range) => setSelectADate(range)}
+        dates={dateSelectADate}
+        onSelect={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
+        onPreviousClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
+        onNextClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
       />
     </div>
   );
 }
 
 export function SelectARange() {
-  const [dateSelectADate, setSelectADate] = useState({start: dayjs(new Date(2024, 1, 15)), end: null} as Range);
+  const [dateSelectADate, setSelectADate] = useState([dayjs(new Date(2024, 1, 15)), dayjs(new Date(2024, 1, 18))]);
 
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
         Please select a range below:
-        {dateSelectADate.start && dateSelectADate.start.format('DD.MM.YYYY')}
+        {dateSelectADate.length > 0 && dateSelectADate[0].format('DD.MM.YYYY')}
       </div>
       <Calendar
-        range={dateSelectADate}
-        isSingleDate={false}
-        onSelect={(range: Range) => setSelectADate(range)}
-        onPreviousClick={(range: Range) => setSelectADate(range)}
-        onNextClick={(range: Range) => setSelectADate(range)}
+        dates={dateSelectADate}
+        type={'range'}
+        onSelect={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
+        onPreviousClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
+        onNextClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
       />
     </div>
   );
@@ -125,7 +125,7 @@ export function AttachToTheDefaultAction() {
         {counter}
       </div>
       <Calendar
-        range={{start: dayjs(new Date(2023, 3, 15))}}
+        dates={[dayjs(new Date(2023, 3, 15))]}
         onDefaultActionClick={() => setCounter(counter + 1)}
       />
     </div>
@@ -134,7 +134,7 @@ export function AttachToTheDefaultAction() {
 
 export function AddAnyComponentToTheTopRightCorner() {
   return (
-    <Calendar range={{start: dayjs(new Date(2021, 7, 11))}}>
+    <Calendar dates={[dayjs(new Date(2021, 7, 11))]}>
       <Icon icon="alarm-clock" />
       <Icon icon="bell" />
       <Avatar

@@ -7,17 +7,12 @@ import DefaultAction from './DefaultAction';
 import { getWeeks } from './utils';
 import Weekdays from './Weekdays';
 import Compact from './Compact';
-
-export interface Range {
-  start?: dayjs.Dayjs | null;
-  end?: dayjs.Dayjs | null;
-}
 export interface Props extends PropsWithChildren {
-  range?: Range;
-  isSingleDate?: boolean;
-  onSelect?: (range: Range) => void;
-  onPreviousClick?: (range: Range) => void;
-  onNextClick?: (range: Range) => void;
+  dates: dayjs.Dayjs[];
+  type?: string;
+  onSelect?: (dates: dayjs.Dayjs[]) => void;
+  onPreviousClick?: (dates: dayjs.Dayjs[]) => void;
+  onNextClick?: (dates: dayjs.Dayjs[]) => void;
   onDefaultActionClick?: () => void;
   state?: any;
   variant?: string;
@@ -25,8 +20,8 @@ export interface Props extends PropsWithChildren {
 }
 
 function Calendar({
-  range = { start: null, end: null },
-  isSingleDate = true,
+  dates = [],
+  type = 'single',
   onSelect = () => {},
   onPreviousClick = () => {},
   onNextClick = () => {},
@@ -36,25 +31,42 @@ function Calendar({
   variant = 'default',
   subtitle = '',
 }: Props) {
-  const current = range?.start || dayjs();
+  const current = dates.length > 0 ? dates[0] : dayjs();
   const weeks = getWeeks(current.year(), current.month());
 
   const select = (date: dayjs.Dayjs) => {
-    if (isSingleDate) {
-      onSelect({ start: date, end: null });
+    if (type === 'single') {
+      onSelect([date]);
       return;
     }
-    if (range.start && range.end) {
-      onSelect({ start: date, end: null });
-    } else if (range.start && range.end === null) {
-      if (range.start > date) {
-        onSelect({ start: date, end: null });
-      } else {
-        onSelect({ ...range, end: date });
+    if(type === 'range') {
+      if(dates.length === 2){
+        onSelect([date]);
       }
-    } else if (range.start == null) {
-      onSelect({ ...range, start: date });
+     if(dates.length === 1){
+        if(date <= dates[0]){
+          onSelect([date])
+        } else {
+          onSelect([...dates, date])
+        }
+      }
+      if(dates.length === 0) {
+        onSelect([date])
+      }
     }
+    // if (range.start && range.end) {
+    //   onSelect({ start: date, end: null });
+    // } else
+    
+    // if (range.start && range.end === null) {
+    //   if (range.start > date) {
+    //     onSelect({ start: date, end: null });
+    //   } else {
+    //     onSelect({ ...range, end: date });
+    //   }
+    // } else if (range.start == null) {
+    //   onSelect({ ...range, start: date });
+    // }
   };
 
   if (variant === 'daily') {
@@ -64,11 +76,11 @@ function Calendar({
         subtitle={subtitle}
         onLeftClick={() => {
           const previous = current.subtract(1, 'day').startOf('day');
-          onPreviousClick({start: previous, end: null});
+          onPreviousClick([previous]);
         }}
         onRightClick={() => {
           const next = current.add(1, 'day').startOf('day');
-          onNextClick({start: next, end: null});
+          onNextClick([next]);
         }}
       />
     );
@@ -80,11 +92,11 @@ function Calendar({
         date={current}
         onLeftClick={() => {
           const previous = current.endOf('month').subtract(1, 'month').startOf('day');
-          onPreviousClick({start: previous, end: null});
+          onPreviousClick([previous]);
         }}
         onRightClick={() => {
           const next = current.startOf('month').add(1, 'month').startOf('day');
-          onNextClick({start: next, end: null});
+          onNextClick([next]);
         }}
       >
         {children || <DefaultAction onClick={() => onDefaultActionClick()} />}
@@ -95,7 +107,7 @@ function Calendar({
           <Weekdays
             key={week[0].format()}
             week={week}
-            selected={range}
+            selected={dates}
             onSelect={(d) => select(d)}
             state={state}
           />
