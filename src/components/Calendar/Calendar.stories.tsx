@@ -45,8 +45,6 @@ export function DailyView() {
         subtitle="6 slots available"
         dates={dateDailyView}
         onSelect={(dates: dayjs.Dayjs[]) => setDailyView(dates)}
-        onPreviousClick={(dates: dayjs.Dayjs[]) => setDailyView(dates)}
-        onNextClick={(dates: dayjs.Dayjs[]) => setDailyView(dates)}
       />
     </div>
   );
@@ -88,8 +86,6 @@ export function SelectADate() {
       <Calendar
         dates={dateSelectADate}
         onSelect={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
-        onPreviousClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
-        onNextClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
       />
     </div>
   );
@@ -108,8 +104,6 @@ export function SelectARange() {
         dates={dateSelectADate}
         type={'range'}
         onSelect={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
-        onPreviousClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
-        onNextClick={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
       />
     </div>
   );

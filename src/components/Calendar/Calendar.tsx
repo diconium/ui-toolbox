@@ -11,8 +11,6 @@ export interface Props extends PropsWithChildren {
   dates: dayjs.Dayjs[];
   type?: string;
   onSelect?: (dates: dayjs.Dayjs[]) => void;
-  onPreviousClick?: (dates: dayjs.Dayjs[]) => void;
-  onNextClick?: (dates: dayjs.Dayjs[]) => void;
   onDefaultActionClick?: () => void;
   state?: any;
   variant?: string;
@@ -23,15 +21,13 @@ function Calendar({
   dates = [],
   type = 'single',
   onSelect = () => {},
-  onPreviousClick = () => {},
-  onNextClick = () => {},
   onDefaultActionClick = () => {},
   state = {},
   children,
   variant = 'default',
   subtitle = '',
 }: Props) {
-  const current = dates.length > 0 ? dates[0] : dayjs();
+  const [current, setCurrent] = useState(dates.length > 0 ? dates[0] : dayjs());
   const weeks = getWeeks(current.year(), current.month());
 
   const select = (date: dayjs.Dayjs) => {
@@ -56,19 +52,23 @@ function Calendar({
     }
   };
 
+  const onPreviousClick = () => {
+    const previous = current.endOf('month').subtract(1, 'month').startOf('day');
+    setCurrent(previous);
+  };
+
+  const onNextClick = () => {
+    const next = current.startOf('month').add(1, 'month').startOf('day');
+    setCurrent(next);
+  };
+
   if (variant === 'daily') {
     return (
       <Compact
         date={current}
         subtitle={subtitle}
-        onLeftClick={() => {
-          const previous = current.subtract(1, 'day').startOf('day');
-          onPreviousClick([previous]);
-        }}
-        onRightClick={() => {
-          const next = current.add(1, 'day').startOf('day');
-          onNextClick([next]);
-        }}
+        onLeftClick={onPreviousClick}
+        onRightClick={onNextClick}
       />
     );
   }
@@ -77,14 +77,8 @@ function Calendar({
     <div className="max-w-sm bg-toolbox-white rounded-2xl border border-toolbox-neutral-50 py-5 px-8">
       <Header
         date={current}
-        onLeftClick={() => {
-          const previous = current.endOf('month').subtract(1, 'month').startOf('day');
-          onPreviousClick([previous]);
-        }}
-        onRightClick={() => {
-          const next = current.startOf('month').add(1, 'month').startOf('day');
-          onNextClick([next]);
-        }}
+        onLeftClick={onPreviousClick}
+        onRightClick={onNextClick}
       >
         {children || <DefaultAction onClick={() => onDefaultActionClick()} />}
       </Header>
