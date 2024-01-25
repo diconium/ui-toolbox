@@ -12,6 +12,8 @@ export interface Props extends PropsWithChildren {
   dates: dayjs.Dayjs[];
   type?: string;
   onSelect?: (dates: dayjs.Dayjs[]) => void;
+  onPreviousClick?: (date: dayjs.Dayjs) => void;
+  onNextClick?: (date: dayjs.Dayjs) => void;
   onDefaultActionClick?: () => void;
   state?: any;
   variant?: string;
@@ -22,6 +24,8 @@ function Calendar({
   dates = [],
   type = 'single',
   onSelect = () => {},
+  onPreviousClick = () => {},
+  onNextClick = () => {},
   onDefaultActionClick = () => {},
   state = {},
   children,
@@ -34,34 +38,25 @@ function Calendar({
   const select = (date: dayjs.Dayjs) => {
     if (type === 'single') {
       onSelect([date]);
-      
-return;
-    }
-    if(type === 'range') {
-      if(dates.length === 2){
+    } else if (type === 'range') {
+      if (dates.length === 0 || dates.length === 2) {
         onSelect([date]);
-      }
-     if(dates.length === 1){
-        if(date <= dates[0]){
-          onSelect([date])
-        } else {
-          onSelect([...dates, date])
-        }
-      }
-      if(dates.length === 0) {
-        onSelect([date])
+      } else if (dates.length === 1) {
+        onSelect(date <= dates[0] ? [date] : [...dates, date]);
       }
     }
   };
 
-  const onPreviousClick = () => {
+  const previousClickHandler = () => {
     const previous = current.endOf('month').subtract(1, 'month').startOf('day');
     setCurrent(previous);
+    onPreviousClick(current);
   };
 
-  const onNextClick = () => {
+  const nextClickHandler = () => {
     const next = current.startOf('month').add(1, 'month').startOf('day');
     setCurrent(next);
+    onNextClick(current);
   };
 
   if (variant === 'daily') {
@@ -69,8 +64,8 @@ return;
       <Compact
         date={current}
         subtitle={subtitle}
-        onLeftClick={onPreviousClick}
-        onRightClick={onNextClick}
+        onLeftClick={previousClickHandler}
+        onRightClick={nextClickHandler}
       />
     );
   }
@@ -79,8 +74,8 @@ return;
     <div className="max-w-sm bg-toolbox-white rounded-2xl border border-toolbox-neutral-50 py-5 px-8">
       <Header
         date={current}
-        onLeftClick={onPreviousClick}
-        onRightClick={onNextClick}
+        onLeftClick={previousClickHandler}
+        onRightClick={nextClickHandler}
       >
         {children || <DefaultAction onClick={() => onDefaultActionClick()} />}
       </Header>

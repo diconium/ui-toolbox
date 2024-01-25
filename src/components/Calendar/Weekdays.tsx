@@ -14,24 +14,21 @@ export interface Props {
 }
 
 function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Props) {
-  const isSelected = (day: dayjs.Dayjs) => (selected.length > 1 &&
+  const isSelected = (day: dayjs.Dayjs) =>
+    (selected.length > 1 &&
       (selected[0].format(FORMAT) === day.format(FORMAT) ||
         selected[1].format(FORMAT) === day.format(FORMAT))) ||
-      (selected!.length === 1 && selected[0].format(FORMAT) === day.format(FORMAT)) || false;
-  
-return (
+    (selected!.length === 1 && selected[0].format(FORMAT) === day.format(FORMAT)) ||
+    false;
+
+  return (
     <div className="grid grid-cols-7 gap-x-6 mt-2">
       {week.map((day) => (
         <Day
           key={day.format(FORMAT)}
           day={day}
-          selected={
-            isSelected(day)
-          }
-          inRange={
-            (selected.length > 1 && day > selected[0] && day < selected[1]) ||
-            false
-          }
+          selected={isSelected(day)}
+          inRange={(selected.length > 1 && day > selected[0] && day < selected[1])}
           textColor={getTextColor(day, selected[0])}
           onClick={() => onSelect(day)}
           state={state[day.format(FORMAT)]}

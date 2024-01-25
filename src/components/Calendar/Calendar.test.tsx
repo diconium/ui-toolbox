@@ -30,6 +30,65 @@ describe('Calendar component', () => {
     ]);
   });
 
+  test('calls the onPreviousClick function correctly when clicked', async () => {
+    const func = jest.fn();
+    const user = userEvent.setup();
+    render(
+      <Calendar
+        dates={FIXTURE}
+        onPreviousClick={func}
+      />,
+    );
+    const button = screen.getAllByRole('button')[0];
+    await user.click(button);
+    expect(func.mock.calls.length).toBe(1);
+  });
+
+  test('calls the onPreviousClick function correctly when clicked in daily variant', async () => {
+    const func = jest.fn();
+    const user = userEvent.setup();
+    render(
+      <Calendar
+        variant="daily"
+        dates={FIXTURE}
+        onPreviousClick={func}
+      />,
+    );
+    const button = await screen.getAllByRole('button')[0];
+    await user.click(button);
+    expect(func.mock.calls.length).toBe(1);
+  });
+
+  test('calls the onNextClick function correctly when clicked in daily variant', async () => {
+    const func = jest.fn();
+    const user = userEvent.setup();
+    render(
+      <Calendar
+        variant="daily"
+        dates={FIXTURE}
+        onNextClick={func}
+      />,
+    );
+    const button = await screen.getAllByRole('button')[1];
+    await user.click(button);
+    expect(func.mock.calls.length).toBe(1);
+  });
+
+  test('calls the onNextClick function correctly when clicked', async () => {
+    const func = jest.fn();
+    const user = userEvent.setup();
+    render(
+      <Calendar
+        dates={FIXTURE}
+        onNextClick={func}
+      />,
+    );
+    const button = await screen.getAllByRole('button')[1];
+    await user.click(button);
+    expect(func.mock.calls.length).toBe(1);
+  });
+
+
   test('calls the onDefaultActionClick function correctly when clicked', async () => {
     const func = jest.fn();
     const user = userEvent.setup();
