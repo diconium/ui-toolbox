@@ -7,6 +7,7 @@ import DefaultAction from './DefaultAction';
 import { getWeeks } from './utils';
 import Weekdays from './Weekdays';
 import Compact from './Compact';
+
 export interface Props extends PropsWithChildren {
   dates: dayjs.Dayjs[];
   type?: string;
@@ -33,7 +34,8 @@ function Calendar({
   const select = (date: dayjs.Dayjs) => {
     if (type === 'single') {
       onSelect([date]);
-      return;
+      
+return;
     }
     if(type === 'range') {
       if(dates.length === 2){

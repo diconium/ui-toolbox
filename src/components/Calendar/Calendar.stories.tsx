@@ -77,7 +77,8 @@ export function SelectADate() {
       setSelectADate([date]);
     
   }
-  return (
+  
+return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
         Please select a date below:
@@ -102,7 +103,7 @@ export function SelectARange() {
       </div>
       <Calendar
         dates={dateSelectADate}
-        type={'range'}
+        type="range"
         onSelect={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
       />
     </div>
