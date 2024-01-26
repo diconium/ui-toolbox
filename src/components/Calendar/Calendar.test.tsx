@@ -1,7 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import { jest } from '@jest/globals';
-import { screen, render, act, fireEvent } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Calendar from './Calendar';
 
@@ -27,6 +27,24 @@ describe('Calendar component', () => {
     expect(func.mock.calls.length).toBe(1);
     expect(func.mock.calls[0]).toEqual([
       [dayjs(new Date(2019, 4, 8)).startOf('day')],
+    ]);
+  });
+
+  test('calls the onSelect function correctly with range when clicked', async () => {
+    const func = jest.fn();
+    const user = userEvent.setup();
+    render(
+      <Calendar
+        dates={[dayjs(new Date(2019, 4, 10)).startOf('day')]}
+        onSelect={func}
+        type='range'
+      />,
+    );
+    const button = await screen.getByText('15');
+    await user.click(button);
+    expect(func.mock.calls.length).toBe(1);
+    expect(func.mock.calls[0]).toEqual([
+      [dayjs(new Date(2019, 4, 10)).startOf('day'), dayjs(new Date(2019, 4, 15)).startOf('day')],
     ]);
   });
 
