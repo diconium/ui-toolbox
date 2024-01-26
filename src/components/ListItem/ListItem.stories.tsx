@@ -182,3 +182,12 @@ export function WithoutBorder() {
     </ListItem>
   );
 }
+
+export function WithTemplate() {
+  return (
+    <ListItem
+      title="Text label"
+      baseTemplate="bg-toolbox-primary px-6 py-4 border w-full"
+    />
+  );
+}
