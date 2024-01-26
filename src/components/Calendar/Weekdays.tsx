@@ -1,8 +1,8 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
-import Day from './Day';
 import isBetween from 'dayjs/plugin/isBetween';
+import Day from './Day';
 import { getTextColor } from './utils';
 
 export const FORMAT = 'DD/MM/YYYY';
