@@ -100,6 +100,7 @@ export function SelectARange() {
       <div>
         Please select a range below:
         {dateSelectADate.length > 0 && dateSelectADate[0].format('DD.MM.YYYY')}
+        {dateSelectADate.length > 1 && ` - ${dateSelectADate[1].format('DD.MM.YYYY')}`}
       </div>
       <Calendar
         dates={dateSelectADate}

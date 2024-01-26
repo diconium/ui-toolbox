@@ -2,6 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 
 import Day from './Day';
+import isBetween from 'dayjs/plugin/isBetween';
 import { getTextColor } from './utils';
 
 export const FORMAT = 'DD/MM/YYYY';
@@ -14,6 +15,7 @@ export interface Props {
 }
 
 function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Props) {
+  dayjs.extend(isBetween);
   const isSelected = (day: dayjs.Dayjs) =>
     (selected.length > 1 &&
       (selected[0].format(FORMAT) === day.format(FORMAT) ||
@@ -28,7 +30,7 @@ function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Prop
           key={day.format(FORMAT)}
           day={day}
           selected={isSelected(day)}
-          inRange={(selected.length > 1 && day > selected[0] && day < selected[1])}
+          inRange={selected.length > 1 && dayjs(day).isBetween(selected[0], selected[1])}
           textColor={getTextColor(day, selected[0])}
           onClick={() => onSelect(day)}
           state={state[day.format(FORMAT)]}
