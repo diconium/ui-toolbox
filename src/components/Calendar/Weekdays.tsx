@@ -5,6 +5,8 @@ import isBetween from 'dayjs/plugin/isBetween';
 import Day from './Day';
 import { getTextColor } from './utils';
 
+dayjs.extend(isBetween);
+
 export const FORMAT = 'DD/MM/YYYY';
 
 export interface Props {
@@ -15,7 +17,6 @@ export interface Props {
 }
 
 function Weekdays({ week = [], onSelect = () => {}, selected, state = {} }: Props) {
-  dayjs.extend(isBetween);
   const isSelected = (day: dayjs.Dayjs) =>
     (selected.length > 1 &&
       (selected[0].format(FORMAT) === day.format(FORMAT) ||
