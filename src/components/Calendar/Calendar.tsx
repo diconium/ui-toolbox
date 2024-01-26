@@ -63,8 +63,16 @@ function Calendar({
       <Compact
         date={current}
         subtitle={subtitle}
-        onLeftClick={previousClickHandler}
-        onRightClick={nextClickHandler}
+        onLeftClick={() => {
+          const previous = current.subtract(1, 'day').startOf('day');
+          setCurrent(previous);
+          onPreviousClick(previous);
+        }}
+        onRightClick={() => {
+          const next = current.add(1, 'day').startOf('day');
+          setCurrent(next);
+          onNextClick(next);
+        }}
       />
     );
   }
