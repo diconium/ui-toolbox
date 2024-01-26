@@ -16,7 +16,7 @@ function Template({
   selected = false,
   baseTemplate = ''
 }: Props) {
-  const DEFAULT_TEMPLATE = baseTemplate ? baseTemplate : 'bg-toolbox-white px-6 py-4 border rounded-2xl w-full text-left';
+  const DEFAULT_TEMPLATE = baseTemplate || 'bg-toolbox-white px-6 py-4 border rounded-2xl w-full text-left';
   const template = classNames([
     DEFAULT_TEMPLATE,
     selected ? 'border-toolbox-primary' : 'border-toolbox-neutral-50',
