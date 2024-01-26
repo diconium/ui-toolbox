@@ -32,13 +32,13 @@ export const Default = {
 };
 
 export function DailyView() {
-  const [dateDailyView, setDailyView] = useState([dayjs(new Date(2022, 2, 2))]); 
+  const [dateDailyView, setDailyView] = useState([dayjs(new Date(2022, 2, 2))]);
 
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
         Please select a date below:
-        {dateDailyView.length > 0  && dateDailyView[0].format('DD.MM.YYYY')}
+        {dateDailyView.length > 0 && dateDailyView[0].format('DD.MM.YYYY')}
       </div>
       <Calendar
         variant="daily"
@@ -74,15 +74,14 @@ export function WithState() {
 export function SelectADate() {
   const [dateSelectADate, setSelectADate] = useState([dayjs(new Date(2024, 1, 15))]);
   const select = (date: dayjs.Dayjs) => {
-      setSelectADate([date]);
-    
-  }
-  
-return (
+    setSelectADate([date]);
+  };
+
+  return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
         Please select a date below:
-        {dateSelectADate.length > 0  && dateSelectADate[0].format('DD.MM.YYYY')}
+        {dateSelectADate.length > 0 && dateSelectADate[0].format('DD.MM.YYYY')}
       </div>
       <Calendar
         dates={dateSelectADate}
@@ -93,7 +92,10 @@ return (
 }
 
 export function SelectARange() {
-  const [dateSelectADate, setSelectADate] = useState([dayjs(new Date(2024, 1, 15)), dayjs(new Date(2024, 1, 18))]);
+  const [dateSelectADate, setSelectADate] = useState([
+    dayjs(new Date(2024, 1, 15)),
+    dayjs(new Date(2024, 1, 18)),
+  ]);
 
   return (
     <div className="flex flex-col space-y-4 p-4">
