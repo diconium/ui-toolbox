@@ -1,4 +1,5 @@
 import React, { PropsWithChildren, useState } from 'react';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import dayjs from 'dayjs';
 
 import Header from './Header';
@@ -7,6 +8,8 @@ import DefaultAction from './DefaultAction';
 import { getWeeks } from './utils';
 import Weekdays from './Weekdays';
 import Compact from './Compact';
+
+dayjs.extend(isSameOrBefore);
 
 export interface Props extends PropsWithChildren {
   dates: dayjs.Dayjs[];
@@ -36,14 +39,10 @@ function Calendar({
   const weeks = getWeeks(current.year(), current.month());
 
   const select = (date: dayjs.Dayjs) => {
-    if (type === 'single') {
+    if (type === 'range' && dates.length === 1) {
+      onSelect(date.isSameOrBefore(dates[0]) ? [date] : [...dates, date]);
+    } else {
       onSelect([date]);
-    } else if (type === 'range') {
-      if (dates.length === 0 || dates.length === 2) {
-        onSelect([date]);
-      } else if (dates.length === 1) {
-        onSelect(date <= dates[0] ? [date] : [...dates, date]);
-      }
     }
   };
 

@@ -117,8 +117,8 @@ export function AttachToPreviousAndNext() {
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div>
-        Please select a date below:
-        {dateSelectADate.length > 0 && dateSelectADate[0].format('DD.MM.YYYY')}
+        Please click on the previous or next on calendar:
+        {counter}
       </div>
       <Calendar
         dates={dateSelectADate}
