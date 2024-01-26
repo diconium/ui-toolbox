@@ -73,9 +73,6 @@ export function WithState() {
 
 export function SelectADate() {
   const [dateSelectADate, setSelectADate] = useState([dayjs(new Date(2024, 1, 15))]);
-  const select = (date: dayjs.Dayjs) => {
-    setSelectADate([date]);
-  };
 
   return (
     <div className="flex flex-col space-y-4 p-4">
@@ -108,6 +105,26 @@ export function SelectARange() {
         dates={dateSelectADate}
         type="range"
         onSelect={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
+      />
+    </div>
+  );
+}
+
+export function AttachToPreviousAndNext() {
+  const [dateSelectADate, setSelectADate] = useState([dayjs(new Date(2024, 1, 15))]);
+  const [counter, setCounter] = useState(0);
+
+  return (
+    <div className="flex flex-col space-y-4 p-4">
+      <div>
+        Please select a date below:
+        {dateSelectADate.length > 0 && dateSelectADate[0].format('DD.MM.YYYY')}
+      </div>
+      <Calendar
+        dates={dateSelectADate}
+        onSelect={(dates: dayjs.Dayjs[]) => setSelectADate(dates)}
+        onNextClick={() => setCounter(counter + 1)}
+        onPreviousClick={() => setCounter(counter - 1)}
       />
     </div>
   );
