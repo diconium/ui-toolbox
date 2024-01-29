@@ -152,7 +152,7 @@ More details on how to best do that are described in our [Contributing guideline
   <img src="https://github.com/5041A.png?size=50">
 </a>
 <a href="https://github.com/umerfarooq-diconium">
-  <img src="https://github.com/umerfarooq-diconium.png?size=50">
+  <img src="https://github.com/umerfarooq-diconium.png">
 </a>
 
 ## License
