@@ -33,7 +33,7 @@ jobs:
           echo "version_name=$(cat ${{github.workspace}}/${{ inputs.version_file }} | jq -r .version)" >> $GITHUB_OUTPUT
       - name: Synopsys Scan mode intelligent
         if: ${{ github.event_name == 'push' }}
-        uses: synopsys-sig/synopsys-action@v1.6.0
+        uses: synopsys-sig/synopsys-action@v1.7.0
         with:
           github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
           blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
@@ -50,7 +50,7 @@ jobs:
       # Perform rapid scan for pull request and dependentbot jobs
       - name: Synopsys Scan mode rapid
         if: ${{ github.event_name != 'push' }}
-        uses: synopsys-sig/synopsys-action@v1.6.0
+        uses: synopsys-sig/synopsys-action@v1.7.0
         with:
           github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
           blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
