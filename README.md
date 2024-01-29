@@ -151,6 +151,9 @@ More details on how to best do that are described in our [Contributing guideline
 <a href="https://github.com/5041A">
   <img src="https://github.com/5041A.png?size=50">
 </a>
+<a href="https://github.com/umerfarooq-diconium">
+  <img src="https://github.com/umerfarooq-diconium.png?size=50">
+</a>
 
 ## License
 
@@ -158,4 +161,4 @@ More details on how to best do that are described in our [Contributing guideline
 
 Happy coding!
 
-© 2023 diconium GmbH. All rights reserved.
+© 2024 diconium GmbH. All rights reserved.
