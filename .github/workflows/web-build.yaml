@@ -3,10 +3,6 @@ name: Production build
 on:
   workflow_call:
     inputs:
-      use_private_registry:
-        description: 'Use private npm registry'
-        required: true
-        type: boolean
       runner:
         description: 'Runner name'
         required: true
@@ -19,46 +15,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up NodeJS environment without registry
-        if : ${{ inputs.use_private_registry == false }}
+      - name: Set up NodeJS environment
         uses: actions/setup-node@v4
-
-      - name: Set up NodeJS environment with registry
-        if : ${{ inputs.use_private_registry == true }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16.x'
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@DicoAuto'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.ORG_CI_GH_TOKEN }}
-
-      - name: Install package dependencies without registry
-        if : ${{ inputs.use_private_registry == false }}
+      - name: Install package dependencies
         run: npm install
-
-      - name: Install package dependencies with registry
-        if : ${{ inputs.use_private_registry == true }}
-        run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.ORG_CI_GH_TOKEN }}
-
-      - name: Build the production release without registry
-        if : ${{ inputs.use_private_registry == false }}
+      - name: Build the production release
         run: npm run build:prod
-
-      - name: Build the production release with registry
-        if : ${{ inputs.use_private_registry == true }}
-        run: npm run build
-
-#      - name: Publish without registry to azure
-#        if : ${{ inputs.use_private_registry == false }}
-#        run: npm publish
-#
-#      - name: Publish with registry to azure
-#        if : ${{ inputs.use_private_registry == true }}
-#        run: npm publish
-#        env:
-#          NODE_AUTH_TOKEN: ${{ secrets.ORG_REGISTRY_TOKEN }}
