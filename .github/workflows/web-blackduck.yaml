@@ -6,6 +6,14 @@ on:
         description: 'Version file'
         required: true
         type: string
+      project:
+        description: 'Choose project'
+        required: true
+        type: string
+      title:
+        description: 'Name of the product'
+        required: true
+        type: string
       runner:
         description: 'Runner name'
         required: true
@@ -17,23 +25,62 @@ env:
   BLACKDUCK_URL: ${{ secrets.ORG_BLACKDUCK_URL }}
   DETECT_PROJECT_NAME: ${{ secrets.DETECT_PROJECT_NAME }}
   LOGGING_LEVEL_COM_SYNOPSYS_INTEGRATION: DEBUG
+  # Confluence
+  SYSTEM_USER_CONFLUENCE_TOKEN: ${{ secrets.ORG_SYSTEM_USER_CONFLUENCE_TOKEN }}
+  CONFLUENCE_SERVER_URL: ${{ secrets.ORG_CONFLUENCE_SERVER_URL }}
+  # Product matrix
+  TITLE: ${{ inputs.title }}
+  PRODUCT: ${{ inputs.title }}
+  # Docker Compose yaml
+  CONTAINER_BLACKDUCK: ${{github.workspace}}/actions/container_templates/blackduck.yaml
 
 jobs:
-  scan:
+  scan-licenses-vulnerabilities:
     runs-on: ${{ inputs.runner }}
-
+    outputs:
+      version_name: ${{ steps.detect_version.outputs.version_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checkout reusable workflow
+        uses: actions/checkout@v4
+        with:
+          repository: DicoAuto/actions
+          path: actions
+          ssh-key: ${{ secrets.ORG_REPO_SSH_KEY }}
+          ref: development
       - name: Set up NodeJS environment
         uses: actions/setup-node@v4
       - name: Detect version
         id: detect_version
         run: |
           echo "version_name=$(cat ${{github.workspace}}/${{ inputs.version_file }} | jq -r .version)" >> $GITHUB_OUTPUT
+      - name: Login to ghcr
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.ORG_REGISTRY_USERNAME }}
+          password: ${{ secrets.ORG_REGISTRY_TOKEN }}
+      - name: Manage versions on blackduck
+        run: |
+          docker compose -f ${{ env.CONTAINER_BLACKDUCK }} up manage_version
+          docker compose -f ${{ env.CONTAINER_BLACKDUCK }} down manage_version
+        env:
+          MAXIMUM_VERSIONS_LIMIT: 7
+          BLACKDUCK_API_TOKEN: ${{ secrets.ORG_BLACKDUCK_API_TOKEN_DELETE_VERSIONS }}
+      - name: Check version on pull request
+        if: ${{ github.event_name == 'pull_request' }}
+        id: blackduck_version_identifier
+        run: |
+            docker compose -f ${{ env.CONTAINER_BLACKDUCK }} up check_version
+            docker compose -f ${{ env.CONTAINER_BLACKDUCK }} down check_version
+            echo "version_exists=$(cat ${{github.workspace}}/blackduck_version/version_blackduck_exists.txt)" >> $GITHUB_OUTPUT
+        env:
+          SCRIPT: versions.py
+          DETECT_PROJECT_VERSION_NAME: ${{ steps.detect_version.outputs.version_name }}
       - name: Synopsys Scan mode intelligent
         if: ${{ github.event_name == 'push' }}
-        uses: synopsys-sig/synopsys-action@v1.7.0
+        uses: synopsys-sig/synopsys-action@v1.6.0
         with:
           github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
           blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
@@ -47,10 +94,9 @@ jobs:
         #  blackduck_automation_fixpr: true
         env:
           DETECT_PROJECT_VERSION_NAME: ${{ steps.detect_version.outputs.version_name }}
-      # Perform rapid scan for pull request and dependentbot jobs
       - name: Synopsys Scan mode rapid
-        if: ${{ github.event_name != 'push' }}
-        uses: synopsys-sig/synopsys-action@v1.7.0
+        if: ${{ github.event_name == 'pull_request' && steps.blackduck_version_identifier.outputs.version_exists == 'true' }}
+        uses: synopsys-sig/synopsys-action@v1.6.0
         with:
           github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
           blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
@@ -59,3 +105,77 @@ jobs:
           blackduck_prComment_enabled: true
         env:
           DETECT_PROJECT_VERSION_NAME: ${{ steps.detect_version.outputs.version_name }}
+      - name: Download & Analyze Reports
+        if: ${{ github.event_name == 'push' }}
+        run: |
+            docker compose -f ${{ env.CONTAINER_BLACKDUCK }} up analyze_version
+            docker compose -f ${{ env.CONTAINER_BLACKDUCK }} down analyze_version
+        env:
+          # TODO: use DETECT_PROJECT_NAME instead
+          REPOS: "${{ inputs.project }}:${{ steps.detect_version.outputs.version_name }}"
+          SCRIPT: analyze_product.py
+      - name: Upload rst rendered reports
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: blackduck-rst-${{ github.run_id }}
+          path: |
+            ${{github.workspace}}/blackduck_report/rst-sbom
+            ${{github.workspace}}/blackduck_report/rst-vulnerabilities
+          retention-days: 1
+
+  publish-reports:
+    if: ${{ github.event_name == 'push' }}
+    needs: scan-licenses-vulnerabilities
+    runs-on: self-hosted
+    steps:
+      - name: Clean workspace
+        run: |
+          sudo chown -R $USER:$USER ${{github.workspace}}
+          cd ${{github.workspace}}
+          sudo rm -rf *
+      - name: Checkout reusable workflow
+        uses: actions/checkout@v4
+        with:
+          repository: DicoAuto/actions
+          path: actions
+          ssh-key: ${{ secrets.ORG_REPO_SSH_KEY }}
+          ref: development
+      - name: Login to ghcr
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.ORG_REGISTRY_USERNAME }}
+          password: ${{ secrets.ORG_REGISTRY_TOKEN }}
+      - name: Download rst rendered reports
+        uses: actions/download-artifact@v4
+        with:
+          name: blackduck-rst-${{ github.run_id }}
+          path: ${{github.workspace}}/blackduck_report
+      - name: Generate Reports
+        run: |
+            mkdir -p ${{github.workspace}}/assets
+            export CONFLUENCE_SPACE_KEY=$(cat ${{github.workspace}}/actions/style/product_matrix.json | jq -r .$PRODUCT.BLACKDUCK.CONFLUENCE_SPACE_KEY)
+            export CONFLUENCE_PARENT_PAGE=$(cat ${{github.workspace}}/actions/style/product_matrix.json | jq -r .$PRODUCT.BLACKDUCK.CONFLUENCE_PARENT_PAGE)
+            docker compose -f ${{ env.CONTAINER_BLACKDUCK }} up deploy-sbom deploy-vulnerabilities
+            docker compose -f ${{ env.CONTAINER_BLACKDUCK }} down deploy-sbom deploy-vulnerabilities
+            cp ${{github.workspace}}/build-sbom/package/pdf/DicoAuto-${{ inputs.project }}-SBOM.pdf ${{github.workspace}}/assets
+            cp ${{github.workspace}}/build-vulnerabilities/package/pdf/DicoAuto-${{ inputs.project }}-Vulnerabilities.pdf ${{github.workspace}}/assets
+        env:
+        # suffix of generated files will be handled by containers
+          NAME_PDF_FILE: "DicoAuto-${{ inputs.project }}"
+          OVERWRITE: "False"
+          VERSION: ${{ needs.scan-licenses-vulnerabilities.outputs.version_name }}
+          TARGET_CONFLUENCE: "True"
+      - name: Upload Reports
+        uses: actions/upload-artifact@v4
+        with:
+            name: ${{ inputs.title }}_blackduck-reports-${{ github.run_id }}-pdf
+            path: ${{github.workspace}}/assets
+            retention-days: 15
+      # Delete the reports generated by docker compose
+      - name: Clean workspace
+        run: |
+          sudo chown -R $USER:$USER ${{github.workspace}}
+          cd ${{github.workspace}}
+          sudo rm -rf *            
