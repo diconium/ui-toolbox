@@ -20,7 +20,6 @@ jobs:
     uses: ./.github/workflows/web-build.yaml
     secrets: inherit
     with:
-      use_private_registry: false
       runner: ubuntu-latest
 
   # lint
@@ -32,7 +31,6 @@ jobs:
     uses: ./.github/workflows/web-lint.yaml
     secrets: inherit
     with:
-      use_private_registry: false
       runner: ubuntu-latest
 
   # unit-tests
@@ -44,20 +42,6 @@ jobs:
     uses: ./.github/workflows/web-test.yaml
     secrets: inherit
     with:
-      use_private_registry: false
-      runner: ubuntu-latest
-
-  # sonarqube
-  sonarqube:
-    needs: [build-prod, linting, tests]
-    if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-       contains(fromJSON('["main"]'), github.ref_name))
-    uses: ./.github/workflows/web-sonarqube.yaml
-    secrets: inherit
-    with:
-      verbose: false
       runner: ubuntu-latest
 
   # deploy docs
@@ -91,5 +75,7 @@ jobs:
     uses: ./.github/workflows/web-blackduck.yaml
     secrets: inherit
     with:
+      project: ui-toolbox
+      title: UI-TOOLBOX
       version_file: package.json
       runner: ubuntu-latest
