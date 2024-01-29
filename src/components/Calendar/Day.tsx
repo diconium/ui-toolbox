@@ -8,6 +8,7 @@ export interface Props {
   state?: string;
   textColor?: string;
   selected?: boolean;
+  inRange?: boolean;
   onClick?: (day: dayjs.Dayjs) => void;
 }
 
@@ -16,12 +17,14 @@ function Day({
   state = '',
   textColor = 'text-toolbox-neutral',
   selected = false,
+  inRange = false,
   onClick = () => {},
 }: Props) {
   const template = classNames([
     'leading-6 text-base text-center',
     textColor,
     selected && 'bg-toolbox-secondary text-toolbox-white w-6 h-6 rounded-full',
+    inRange && 'bg-toolbox-secondary-400 text-toolbox-white w-6 h-6 rounded-full'
   ]);
   
 return (

@@ -1,4 +1,5 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import dayjs from 'dayjs';
 
 import Header from './Header';
@@ -8,9 +9,12 @@ import { getWeeks } from './utils';
 import Weekdays from './Weekdays';
 import Compact from './Compact';
 
+dayjs.extend(isSameOrBefore);
+
 export interface Props extends PropsWithChildren {
-  date?: dayjs.Dayjs | null;
-  onSelect?: (date: dayjs.Dayjs) => void;
+  dates: dayjs.Dayjs[];
+  type?: string;
+  onSelect?: (dates: dayjs.Dayjs[]) => void;
   onPreviousClick?: (date: dayjs.Dayjs) => void;
   onNextClick?: (date: dayjs.Dayjs) => void;
   onDefaultActionClick?: () => void;
@@ -20,7 +24,8 @@ export interface Props extends PropsWithChildren {
 }
 
 function Calendar({
-  date = null,
+  dates = [],
+  type = 'single',
   onSelect = () => {},
   onPreviousClick = () => {},
   onNextClick = () => {},
@@ -30,8 +35,28 @@ function Calendar({
   variant = 'default',
   subtitle = '',
 }: Props) {
-  const current = date || dayjs();
+  const [current, setCurrent] = useState(dates.length > 0 ? dates[0] : dayjs());
   const weeks = getWeeks(current.year(), current.month());
+
+  const select = (date: dayjs.Dayjs) => {
+    if (type === 'range' && dates.length === 1) {
+      onSelect(date.isSameOrBefore(dates[0]) ? [date] : [...dates, date]);
+    } else {
+      onSelect([date]);
+    }
+  };
+
+  const previousClickHandler = () => {
+    const previous = current.endOf('month').subtract(1, 'month').startOf('day');
+    setCurrent(previous);
+    onPreviousClick(current);
+  };
+
+  const nextClickHandler = () => {
+    const next = current.startOf('month').add(1, 'month').startOf('day');
+    setCurrent(next);
+    onNextClick(current);
+  };
 
   if (variant === 'daily') {
     return (
@@ -40,10 +65,12 @@ function Calendar({
         subtitle={subtitle}
         onLeftClick={() => {
           const previous = current.subtract(1, 'day').startOf('day');
+          setCurrent(previous);
           onPreviousClick(previous);
         }}
         onRightClick={() => {
           const next = current.add(1, 'day').startOf('day');
+          setCurrent(next);
           onNextClick(next);
         }}
       />
@@ -54,14 +81,8 @@ function Calendar({
     <div className="max-w-sm bg-toolbox-white rounded-2xl border border-toolbox-neutral-50 py-5 px-8">
       <Header
         date={current}
-        onLeftClick={() => {
-          const previous = current.endOf('month').subtract(1, 'month').startOf('day');
-          onPreviousClick(previous);
-        }}
-        onRightClick={() => {
-          const next = current.startOf('month').add(1, 'month').startOf('day');
-          onNextClick(next);
-        }}
+        onLeftClick={previousClickHandler}
+        onRightClick={nextClickHandler}
       >
         {children || <DefaultAction onClick={() => onDefaultActionClick()} />}
       </Header>
@@ -71,8 +92,8 @@ function Calendar({
           <Weekdays
             key={week[0].format()}
             week={week}
-            selected={date || current}
-            onSelect={(d) => onSelect(d)}
+            selected={dates}
+            onSelect={(d) => select(d)}
             state={state}
           />
         ))}
