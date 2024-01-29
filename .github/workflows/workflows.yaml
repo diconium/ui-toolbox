@@ -55,27 +55,38 @@ jobs:
       runner: ubuntu-latest
 
   # deploy chromatic
-  chromatic:
-    needs: [build-prod, linting, tests]
-    if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
-    uses: ./.github/workflows/web-chromatic.yaml
-    secrets: inherit
-    with:
-      runner: ubuntu-latest
-
+#  chromatic:
+#    needs: [build-prod, linting, tests]
+#    if: |
+#      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
+#      (contains(fromJSON('["main"]'), github.base_ref) ||
+#      contains(fromJSON('["main"]'), github.ref_name))
+#    uses: ./.github/workflows/web-chromatic.yaml
+#    secrets: inherit
+#    with:
+#      runner: ubuntu-latest
+#
+#  # scan security & license compliance
+#  blackduck:
+#    if: |
+#      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
+#      (contains(fromJSON('["main"]'), github.base_ref) ||
+#      contains(fromJSON('["main"]'), github.ref_name))
+#    uses: ./.github/workflows/web-blackduck.yaml
+#    secrets: inherit
+#    with:
+#      project: ui-toolbox
+#      title: UI-TOOLBOX
+#      version_file: package.json
+#      runner: ubuntu-latest
+#
   # scan security & license compliance
-  blackduck:
+  codeql:
     if: |
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
       (contains(fromJSON('["main"]'), github.base_ref) ||
       contains(fromJSON('["main"]'), github.ref_name))
-    uses: ./.github/workflows/web-blackduck.yaml
+    uses: ./.github/workflows/web-codeql.yaml
     secrets: inherit
     with:
-      project: ui-toolbox
-      title: UI-TOOLBOX
-      version_file: package.json
       runner: ubuntu-latest
