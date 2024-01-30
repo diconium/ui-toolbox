@@ -78,7 +78,6 @@ function TextField({
 
   const handleEnter = (event: any) => {
     if (event.key === 'Enter') {
-      event.preventDefault();
       onEnter();
     }
   };
