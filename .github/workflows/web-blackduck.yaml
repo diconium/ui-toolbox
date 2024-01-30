@@ -49,8 +49,6 @@ jobs:
           path: actions
           ssh-key: ${{ secrets.ORG_REPO_SSH_KEY }}
           ref: development
-      - name: Set up NodeJS environment
-        uses: actions/setup-node@v4
       - name: Detect version
         id: detect_version
         run: |
