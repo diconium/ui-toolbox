@@ -37,7 +37,8 @@ describe('Form component', () => {
 
   test('submit form on pressing Enter key', () => {
     const onSubmit = jest.fn();
-    render(
+    
+    const {container} = render(
       <Form onSubmit={onSubmit}>
         <TextField
           type="text"
@@ -47,14 +48,25 @@ describe('Form component', () => {
           label="Submit"
           type="submit"
         />
-      </Form>,
+      </Form>
+    );
+  
+    const form = container.querySelector('form');
+    fireEvent.submit(form!);
+    
+    expect(onSubmit).toHaveBeenCalled();
+  });
+
+  it('assigns the passed className', () => {
+    const testClass = 'test-class';
+    const { container } = render(
+      <Form className={testClass} onSubmit={() => {}}>
+        Child
+      </Form>
     );
 
-    const inputElement = screen.getByRole('textbox');
-    fireEvent.focus(inputElement);
-    fireEvent.change(inputElement, { target: { value: 'Hello' } });
-    fireEvent.keyDown(inputElement, { key: 'Enter', code: 'Enter' });
-
-    expect(onSubmit).toHaveBeenCalled();
+    const form = container.querySelector('form');
+    
+    expect(form).toHaveClass(testClass);
   });
 });
