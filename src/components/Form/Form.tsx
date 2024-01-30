@@ -1,10 +1,12 @@
-import React, { PropsWithChildren, useEffect } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 export interface Props extends PropsWithChildren {
   onSubmit: () => void;
+  className?: string;
 }
 
-function Form({ children, onSubmit }: Props) {
+function Form({ children, onSubmit, className }: Props) {
+  const classes = className || 'flex flex-col space-y-2';
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     onSubmit();
@@ -12,7 +14,7 @@ function Form({ children, onSubmit }: Props) {
 
   return (
     <form
-      className="flex flex-col space-y-2"
+      className={classes}
       onSubmit={handleSubmit}
     >
       {children}

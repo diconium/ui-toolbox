@@ -21,6 +21,17 @@ export function Default() {
   );
 }
 
+export function WithClass() {
+  return (
+    <Form onSubmit={() => {}} className='bg-toolbox-secondary'>
+      <PrimaryButton
+        label="Submit"
+        type="submit"
+      />
+    </Form>
+  );
+}
+
 export function WithInput() {
   const [check, set] = useState(false);
   const [checked, setChecked] = useState(false);
