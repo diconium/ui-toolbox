@@ -1,7 +1,7 @@
 {
   "name": "@diconium/ui-toolbox",
   "repository": "https://github.com/diconium/ui-toolbox",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Common UI components library to build faster similar themed React web applications.",
   "scripts": {
     "build:clean": "rm -rf dist coverage releases storybook-static",
