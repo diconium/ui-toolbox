@@ -29,7 +29,10 @@ describe('Calendar/utils', () => {
   test('can return the correct text color', () => {
     const issue = dayjs(TODAY).subtract(1, 'month');
     const tomorrow = dayjs(TODAY).add(1, 'day');
-    expect(utils.getTextColor(issue)).not.toBe('text-toolbox-neutral');
+    const nextMonth = dayjs(TODAY).add(1, 'month');
+    expect(utils.getTextColor(dayjs(TODAY))).toBe('text-toolbox-neutral');
+    expect(utils.getTextColor(issue)).toBe('text-toolbox-neutral-200');
     expect(utils.getTextColor(tomorrow)).toBe('text-toolbox-neutral');
+    expect(utils.getTextColor(nextMonth)).toBe('text-toolbox-neutral');
   });
 });

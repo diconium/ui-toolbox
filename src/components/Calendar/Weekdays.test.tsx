@@ -7,7 +7,13 @@ import Weekdays, { FORMAT } from './Weekdays';
 const mockDay = dayjs('2023-01-01'); // Replace with a suitable date for testing
 
 const mockProps = {
-  week: [mockDay, mockDay.add(1, 'day'), mockDay.add(2, 'day'), mockDay.add(3, 'day'), mockDay.add(4, 'day')],
+  week: [
+    mockDay,
+    mockDay.add(1, 'day'),
+    mockDay.add(2, 'day'),
+    mockDay.add(3, 'day'),
+    mockDay.add(4, 'day'),
+  ],
   onSelect: jest.fn(),
   selected: [mockDay],
   state: {
@@ -35,7 +41,7 @@ describe('Weekdays component', () => {
 
   it('applies selected styles to the selected day', () => {
     render(<Weekdays {...mockProps} />);
-    
+
     const selectedDayElement = screen.getByText('1');
     expect(selectedDayElement).toHaveClass('bg-toolbox-secondary');
     expect(selectedDayElement).toHaveClass('text-toolbox-white');
@@ -47,9 +53,9 @@ describe('Weekdays component', () => {
       selected: [mockDay, mockDay.add(2, 'day')],
     };
     render(<Weekdays {...inRangeProps} />);
-    
+
     const inRangeDayElement = screen.getByText('2');
-    expect(inRangeDayElement).toHaveClass('bg-toolbox-secondary-400');
+    expect(inRangeDayElement).toHaveClass('bg-toolbox-secondary');
     expect(inRangeDayElement).toHaveClass('text-toolbox-white');
   });
 });
