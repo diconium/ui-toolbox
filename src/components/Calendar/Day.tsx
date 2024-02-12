@@ -28,7 +28,7 @@ function Day({
 
   return (
     <button
-      className="flex flex-col items-center space-y-1"
+      className="flex flex-col items-center space-y-1 w-7"
       type="button"
       onClick={() => onClick(day)}
     >
