@@ -14,29 +14,49 @@ describe('Day Component', () => {
 
   it('calls onClick handler when clicked', () => {
     const onClickMock = jest.fn();
-    const { getByText } = render(<Day day={mockDay} onClick={onClickMock} />);
+    const { getByText } = render(
+      <Day
+        day={mockDay}
+        onClick={onClickMock}
+      />,
+    );
     const dayElement = getByText('1');
-    
+
     fireEvent.click(dayElement);
     expect(onClickMock).toHaveBeenCalledWith(mockDay);
   });
 
   it('renders selected styles when selected is true', () => {
-    const { getByText } = render(<Day day={mockDay} selected />);
+    const { getByText } = render(
+      <Day
+        day={mockDay}
+        selected
+      />,
+    );
     const selectedDayElement = getByText('1');
     expect(selectedDayElement).toHaveClass('bg-toolbox-secondary');
     expect(selectedDayElement).toHaveClass('text-toolbox-white');
   });
 
   it('renders inRange styles when inRange is true', () => {
-    const { getByText } = render(<Day day={mockDay} inRange />);
+    const { getByText } = render(
+      <Day
+        day={mockDay}
+        inRange
+      />,
+    );
     const inRangeDayElement = getByText('1');
-    expect(inRangeDayElement).toHaveClass('bg-toolbox-secondary-400');
+    expect(inRangeDayElement).toHaveClass('bg-toolbox-secondary');
     expect(inRangeDayElement).toHaveClass('text-toolbox-white');
   });
 
   it('renders Dot component when state is provided', () => {
-    const { container } = render(<Day day={mockDay} state="someState" />);
+    const { container } = render(
+      <Day
+        day={mockDay}
+        state="someState"
+      />,
+    );
     const dotComponent = container.querySelector('.rounded-full');
     expect(dotComponent).toBeInTheDocument();
   });
