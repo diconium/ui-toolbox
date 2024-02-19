@@ -31,13 +31,13 @@ jobs:
           name: coverage-${{ github.run_id }}
           path: ${{github.workspace}}/coverage/
           retention-days: 14
-#      - name: Upload coverage reports to Codecov
-#        uses: codecov/codecov-action@v3
-#        with:
-#          files: ${{github.workspace}}/coverage/clover.xml
-#          flags: unittests
-#          name: codecov-ui-toolbiox
-#          fail_ci_if_error: true
-#          verbose: true
-#        env:
-#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ${{github.workspace}}/coverage/clover.xml
+          flags: unittests
+          name: codecov-ui-toolbiox
+          fail_ci_if_error: true
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
