@@ -78,7 +78,7 @@ jobs:
           DETECT_PROJECT_VERSION_NAME: ${{ steps.detect_version.outputs.version_name }}
       - name: Synopsys Scan mode intelligent
         if: ${{ github.event_name == 'push' }}
-        uses: synopsys-sig/synopsys-action@v1.7.0
+        uses: synopsys-sig/synopsys-action@v1.8.0
         with:
           github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
           blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
@@ -94,7 +94,7 @@ jobs:
           DETECT_PROJECT_VERSION_NAME: ${{ steps.detect_version.outputs.version_name }}
       - name: Synopsys Scan mode rapid
         if: ${{ github.event_name == 'pull_request' && steps.blackduck_version_identifier.outputs.version_exists == 'true' }}
-        uses: synopsys-sig/synopsys-action@v1.7.0
+        uses: synopsys-sig/synopsys-action@v1.8.0
         with:
           github_token: ${{ secrets.ORG_CI_GH_TOKEN }}
           blackduck_url: ${{ secrets.ORG_BLACKDUCK_URL }}
