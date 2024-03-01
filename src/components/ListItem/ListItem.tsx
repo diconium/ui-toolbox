@@ -37,11 +37,9 @@ function ListItem({
   const renderSubtitle = textAlignment !== 'center' && subtitle;
   const mounted = useRef(true);
 
-  useEffect(() => {
-    return () => {
+  useEffect(() => () => {
       mounted.current = false;
-    }
-  }, []);
+    }, []);
 
 
   const onToggle = () => {
@@ -53,7 +51,8 @@ function ListItem({
 
         return next;
       }
-      return previous;
+      
+return previous;
     });
   };
   
