@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode, useState } from 'react';
+import React, { ComponentProps, ReactNode, useEffect, useRef, useState } from 'react';
 
 import Heading from './Heading';
 import Placeholder from './Placeholder';
@@ -35,14 +35,25 @@ function ListItem({
   const canBeOpened = !!children;
   const renderPlaceholder = upper || lower || canBeOpened;
   const renderSubtitle = textAlignment !== 'center' && subtitle;
+  const mounted = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      mounted.current = false;
+    }
+  }, []);
+
 
   const onToggle = () => {
     setIsOpen((previous) => {
-      const next = !previous;
-      const callback = next ? onOpen : onClose;
-      callback();
-      
-return next;
+      if (mounted.current) {
+        const next = !previous;
+        const callback = next ? onOpen : onClose;
+        callback();
+
+        return next;
+      }
+      return previous;
     });
   };
   
