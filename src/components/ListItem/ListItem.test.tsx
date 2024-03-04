@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, render, act } from '@testing-library/react';
+import { screen, render, act, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ListItem from './ListItem';
@@ -51,5 +51,45 @@ describe('ListItem component', () => {
     render(<ListItem title="foo" baseTemplate="custom-template" />);
     const templateElement = screen.getByText(/foo/i).closest('.custom-template');
     expect(templateElement).toBeInTheDocument();
+  });
+
+  test("should not call onClose handler when unmounted", () => {
+    const onCloseSpy = jest.fn();
+    const { unmount } = render(
+      <ListItem opened onClose={onCloseSpy} title="Test">
+        Child content
+      </ListItem>
+    );
+    
+    act(() => {
+      jest.runAllTimers();
+    });
+    const buttonElement = document.querySelector('button');
+
+    unmount();
+    
+    fireEvent.click(buttonElement!)
+
+    expect(onCloseSpy).not.toHaveBeenCalled();
+  });
+
+  test("should not call onOpen handler when unmounted", () => {
+    const onOpenSpy = jest.fn();
+    const { unmount } = render(
+      <ListItem opened onOpen={onOpenSpy} title="Test">
+        Child content
+      </ListItem>
+    );
+    
+    act(() => {
+      jest.runAllTimers();
+    });
+    const buttonElement = document.querySelector('button');
+
+    unmount();
+    
+    fireEvent.click(buttonElement!)
+
+    expect(onOpenSpy).not.toHaveBeenCalled();
   });
 });
