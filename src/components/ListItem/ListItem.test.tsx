@@ -60,10 +60,7 @@ describe('ListItem component', () => {
         Child content
       </ListItem>
     );
-    
-    act(() => {
-      jest.runAllTimers();
-    });
+
     const buttonElement = document.querySelector('button');
 
     unmount();
@@ -80,10 +77,7 @@ describe('ListItem component', () => {
         Child content
       </ListItem>
     );
-    
-    act(() => {
-      jest.runAllTimers();
-    });
+
     const buttonElement = document.querySelector('button');
 
     unmount();
@@ -92,4 +86,23 @@ describe('ListItem component', () => {
 
     expect(onOpenSpy).not.toHaveBeenCalled();
   });
+
+  test('onToggle handler correctly checks for mounted.current before toggling state', () => {
+    const onOpen = jest.fn();
+    const onClose = jest.fn();
+    
+    const { getByText, unmount } = render(
+        <ListItem title="Test item" onOpen={onOpen} onClose={onClose}>
+            Test content
+        </ListItem>
+    );
+    
+    const element = getByText('Test item');
+  
+    unmount();
+    fireEvent.click(element);
+
+    expect(onOpen).not.toHaveBeenCalled();
+    expect(onClose).not.toHaveBeenCalled();
+  })
 });
