@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, render, act } from '@testing-library/react';
+import { screen, render, act, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ListItem from './ListItem';
@@ -52,4 +52,57 @@ describe('ListItem component', () => {
     const templateElement = screen.getByText(/foo/i).closest('.custom-template');
     expect(templateElement).toBeInTheDocument();
   });
+
+  test("should not call onClose handler when unmounted", () => {
+    const onCloseSpy = jest.fn();
+    const { unmount } = render(
+      <ListItem opened onClose={onCloseSpy} title="Test">
+        Child content
+      </ListItem>
+    );
+
+    const buttonElement = document.querySelector('button');
+
+    unmount();
+    
+    fireEvent.click(buttonElement!)
+
+    expect(onCloseSpy).not.toHaveBeenCalled();
+  });
+
+  test("should not call onOpen handler when unmounted", () => {
+    const onOpenSpy = jest.fn();
+    const { unmount } = render(
+      <ListItem opened onOpen={onOpenSpy} title="Test">
+        Child content
+      </ListItem>
+    );
+
+    const buttonElement = document.querySelector('button');
+
+    unmount();
+    
+    fireEvent.click(buttonElement!)
+
+    expect(onOpenSpy).not.toHaveBeenCalled();
+  });
+
+  test('onToggle handler correctly checks for mounted.current before toggling state', () => {
+    const onOpen = jest.fn();
+    const onClose = jest.fn();
+    
+    const { getByText, unmount } = render(
+        <ListItem title="Test item" onOpen={onOpen} onClose={onClose}>
+            Test content
+        </ListItem>
+    );
+    
+    const element = getByText('Test item');
+  
+    unmount();
+    fireEvent.click(element);
+
+    expect(onOpen).not.toHaveBeenCalled();
+    expect(onClose).not.toHaveBeenCalled();
+  })
 });
