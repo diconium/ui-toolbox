@@ -10,7 +10,7 @@ export interface Props {
 
 const BASE_TEMPLATE = `text-sm leading-5 bg-toolbox-white
 rounded-2xl border text-toolbox-black whitespace-nowrap
-px-10 py-1 font-thin`;
+px-10 py-1 font-thin  inline-block`;
 
 function Chip({ label, selected = false, disabled = false, onClick = () => {} }: Props) {
   const template = classNames(BASE_TEMPLATE, {
@@ -20,16 +20,15 @@ function Chip({ label, selected = false, disabled = false, onClick = () => {} }:
     'cursor-not-allowed': disabled,
     'cursor-pointer': !disabled,
   });
-  
-return (
-    <button
-      type="button"
+
+  return (
+    /* eslint-disable jsx-a11y/click-events-have-key-events,  jsx-a11y/no-static-element-interactions */
+    <div
       className={template}
-      disabled={disabled}
-      onClick={() => onClick()}
+      onClick={disabled ? undefined : onClick}
     >
       {label}
-    </button>
+    </div>
   );
 }
 

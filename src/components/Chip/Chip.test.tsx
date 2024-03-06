@@ -1,6 +1,6 @@
 import React from 'react';
 import { jest } from '@jest/globals';
-import { screen, render } from '@testing-library/react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Chip as IMPORT } from '../../index';
@@ -13,7 +13,7 @@ describe('Chip component', () => {
     expect(IMPORT).toEqual(Chip);
   });
 
-  test('can render the default button correctly', () => {
+  test('can render the default chip correctly', () => {
     render(<Chip label="Berlin" />);
     expect(screen.getByText(/Berlin/i)).toBeInTheDocument();
   });
@@ -27,8 +27,8 @@ describe('Chip component', () => {
         onClick={func}
       />
     );
-    const button = await screen.getByRole('button');
-    await user.click(button);
+    const chip = await screen.getByText('Berlin');
+    await user.click(chip);
     expect(func.mock.calls.length).toBe(1);
   });
 
@@ -36,8 +36,8 @@ describe('Chip component', () => {
     const func = jest.fn();
     const user = userEvent.setup();
     render(<Chip label="Berlin" />);
-    const button = await screen.getByRole('button');
-    await user.click(button);
+    const chip = await screen.getByText('Berlin');
+    await user.click(chip);
     expect(func.mock.calls.length).toBe(0);
   });
 
@@ -51,8 +51,8 @@ describe('Chip component', () => {
         onClick={func}
       />
     );
-    const button = await screen.getByRole('button');
-    await user.click(button);
+    const chip = await screen.getByText('Berlin');
+    await user.click(chip);
     expect(func.mock.calls.length).toBe(0);
   });
 });
