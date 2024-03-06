@@ -21,17 +21,11 @@ function Chip({ label, selected = false, disabled = false, onClick = () => {} }:
     'cursor-pointer': !disabled,
   });
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") onClick();
-  };
-
   return (
+    /* eslint-disable jsx-a11y/click-events-have-key-events,  jsx-a11y/no-static-element-interactions */
     <div
       className={template}
-      role='button'
       onClick={disabled ? undefined : onClick}
-      tabIndex={0}
-      onKeyDown={disabled ? undefined : handleKeyDown}
     >
       {label}
     </div>

@@ -13,7 +13,7 @@ describe('Chip component', () => {
     expect(IMPORT).toEqual(Chip);
   });
 
-  test('can render the default button correctly', () => {
+  test('can render the default chip correctly', () => {
     render(<Chip label="Berlin" />);
     expect(screen.getByText(/Berlin/i)).toBeInTheDocument();
   });
@@ -27,8 +27,8 @@ describe('Chip component', () => {
         onClick={func}
       />
     );
-    const button = await screen.getByRole('button');
-    await user.click(button);
+    const chip = await screen.getByText('Berlin');
+    await user.click(chip);
     expect(func.mock.calls.length).toBe(1);
   });
 
@@ -36,8 +36,8 @@ describe('Chip component', () => {
     const func = jest.fn();
     const user = userEvent.setup();
     render(<Chip label="Berlin" />);
-    const button = await screen.getByRole('button');
-    await user.click(button);
+    const chip = await screen.getByText('Berlin');
+    await user.click(chip);
     expect(func.mock.calls.length).toBe(0);
   });
 
@@ -51,24 +51,8 @@ describe('Chip component', () => {
         onClick={func}
       />
     );
-    const button = await screen.getByRole('button');
-    await user.click(button);
+    const chip = await screen.getByText('Berlin');
+    await user.click(chip);
     expect(func.mock.calls.length).toBe(0);
-  });
-
-  test('calls the onClick function correctly when Enter is pressed', () => {
-    const func = jest.fn();
-    render(<Chip label="Berlin" onClick={func} />);
-    const button = screen.getByRole('button');
-    fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
-    expect(func).toHaveBeenCalled();
-  });
-  
-  test('does not call the onClick function when it is disabled and Enter is pressed', () => {
-    const func = jest.fn();
-    render(<Chip label="Berlin" disabled onClick={func} />);
-    const button = screen.getByRole('button');
-    fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
-    expect(func).not.toHaveBeenCalled();
   });
 });
