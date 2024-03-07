@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ComponentProps, ReactNode, useState } from 'react';
 
 import Heading from './Heading';
 import Placeholder from './Placeholder';
@@ -29,34 +29,24 @@ function ListItem({
   textAlignment = 'left',
   selected = false,
   className,
-  baseTemplate = ''
+  baseTemplate = '',
 }: Props) {
   const [isOpen, setIsOpen] = useState(opened);
   const canBeOpened = !!children;
   const renderPlaceholder = upper || lower || canBeOpened;
   const renderSubtitle = textAlignment !== 'center' && subtitle;
-  const mounted = useRef(true);
-
-  useEffect(() => () => {
-      mounted.current = false;
-    }, []);
-
 
   const onToggle = () => {
     setIsOpen((previous) => {
-      if (mounted.current) {
-        const next = !previous;
-        const callback = next ? onOpen : onClose;
-        callback();
-
-        return next;
-      }
+      const next = !previous;
+      const callback = next ? onOpen : onClose;
+      callback();
       
-return previous;
+return next;
     });
   };
-  
-return (
+
+  return (
     <Template
       onClick={onToggle}
       canBeOpened={canBeOpened}
