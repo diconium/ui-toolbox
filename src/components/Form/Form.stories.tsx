@@ -23,7 +23,10 @@ export function Default() {
 
 export function WithClass() {
   return (
-    <Form onSubmit={() => {}} className='bg-toolbox-secondary'>
+    <Form
+      onSubmit={() => {}}
+      className="bg-toolbox-secondary"
+    >
       <PrimaryButton
         label="Submit"
         type="submit"
