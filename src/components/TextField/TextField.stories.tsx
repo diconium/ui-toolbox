@@ -69,10 +69,10 @@ export function Type() {
 export function WithLabel() {
   return (
     <div className="w-[320px]">
-        <TextField
-          label="Lorem Ipsum"
-          placeholder="Placeholder text"
-        />
+      <TextField
+        label="Lorem Ipsum"
+        placeholder="Placeholder text"
+      />
     </div>
   );
 }
@@ -80,11 +80,11 @@ export function WithLabel() {
 export function WithHint() {
   return (
     <div className="w-[320px]">
-        <TextField
-          label="Lorem Ipsum"
-          placeholder="Placeholder text"
-          hint="lorem ipsum"
-        />
+      <TextField
+        label="Lorem Ipsum"
+        placeholder="Placeholder text"
+        hint="lorem ipsum"
+      />
     </div>
   );
 }
@@ -162,12 +162,12 @@ export function WithAction() {
 
   return (
     <div className="w-[320px]">
-        <TextField
-          label="Lorem Ipsum"
-          placeholder="Placeholder text"
-          value={value}
-          onChange={(text) => set(text)}
-        />
+      <TextField
+        label="Lorem Ipsum"
+        placeholder="Placeholder text"
+        value={value}
+        onChange={(text) => set(text)}
+      />
     </div>
   );
 }
@@ -177,11 +177,11 @@ export function WithOnEnterAction() {
 
   return (
     <div className="w-[320px]">
-        <TextField
-          label={value || 'Lorem ipsum'}
-          placeholder="Press enter and see"
-          onEnter={() => set('Enter pressed')}
-        />
+      <TextField
+        label={value || 'Lorem ipsum'}
+        placeholder="Press enter and see"
+        onEnter={() => set('Enter pressed')}
+      />
     </div>
   );
 }
@@ -191,13 +191,13 @@ export function WithClearButton() {
 
   return (
     <div className="w-[320px]">
-        <TextField
-          isClearable
-          label="Lorem Ipsum"
-          placeholder="Placeholder"
-          value={value}
-          onChange={set}
-        />
+      <TextField
+        isClearable
+        label="Lorem Ipsum"
+        placeholder="Placeholder"
+        value={value}
+        onChange={set}
+      />
     </div>
   );
 }

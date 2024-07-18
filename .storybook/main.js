@@ -6,6 +6,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     'storybook-addon-pseudo-states',
+    '@storybook/addon-webpack5-compiler-babel',
+    '@chromatic-com/storybook'
   ],
   framework: {
     name: '@storybook/react-webpack5',
@@ -14,9 +16,7 @@ module.exports = {
   features: {
     buildStoriesJson: true,
   },
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
   core: {
     disableTelemetry: true,
   },

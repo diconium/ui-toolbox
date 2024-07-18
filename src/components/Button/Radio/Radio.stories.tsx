@@ -28,8 +28,8 @@ export const Disabled = {
 
 export function WithAction() {
   const [check, set] = useState(false);
-  
-return (
+
+  return (
     <RadioButton
       checked={check}
       onClick={(newState) => set(newState)}

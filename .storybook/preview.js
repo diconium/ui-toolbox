@@ -36,7 +36,6 @@ const viewports = {
 };
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
   parameters: {
     viewport: { viewports, defaultViewport },
   },
@@ -47,3 +46,4 @@ export const parameters = {
     },
   },
 };
+export const tags = ['autodocs'];

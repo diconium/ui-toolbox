@@ -1,4 +1,5 @@
-import { create } from '@storybook/theming';
+import { create } from '@storybook/theming/create';
+
 const colors = require('../../colors.config');
 const logo = require('./diconium.png');
 

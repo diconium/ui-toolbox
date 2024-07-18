@@ -30,8 +30,8 @@ export function Disabled() {
 
 export function WithAction() {
   const [selected, set] = useState(false);
-  
-return (
+
+  return (
     <Chip
       label="Stuttgart"
       selected={selected}

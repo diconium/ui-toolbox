@@ -89,8 +89,8 @@ export const Focused = {
 
 export function WithAction() {
   const [value, set] = useState<string>();
-  
-return (
+
+  return (
     <div className="flex flex-col space-y-4 w-[320px]">
       <TextArea
         placeholder="Placeholder text"

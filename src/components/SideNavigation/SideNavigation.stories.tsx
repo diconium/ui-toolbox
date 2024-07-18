@@ -16,8 +16,8 @@ export default {
 
 export function Default() {
   const [open, setOpen] = useState(true);
-  
-return (
+
+  return (
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
         top={
@@ -109,8 +109,8 @@ return (
 
 export function Closed() {
   const [open, setOpen] = useState(false);
-  
-return (
+
+  return (
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
         opened={open}
