@@ -67,20 +67,6 @@ jobs:
       runner: ubuntu-latest
 
   # scan security & license compliance
-  blackduck:
-    if: |
-      contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
-      (contains(fromJSON('["main"]'), github.base_ref) ||
-      contains(fromJSON('["main"]'), github.ref_name))
-    uses: ./.github/workflows/web-blackduck.yaml
-    secrets: inherit
-    with:
-      project: ui-toolbox
-      title: UI-TOOLBOX
-      version_file: package.json
-      runner: ubuntu-latest
-
-  # scan security & license compliance
   codeql:
     if: |
       contains(fromJSON('["push", "pull_request"]'), github.event_name) ||
