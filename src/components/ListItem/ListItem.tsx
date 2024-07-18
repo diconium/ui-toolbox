@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 
 import Heading from './Heading';
 import Placeholder from './Placeholder';
@@ -10,6 +10,7 @@ export interface Props extends ComponentProps<'button'> {
   upper?: ReactNode;
   lower?: ReactNode;
   opened?: boolean;
+  onToggle?: (_state: boolean) => void;
   onOpen?: () => void;
   onClose?: () => void;
   textAlignment?: string;
@@ -24,41 +25,30 @@ function ListItem({
   upper,
   lower,
   opened = false,
+  onToggle = () => {},
   onOpen = () => {},
   onClose = () => {},
   textAlignment = 'left',
   selected = false,
   className,
-  baseTemplate = ''
+  baseTemplate = '',
 }: Props) {
-  const [isOpen, setIsOpen] = useState(opened);
   const canBeOpened = !!children;
   const renderPlaceholder = upper || lower || canBeOpened;
   const renderSubtitle = textAlignment !== 'center' && subtitle;
-  const mounted = useRef(true);
 
-  useEffect(() => () => {
-      mounted.current = false;
-    }, []);
+  const toggle = () => {
+    const next = !opened;
+    const callback = next ? onOpen : onClose;
+    onToggle(next);
+    callback();
 
-
-  const onToggle = () => {
-    setIsOpen((previous) => {
-      if (mounted.current) {
-        const next = !previous;
-        const callback = next ? onOpen : onClose;
-        callback();
-
-        return next;
-      }
-      
-return previous;
-    });
+    return next;
   };
-  
-return (
+
+  return (
     <Template
-      onClick={onToggle}
+      onClick={toggle}
       canBeOpened={canBeOpened}
       selected={selected}
       className={className}
@@ -82,14 +72,14 @@ return (
               <Placeholder
                 upper={upper}
                 lower={lower}
-                isOpen={isOpen}
+                isOpen={opened}
                 showChevron={canBeOpened}
               />
             </div>
           )}
         </div>
       </div>
-      {canBeOpened && isOpen && <div className="mt-2">{children}</div>}
+      {canBeOpened && opened && <div className="mt-2">{children}</div>}
     </Template>
   );
 }

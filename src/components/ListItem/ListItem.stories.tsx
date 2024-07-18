@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '../Avatar';
 import State from '../State';
 import ListItem from './ListItem';
@@ -64,9 +64,11 @@ export function UpperSlotOnly() {
 }
 
 export function WithExtendedInfo() {
+  const [opened, set] = useState(true);
   return (
     <ListItem
-      opened
+      opened={opened}
+      onToggle={(state) => set(state)}
       title="Text label"
       subtitle="Text label"
     >
