@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import type { Meta } from '@storybook/react';
@@ -20,6 +21,7 @@ const meta: Meta<typeof Calendar> = {
 };
 
 export default meta;
+
 export const Default = {
   render: () => <Calendar dates={[]} />,
 

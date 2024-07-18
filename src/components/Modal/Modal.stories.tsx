@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 import React, { useState } from 'react';
 import type { Meta } from '@storybook/react';
 import Modal from './Modal';

@@ -1,5 +1,6 @@
+/* eslint no-unused-vars: 0 */
 import React from 'react';
-import { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Avatar from '../Avatar';
 import Display from './Display';
 import Tooltip, { Container } from './Tooltip';
