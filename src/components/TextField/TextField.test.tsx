@@ -24,7 +24,7 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         value="bar"
-      />
+      />,
     );
     expect(screen.getByDisplayValue(/bar/i)).toBeInTheDocument();
   });
@@ -34,7 +34,7 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         label="bar"
-      />
+      />,
     );
     expect(screen.getByText(/bar/i)).toBeInTheDocument();
   });
@@ -46,7 +46,7 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         onChange={func}
-      />
+      />,
     );
     const input = screen.getByPlaceholderText('foo');
     await userEvent.type(input, 'bar');
@@ -63,7 +63,7 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         onEnter={func}
-      />
+      />,
     );
     const input = screen.getByPlaceholderText('foo');
     await userEvent.type(input, '{enter}');
@@ -78,7 +78,7 @@ describe('TextField component', () => {
         disabled
         placeholder="foo"
         onEnter={func}
-      />
+      />,
     );
     const input = screen.getByPlaceholderText('foo');
     await userEvent.type(input, '{enter}');
@@ -91,7 +91,36 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         onBlur={func}
-      />
+      />,
+    );
+    const input = screen.getByPlaceholderText('foo');
+    await userEvent.type(input, '{enter}');
+    input.blur();
+    expect(func.mock.calls.length).toBe(1);
+  });
+
+  test('executes onChange event handler when value is cleared by button click', async () => {
+    const func = jest.fn();
+    render(
+      <TextField
+        placeholder="foo"
+        value="initialValue"
+        onChange={func}
+        isClearable
+      />,
+    );
+    const input = screen.getByPlaceholderText('foo');
+    await userEvent.type(input, '{enter}');
+    expect(func.mock.calls.length).toBe(0);
+  });
+
+  test('executes onBlur event handler correctly', async () => {
+    const func = jest.fn();
+    render(
+      <TextField
+        placeholder="foo"
+        onBlur={func}
+      />,
     );
     const input = screen.getByPlaceholderText('foo');
     await userEvent.type(input, '{enter}');
@@ -107,36 +136,7 @@ describe('TextField component', () => {
         value="initialValue"
         onChange={func}
         isClearable
-      />
-    );
-    const input = screen.getByPlaceholderText('foo');
-    await userEvent.type(input, '{enter}');
-    expect(func.mock.calls.length).toBe(0);
-  });
-
-  test('executes onBlur event handler correctly', async () => {
-    const func = jest.fn();
-    render(
-      <TextField
-        placeholder="foo"
-        onBlur={func}
-      />
-    );
-    const input = screen.getByPlaceholderText('foo');
-    await userEvent.type(input, '{enter}');
-    input.blur();
-    expect(func.mock.calls.length).toBe(1);
-  });
-
-  test('executes onChange event handler when value is cleared by button click', async () => {
-    const func = jest.fn();
-    const { container } = render(
-      <TextField
-        placeholder="foo"
-        value="initialValue"
-        onChange={func}
-        isClearable
-      />
+      />,
     );
     const clearButton = container.querySelector('button');
     clearButton?.click();
@@ -148,19 +148,19 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         validation="valid"
-      />
+      />,
     );
     const { container: warning } = render(
       <TextField
         placeholder="foo"
         validation="warning"
-      />
+      />,
     );
     const { container: error } = render(
       <TextField
         placeholder="foo"
         validation="error"
-      />
+      />,
     );
     const validIcon = valid.querySelector('span');
     const warningIcon = warning.querySelector('span');
@@ -169,7 +169,7 @@ describe('TextField component', () => {
     expect(validIcon?.classList).toContain(`text-toolbox-feedback-${validationToColor('valid')}`);
     expect(warningIcon).not.toBe(null);
     expect(warningIcon?.classList).toContain(
-      `text-toolbox-feedback-${validationToColor('warning')}`
+      `text-toolbox-feedback-${validationToColor('warning')}`,
     );
     expect(errorIcon).not.toBe(null);
     expect(errorIcon?.classList).toContain(`text-toolbox-feedback-${validationToColor('error')}`);
@@ -181,7 +181,7 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         onBlur={func}
-      />
+      />,
     );
     const input = screen.getByPlaceholderText('foo');
     await userEvent.type(input, '{enter}');
@@ -197,7 +197,7 @@ describe('TextField component', () => {
         value="initialValue"
         onChange={func}
         isClearable
-      />
+      />,
     );
     const clearButton = container.querySelector('button');
     clearButton?.click();
@@ -210,7 +210,7 @@ describe('TextField component', () => {
       <TextField
         placeholder="foo"
         onBlur={func}
-      />
+      />,
     );
     const input = screen.getByPlaceholderText('foo');
     await userEvent.type(input, '{enter}');
@@ -226,7 +226,7 @@ describe('TextField component', () => {
         value="initialValue"
         onChange={func}
         isClearable
-      />
+      />,
     );
     const clearButton = container.querySelector('button');
     clearButton?.click();

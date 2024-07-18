@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+/* eslint no-unused-vars: 0 */
+import type { Meta } from '@storybook/react';
 import React from 'react';
 import Icon from '../Icon';
 import TopNavigation from './TopNavigation';

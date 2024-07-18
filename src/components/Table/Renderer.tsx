@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 import React from 'react';
 import Icon from '../Icon/Icon';
 import { Content } from './Cell';
@@ -18,8 +19,8 @@ function getRenderer(config?: Config) {
       );
     };
   }
-  
-return function ({ content }: RenderProps) {
+
+  return function ({ content }: RenderProps) {
     return <span>{content?.value || 'No value provided'}</span>;
   };
 }

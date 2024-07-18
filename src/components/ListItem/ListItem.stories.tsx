@@ -65,6 +65,7 @@ export function UpperSlotOnly() {
 
 export function WithExtendedInfo() {
   const [opened, set] = useState(true);
+
   return (
     <ListItem
       opened={opened}

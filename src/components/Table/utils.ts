@@ -1,10 +1,11 @@
+/* eslint no-unused-vars: 0 */
 import { Row, RowWithId } from './Table';
 
 const ID_LENGTH = 21;
 const generateId = (length = ID_LENGTH) => {
   const randomValues = crypto.getRandomValues(new Uint8Array(length));
-  
-return randomValues.reduce((id, randomElement) => {
+
+  return randomValues.reduce((id, randomElement) => {
     const remainder = randomElement % (63 + 1);
     const isLowercase = remainder < 36;
     if (isLowercase) {
@@ -18,8 +19,8 @@ return randomValues.reduce((id, randomElement) => {
     if (isNotLetter) {
       return `${id}-`;
     }
-    
-return `${id}_`;
+
+    return `${id}_`;
   }, '');
 };
 
@@ -29,13 +30,13 @@ export default function assignId(rows: Row[]): RowWithId[] {
       const rowId = generateId();
       const cells = Object.entries(row).reduce((acc, [key, value]) => {
         const cellId = generateId();
-        
-return { ...acc, [key]: { id: rowId + cellId, value } };
+
+        return { ...acc, [key]: { id: rowId + cellId, value } };
       }, {});
-      
-return { cells, id: rowId };
+
+      return { cells, id: rowId };
     }
-    
-return row;
+
+    return row;
   });
 }
