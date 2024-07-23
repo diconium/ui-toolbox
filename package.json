@@ -32,7 +32,7 @@
     "@babel/preset-typescript": "^7.23.2",
     "@chromatic-com/storybook": "^1.6.1",
     "@jest/globals": "^29.6.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@storybook/addon-actions": "^8.2.4",
