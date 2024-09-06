@@ -57,7 +57,7 @@ export function SpecificDateInThePast() {
 }
 
 export function SpecificDateInTheFuture() {
-  return <Calendar dates={[dayjs(new Date(2024, 7, 11))]} />;
+  return <Calendar dates={[dayjs(new Date(2028, 7, 11))]} />;
 }
 
 export function WithState() {
