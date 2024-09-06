@@ -7,6 +7,7 @@ module.exports = {
     'storybook-addon-pseudo-states',
     '@storybook/addon-webpack5-compiler-babel',
     '@chromatic-com/storybook',
+    '@storybook/addon-mdx-gfm',
   ],
   framework: {
     name: '@storybook/react-webpack5',
@@ -18,5 +19,8 @@ module.exports = {
   docs: {},
   core: {
     disableTelemetry: true,
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
 };
