@@ -18,7 +18,7 @@ describe('SideNavigation component', () => {
         bottom={<span>test-bottom</span>}
       >
         test-center
-      </SideNavigation>
+      </SideNavigation>,
     );
     expect(screen.getByText(/test-top/i)).toBeInTheDocument();
     expect(screen.getByText(/test-center/i)).toBeInTheDocument();
@@ -33,55 +33,52 @@ describe('SideNavigation component', () => {
         opened={false}
       >
         test-center
-      </SideNavigation>
+      </SideNavigation>,
     );
     expect(screen.getByText(/test-top/i)).toBeInTheDocument();
     expect(screen.getByText(/test-center/i)).toBeInTheDocument();
     expect(screen.getByText(/test-bottom/i)).toBeInTheDocument();
   });
 
-  test('closes correctly when already opened and clicked', async () => {
+  test('calls onToggle correctly when clicked (opened initially)', async () => {
     const user = userEvent.setup();
-    const onClose = jest.fn();
+    const onToggle = jest.fn();
     const { container } = render(
       <SideNavigation
         opened
         top={<span>test-top</span>}
         bottom={<span>test-bottom</span>}
-        onOpen={onClose}
-        onClose={onClose}
+        onToggle={onToggle}
       >
         test-center
-      </SideNavigation>
+      </SideNavigation>,
     );
-    expect(onClose).not.toHaveBeenCalled();
-
     const item = container.querySelector('button');
-    if (item) {
-      await act(() => user.click(item));
-    }
-    expect(onClose).toHaveBeenCalled();
+
+    await act(() => item && user.click(item));
+
+    expect(onToggle).toHaveBeenCalled();
+    expect(onToggle).toHaveBeenCalledWith(false);
   });
 
-  test('expands correctly when clicked', async () => {
+  test('calls onToggle correctly when clicked (closed initially)', async () => {
     const user = userEvent.setup();
-    const onOpen = jest.fn();
+    const onToggle = jest.fn();
     const { container } = render(
       <SideNavigation
         opened={false}
         top={<span>test-top</span>}
         bottom={<span>test-bottom</span>}
-        onOpen={onOpen}
-        onClose={onOpen}
+        onToggle={onToggle}
       >
         test-center
-      </SideNavigation>
+      </SideNavigation>,
     );
-    expect(onOpen).not.toHaveBeenCalled();
     const item = container.querySelector('button');
-    if (item) {
-      await act(() => user.click(item));
-    }
-    expect(onOpen).toHaveBeenCalled();
+
+    await act(() => item && user.click(item));
+
+    expect(onToggle).toHaveBeenCalled();
+    expect(onToggle).toHaveBeenCalledWith(true);
   });
 });
