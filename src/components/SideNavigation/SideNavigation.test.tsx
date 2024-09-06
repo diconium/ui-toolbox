@@ -40,7 +40,7 @@ describe('SideNavigation component', () => {
     expect(screen.getByText(/test-bottom/i)).toBeInTheDocument();
   });
 
-  test('calls onToggle correctly when clicked', async () => {
+  test('calls onToggle correctly when clicked (opened initially)', async () => {
     const user = userEvent.setup();
     const onToggle = jest.fn();
     const { container } = render(
@@ -59,5 +59,26 @@ describe('SideNavigation component', () => {
 
     expect(onToggle).toHaveBeenCalled();
     expect(onToggle).toHaveBeenCalledWith(false);
+  });
+
+  test('calls onToggle correctly when clicked (closed initially)', async () => {
+    const user = userEvent.setup();
+    const onToggle = jest.fn();
+    const { container } = render(
+      <SideNavigation
+        opened={false}
+        top={<span>test-top</span>}
+        bottom={<span>test-bottom</span>}
+        onToggle={onToggle}
+      >
+        test-center
+      </SideNavigation>,
+    );
+    const item = container.querySelector('button');
+
+    await act(() => item && user.click(item));
+
+    expect(onToggle).toHaveBeenCalled();
+    expect(onToggle).toHaveBeenCalledWith(true);
   });
 });

@@ -9,7 +9,7 @@ export interface Props extends PropsWithChildren {
   onToggle?: (_opened: boolean) => void;
 }
 
-function SideNavigation({ top, children, bottom, opened, onToggle = () => {} }: Props) {
+function SideNavigation({ top, children, bottom, opened = true, onToggle = () => {} }: Props) {
   const template = classNames([
     'relative bg-toolbox-white min-h-screen',
     'flex flex-col overflow-hidden transition-all',
