@@ -20,6 +20,8 @@ export function Default() {
   return (
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
+        opened={open}
+        onToggle={() => setOpen(!open)}
         top={
           <div className="flex flex-col gap-5">
             <a
@@ -76,9 +78,6 @@ export function Default() {
             )}
           </div>
         }
-        opened={open}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
       >
         <div className="flex flex-col gap-5">
           <a
@@ -114,8 +113,7 @@ export function Closed() {
     <div className="bg-toolbox-neutral-50">
       <SideNavigation
         opened={open}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
+        onToggle={() => setOpen(!open)}
         top={
           <div className="flex flex-col gap-5">
             <a
