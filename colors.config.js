@@ -1,35 +1,33 @@
 const primary = {
-  DEFAULT: '#9853D4',
-  dominant: '#9853D4',
-  900: '#9853D4',
-  800: '#A264D8',
-  700: '#AD75DD',
-  600: '#B786E1',
-  500: '#C198E5',
-  accent: '#CBA9E9',
-  400: '#CBA9E9',
-  300: '#D6BAEE',
-  200: '#E0CBF2',
-  100: '#EADDF6',
-  50: '#F4EDFB',
-  gradient: '#F4EDFB',
+  DEFAULT: '#FF5000',
+  dominant: '#FF5000',
+  900: '#E64900',
+  800: '#CC4100',
+  700: '#B33A00',
+  600: '#992F00',
+  500: '#802600',
+  accent: '#661C00',
+  400: '#661C00',
+  300: '#4D1300',
+  200: '#330A00',
+  100: '#1A0500',
+  50: '#0D0200',
 };
 
 const secondary = {
-  DEFAULT: '#2E8483',
-  dominant: '#2E8483',
-  900: '#2E8483',
-  800: '#559B9A',
-  700: '#589D9C',
-  600: '#6CA9A8',
-  500: '#82B5B5',
-  accent: '#96C1C1',
-  400: '#96C1C1',
-  300: '#ABCECD',
-  200: '#C0DADA',
-  100: '#D5E6E6',
-  50: '#EAF2F2',
-  gradient: '#EAF2F2',
+  DEFAULT: '#581F9D',
+  dominant: '#581F9D',
+  900: '#4E1B8D',
+  800: '#44167D',
+  700: '#3A126D',
+  600: '#300E5D',
+  500: '#260B4D',
+  accent: '#1C083D',
+  400: '#1C083D',
+  300: '#12052D',
+  200: '#0A031D',
+  100: '#05010E',
+  50: '#020005',
 };
 
 const neutral = {
@@ -46,7 +44,6 @@ const neutral = {
   200: '#C1C1C1',
   100: '#D6D6D6',
   50: '#EAEAEA',
-  gradient: '#EAEAEA',
 };
 
 const additional = {
@@ -61,12 +58,12 @@ const additional = {
     },
     green: {
       DEFAULT: '#36A93F',
-      50: '#EBF6EB'
+      50: '#EBF6EB',
     },
   },
   black: '#000000',
   white: '#FFFFFF',
-  grey: '#F5F5F5'
+  grey: '#F5F5F5',
 };
 
 module.exports = {

@@ -27,7 +27,7 @@ export function Primary() {
 
 export function Secondary() {
   return (
-    <div className="grid grid-cols-4 gap-1 text-black">
+    <div className="grid grid-cols-4 gap-1 text-white">
       <div className="bg-toolbox-secondary p-4">secondary</div>
       <div className="bg-toolbox-secondary-dominant p-4">secondary-dominant</div>
       <div className="bg-toolbox-secondary-900 p-4">secondary-900</div>
