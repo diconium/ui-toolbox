@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming/create';
 
 const colors = require('../../colors.config');
-const logo = require('./diconium.png');
+const logo = require('./diconium.svg');
 
 export default create({
   base: 'light',
