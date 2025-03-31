@@ -1,7 +1,7 @@
 # @diconium/ui-toolbox - React UI Component Library
 
 <a href="https://diconium.com/" target="_blank">
-    <img src=".github/diconium.png" width=150/>
+    <img src=".github/diconium.svg" width=150/>
 </a>
 
 <div align="center" style="margin-block: 10px;">

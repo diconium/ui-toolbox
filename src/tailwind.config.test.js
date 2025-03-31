@@ -28,7 +28,6 @@ describe('Tailwind config', () => {
     expect(dominant).toEqual(DEFAULT);
 
     expect(accent).toEqual(aliasAccent);
-    expect(gradient).toEqual(aliasGradient);
   });
 
   test('defines the correct variants for primary colors', () => {
@@ -46,7 +45,6 @@ describe('Tailwind config', () => {
     expect(colors[200]).toBeDefined();
     expect(colors[100]).toBeDefined();
     expect(colors[50]).toBeDefined();
-    expect(colors.gradient).toBeDefined();
   });
 
   test('defines the correct variants for secondary colors', () => {
@@ -64,7 +62,6 @@ describe('Tailwind config', () => {
     expect(colors[200]).toBeDefined();
     expect(colors[100]).toBeDefined();
     expect(colors[50]).toBeDefined();
-    expect(colors.gradient).toBeDefined();
   });
 
   test('defines the correct variants for neutral colors', () => {
@@ -82,20 +79,17 @@ describe('Tailwind config', () => {
     expect(colors[200]).toBeDefined();
     expect(colors[100]).toBeDefined();
     expect(colors[50]).toBeDefined();
-    expect(colors.gradient).toBeDefined();
   });
 
   test('defines the correct aliases for important secondary colors', () => {
     const alias = config.theme.colors.toolbox.secondary[900];
     const aliasAccent = config.theme.colors.toolbox.secondary[400];
     const aliasGradient = config.theme.colors.toolbox.secondary[50];
-    const { dominant, DEFAULT, accent, gradient } = config.theme.colors.toolbox.secondary;
+    const { dominant, DEFAULT, accent } = config.theme.colors.toolbox.secondary;
     expect(DEFAULT).toEqual(alias);
     expect(alias).toEqual(dominant);
     expect(dominant).toEqual(DEFAULT);
-
     expect(accent).toEqual(aliasAccent);
-    expect(gradient).toEqual(aliasGradient);
   });
 
   test('defines the correct additional colors', () => {

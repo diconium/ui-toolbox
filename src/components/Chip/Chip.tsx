@@ -10,7 +10,7 @@ export interface Props {
 
 const BASE_TEMPLATE = `text-sm leading-5 bg-toolbox-white
 rounded-2xl border text-toolbox-black whitespace-nowrap
-px-10 py-1 font-thin`;
+px-10 py-1 font-normal`;
 
 function Chip({ label, selected = false, disabled = false, onClick = () => {} }: Props) {
   const template = classNames(BASE_TEMPLATE, {

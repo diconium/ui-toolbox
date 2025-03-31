@@ -40,7 +40,7 @@ export function Default() {
 export function Opened() {
   return (
     <Drawer opened>
-      <span className="text-center py-4 font-thin text-base text-toolbox-neutral">
+      <span className="text-center py-4 font-normal text-base text-toolbox-neutral">
         Are you really sure?
       </span>
       <PrimaryButton label="Action" />
@@ -54,7 +54,7 @@ export function DifferentContentLayouts() {
       opened
       layout="full-width"
     >
-      <div className="text-base font-thin pt-1 pb-3">Location</div>
+      <div className="text-base font-normal pt-1 pb-3">Location</div>
       <div className="grid grid-cols-2 gap-x-1 gap-y-2">
         <Chip label="Ingolstadt" />
         <Chip label="Munich" />
