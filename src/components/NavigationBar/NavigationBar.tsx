@@ -7,7 +7,7 @@ export interface Props extends PropsWithChildren {
 
 function NavigationBar({ left, right, children }: Props) {
   return (
-    <div className="shadow relative w-full">
+    <div className="shadow-sm relative w-full">
       {children && <div className="absolute top-0 left-1/2 -ml-8 -mt-4">{children}</div>}
       <div className="flex w-full h-20 py-5 px-8">
         <div className="flex flex-1 items-center space-x-8 text-toolbox-primary">{left}</div>

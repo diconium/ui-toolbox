@@ -9,11 +9,11 @@ export interface Props extends PropsWithChildren {
 
 function TopNavigation({ title, leading, subtitle, children, left }: Props) {
   return (
-    <div className="shadow w-full">
+    <div className="shadow-sm w-full">
       <div className="flex flex-col space-y-1 px-8 py-2">
         <div className="flex items-center h-10">
           <div className="flex flex-none text-toolbox-neutral">{left}</div>
-          <div className="flex flex-grow justify-end leading-10 space-x-4 text-toolbox-neutral">
+          <div className="flex grow justify-end leading-10 space-x-4 text-toolbox-neutral">
             {children}
           </div>
         </div>
@@ -24,7 +24,7 @@ function TopNavigation({ title, leading, subtitle, children, left }: Props) {
               {subtitle}
             </div>
           )}
-          <div className="flex flex-grow justify-end text-toolbox-neutral leading-8 text-2xl font-semibold">
+          <div className="flex grow justify-end text-toolbox-neutral leading-8 text-2xl font-semibold">
             {title}
           </div>
         </div>

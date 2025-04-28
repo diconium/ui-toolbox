@@ -14,7 +14,7 @@ describe('NavigationBar component', () => {
 
   test('can render the default component correctly', () => {
     const { container } = render(<NavigationBar />);
-    expect(container.firstChild).toHaveClass('shadow');
+    expect(container.firstChild).toHaveClass('shadow-sm');
   });
 
   test('can render all placeholders correctly', () => {
