@@ -12,9 +12,9 @@ function Mobile({ header, children, footer, className }: Props) {
   
 return (
     <div className="flex flex-col h-screen w-full">
-      <div className="flex flex-shrink">{header}</div>
+      <div className="flex shrink">{header}</div>
       <div className={template}>{children}</div>
-      <div className="flex flex-shrink">{footer}</div>
+      <div className="flex shrink">{footer}</div>
     </div>
   );
 }

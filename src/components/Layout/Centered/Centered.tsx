@@ -16,7 +16,7 @@ function Centered({ children, className, footer }: Props) {
 return (
     <div className={template}>
       <div className="flex-1 flex justify-center items-center">{children}</div>
-      <div className="flex flex-shrink">{footer}</div>
+      <div className="flex shrink">{footer}</div>
     </div>
   );
 }

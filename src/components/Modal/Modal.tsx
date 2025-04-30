@@ -22,7 +22,7 @@ function Modal({
   const isSimpleContent = typeof children === 'string' || children instanceof String;
 
   return (
-    <div className="max-w-sm flex flex-col bg-toolbox-white rounded-2xl shadow p-6">
+    <div className="max-w-sm flex flex-col bg-toolbox-white rounded-2xl shadow-sm p-6">
       <div className="flex justify-end items-center">
         <button
           type="button"

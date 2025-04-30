@@ -21,7 +21,7 @@ export interface Props extends PropsWithChildren {
 
 const BASE_TEMPLATE = `peer w-full border px-4 py-2.5 rounded-lg
   text-sm bg-toolbox-white
-  focus:outline-none focus:border-toolbox-primary focus:text-toolbox-neutral`;
+  focus:outline-hidden focus:border-toolbox-primary focus:text-toolbox-neutral`;
 
 /**  for tailwind to generate the appropriate classes
    * Do not remove *

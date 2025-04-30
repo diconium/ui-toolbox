@@ -10,10 +10,10 @@ export interface Props extends PropsWithChildren {
 function Header({ date, onLeftClick = () => {}, onRightClick = () => {}, children }: Props) {
   return (
     <div className="flex items-center">
-      <div className="flex-grow flex items-center">
+      <div className="grow flex items-center">
         <button
           type="button"
-          className="flex-shrink flex justify-end items-center"
+          className="shrink flex justify-end items-center"
           onClick={() => onLeftClick()}
           aria-label="LeftClick"
         >
@@ -29,7 +29,7 @@ function Header({ date, onLeftClick = () => {}, onRightClick = () => {}, childre
         </span>
         <button
           type="button"
-          className="flex-shrink flex justify-end items-center"
+          className="shrink flex justify-end items-center"
           onClick={() => onRightClick()}
           aria-label="RightClick"
         >
@@ -39,7 +39,7 @@ function Header({ date, onLeftClick = () => {}, onRightClick = () => {}, childre
           />
         </button>
       </div>
-      <div className="flex-shrink flex justify-end items-center space-x-2">{children}</div>
+      <div className="shrink flex justify-end items-center space-x-2">{children}</div>
     </div>
   );
 }

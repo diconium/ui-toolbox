@@ -18,7 +18,7 @@ function Placeholder({ upper, lower, isOpen, showChevron }: Props) {
         <div className="flex justify-end mt-2">
           {lower && <div className="flex space-x-1 mx-2">{lower}</div>}
           {showChevron && (
-            <div className="flex-shrink flex items-center justify-end">
+            <div className="shrink flex items-center justify-end">
               <Icon
                 icon={isOpen ? 'chevron-down' : 'chevron-up'}
                 size="s"

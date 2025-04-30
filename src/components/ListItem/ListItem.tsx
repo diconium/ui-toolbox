@@ -55,9 +55,9 @@ function ListItem({
       baseTemplate={baseTemplate}
     >
       <div className="flex">
-        <div className="flex-grow flex">
-          <div className="flex-grow flex items-center">
-            <div className="flex-grow flex flex-col">
+        <div className="grow flex">
+          <div className="grow flex items-center">
+            <div className="grow flex flex-col">
               <Heading
                 title={title}
                 textAlignment={textAlignment}
@@ -68,7 +68,7 @@ function ListItem({
             </div>
           </div>
           {renderPlaceholder && (
-            <div className="flex-shrink flex">
+            <div className="shrink flex">
               <Placeholder
                 upper={upper}
                 lower={lower}

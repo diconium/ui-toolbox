@@ -9,7 +9,7 @@ function DefaultAction({ onClick = () => {} }: Props) {
   return (
     <button
       type="button"
-      className="flex-shrink flex justify-end items-center text-toolbox-secondary"
+      className="shrink flex justify-end items-center text-toolbox-secondary"
       onClick={() => onClick()}
       aria-label="Click"
     >

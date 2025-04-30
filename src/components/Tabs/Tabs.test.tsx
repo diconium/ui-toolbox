@@ -26,7 +26,7 @@ describe('Tabs component', () => {
     expect(screen.getByText(/Read/i)).toBeInTheDocument();
   });
 
-  test('can render the component with a shadow correctly', () => {
+  test('can render the component with a shadow-sm correctly', () => {
     const { container } = render(
       <Tabs
         shadow
@@ -36,7 +36,7 @@ describe('Tabs component', () => {
     expect(container.firstChild).toHaveClass('shadow-md');
   });
 
-  test('can render the component with a shadow as a block correctly', () => {
+  test('can render the component with a shadow-sm as a block correctly', () => {
     const { container } = render(
       <Tabs shadow>
         <span>foo</span>
@@ -96,7 +96,7 @@ describe('Tabs component', () => {
     expect(container.firstChild).not.toHaveClass('shadow-md');
   });
 
-  test('can render the template with shadow correctly', () => {
+  test('can render the template with shadow-sm correctly', () => {
     const { container } = render(
       <Template shadow>
         <span>foo</span>
