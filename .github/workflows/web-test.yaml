@@ -25,7 +25,7 @@ jobs:
       - name: Execute test coverage
         run: npm run test:coverage
       - name: Archive coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           # Upload entire repository
           name: coverage-${{ github.run_id }}
